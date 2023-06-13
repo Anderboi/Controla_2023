@@ -4,20 +4,22 @@ import { twMerge } from "tailwind-merge";
 
 interface AvatarProps {
   type: "round" | "rectangular";
-  image: string;
+  image?: string;
+  size?: number;
 }
 
-const Avatar = ({ type, image }: AvatarProps) => {
+const Avatar = ({ type, image, size }: AvatarProps) => {
   return (
     <Image
       className={twMerge(
         ` bg-secondary-text-dark`,
-        type === "round" ? "rounded-full" : "rounded-xl"
+        type === "round" ? "rounded-full" : "rounded-md"
       )}
       alt="avatar"
       src={image || "/icons/dashboard_filled.svg"}
-      height={48}
-      width={48}
+      height={size}
+      width={size}
+      
     />
   );
 };

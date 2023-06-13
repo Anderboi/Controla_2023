@@ -8,6 +8,7 @@ import Image from "next/image";
 import { BiBell } from "react-icons/bi";
 import { RxDashboard, RxAvatar } from "react-icons/rx";
 import Avatar from '../atoms/Avatar';
+import UserSidebarBlock from './UserSidebarBlock';
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -66,10 +67,7 @@ const Sidebar = () => {
         />
         <div className="flex flex-col">
           {routes.map((item) => (
-            <SidebarItem
-              key={item.label}
-              {...item}
-            />
+            <SidebarItem key={item.label} {...item} />
           ))}
         </div>
       </ContainerBox>
@@ -77,7 +75,7 @@ const Sidebar = () => {
         <h3>Избранное</h3>
       </ContainerBox>
       <ContainerBox classname="h-fit">
-        <Avatar type="rectangular" image="" />
+        <UserSidebarBlock />
       </ContainerBox>
     </div>
   );
