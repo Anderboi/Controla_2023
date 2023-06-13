@@ -7,10 +7,10 @@ module.exports = {
   ],
   theme: {
     colors: {
-      "secondary-bg": "#121212",
-      "primary-text-dark": "#dddddf",
-      "secondary-text-dark": "#9C9C9C",
-      "accent-light": "#1AB17B",
+      "secondary-bg": { dark: "#121212" },
+      "primary-text": { dark: "#dddddf" },
+      "secondary-text": { dark: "#9C9C9C" },
+      accent: { light: "#1AB17B" },
     },
     extend: {
       backgroundImage: {

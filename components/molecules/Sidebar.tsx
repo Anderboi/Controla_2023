@@ -2,39 +2,39 @@
 
 import React, { useMemo } from "react";
 import { usePathname } from "next/navigation";
-import ContainerBox from "./ContainerBox";
-import SidebarItem from "./SidebarItem";
+import ContainerBox from "../atoms/ContainerBox";
+import SidebarItem from "../atoms/SidebarItem";
 import Image from "next/image";
 import { BiBell } from "react-icons/bi";
 import { RxDashboard, RxAvatar } from "react-icons/rx";
+import Avatar from '../atoms/Avatar';
 
 const Sidebar = () => {
   const pathname = usePathname();
-
+  
   const routes = useMemo(
     () => [
       {
         icon: RxDashboard,
-
-        label: "Projects",
-        active: pathname === "/",
+        label: "Проекты",
+        active: pathname !== "/contacts",
         href: "/",
       },
       {
         icon: RxAvatar,
-        label: "Contacts",
+        label: "Контакты",
         active: pathname === "/contacts",
         href: "/contacts",
       },
       {
         icon: BiBell,
-        label: "Notifications",
+        label: "Уведомления",
         active: pathname === "/notifications",
         href: "/notifications",
       },
       {
         icon: BiBell,
-        label: "Settings",
+        label: "Настройки",
         active: pathname === "/settings",
         href: "/settings",
       },
@@ -47,19 +47,21 @@ const Sidebar = () => {
       className="hidden
         md:flex
         flex-col
-        gap-y-3
+        gap-y-2
         bg-black
         w-[300px]
-        p-3
+        p-2
         "
     >
-      <ContainerBox classname="
+      <ContainerBox
+        classname="
         h-fit 
         flex 
         flex-col 
         gap-y-5
         pt-8
-        pb-3">
+        pb-3"
+      >
         <Image
           alt="logo"
           src="/controla_logo_light.svg"
@@ -68,12 +70,18 @@ const Sidebar = () => {
         />
         <div className="flex flex-col">
           {routes.map((item) => (
-            <SidebarItem key={item.label} {...item} />
+            <SidebarItem
+              key={item.label}
+              {...item}
+            />
           ))}
         </div>
       </ContainerBox>
       <ContainerBox classname="overflow-y-auto h-fill">
-        <div>dfgdfg</div>
+        <h3>Избранное</h3>
+      </ContainerBox>
+      <ContainerBox classname="h-fit">
+        <Avatar type="rectangular" image="" />
       </ContainerBox>
     </div>
   );

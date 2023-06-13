@@ -10,12 +10,14 @@ const ContainerBox = ({ children, classname }: ContainerBoxProps) => {
   return (
     <div
       className={twMerge(
-        `rounded-lg
+        `
+        rounded-lg
         h-full
         w-full
-      bg-secondary-bg
+        bg-secondary-bg-dark
         px-5
-      `,
+        py-3
+        `,
         classname
       )}
     >

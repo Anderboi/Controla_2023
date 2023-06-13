@@ -1,4 +1,4 @@
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/molecules/Sidebar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
@@ -16,19 +16,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body className={twMerge(`flex bg-black h-full`, inter.className)}>
         <Sidebar />
 
         <main
-          className="flex-1 
+          className="
+          flex-1 
           min-h-screen
           bg-black
           ml-0
-          pr-3
-          py-3
+          pr-2
+          py-2
           rounded-lg 
-          h-screen"
+          h-screen
+          "
         >
           {children}
         </main>

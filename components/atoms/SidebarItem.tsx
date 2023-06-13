@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import {IconType} from 'react-icons'
+import { IconType } from "react-icons";
 
 interface SidebarItemsProps {
   icon: IconType;
@@ -10,11 +10,13 @@ interface SidebarItemsProps {
   active?: boolean;
 }
 
-const SidebarItem = ({ 
-  icon: Icon, 
-  href, 
-  label, 
-  active }: SidebarItemsProps) => {
+const SidebarItem = ({
+  icon: Icon,
+  href,
+  label,
+  active,
+}: SidebarItemsProps) => {
+
   return (
     <Link
       href={href}
@@ -36,7 +38,7 @@ const SidebarItem = ({
         active && `text-primary-text-dark`
       )}
     >
-      <Icon size={24}/>
+      <Icon size={24} />
       <p className="truncate w-full">{label}</p>
     </Link>
   );
