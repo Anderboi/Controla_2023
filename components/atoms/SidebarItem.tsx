@@ -2,21 +2,22 @@ import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { IconType } from "react-icons";
+import { usePathname } from "next/navigation";
 
 interface SidebarItemsProps {
   icon: IconType;
   label: string;
   href: string;
-  active?: boolean;
 }
 
 const SidebarItem = ({
   icon: Icon,
   href,
   label,
-  active,
 }: SidebarItemsProps) => {
-
+  
+  const route = usePathname();
+  
   return (
     <Link
       href={href}
@@ -35,7 +36,7 @@ const SidebarItem = ({
         text-secondary-text-dark
         transition
         `,
-        active && `text-primary-text-dark`
+        route === href ? `text-primary-text-dark` : "text-secondary-text-dark"
       )}
     >
       <Icon size={24} />

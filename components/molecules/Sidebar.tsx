@@ -17,25 +17,21 @@ const Sidebar = () => {
       {
         icon: RxDashboard,
         label: "Проекты",
-        active: pathname !== "/contacts",
         href: "/",
       },
       {
         icon: RxAvatar,
         label: "Контакты",
-        active: pathname === "/contacts",
         href: "/contacts",
       },
       {
         icon: BiBell,
         label: "Уведомления",
-        active: pathname === "/notifications",
         href: "/notifications",
       },
       {
         icon: BiBell,
         label: "Настройки",
-        active: pathname === "/settings",
         href: "/settings",
       },
     ],
