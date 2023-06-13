@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import ContainerBox from "./ContainerBox";
 import SidebarItem from "./SidebarItem";
 import Image from "next/image";
+import { BiBell } from "react-icons/bi";
 import { RxDashboard, RxAvatar } from "react-icons/rx";
 
 const Sidebar = () => {
@@ -13,17 +14,29 @@ const Sidebar = () => {
   const routes = useMemo(
     () => [
       {
-        icon: <RxDashboard className="w-6 h-6" />,
+        icon: RxDashboard,
 
         label: "Projects",
-        active: pathname !== "/contacts",
+        active: pathname === "/",
         href: "/",
       },
       {
-        icon: <RxAvatar className="w-6 h-6" />,
+        icon: RxAvatar,
         label: "Contacts",
         active: pathname === "/contacts",
         href: "/contacts",
+      },
+      {
+        icon: BiBell,
+        label: "Notifications",
+        active: pathname === "/notifications",
+        href: "/notifications",
+      },
+      {
+        icon: BiBell,
+        label: "Settings",
+        active: pathname === "/settings",
+        href: "/settings",
       },
     ],
     []
@@ -34,20 +47,26 @@ const Sidebar = () => {
       className="hidden
         md:flex
         flex-col
-        gap-y-2
+        gap-y-3
         bg-black
         w-[300px]
-        p-2
+        p-3
         "
     >
-      <ContainerBox classname="h-fit pt-6 px-5 pb-4 flex flex-col gap-y-6">
+      <ContainerBox classname="
+        h-fit 
+        flex 
+        flex-col 
+        gap-y-5
+        pt-8
+        pb-3">
         <Image
           alt="logo"
           src="/controla_logo_light.svg"
           width={300}
           height={40}
         />
-        <div className="flex flex-col gap-y-1">
+        <div className="flex flex-col">
           {routes.map((item) => (
             <SidebarItem key={item.label} {...item} />
           ))}

@@ -1,7 +1,7 @@
 import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from "tailwind-merge";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +17,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={twMerge(`flex bg-black h-full`,inter.className) }>
+      <body className={twMerge(`flex bg-black h-full`, inter.className)}>
         <Sidebar />
 
-        {children}
+        <main
+          className="flex-1 
+          min-h-screen
+          bg-black
+          ml-0
+          pr-3
+          py-3
+          rounded-lg 
+          h-screen"
+        >
+          {children}
+        </main>
       </body>
     </html>
   );
