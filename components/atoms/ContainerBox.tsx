@@ -15,8 +15,7 @@ const ContainerBox = ({ children, classname }: ContainerBoxProps) => {
         h-full
         w-full
         bg-secondary-bg-dark
-        px-5
-        py-3
+        
         `,
         classname
       )}

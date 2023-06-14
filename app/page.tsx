@@ -1,11 +1,11 @@
 import ContainerBox from "@/components/atoms/ContainerBox";
-import AuthForm from '@/components/molecules/AuthForm';
+import AuthForm from "@/components/molecules/AuthForm";
 
 export default function Home() {
   return (
-    <ContainerBox classname="px-8 py-4">
+    <ContainerBox classname="px-8 py-8">
       <h1 className="text-3xl font-bold">Projects</h1>
-      <AuthForm/>
+      <AuthForm />
     </ContainerBox>
   );
 }
