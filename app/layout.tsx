@@ -1,9 +1,11 @@
-import Sidebar from "@/components/molecules/Sidebar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
-const inter = Inter({ subsets: ["latin"] });
+import Sidebar from "@/components/organisms/Sidebar";
+import SupabaseProvider from "@/providers/supabaseContextProvider";
+
+const inter = Inter({ subsets: ["cyrillic"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -18,22 +20,23 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={twMerge(`flex bg-black h-full`, inter.className)}>
-        <Sidebar />
-
-        <main
-          className="
-          flex-1 
+        <SupabaseProvider>
+          <Sidebar />
+          <main
+            className="
+          flex-1
           min-h-screen
           bg-black
           ml-0
           pr-2
           py-2
-          rounded-lg 
+          rounded-lg
           h-screen
           "
-        >
-          {children}
-        </main>
+          >
+            {children}
+          </main>
+        </SupabaseProvider>
       </body>
     </html>
   );

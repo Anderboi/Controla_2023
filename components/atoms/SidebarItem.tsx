@@ -1,8 +1,11 @@
-import Link from "next/link";
+// 'use client'
+
 import React from "react";
-import { twMerge } from "tailwind-merge";
-import { IconType } from "react-icons";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import { twMerge } from "tailwind-merge";
+import type { IconType } from "react-icons";
 
 interface SidebarItemsProps {
   icon: IconType;
@@ -16,7 +19,7 @@ const SidebarItem = ({
   label,
 }: SidebarItemsProps) => {
   
-  const route = usePathname();
+  // const route = usePathname();
   
   return (
     <Link
@@ -25,22 +28,23 @@ const SidebarItem = ({
         `
         flex
         flex-row
-        h-auto
         items-center
+        justify-center
+        h-auto
         w-full
-        gap-x-4
+        gap-x-3
         py-2
         text-md
-        font-bold
-        hover:text-primary-text-dark
+        font-semibold
         text-secondary-text-dark
+        hover:text-primary-text-dark
         transition
         `,
-        route === href ? `text-primary-text-dark` : "text-secondary-text-dark"
+        // route === href ? `text-primary-text-dark` : "text-secondary-text-dark"
       )}
     >
       <Icon size={24} />
-      <p className="truncate w-full">{label}</p>
+      <p className="truncate w-full hidden lg:flex">{label}</p>
     </Link>
   );
 };
