@@ -28,6 +28,7 @@ const AuthModal = () => {
       title="Войдите в аккаунт."
       description="Авторизуйтесь чтобы продолжить"
       isOpen={isOpen}
+      // isOpen
       onChange={onChange}
     >
       <Auth

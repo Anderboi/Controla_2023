@@ -1,5 +1,4 @@
 import { createServerActionClient } from '@supabase/auth-helpers-nextjs';
-import { supabaseServer } from "../../lib/supabaseServer";
 import { revalidatePath } from "next/cache";
 import React from "react";
 import { cookies } from 'next/headers';

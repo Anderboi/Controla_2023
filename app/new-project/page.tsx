@@ -4,7 +4,9 @@ import NewProject from "./NewProject";
 const AddNewProjectPage = () => {
   return (
     <>
-      <NewProject />
+      New project
+      {/* <NewProject /> */}
+
     </>
   );
 };
