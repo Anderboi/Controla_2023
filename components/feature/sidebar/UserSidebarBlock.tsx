@@ -1,8 +1,8 @@
 import React from "react";
-import Avatar from "../atoms/Avatar";
+import Avatar from "../../common/Avatar";
 import { IoChevronUp } from "react-icons/io5";
 import Link from "next/link";
-import { supabaseServer } from "../../lib/supabaseServer";
+import { supabaseServer } from "../../../lib/supabaseServer";
 
 const UserSidebarBlock = async () => {
   const {

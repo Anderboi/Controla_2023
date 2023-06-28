@@ -1,11 +1,13 @@
 import React from "react";
-import ContainerBox from "../atoms/ContainerBox";
+import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
 import { BiBell } from "react-icons/bi";
 import { RxDashboard, RxAvatar } from "react-icons/rx";
-import UserSidebarBlock from "../molecules/UserSidebarBlock";
+import { GoSignOut } from "react-icons/go";
+import { TbSettings2 } from "react-icons/tb";
+import UserSidebarBlock from "./UserSidebarBlock";
 import Link from "next/link";
-import Navigation from "../molecules/Navigation";
+import Navigation from "./Navigation";
 
 const Sidebar = () => {
   const routes = [
@@ -28,9 +30,14 @@ const Sidebar = () => {
       href: "/notifications",
     },
     {
-      icon: BiBell,
+      icon: TbSettings2,
       label: "Настройки",
       href: "/settings",
+    },
+    {
+      icon: GoSignOut,
+      label: "Выйти",
+      href: "/auth/signout",
     },
   ];
 
@@ -60,6 +67,7 @@ const Sidebar = () => {
             src="/controla_logo_light.svg"
             width={300}
             height={40}
+            priority
             className="cursor-pointer hidden lg:flex"
           />
           <Image
@@ -67,7 +75,7 @@ const Sidebar = () => {
             src="/ellipse_round.svg"
             width={56}
             height={56}
-            className="hidden sm:flex lg:hidden"
+            className="hidden sm:max-lg:flex"
           />
         </Link>
         <Navigation navLinks={routes} />
@@ -85,8 +93,8 @@ const Sidebar = () => {
         <span className="hidden lg:flex font-bold text-xs text-secondary-text-dark">
           Избранное
         </span>
+        <Link href={"/new-project"}>Новый проект</Link>
         <Navigation navLinks={secondaryRoutes} />
-        <Link href={'api/auth/signout'}>Sign out</Link>
       </ContainerBox>
       <ContainerBox
         classname="

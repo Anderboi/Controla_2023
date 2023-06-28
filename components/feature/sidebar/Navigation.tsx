@@ -1,11 +1,11 @@
 import React from "react";
-import SidebarItem from '../atoms/SidebarItem';
-import type { IconType } from 'react-icons';
+import SidebarItem from "./SidebarItem";
+import type { IconType } from "react-icons";
 
 interface NavLink {
   label: string;
   href: string;
-  icon: IconType
+  icon: IconType;
 }
 
 interface Props {
@@ -13,7 +13,6 @@ interface Props {
 }
 
 const Navigation = ({ navLinks }: Props) => {
-
   return (
     <div className="flex flex-col ">
       {navLinks.map((item) => (

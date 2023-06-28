@@ -2,8 +2,10 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
-import Sidebar from "@/components/organisms/Sidebar";
-import SupabaseProvider from "@/providers/supabaseContextProvider";
+import Sidebar from "@/components/feature/sidebar/Sidebar";
+import SupabaseProvider from "@/providers/SupabaseProvider";
+import UserProvider from "@/providers/UserProvider";
+import ModalProvider from "@/providers/ModalProvider";
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
@@ -21,9 +23,11 @@ export default function RootLayout({
     <html lang="ru">
       <body className={twMerge(`flex bg-black h-full`, inter.className)}>
         <SupabaseProvider>
-          <Sidebar />
-          <main
-            className="
+          <UserProvider>
+            <ModalProvider />
+            <Sidebar />
+            <main
+              className="
           flex-1
           min-h-screen
           bg-black
@@ -33,9 +37,10 @@ export default function RootLayout({
           rounded-lg
           h-screen
           "
-          >
-            {children}
-          </main>
+            >
+              {children}
+            </main>
+          </UserProvider>
         </SupabaseProvider>
       </body>
     </html>

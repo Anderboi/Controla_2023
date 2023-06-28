@@ -1,4 +1,4 @@
-import ContainerBox from "@/components/atoms/ContainerBox";
+import ContainerBox from "@/components/common/ContainerBox";
 import React from "react";
 
 const ContactsPage = () => {

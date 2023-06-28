@@ -10,7 +10,9 @@ module.exports = {
       "primary-bg": { dark: "#000", light: "#fff" },
       "secondary-bg": { dark: "#121212" },
       "primary-text": { dark: "#dddddf" },
-      "secondary-text": { dark: "#9C9C9C" },
+      "secondary-text": { dark: "#686868" },
+      'primary-border': {dark:'#505155'},
+      // "button-bg-sacondary": { dark: "rgb(var(--foreground-rgb))/<alpha-value>" },
       accent: { light: "#1AB17B" },
     },
     extend: {
