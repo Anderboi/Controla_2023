@@ -20,7 +20,7 @@ const Modal = ({
   return (
     <Dialog.Root open={isOpen} defaultOpen={isOpen} onOpenChange={onChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-secondary-bg-dark/90 backdrop-blur-sm fixed inset-0" />
+        <Dialog.Overlay className="bg-secondary-bg-dark/80 backdrop-blur-sm fixed inset-0" />
         <Dialog.Content
           className="
           fixed
