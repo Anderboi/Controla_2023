@@ -1,12 +1,12 @@
 import ContainerBox from "@/components/common/ContainerBox";
-import { supabaseServer } from "@/lib/supabaseServer";
+import { supabase } from '@/lib/supabase';
 import { redirect } from "next/navigation";
 import React from "react";
 
 const ProjectsPage = async () => {
   const {
     data: { session },
-  } = await supabaseServer.auth.getSession();
+  } = await supabase.auth.getSession();
 
   if (!session) {
     redirect("/");

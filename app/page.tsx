@@ -1,8 +1,5 @@
 import ContainerBox from "@/components/common/ContainerBox";
-import AuthForm from "@/components/feature/AuthForm";
 import LoginPage from '@/components/feature/login/LoginPage';
-import { supabaseServer } from "@/lib/supabaseServer";
-import { redirect } from "next/navigation";
 
 export default async function Home() {
   // const {
@@ -16,7 +13,6 @@ export default async function Home() {
     <ContainerBox classname="px-8 py-8">
       <div className="w-[600px] m-auto h-full flex flex-col justify-center gap-y-5">
         <h1 className="text-3xl font-bold">Авторизация</h1>
-        {/* <AuthForm /> */}
         <LoginPage/>
       </div>
     </ContainerBox>
