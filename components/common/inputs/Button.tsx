@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   mode: "ghost" | "action" | "ghost_accent";
+  corner?: "round" | "square";
 }
 
 const Button = ({
@@ -11,6 +12,7 @@ const Button = ({
   disabled,
   type = "button",
   mode,
+  corner = 'square',
   ...props
 }: ButtonProps) => {
   return (
@@ -18,13 +20,13 @@ const Button = ({
       type={type}
       className={twMerge(
         `w-full
-      rounded-lg
       font-semibold
       border
       border-transparent
       py-4
       transition
       `,
+        corner === "round" ? "rounded-full" : "rounded-lg",
         mode === "ghost" &&
           `bg-opacity-0 
           border-primary-border-dark 

@@ -7,7 +7,9 @@ import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
-import ToasterProvider from '@/providers/ToasterProvider';
+import ToasterProvider from "@/providers/ToasterProvider";
+import ContainerBox from "@/components/common/ContainerBox";
+import Header from "@/components/common/Header";
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
@@ -25,7 +27,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={twMerge(`flex bg-black h-full`, inter.className)}>
         <HydrationZustand>
-          <ToasterProvider/>
+          <ToasterProvider />
           <SupabaseProvider>
             <UserProvider>
               <ModalProvider />
@@ -36,13 +38,16 @@ export default function RootLayout({
               min-h-screen
               bg-black
               ml-0
-              pr-2
+              px-2
               py-2
               rounded-lg
               h-screen
               "
               >
-                {children}
+                <ContainerBox>
+                  <Header />
+                  {children}
+                </ContainerBox>
               </main>
             </UserProvider>
           </SupabaseProvider>

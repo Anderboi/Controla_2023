@@ -3,9 +3,7 @@ import React from "react";
 
 const NotificationsPage = () => {
   return (
-    <ContainerBox>
       <div>NotificationsPage</div>
-    </ContainerBox>
   );
 };
 

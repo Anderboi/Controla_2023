@@ -6,12 +6,13 @@ import { toast } from "react-hot-toast";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import ContainerBox from "@/components/common/ContainerBox";
 import Navigation from "./Navigation";
-import { GoSignOut } from "react-icons/go";
+import { CgAddR } from "react-icons/cg";
 import { TbSettings2 } from "react-icons/tb";
 import { BiBell } from "react-icons/bi";
-import Link from "next/link";
 import SidebarItem from "./SidebarItem";
 import Button from "@/components/common/inputs/Button";
+import useAuthModal from "@/hooks/useAuthModal";
+import { UseUser } from "@/hooks/useUser";
 
 const secondaryRoutes = [
   {
@@ -32,6 +33,8 @@ const secondaryRoutes = [
 ];
 
 const SidebarMiddleSection = () => {
+  const authModal = useAuthModal();
+  const user = UseUser();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
 
@@ -65,7 +68,7 @@ const SidebarMiddleSection = () => {
       </span>
       <div className="flex flex-col justify-start align-top h-full">
         <SidebarItem
-          icon={GoSignOut}
+          icon={CgAddR}
           label="Создать проект"
           href={"/new-project"}
         />

@@ -3,9 +3,7 @@ import React from "react";
 
 const SettingsPage = () => {
   return (
-    <ContainerBox>
       <div>SettingsPage</div>
-    </ContainerBox>
   );
 };
 

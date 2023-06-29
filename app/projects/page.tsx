@@ -4,9 +4,9 @@ import React from "react";
 const ProjectsPage = () => {
 
   return (
-    <ContainerBox classname="px-8 py-8">
+    // <ContainerBox classname="px-8 py-8">
       <div>ProjectsPage</div>
-    </ContainerBox>
+    // </ContainerBox>
   );
 };
 

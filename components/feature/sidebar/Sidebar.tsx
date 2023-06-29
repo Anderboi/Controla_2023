@@ -6,7 +6,7 @@ import { RxDashboard, RxAvatar } from "react-icons/rx";
 import UserSidebarBlock from "./UserSidebarBlock";
 import Link from "next/link";
 import Navigation from "./Navigation";
-import SidebarMiddleSection from './SidebarMiddleSection';
+import SidebarMiddleSection from "./SidebarMiddleSection";
 
 const Sidebar = () => {
   const routes = [
@@ -22,8 +22,6 @@ const Sidebar = () => {
     },
   ];
 
-
-
   return (
     <div
       className="hidden
@@ -33,7 +31,9 @@ const Sidebar = () => {
       bg-black
       w-fit
       lg:w-[300px]
-      p-2"
+      py-2
+      pl-2
+      "
     >
       <ContainerBox
         classname="
@@ -63,7 +63,7 @@ const Sidebar = () => {
         </Link>
         <Navigation navLinks={routes} />
       </ContainerBox>
-      <SidebarMiddleSection/>
+      <SidebarMiddleSection />
       <ContainerBox
         classname="
         h-fit
