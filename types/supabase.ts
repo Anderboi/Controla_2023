@@ -3,125 +3,119 @@ export type Json =
   | number
   | boolean
   | null
-  | { [key: string]: Json }
+  | { [key: string]: Json | undefined }
   | Json[]
 
 export interface Database {
   public: {
     Tables: {
-      profiles: {
-        Row: {
-          avatar_url: string | null
-          full_name: string | null
-          id: string
-          updated_at: string | null
-          username: string | null
-          website: string | null
-        }
-        Insert: {
-          avatar_url?: string | null
-          full_name?: string | null
-          id: string
-          updated_at?: string | null
-          username?: string | null
-          website?: string | null
-        }
-        Update: {
-          avatar_url?: string | null
-          full_name?: string | null
-          id?: string
-          updated_at?: string | null
-          username?: string | null
-          website?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "profiles_id_fkey"
-            columns: ["id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       projects: {
         Row: {
           address_city: string | null
           address_country: string | null
           address_street: string | null
+          client_id: string | null
+          cover_img: string | null
           created_at: string | null
-          project_id: string
-          project_owner: string | null
+          project_id: number
+          user_id: string | null
         }
         Insert: {
           address_city?: string | null
           address_country?: string | null
           address_street?: string | null
+          client_id?: string | null
+          cover_img?: string | null
           created_at?: string | null
-          project_id: string
-          project_owner?: string | null
+          project_id?: number
+          user_id?: string | null
         }
         Update: {
           address_city?: string | null
           address_country?: string | null
           address_street?: string | null
+          client_id?: string | null
+          cover_img?: string | null
           created_at?: string | null
-          project_id?: string
-          project_owner?: string | null
+          project_id?: number
+          user_id?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "projects_project_owner_fkey"
-            columns: ["project_owner"]
-            referencedRelation: "profiles"
+            foreignKeyName: "projects_client_id_fkey"
+            columns: ["client_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "projects_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
             referencedColumns: ["id"]
           }
         ]
       }
-      team_members: {
+      user_projects: {
         Row: {
-          team_id: string
+          created_at: string | null
+          project_id: number
           user_id: string
         }
         Insert: {
-          team_id: string
+          created_at?: string | null
+          project_id: number
           user_id: string
         }
         Update: {
-          team_id?: string
+          created_at?: string | null
+          project_id?: number
           user_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "team_members_team_id_fkey"
-            columns: ["team_id"]
-            referencedRelation: "teams"
-            referencedColumns: ["team_id"]
+            foreignKeyName: "user_projects_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["project_id"]
           },
           {
-            foreignKeyName: "team_members_user_id_fkey"
+            foreignKeyName: "user_projects_user_id_fkey"
             columns: ["user_id"]
-            referencedRelation: "profiles"
+            referencedRelation: "users"
             referencedColumns: ["id"]
           }
         ]
       }
-      teams: {
+      users: {
         Row: {
-          created_at: string | null
-          team_id: string
-          team_name: string | null
+          avatar_url: string | null
+          billing_address: Json | null
+          full_name: string | null
+          id: string
+          payment_method: Json | null
         }
         Insert: {
-          created_at?: string | null
-          team_id: string
-          team_name?: string | null
+          avatar_url?: string | null
+          billing_address?: Json | null
+          full_name?: string | null
+          id: string
+          payment_method?: Json | null
         }
         Update: {
-          created_at?: string | null
-          team_id?: string
-          team_name?: string | null
+          avatar_url?: string | null
+          billing_address?: Json | null
+          full_name?: string | null
+          id?: string
+          payment_method?: Json | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "users_id_fkey"
+            columns: ["id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {

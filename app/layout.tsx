@@ -6,6 +6,7 @@ import Sidebar from "@/components/feature/sidebar/Sidebar";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
+import HydrationZustand from "@/providers/HydrationZustand";
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
@@ -22,12 +23,13 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={twMerge(`flex bg-black h-full`, inter.className)}>
-        <SupabaseProvider>
-          <UserProvider>
-            <ModalProvider />
-            <Sidebar />
-            <main
-              className="
+        <HydrationZustand>
+          <SupabaseProvider>
+            <UserProvider>
+              <ModalProvider />
+              <Sidebar />
+              <main
+                className="
               flex-1
               min-h-screen
               bg-black
@@ -37,11 +39,12 @@ export default function RootLayout({
               rounded-lg
               h-screen
               "
-            >
-              {children}
-            </main>
-          </UserProvider>
-        </SupabaseProvider>
+              >
+                {children}
+              </main>
+            </UserProvider>
+          </SupabaseProvider>
+        </HydrationZustand>
       </body>
     </html>
   );
