@@ -1,13 +1,12 @@
 import React from "react";
 import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
-import { BiBell } from "react-icons/bi";
 import { RxDashboard, RxAvatar } from "react-icons/rx";
-import { GoSignOut } from "react-icons/go";
-import { TbSettings2 } from "react-icons/tb";
+
 import UserSidebarBlock from "./UserSidebarBlock";
 import Link from "next/link";
 import Navigation from "./Navigation";
+import SidebarMiddleSection from './SidebarMiddleSection';
 
 const Sidebar = () => {
   const routes = [
@@ -23,23 +22,7 @@ const Sidebar = () => {
     },
   ];
 
-  const secondaryRoutes = [
-    {
-      icon: BiBell,
-      label: "Уведомления",
-      href: "/notifications",
-    },
-    {
-      icon: TbSettings2,
-      label: "Настройки",
-      href: "/settings",
-    },
-    {
-      icon: GoSignOut,
-      label: "Выйти",
-      href: "/auth/signout",
-    },
-  ];
+
 
   return (
     <div
@@ -80,22 +63,7 @@ const Sidebar = () => {
         </Link>
         <Navigation navLinks={routes} />
       </ContainerBox>
-      <ContainerBox
-        classname="
-        overflow-y-auto 
-        h-fill 
-        w-[100px] 
-        lg:w-full
-        flex
-        flex-col
-        justify-between"
-      >
-        <span className="hidden lg:flex font-bold text-xs text-secondary-text-dark">
-          Избранное
-        </span>
-        <Link href={"/new-project"}>Новый проект</Link>
-        <Navigation navLinks={secondaryRoutes} />
-      </ContainerBox>
+      <SidebarMiddleSection/>
       <ContainerBox
         classname="
         h-fit

@@ -2,7 +2,7 @@ import React from "react";
 import SidebarItem from "./SidebarItem";
 import type { IconType } from "react-icons";
 
-interface NavLink {
+export interface NavLink {
   label: string;
   href: string;
   icon: IconType;

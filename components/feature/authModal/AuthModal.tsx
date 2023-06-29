@@ -19,7 +19,8 @@ const AuthModal = () => {
 
   useEffect(() => {
     if (session) {
-      router.refresh();
+      // router.refresh();
+      router.push('/projects')
       onClose();
     }
   }, [session, router, onClose]);
@@ -59,6 +60,7 @@ const AuthModal = () => {
         }}
         theme="dark"
         providers={["facebook", "google", "apple"]}
+        redirectTo='/projects'
         magicLink
       />
     </Modal>
