@@ -7,6 +7,7 @@ import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
+import ToasterProvider from '@/providers/ToasterProvider';
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={twMerge(`flex bg-black h-full`, inter.className)}>
         <HydrationZustand>
+          <ToasterProvider/>
           <SupabaseProvider>
             <UserProvider>
               <ModalProvider />

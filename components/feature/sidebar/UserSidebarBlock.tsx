@@ -3,6 +3,7 @@
 import React from "react";
 import Avatar from "../../common/Avatar";
 import Button from "@/components/common/inputs/Button";
+import { toast } from "react-hot-toast";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { UseUser } from "@/hooks/useUser";
@@ -23,15 +24,17 @@ const UserSidebarBlock = () => {
     router.refresh();
 
     if (error) {
-      console.log(error);
+      // console.log(error);
 
-      //  toast.error(error.message);
+      toast.error(error.message);
+    } else {
+      toast.success("Logged Out");
     }
   };
   console.log(user);
 
   return (
-    <div >
+    <div>
       {user ? (
         <div className="flex w-full justify-center lg:justify-between h-fit items-center lg:gap-x-3">
           <Avatar

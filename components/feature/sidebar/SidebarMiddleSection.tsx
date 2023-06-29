@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "react-hot-toast";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import ContainerBox from "@/components/common/ContainerBox";
 import Navigation from "./Navigation";
@@ -39,9 +40,11 @@ const SidebarMiddleSection = () => {
     router.refresh();
 
     if (error) {
-      console.log("error");
+      // console.log(error);
 
-      //  toast.error(error.message);
+      toast.error(error.message);
+    } else {
+      toast.success("Logged Out");
     }
   };
 
