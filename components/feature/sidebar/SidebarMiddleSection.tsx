@@ -69,7 +69,7 @@ const SidebarMiddleSection = () => {
       </div>
       <div className="flex flex-col gap-y-4">
         <Navigation navLinks={secondaryRoutes} />
-        <Button mode="ghost" className="py-1">
+        <Button mode="ghost" className="py-1" onClick={handleLogout}>
           Sign Out
         </Button>
       </div>

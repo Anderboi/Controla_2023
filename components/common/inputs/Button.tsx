@@ -32,9 +32,7 @@ const Button = ({
         mode === "action" &&
           `bg-accent-light 
           text-primary-bg-dark 
-          hover:bg-opacity-0 
-          hover:text-accent-light
-          hover:border-accent-light`,
+          hover:bg-accent-light/75`,
         className
       )}
       disabled={disabled}

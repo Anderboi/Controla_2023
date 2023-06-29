@@ -2,57 +2,62 @@
 
 import React from "react";
 import Avatar from "../../common/Avatar";
-import { IoChevronUp } from "react-icons/io5";
+import Button from "@/components/common/inputs/Button";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { UseUser } from "@/hooks/useUser";
 import { useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
+import { IoChevronUp } from "react-icons/io5";
+
 const UserSidebarBlock = () => {
   const authModal = useAuthModal();
-
-  // const { user } = UseUser();
   const router = useRouter();
 
   const supabaseClient = useSupabaseClient();
+  const { user } = UseUser();
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
     router.refresh();
 
     if (error) {
-      console.log("error");
+      console.log(error);
 
       //  toast.error(error.message);
     }
   };
+  console.log(user);
 
   return (
-    <div className="flex gap-x-3 items-center cursor-pointer justify-center">
-      {/* {user ? ( 
-      <>
-        <Avatar type="rectangular" size={40} />
-        <div className="hidden lg:flex items-center">
-          <div className="flex flex-col justify-between flex-1 ">
-            <span className="font-bold "> {user}  </span>
-            <div className="leading-5 text-xs text-secondary-text-dark">
-              {user} 
+    <div >
+      {user ? (
+        <div className="flex w-full justify-center lg:justify-between h-fit items-center lg:gap-x-3">
+          <Avatar
+            type="rectangular"
+            size={40}
+            image={user.user_metadata.avatar_url}
+          />
+          <div className="hidden lg:flex justify-between w-full content-center items-center">
+            <div className=" flex-col justify-between flex-1 ">
+              <span className="font-bold line-clamp-1">
+                {user.user_metadata.full_name || "User"}
+              </span>
+              <div className="leading-5 text-xs text-secondary-text-dark">
+                {user.email}
+              </div>
             </div>
+            <IoChevronUp />
           </div>
-          
-          <IoChevronUp />
         </div>
-      </> 
-      ) : ( */}
-      <div className="flex justify-between gap-4">
-        <button onClick={authModal.onOpen} type="button">
-          Sign In
-        </button>
-        <button onClick={handleLogout} type="button">
-          Sign Out
-        </button>
-      </div>
+      ) : (
+        <div className="flex justify-between gap-4 w-full">
+          <Button mode="ghost" onClick={authModal.onOpen}>
+            Sign In
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
