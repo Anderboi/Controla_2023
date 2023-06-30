@@ -6,6 +6,17 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
+export interface Project {
+  address_city: string | null;
+  address_country: string | null;
+  address_street: string | null;
+  client_id: string | null;
+  cover_img: string | null;
+  created_at: string | null;
+  project_id: number;
+  user_id: string | null;
+}
+
 export interface Database {
   public: {
     Tables: {

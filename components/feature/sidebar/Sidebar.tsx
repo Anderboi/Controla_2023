@@ -23,13 +23,15 @@ const Sidebar = () => {
   ];
 
   return (
-    <div
-      className="hidden
+    <aside
+      className="
+      hidden
+      min-h-screen
       sm:flex
       flex-col
       gap-y-2
       bg-black
-      w-fit
+      w-[100px]
       lg:w-[300px]
       py-2
       pl-2
@@ -72,7 +74,7 @@ const Sidebar = () => {
       >
         <UserSidebarBlock />
       </ContainerBox>
-    </div>
+    </aside>
   );
 };
 
