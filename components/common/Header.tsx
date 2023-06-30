@@ -9,6 +9,7 @@ import { UseUser } from "@/hooks/useUser";
 import { useRouter } from "next/navigation";
 import ContainerBox from "./ContainerBox";
 import { twMerge } from "tailwind-merge";
+import useUploadModal from "@/hooks/useUploadModal";
 
 interface HeaderProps {
   title: string;
@@ -29,12 +30,17 @@ const Header = ({
 }: HeaderProps) => {
   const authModal = useAuthModal();
   const { user } = UseUser();
+  const uploadModal = useUploadModal();
   const router = useRouter();
 
   const onClick = () => {
     if (!user) {
       return authModal.onOpen();
     }
+
+    //TODO: check for subscription
+
+    return uploadModal.onOpen();
   };
 
   return (
