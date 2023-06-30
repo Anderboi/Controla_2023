@@ -8,8 +8,6 @@ import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
 import ToasterProvider from "@/providers/ToasterProvider";
-import ContainerBox from "@/components/common/ContainerBox";
-import Header from "@/components/common/Header";
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
@@ -44,10 +42,8 @@ export default function RootLayout({
               h-screen
               "
               >
-                <ContainerBox>
-                  <Header />
+                
                   {children}
-                </ContainerBox>
               </main>
             </UserProvider>
           </SupabaseProvider>

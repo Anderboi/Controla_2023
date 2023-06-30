@@ -20,21 +20,18 @@ const Button = ({
       type={type}
       className={twMerge(
         `w-full
-      font-semibold
-      border
-      border-transparent
-      py-4
-      transition
-      `,
+        font-semibold
+        py-2
+        transition
+        `,
         corner === "round" ? "rounded-full" : "rounded-lg",
         mode === "ghost" &&
-          `bg-opacity-0 
-          border-primary-border-dark 
-          hover:bg-primary-bg-light/20`,
+          `bg-transparent-bg-dark/10
+          hover:bg-transparent-bg-dark/20`,
         mode === "action" &&
-          `bg-accent-light 
+          `bg-accent-dark
           text-primary-bg-dark 
-          hover:bg-accent-light/75`,
+          hover:bg-accent-dark/75`,
         className
       )}
       disabled={disabled}

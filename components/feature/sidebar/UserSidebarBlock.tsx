@@ -56,7 +56,7 @@ const UserSidebarBlock = () => {
         </div>
       ) : (
         <div className="flex justify-between gap-4 w-full">
-          <Button mode="ghost" onClick={authModal.onOpen}>
+          <Button mode="action" onClick={authModal.onOpen}>
             Sign In
           </Button>
         </div>

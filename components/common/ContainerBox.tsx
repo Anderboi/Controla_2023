@@ -11,9 +11,7 @@ const ContainerBox = ({ children, classname }: ContainerBoxProps) => {
     <div
       className={twMerge(
         `rounded-lg
-        h-full
-        w-full
-        bg-secondary-bg-dark
+        bg-transparent-bg-dark/10
         p-6`,
         classname
       )}

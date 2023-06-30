@@ -54,9 +54,9 @@ const SidebarMiddleSection = () => {
   return (
     <ContainerBox
       classname="
-        overflow-y-auto 
-        h-fill 
-        w-[100px] 
+        overflow-y-auto
+        h-full
+        w-[100px]
         lg:w-full
         flex
         flex-col

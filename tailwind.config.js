@@ -7,13 +7,15 @@ module.exports = {
   ],
   theme: {
     colors: {
+      white: { dark: "#fff" },
+      black: { dark: "#000" },
       "primary-bg": { dark: "#000", light: "#fff" },
-      "secondary-bg": { dark: "#121212" },
+      "secondary-bg": { dark: "#121212", light: "#F7F7F7" },
+      'transparent-bg':{dark:'#CECECE'},
       "primary-text": { dark: "#dddddf" },
-      "secondary-text": { dark: "#686868" },
-      'primary-border': {dark:'#505155'},
-      // "button-bg-sacondary": { dark: "rgb(var(--foreground-rgb))/<alpha-value>" },
-      accent: { light: "#1AB17B" },
+      "secondary-text": { dark: "#686868", light: "#9C9C9C" },
+      "primary-border": { dark: "#505155" },
+      accent: { light: "#1AB17B", dark: "#4FD1A2" },
     },
     extend: {
       backgroundImage: {
