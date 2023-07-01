@@ -31,7 +31,7 @@ const Sidebar = () => {
       flex-col
       gap-y-2
       bg-black
-      w-[100px]
+      w-[90px]
       lg:w-[300px]
       py-2
       pl-2
@@ -39,17 +39,19 @@ const Sidebar = () => {
     >
       <ContainerBox
         classname="
-        w-[100px]
+        w-fill
         lg:w-full
         h-fit
         flex
         flex-col
+        items-center
+        lg:items-start
         gap-y-5"
       >
         <Link href={"/"}>
           <Image
             alt="main logo"
-            src="/controla_logo_light.svg"
+            src="logos/controla_logo_light.svg"
             width={300}
             height={40}
             priority
@@ -57,23 +59,16 @@ const Sidebar = () => {
           />
           <Image
             alt="round logo"
-            src="/ellipse_round.svg"
-            width={56}
-            height={56}
+            src="logos/c_white.svg"
+            width={16}
+            height={16}
             className="hidden sm:max-lg:flex"
           />
         </Link>
         <Navigation navLinks={routes} />
       </ContainerBox>
       <SidebarMiddleSection />
-      <ContainerBox
-        classname="
-        h-fit
-        w-[100px]
-        lg:w-full"
-      >
-        <UserSidebarBlock />
-      </ContainerBox>
+      <UserSidebarBlock />
     </aside>
   );
 };

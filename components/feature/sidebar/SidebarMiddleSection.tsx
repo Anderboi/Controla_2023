@@ -56,7 +56,7 @@ const SidebarMiddleSection = () => {
       classname="
         overflow-y-auto
         h-full
-        w-[100px]
+        w-fill
         lg:w-full
         flex
         flex-col

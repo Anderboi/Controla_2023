@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 import { IoChevronUp } from "react-icons/io5";
+import ContainerBox from "@/components/common/ContainerBox";
 
 const UserSidebarBlock = () => {
   const authModal = useAuthModal();
@@ -34,7 +35,12 @@ const UserSidebarBlock = () => {
   console.log(user);
 
   return (
-    <div>
+    <ContainerBox
+      classname="
+        h-fit
+        w-fill
+        lg:w-full"
+    >
       {user ? (
         <div className="flex w-full justify-center lg:justify-between h-fit items-center lg:gap-x-3">
           <Avatar
@@ -61,7 +67,7 @@ const UserSidebarBlock = () => {
           </Button>
         </div>
       )}
-    </div>
+    </ContainerBox>
   );
 };
 

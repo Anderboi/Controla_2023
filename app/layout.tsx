@@ -35,7 +35,6 @@ export default function RootLayout({
                 flex-1
                 min-h-screen
                 bg-black
-                ml-0
                 px-2
                 py-2
                 rounded-lg

@@ -36,9 +36,21 @@ ProjectCardProps) => {
       min-h-[335px]
 
       p-4
+      md:p-6
       "
     >
-      <div className="relative aspect-square w-full h-full rounded-lg overflow-hidden">
+      <div
+        className="
+        relative 
+        aspect-square 
+        w-full 
+        h-full 
+        rounded-lg 
+        overflow-hidden
+        saturate-0
+        hover:saturate-100
+        "
+      >
         <Image
           // TODO: add placeholder image
           src={imagePath || ""}
@@ -58,23 +70,24 @@ ProjectCardProps) => {
       >
         <span
           className="
-          text-md
+          text-xl
           font-bold
           w-full
-          line-clamp-2
+          line-clamp-1
           "
         >
           {data.address_street}
         </span>
-        <div
+        <p
           className="
+          text-secondary-text-dark
           text-sm
           truncate
           "
         >
           <span className="font-bold">Area: </span>
           {data.address_city}
-        </div>
+        </p>
       </div>
     </div>
   );

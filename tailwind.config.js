@@ -15,7 +15,7 @@ module.exports = {
       "secondary-bg": { dark: "#121212", light: "#F7F7F7" },
       "transparent-bg": { dark: "#CECECE" },
       "primary-text": { dark: "#dddddf" },
-      "secondary-text": { dark: "#686868", light: "#9C9C9C" },
+      "secondary-text": { dark: "#b3b3b3", light: "#9C9C9C" },
       "primary-border": { dark: "#505155" },
       accent: { light: "#1AB17B", dark: "#4FD1A2" },
     },
