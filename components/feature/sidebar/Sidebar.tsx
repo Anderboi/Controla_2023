@@ -51,7 +51,8 @@ const Sidebar = async () => {
         flex-col
         items-center
         lg:items-start
-        gap-y-5"
+        gap-y-7
+        "
       >
         <Link href={"/"}>
           <Image

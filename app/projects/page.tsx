@@ -13,7 +13,7 @@ const ProjectsPage = async () => {
     <>
       {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Проекты" />
-      <ContainerBox classname="px-2 py-8 h-full sm:px-8">
+      <ContainerBox classname="h-full">
           <ProjectsGallery projects={projects} />
       </ContainerBox>
     </>
