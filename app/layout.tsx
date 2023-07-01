@@ -23,7 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={twMerge(`flex bg-black h-full relative`, inter.className)}>
+      <body
+        className={twMerge(`flex bg-black h-full relative`, inter.className)}
+      >
         <HydrationZustand>
           <ToasterProvider />
           <SupabaseProvider>
@@ -41,8 +43,16 @@ export default function RootLayout({
                 h-screen
                 "
               >
-                
+                {/* //TODO: style main component instead */}
+                <div className="
+                  flex 
+                  flex-col 
+                  gap-y-2 
+                  h-fit 
+                  min-h-screen
+                ">
                   {children}
+                </div>
               </main>
             </UserProvider>
           </SupabaseProvider>

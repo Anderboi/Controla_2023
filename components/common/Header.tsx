@@ -1,15 +1,18 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
+import { UseUser } from "@/hooks/useUser";
+import useAuthModal from "@/hooks/useAuthModal";
+import useUploadModal from "@/hooks/useUploadModal";
+import { twMerge } from "tailwind-merge";
+
 import Button from "./inputs/Button";
+import ContainerBox from "./ContainerBox";
+
 import { MdOutlineAdd } from "react-icons/md";
 import { IoChevronBackOutline, IoChevronForward } from "react-icons/io5";
-import useAuthModal from "@/hooks/useAuthModal";
-import { UseUser } from "@/hooks/useUser";
-import { useRouter } from "next/navigation";
-import ContainerBox from "./ContainerBox";
-import { twMerge } from "tailwind-merge";
-import useUploadModal from "@/hooks/useUploadModal";
+import { RiSearchLine } from "react-icons/ri";
 
 interface HeaderProps {
   title: string;
@@ -75,14 +78,24 @@ const Header = ({
             <IoChevronForward fontSize={24} />
           </Button>
         </div>
-        <Button
-          mode="ghost"
-          corner="round"
-          className="w-10 h-10 flex justify-center items-center border-none"
-          onClick={onClick}
-        >
-          <MdOutlineAdd fontSize={24} />
-        </Button>
+        <div className="flex gap-4">
+          <Button
+            mode="ghost"
+            corner="round"
+            className="w-10 h-10 flex justify-center items-center border-none"
+            onClick={() => router.push("/search")}
+          >
+            <RiSearchLine fontSize={24} />
+          </Button>
+          <Button
+            mode="ghost"
+            corner="round"
+            className="w-10 h-10 flex justify-center items-center border-none"
+            onClick={onClick}
+          >
+            <MdOutlineAdd fontSize={24} />
+          </Button>
+        </div>
       </div>
       <div className="flex flex-col w-full">
         <span className="text-2xl font-bold text-left  w-full">{subtitle}</span>

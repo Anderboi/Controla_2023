@@ -1,3 +1,5 @@
+'use client'
+
 import ProjectCard from "@/components/common/cards/ProjectCard";
 import Button from "@/components/common/inputs/Button";
 import { Project } from "@/types/supabase";
@@ -38,15 +40,14 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
       xl:grid-cols-3
       2xl:grid-cols-4
       gap-3
-      mt-4
       h-fill
       "
     >
       {projects.map((project) => (
         <ProjectCard
+          onClick={()=>{}}
           key={project.project_id}
           data={project}
-          // onClick={() => {}}
         />
       ))}
     </div>

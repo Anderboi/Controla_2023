@@ -65,8 +65,8 @@ const Sidebar = async () => {
           <Image
             alt="round logo"
             src="logos/c_white.svg"
-            width={16}
-            height={16}
+            width={24}
+            height={24}
             className="hidden sm:max-lg:flex"
           />
         </Link>

@@ -7,18 +7,19 @@ import React from "react";
 
 interface ProjectCardProps {
   data: Project;
-  // onClick: (id: number) => void;
+  onClick: (id: number) => void;
 }
 
 const ProjectCard = ({
   data,
-}: //  onClick
+  onClick
+}:
 ProjectCardProps) => {
   const imagePath = useLoadImage(data);
 
   return (
     <div
-      // onClick={() => onClick(data.project_id)}
+      onClick={() => onClick(data.project_id)}
       className="
       relative
       group 

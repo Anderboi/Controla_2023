@@ -11,7 +11,7 @@ const ContactsPage = async () => {
   console.log(contacts);
 
   return (
-    <article className="flex flex-col gap-y-2 h-fit min-h-screen pb-3">
+    <>
       {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Контакты" />
       <ContainerBox >
@@ -24,7 +24,7 @@ const ContactsPage = async () => {
           ))}
         </div>
       </ContainerBox>
-    </article>
+    </>
   );
 };
 
