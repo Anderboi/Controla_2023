@@ -30,8 +30,6 @@ const Modal = ({
         <Dialog.Content
           className="
           fixed
-          border
-          border-primary-border-dark
           top-[50%]
           left-[50%]
           max-h-full
@@ -43,15 +41,15 @@ const Modal = ({
           md:max-w-[450px]
           translate-x-[-50%]
           translate-y-[-50%]
-          rounded-3xl
-          bg-secondary-bg-dark
+          rounded-lg
+          bg-elevated-2-bg-dark
           p-6
           focus:outline-none
           "
         >
           <Dialog.Title
             className="
-            text-xl
+            text-2xl
             text-center
             font-bold
             mb-4
@@ -62,7 +60,7 @@ const Modal = ({
           <Dialog.Description
             className="
             mb-5
-            text-sm
+            text-base
             leading-normal
             text-center
             text-primary-text-dark

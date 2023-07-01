@@ -50,7 +50,9 @@ const Header = ({
     <ContainerBox
       classname={twMerge(
         `
-        pb-4 flex  flex-col
+        pb-4 
+        flex  
+        flex-col
         justify-between 
         gap-y-3
         h-fit

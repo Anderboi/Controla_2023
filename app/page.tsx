@@ -25,8 +25,8 @@ const Home = () => {
   };
 
   return (
-    <ContainerBox classname="px-8 py-8">
-      <div className="w-[600px] m-auto h-full flex flex-col justify-center gap-y-5">
+    <ContainerBox classname="px-6 py-6">
+      <div className="w-[600px] m-auto h-full flex flex-col justify-center gap-y-4">
         <h1 className="text-3xl font-bold text-center">Авторизация</h1>
         <div className="flex justify-between gap-4">
           <Button mode="action" onClick={authModal.onOpen}>

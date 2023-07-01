@@ -23,15 +23,14 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       flex-col
       items-center
       justify-center
-      rounded-[20px]
+      rounded-lg
       overflow-hidden
-      gap-y-6
+      gap-y-4
       bg-transparent-bg-dark/10
       cursor-pointer
       hover:bg-transparent-bg-dark/20
       min-h-[335px]
       p-4
-      md:p-6
       "
     >
       <div
@@ -76,7 +75,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       >
         <span
           className="
-          text-xl
+          text-base
           font-bold
           w-full
           line-clamp-1
