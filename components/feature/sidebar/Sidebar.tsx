@@ -7,8 +7,13 @@ import UserSidebarBlock from "./UserSidebarBlock";
 import Link from "next/link";
 import Navigation from "./Navigation";
 import SidebarMiddleSection from "./SidebarMiddleSection";
+import getProjects from "@/actions/getProjects";
 
-const Sidebar = () => {
+export const revalidate = 0;
+
+const Sidebar = async () => {
+  const favouriteProjects = await getProjects();
+
   const routes = [
     {
       icon: RxDashboard,
@@ -67,7 +72,7 @@ const Sidebar = () => {
         </Link>
         <Navigation navLinks={routes} />
       </ContainerBox>
-      <SidebarMiddleSection />
+      <SidebarMiddleSection favProjects={favouriteProjects} />
       <UserSidebarBlock />
     </aside>
   );
