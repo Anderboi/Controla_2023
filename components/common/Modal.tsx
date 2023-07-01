@@ -18,16 +18,18 @@ const Modal = ({
   title,
 }: ModalProps) => {
   return (
-    <Dialog.Root
-      open={isOpen}
-      defaultOpen={isOpen}
-      onOpenChange={onChange}>
+    <Dialog.Root open={isOpen} defaultOpen={isOpen} onOpenChange={onChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-secondary-bg-dark/80 backdrop-blur-sm fixed inset-0" />
+        <Dialog.Overlay
+          className="
+        bg-secondary-bg-dark/80 
+        backdrop-blur-sm 
+        fixed 
+        inset-0"
+        />
         <Dialog.Content
           className="
           fixed
-          drop-shadow-md
           border
           border-primary-border-dark
           top-[50%]
@@ -41,9 +43,9 @@ const Modal = ({
           md:max-w-[450px]
           translate-x-[-50%]
           translate-y-[-50%]
-          rounded-md
+          rounded-3xl
           bg-secondary-bg-dark
-          p-[25px]
+          p-6
           focus:outline-none
           "
         >
@@ -63,6 +65,7 @@ const Modal = ({
             text-sm
             leading-normal
             text-center
+            text-primary-text-dark
             "
           >
             {description}

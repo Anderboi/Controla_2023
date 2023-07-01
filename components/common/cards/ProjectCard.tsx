@@ -10,11 +10,7 @@ interface ProjectCardProps {
   onClick: (id: number) => void;
 }
 
-const ProjectCard = ({
-  data,
-  onClick
-}:
-ProjectCardProps) => {
+const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
   const imagePath = useLoadImage(data);
 
   return (
@@ -33,9 +29,7 @@ ProjectCardProps) => {
       bg-transparent-bg-dark/10
       cursor-pointer
       hover:bg-transparent-bg-dark/20
-
       min-h-[335px]
-
       p-4
       md:p-6
       "
@@ -52,13 +46,24 @@ ProjectCardProps) => {
         hover:saturate-100
         "
       >
-        <Image
-          // TODO: add placeholder image
-          src={imagePath || ""}
-          alt="cover"
-          className="object-cover"
-          fill
-        />
+        {imagePath ? (
+          <Image
+            // TODO: add placeholder image
+            src={imagePath}
+            alt="cover"
+            className="object-cover"
+            fill
+          />
+        ) : (
+          <Image
+            src={"logos/ellipse_round.svg"}
+            alt="placeholder"
+            fill
+            className="
+              p-8 
+              bg-secondary-bg-dark"
+          />
+        )}
       </div>
       <div
         className="
