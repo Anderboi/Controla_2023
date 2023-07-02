@@ -6,7 +6,7 @@ import Button from "@/components/common/inputs/Button";
 import { toast } from "react-hot-toast";
 
 import useAuthModal from "@/hooks/useAuthModal";
-import { UseUser } from "@/hooks/useUser";
+import { useUser } from "@/hooks/useUser";
 import { useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
@@ -18,7 +18,7 @@ const UserSidebarBlock = () => {
   const router = useRouter();
 
   const supabaseClient = useSupabaseClient();
-  const { user } = UseUser();
+  const { user } = useUser();
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();

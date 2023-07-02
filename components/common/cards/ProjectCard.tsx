@@ -4,6 +4,7 @@ import useLoadImage from "@/hooks/useLoadImage";
 import { Project } from "@/types/supabase";
 import Image from "next/image";
 import React from "react";
+import FavouriteButton from '../inputs/FavouriteButton';
 
 interface ProjectCardProps {
   data: Project;
@@ -33,6 +34,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       p-4
       "
     >
+      <FavouriteButton projectId={data.project_id} className='absolute top-4 left-6 z-50 opacity-0'/>
       <div
         className="
         relative 

@@ -8,14 +8,14 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Input from "@/components/common/inputs/Input";
 import Button from "@/components/common/inputs/Button";
 import { toast } from "react-hot-toast";
-import { UseUser } from "@/hooks/useUser";
+import { useUser } from "@/hooks/useUser";
 import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
-  const { user } = UseUser();
+  const { user } = useUser();
   const supabaseClient = useSupabaseClient();
   const router = useRouter();
 

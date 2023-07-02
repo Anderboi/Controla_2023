@@ -12,7 +12,7 @@ import { BiBell } from "react-icons/bi";
 import SidebarItem from "./SidebarItem";
 import Button from "@/components/common/inputs/Button";
 import useAuthModal from "@/hooks/useAuthModal";
-import { UseUser } from "@/hooks/useUser";
+import { useUser } from "@/hooks/useUser";
 import { Project } from "@/types/supabase";
 import FavouriteProjectItem from "./FavouriteProjectItem";
 
@@ -42,7 +42,7 @@ const secondaryRoutes = [
 
 const SidebarMiddleSection = ({ favProjects }: SectionProps) => {
   const authModal = useAuthModal();
-  const user = UseUser();
+  const user = useUser();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
 

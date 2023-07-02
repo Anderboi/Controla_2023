@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { UseUser } from "@/hooks/useUser";
+import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/useAuthModal";
 import useUploadModal from "@/hooks/useUploadModal";
 import { twMerge } from "tailwind-merge";
@@ -32,7 +32,7 @@ const Header = ({
   startDate,
 }: HeaderProps) => {
   const authModal = useAuthModal();
-  const { user } = UseUser();
+  const { user } = useUser();
   const uploadModal = useUploadModal();
   const router = useRouter();
 
