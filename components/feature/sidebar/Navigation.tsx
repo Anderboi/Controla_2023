@@ -14,7 +14,7 @@ interface Props {
 
 const Navigation = ({ navLinks }: Props) => {
   return (
-    <nav className="flex flex-col ">
+    <nav className="flex flex-col">
       {navLinks.map((item) => (
         <SidebarItem key={item.label} {...item} />
       ))}

@@ -12,9 +12,8 @@ import { BiBell } from "react-icons/bi";
 import SidebarItem from "./SidebarItem";
 import Button from "@/components/common/inputs/Button";
 import useAuthModal from "@/hooks/useAuthModal";
-import { useUser } from "@/hooks/useUser";
 import { Project } from "@/types/supabase";
-import FavouriteProjectItem from "./FavouriteProjectItem";
+import FavouriteContent from "./FavouriteContent";
 
 export const revalidate = 0;
 
@@ -42,7 +41,6 @@ const secondaryRoutes = [
 
 const SidebarMiddleSection = ({ favProjects }: SectionProps) => {
   const authModal = useAuthModal();
-  const user = useUser();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
 
@@ -71,30 +69,24 @@ const SidebarMiddleSection = ({ favProjects }: SectionProps) => {
         justify-between
         gap-y-2"
     >
-      <span className="hidden lg:flex font-bold text-xs text-secondary-text-dark">
+      <span className="
+        hidden
+        lg:flex
+        font-bold
+        text-xs
+        text-secondary-text-dark
+        ">
         Избранное
       </span>
-      <div
-        className="
-        flex 
-        flex-col 
-        gap-y-2 
-        overflow-y-scroll 
-        h-full 
-        w-full 
-        no-scrollbar
-        overscroll-contain
-        "
-      >
-        {favProjects.map((project) => (
-          <FavouriteProjectItem
-            key={project.project_id}
-            data={project}
-            onClick={() => {}}
-          />
-        ))}
-      </div>
-      <div className="flex flex-col justify-start align-top">
+
+      <FavouriteContent projects={favProjects} />
+
+      <div className="
+        flex
+        flex-col
+        justify-start
+        align-top
+      ">
         <SidebarItem
           icon={CgAddR}
           label="Создать проект"

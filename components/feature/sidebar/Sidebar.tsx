@@ -8,11 +8,12 @@ import Link from "next/link";
 import Navigation from "./Navigation";
 import SidebarMiddleSection from "./SidebarMiddleSection";
 import getProjects from "@/actions/getProjects";
+import getFavouriteProjects from '@/actions/getFavouriteProjects';
 
 export const revalidate = 0;
 
 const Sidebar = async () => {
-  const favouriteProjects = await getProjects();
+  const favouriteProjects = await getFavouriteProjects();
 
   const routes = [
     {

@@ -85,15 +85,16 @@ const FavouriteButton = ({ className, projectId }: FavButtonProps) => {
     <button
       className={twMerge(
         `
-        transition 
-        rounded-full 
-        bg-transparent-bg-dark/20 
+        transition
+        rounded-full
+        hover:bg-transparent-bg-dark/20
         p-1
-        translate 
+        translate
         translate-y-1/4
         group-hover:opacity-100
         hover:scale-110
         `,
+        isFavourite ? "opacity-100 " : "opacity-0",
         className
       )}
       onClick={handleFav}
