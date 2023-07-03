@@ -10,18 +10,18 @@ const getContactsByTitle = async (title: string): Promise<User[]> => {
   });
 
   if (!title) {
-    const allProjects = await getContacts();
-    return allProjects;
+    const allContacts = await getContacts();
+    return allContacts;
   }
 
-  const { data: sessionData, error: sessionError } =
-    await supabase.auth.getSession();
+  // const { data: sessionData, error: sessionError } =
+  //   await supabase.auth.getSession();
 
-  if (sessionError) {
-    console.log(sessionError.message);
+  // if (sessionError) {
+  //   console.log(sessionError.message);
 
-    return [];
-  }
+  //   return [];
+  // }
 
   const { data, error } = await supabase
     .from("users")

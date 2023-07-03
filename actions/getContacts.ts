@@ -8,9 +8,19 @@ const getContacts = async (): Promise<User[]> => {
     cookies: cookies,
   });
 
+  const { data: sessionData, error: sessionError } =
+    await supabase.auth.getSession();
+
+  if (sessionError) {
+    console.log(sessionError.message);
+
+    return [];
+  }
+
   const { data, error } = await supabase
-    .from("users")
+    .from("contacts")
     .select("*")
+    .eq("id", sessionData.session?.user.id)
     .order("full_name", { ascending: false });
 
   if (error) {

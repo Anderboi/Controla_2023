@@ -1,8 +1,9 @@
-'use client'
+"use client";
 
 import ProjectCard from "@/components/common/cards/ProjectCard";
 import Button from "@/components/common/inputs/Button";
 import { Project } from "@/types/supabase";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface ProjectsGalleryProps {
@@ -10,6 +11,8 @@ interface ProjectsGalleryProps {
 }
 
 const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
+  const route = useRouter();
+
   if (projects.length === 0) {
     return (
       <article
@@ -45,7 +48,7 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
     >
       {projects.map((project) => (
         <ProjectCard
-          onClick={()=>{}}
+          onClick={() => {route.push(`/projects/project?id=${project.project_id}`)}}
           key={project.project_id}
           data={project}
         />
