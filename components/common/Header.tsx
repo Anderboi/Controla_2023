@@ -39,9 +39,6 @@ const Header = ({
   const router = useRouter();
 
   const coverImage = useLoadImage(image || null, "project");
-  // if(image) {
-
-  // }
 
   const onClick = () => {
     if (!user) {
@@ -52,6 +49,10 @@ const Header = ({
 
     return uploadModal.onOpen();
   };
+  
+
+  console.log(startDate && new Date(startDate));
+  
 
   return (
     <ContainerBox
@@ -67,10 +68,12 @@ const Header = ({
         w-full
         items-center
         `,
+        coverImage &&
+          "bg-gradient-to-b from-secondary-text-dark to-elevated-2-bg-dark",
         className
       )}
     >
-      <div className="flex justify-between w-full">
+      <div className="flex justify-between w-full z-10">
         <div className="flex gap-4">
           <Button
             mode="ghost"
@@ -109,23 +112,27 @@ const Header = ({
         </div>
       </div>
       <div className="flex flex-col w-full">
-        <span className="text-2xl font-bold text-left  w-full">{subtitle}</span>
-        <span className="text-7xl font-bold text-left w-full line-clamp-1">{title}</span>
-        <span className="text-sm font-bold text-left text-secondary-text-dark w-full">
+        <span className="text-2xl text-primary-text-dark/90 font-bold text-left  w-full">
+          {subtitle}
+        </span>
+        <span className="text-7xl font-bold text-left w-full line-clamp-1">
+          {title}
+        </span>
+        <span className="text-sm font-bold text-left text-primary-text-dark/90 w-full">
           {addressDetails}
         </span>
-        <span className="text-xs font-bold text-left text-secondary-text-dark w-full">
-          {startDate}
+        <span className="text-xs font-bold text-left text-primary-text-dark/90 w-full">
+          {startDate && Date.parse(startDate)}
         </span>
       </div>
-      {/* {coverImage && (
+      {coverImage && (
         <Image
           src={coverImage}
           alt="cover"
           fill
-          className="absolute top-0 left-0 object-cover"
+          className="absolute w-full h-full object-cover mix-blend-overlay z-0"
         />
-      )} */}
+      )}
     </ContainerBox>
   );
 };

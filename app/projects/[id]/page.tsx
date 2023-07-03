@@ -16,6 +16,9 @@ const ProjectPage = async ({ params }: { params: { id: number } }) => {
         title={project.address_street || ""}
         subtitle={project.address_country || ""}
         image={project.cover_img}
+        addressDetails={project?.address_city || ''}
+        startDate={project.created_at || ''}
+
       />
       {/* <Image alt='cover' src={project?.cover_img || ''} width={150} height={150}/> */}
       <ContainerBox classname="h-full">

@@ -48,7 +48,11 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
     >
       {projects.map((project) => (
         <ProjectCard
-          onClick={() => {route.push(`/projects/${project.project_id}`)}}
+          onClick={() => {
+            //TODO: Add stopPropagation()
+            // event?.preventDefault();
+            route.push(`/projects/${project.project_id}`);
+          }}
           key={project.project_id}
           data={project}
         />
