@@ -17,10 +17,12 @@ const SearchInput = () => {
       title: debouncedValue,
     };
     const url = qs.stringifyUrl({
-      url: "/search",
+      // TODO: заменить на локальный адрес и сделать общий компонент
+      url: "/contacts",
       query: query,
     });
     
+
     router.push(url);
   }, [debouncedValue, router]);
 

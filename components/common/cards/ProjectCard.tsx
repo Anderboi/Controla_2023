@@ -46,7 +46,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       <div
         className="
           relative 
-          aspect-square 
+          
           w-full 
           h-full 
           rounded-lg 
@@ -57,10 +57,12 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       >
         {imagePath ? (
           <Image
-            // TODO: add placeholder image
             src={imagePath}
             alt="cover"
-            className="object-cover"
+            className="
+              object-cover 
+              aspect-square
+              "
             fill
           />
         ) : (
@@ -70,7 +72,9 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
             fill
             className="
               p-8 
-              bg-secondary-bg-dark"
+              bg-secondary-bg-dark 
+              aspect-square
+              "
           />
         )}
       </div>

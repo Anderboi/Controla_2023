@@ -24,6 +24,7 @@ export interface User {
   id: string;
   payment_method: Json | null;
   email: string | null;
+  role: string | null;
 }
 
 export interface Database {

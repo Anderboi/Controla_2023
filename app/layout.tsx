@@ -35,24 +35,18 @@ export default function RootLayout({
               <main
                 className="
                 flex-1
+                flex 
+                flex-col
                 min-h-screen
                 bg-black
                 px-2
                 py-2
                 rounded-lg
                 h-screen
+                gap-y-2
                 "
               >
-                {/* //TODO: style main component instead */}
-                <div className="
-                  flex 
-                  flex-col 
-                  gap-y-2 
-                  h-fit 
-                  min-h-screen
-                ">
-                  {children}
-                </div>
+                {children}
               </main>
             </UserProvider>
           </SupabaseProvider>

@@ -4,17 +4,22 @@ import { twMerge } from "tailwind-merge";
 interface ContainerBoxProps {
   children: React.ReactNode;
   classname?: string;
+  type?: "card" | "frame";
 }
 
-const ContainerBox = ({ children, classname }: ContainerBoxProps) => {
+const ContainerBox = ({
+  children,
+  classname,
+  type = "frame",
+}: ContainerBoxProps) => {
   return (
     <div
       className={twMerge(
-        `rounded-lg
-        bg-transparent-bg-dark/10
+        `bg-transparent-bg-dark/10
         p-3
-        sm:p-6
+        rounded-lg
         `,
+        type === "frame" ? "sm:p-6" : "sm:p-4",
         classname
       )}
     >
