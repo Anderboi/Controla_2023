@@ -24,7 +24,7 @@ const Button = ({
         py-3
         transition
         `,
-        corner === "round" ? "rounded-full" : "rounded-lg",
+        corner === "round" ? "rounded-full hover:text-accent-dark" : "rounded-lg",
         mode === "ghost" &&
           `
           bg-transparent-bg-dark/10

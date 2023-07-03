@@ -9,15 +9,17 @@ import { twMerge } from "tailwind-merge";
 
 import Button from "./inputs/Button";
 import ContainerBox from "./ContainerBox";
+import Image from "next/image";
 
 import { MdOutlineAdd } from "react-icons/md";
 import { IoChevronBackOutline, IoChevronForward } from "react-icons/io5";
 import { RiSearchLine } from "react-icons/ri";
+import useLoadImage from "@/hooks/useLoadImage";
 
 interface HeaderProps {
   title: string;
   subtitle?: string;
-  image?: string;
+  image?: string | null;
   className?: string;
   startDate?: string;
   addressDetails?: string;
@@ -36,6 +38,11 @@ const Header = ({
   const uploadModal = useUploadModal();
   const router = useRouter();
 
+  const coverImage = useLoadImage(image || null, "project");
+  // if(image) {
+
+  // }
+
   const onClick = () => {
     if (!user) {
       return authModal.onOpen();
@@ -50,6 +57,7 @@ const Header = ({
     <ContainerBox
       classname={twMerge(
         `
+        relative
         pb-4 
         flex  
         flex-col
@@ -57,7 +65,8 @@ const Header = ({
         gap-y-3
         h-fit
         w-full
-        items-center`,
+        items-center
+        `,
         className
       )}
     >
@@ -101,7 +110,7 @@ const Header = ({
       </div>
       <div className="flex flex-col w-full">
         <span className="text-2xl font-bold text-left  w-full">{subtitle}</span>
-        <span className="text-7xl font-bold text-left w-full">{title}</span>
+        <span className="text-7xl font-bold text-left w-full line-clamp-1">{title}</span>
         <span className="text-sm font-bold text-left text-secondary-text-dark w-full">
           {addressDetails}
         </span>
@@ -109,6 +118,14 @@ const Header = ({
           {startDate}
         </span>
       </div>
+      {/* {coverImage && (
+        <Image
+          src={coverImage}
+          alt="cover"
+          fill
+          className="absolute top-0 left-0 object-cover"
+        />
+      )} */}
     </ContainerBox>
   );
 };

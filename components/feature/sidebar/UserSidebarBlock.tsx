@@ -32,7 +32,6 @@ const UserSidebarBlock = () => {
       toast.success("Logged Out");
     }
   };
-  console.log(user);
 
   return (
     <ContainerBox

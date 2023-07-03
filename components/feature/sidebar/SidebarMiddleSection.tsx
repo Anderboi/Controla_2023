@@ -1,19 +1,19 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import React from "react";
 import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import useAuthModal from "@/hooks/useAuthModal";
+import SidebarItem from "./SidebarItem";
+import Button from "@/components/common/inputs/Button";
+import FavouriteContent from "./FavouriteContent";
 import ContainerBox from "@/components/common/ContainerBox";
 import Navigation from "./Navigation";
 import { CgAddR } from "react-icons/cg";
 import { TbSettings2 } from "react-icons/tb";
 import { BiBell } from "react-icons/bi";
-import SidebarItem from "./SidebarItem";
-import Button from "@/components/common/inputs/Button";
-import useAuthModal from "@/hooks/useAuthModal";
 import { Project } from "@/types/supabase";
-import FavouriteContent from "./FavouriteContent";
 
 export const revalidate = 0;
 

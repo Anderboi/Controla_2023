@@ -1,23 +1,28 @@
-"use client";
-
 import React from "react";
-import { useSearchParams } from "next/navigation";
 import getCurrntProject from "@/actions/getCurrentProject";
+import Header from "@/components/common/Header";
+import ContainerBox from "@/components/common/ContainerBox";
+import Image from "next/image";
 
 export const revalidate = 0;
 
 //TODO: настроить получение данных по проекту
-const ProjectPage = async () => {
-  const params = useSearchParams();
+const ProjectPage = async ({ params }: { params: { id: number } }) => {
+  const project = await getCurrntProject(+params.id);
 
-  const id = params.get("id");
-
-  if (id) {
-    const project = await getCurrntProject(+id);
-    console.log(project);
-  }
-
-  return <div>project</div>;
+  return (
+    <section className="h-full flex flex-col gap-y-2">
+      <Header
+        title={project.address_street || ""}
+        subtitle={project.address_country || ""}
+        image={project.cover_img}
+      />
+      {/* <Image alt='cover' src={project?.cover_img || ''} width={150} height={150}/> */}
+      <ContainerBox classname="h-full">
+        <div>{project.cover_img}</div>
+      </ContainerBox>
+    </section>
+  );
 };
 
 export default ProjectPage;

@@ -12,7 +12,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
-  const imagePath = useLoadImage(data);
+  const imagePath = useLoadImage(data.cover_img, 'project');
 
   return (
     <div

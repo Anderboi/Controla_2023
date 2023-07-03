@@ -1,21 +1,25 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
+import Image from "next/image";
 
 interface ContainerBoxProps {
   children: React.ReactNode;
   classname?: string;
+  image?: string;
   type?: "card" | "frame";
 }
 
 const ContainerBox = ({
   children,
+  image,
   classname,
   type = "frame",
 }: ContainerBoxProps) => {
   return (
     <div
       className={twMerge(
-        `bg-transparent-bg-dark/10
+        `
+        bg-transparent-bg-dark/10
         p-3
         rounded-lg
         `,
@@ -23,6 +27,7 @@ const ContainerBox = ({
         classname
       )}
     >
+      {/* {image && <Image src={image} alt='cover' fill/>} */}
       {children}
     </div>
   );
