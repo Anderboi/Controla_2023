@@ -61,7 +61,6 @@ const Sidebar = async () => {
             src="logos/controla_logo_light.svg"
             width={300}
             height={40}
-            priority
             className="cursor-pointer hidden lg:flex"
           />
           <Image
@@ -69,7 +68,7 @@ const Sidebar = async () => {
             src="logos/c_white.svg"
             width={24}
             height={24}
-            className="hidden sm:max-lg:flex"
+            className="hidden sm:max-lg:flex cursor-pointer"
           />
         </Link>
         <Navigation navLinks={routes} />

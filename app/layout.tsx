@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Comfortaa } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
 import Sidebar from "@/components/feature/sidebar/Sidebar";
@@ -9,7 +9,7 @@ import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
 import ToasterProvider from "@/providers/ToasterProvider";
 
-const inter = Inter({ subsets: ["cyrillic"] });
+const inter = Comfortaa({ subsets: ["cyrillic"] });
 
 export const metadata = {
   title: "Controla",

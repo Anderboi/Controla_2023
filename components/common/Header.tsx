@@ -59,7 +59,7 @@ const Header = ({
       classname={twMerge(
         `
         relative
-        pb-4 
+        pb-4
         flex  
         flex-col
         justify-between 
@@ -70,6 +70,7 @@ const Header = ({
         `,
         coverImage &&
           "bg-gradient-to-b from-secondary-text-dark to-elevated-2-bg-dark",
+          subtitle && 'gap-y-16',
         className
       )}
     >
@@ -111,11 +112,32 @@ const Header = ({
           </Button>
         </div>
       </div>
-      <div className="flex flex-col w-full">
-        <span className="text-2xl text-primary-text-dark/90 font-bold text-left  w-full">
+      <div className="
+        flex
+        flex-col
+        w-full
+      ">
+        <span className="
+          text-xl
+          md:text-2xl
+          text-primary-text-dark/90 
+          font-bold 
+          text-left  
+          w-full
+        ">
           {subtitle}
         </span>
-        <span className="text-7xl font-bold text-left w-full line-clamp-1">
+        <span className="
+          lg:text-6xl/[72px]
+          md:text-5xl
+          sm:text-4xl
+          text-3xl
+          font-bold
+          text-left
+          w-full
+          line-clamp-1
+          break-all
+          ">
           {title}
         </span>
         <span className="text-sm font-bold text-left text-primary-text-dark/90 w-full">
@@ -130,6 +152,7 @@ const Header = ({
           src={coverImage}
           alt="cover"
           fill
+          priority
           className="absolute w-full h-full object-cover mix-blend-overlay z-0"
         />
       )}

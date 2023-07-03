@@ -2,7 +2,6 @@ import React from "react";
 import getCurrntProject from "@/actions/getCurrentProject";
 import Header from "@/components/common/Header";
 import ContainerBox from "@/components/common/ContainerBox";
-import Image from "next/image";
 
 export const revalidate = 0;
 

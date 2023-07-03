@@ -1,6 +1,5 @@
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import Image from "next/image";
 
 interface ContainerBoxProps {
   children: React.ReactNode;
