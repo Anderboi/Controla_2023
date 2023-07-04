@@ -6,10 +6,12 @@ import { User } from "@/types/supabase";
 import React from "react";
 
 interface ContactsGalleryProps {
-  contacts: User[];
+  contacts: any[];
 }
 
 const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
+  console.log(contacts);
+
   if (contacts.length === 0) {
     return (
       <article
@@ -44,7 +46,10 @@ const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
           "
     >
       {contacts.map((item) => (
-        <ContactCard data={item} onClick={() => {}} />
+        <ContactCard 
+          key={item.id}
+          data={item} 
+          onClick={() => {}} />
       ))}
     </div>
   );

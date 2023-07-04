@@ -34,10 +34,10 @@ const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
 
     const fetchData = async () => {
       const { data, error } = await supabaseClient
-        .from("favourite_projects")
+        .from("contacts")
         .select("*")
         .eq("user_id", user?.id)
-        .eq("project_id", id)
+        .eq("contact", id)
         .single();
 
       if (!error && data) {
@@ -48,7 +48,7 @@ const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
     fetchData();
   }, [id, supabaseClient, user?.id]);
 
-  const handleFav = async (e: any) => {
+  const handleSetContact = async (e: any) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
 
@@ -58,10 +58,10 @@ const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
 
     if (isContact) {
       const { error } = await supabaseClient
-        .from("favourite_projects")
+        .from("contacts")
         .delete()
         .eq("user_id", user?.id)
-        .eq("project_id", id);
+        .eq("contact", id);
 
       if (error) {
         toast.error(error.message);
@@ -71,8 +71,8 @@ const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
       }
     } else {
       const { error } = await supabaseClient
-        .from("favourite_projects")
-        .insert({ user_id: user.id, project_id: id });
+        .from("contacts")
+        .insert({ user_id: user.id, contact: id });
 
       if (error) {
         toast.error(error.message);
@@ -87,7 +87,7 @@ const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
   return (
     <IconButton
       Icon={AiOutlinePlus}
-      onClick={handleFav}
+      onClick={handleSetContact}
       className={twMerge(isContact ? "opacity-100 " : "opacity-0")}
       {...props}
     />

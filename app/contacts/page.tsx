@@ -4,6 +4,7 @@ import Header from "@/components/common/Header";
 import ContactsSearchInput from "@/components/common/inputs/ContactsSearchInput";
 import getContactsByTitle from "@/actions/getContactsByTitle";
 import ContactsGallary from "./components/ContactsGallary";
+import getContacts from '@/actions/getContacts';
 
 export const revalidate = 0;
 
@@ -15,8 +16,8 @@ interface SearchProps {
 
 const ContactsPage = async ({ searchParams }: SearchProps) => {
   const contacts = await getContactsByTitle(searchParams.title);
+ 
 
-  console.log(contacts);
 
   return (
     <>
