@@ -63,17 +63,13 @@ const Header = ({
         flex
         flex-col
         justify-between
-        gap-y-4
-        sm:gap-y-8
-        lg:gap-y-3
-        sm:min-h-[172px]
         h-fit
         w-full
         items-center
         `,
         coverImage &&
           "bg-gradient-to-b from-secondary-text-dark to-elevated-2-bg-dark",
-          subtitle && 'gap-y-16',
+        subtitle ? "gap-y-16" : "gap-y-4",
         className
       )}
     >
@@ -115,22 +111,27 @@ const Header = ({
           </Button>
         </div>
       </div>
-      <div className="
+      <div
+        className="
         flex
         flex-col
         w-full
-      ">
-        <span className="
+        "
+      >
+        <span
+          className="
           text-xl
           md:text-2xl
           text-primary-text-dark/90 
           font-bold 
           text-left  
           w-full
-        ">
+          "
+        >
           {subtitle}
         </span>
-        <span className="
+        <span
+          className="
           lg:text-6xl/[72px]
           md:text-5xl
           sm:text-4xl
@@ -140,7 +141,8 @@ const Header = ({
           w-full
           line-clamp-1
           break-all
-          ">
+          "
+        >
           {title}
         </span>
         <span className="text-sm font-bold text-left text-primary-text-dark/90 w-full">

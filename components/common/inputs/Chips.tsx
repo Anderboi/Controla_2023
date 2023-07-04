@@ -1,11 +1,25 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
-interface ChipsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+interface ChipsProps {
+  // extends React.ButtonHTMLAttributes<HTMLButtonElement>
+  children: string;
+  href: string;
+}
 
-const Chips = ({ children, disabled, ...props }: ChipsProps) => {
+const Chips = ({ children, href, ...props }: ChipsProps) => {
+  const route = usePathname();
+  const exactRoute = route.split("/")[route.split("/").length - 1];
+
   return (
-    <button
-      className="
+    <Link
+      href={href}
+      className={twMerge(
+        `
       bg-elevated-1-bg-dark
       px-4
       py-2
@@ -14,13 +28,19 @@ const Chips = ({ children, disabled, ...props }: ChipsProps) => {
       hover:bg-elevated-2-bg-dark
       hover:text-primary-text-dark
       whitespace-nowrap
+      border
+      border-transparent
       w-full
-      "
-      disabled={disabled}
+      h-fit
+      `,
+        exactRoute === href &&
+          "border-primary-text-dark text-primary-text-dark bg-elevated-3-bg-dark"
+      )}
+      // disabled={disabled}
       {...props}
     >
       {children}
-    </button>
+    </Link>
   );
 };
 

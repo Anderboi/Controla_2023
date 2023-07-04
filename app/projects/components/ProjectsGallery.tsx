@@ -47,7 +47,7 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
       {projects.map((project) => (
         <ProjectCard
           onClick={() => {
-            route.push(`/projects/${project.project_id}`);
+            route.push(`/projects/${project.project_id}/tabs/preProject`);
           }}
           key={project.project_id}
           data={project}

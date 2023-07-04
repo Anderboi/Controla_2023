@@ -26,6 +26,8 @@ const IconButton = ({
         translate
         translate-y-1/4
         hover:scale-110
+        ease-in-out
+        duration-300
         `,
         className
       )}

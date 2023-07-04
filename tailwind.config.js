@@ -38,12 +38,13 @@ module.exports = {
     plugin(function ({ addUtilities }) {
       addUtilities({
         ".no-scrollbar::-webkit-scrollbar": {
-          display: 'none',
+          display: "none",
         },
         ".no-scrollbar": {
-          "-ms-overflow-style": 'none' /* IE and Edge */,
-          "scrollbar-width": 'none' /* Firefox */,
+          "-ms-overflow-style": "none" /* IE and Edge */,
+          "scrollbar-width": "none" /* Firefox */,
         },
+        ".scrolling-touch": { "-webkit-overflow-scrolling": "touch" },
       });
     }),
   ],

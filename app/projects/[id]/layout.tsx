@@ -8,7 +8,7 @@ import Chips from "@/components/common/inputs/Chips";
 export const revalidate = 0;
 
 //TODO: настроить получение данных по проекту
-const ProjectPage = async ({ params }: { params: { id: number } }) => {
+const ProjectPage = async ({ params, children }: { params: { id: number }, children:React.ReactNode }) => {
   const project = await getCurrntProject(+params.id);
 
   return (
@@ -22,24 +22,40 @@ const ProjectPage = async ({ params }: { params: { id: number } }) => {
       />
       {/* <Image alt='cover' src={project?.cover_img || ''} width={150} height={150}/> */}
       <ContainerBox classname="h-full w-full">
-        <ul className="w-full flex gap-6 pb-6 items-center justify-start overflow-x-scroll no-scrollbar">
+        <ul className="
+          w-full
+          min-h-[64px]
+          h-fit
+          flex
+          gap-6
+          pb-6
+          items-center
+          justify-start
+          overflow-x-scroll
+          no-scrollbar
+          scroll-smooth
+          scrolling-touch
+          "
+        >
           <li>
-            <Chips>Предпроектная стадия</Chips>
+            <Chips href='preProject'>
+              Предпроектная стадия
+            </Chips>
           </li>
           <li>
-            <Chips>Эскизная стадия</Chips>
+            <Chips href='concept'>Эскизная стадия</Chips>
           </li>
           <li>
-            <Chips>Рабочая стадия</Chips>
+            <Chips href="">Рабочая стадия</Chips>
           </li>
           <li>
-            <Chips>Комплектация</Chips>
+            <Chips href="">Комплектация</Chips>
           </li>
           <li>
-            <Chips>Строительство</Chips>
+            <Chips href="">Строительство</Chips>
           </li>
         </ul>
-        <div>{project.address_city}</div>
+        <div>{children}</div>
       </ContainerBox>
     </section>
   );
