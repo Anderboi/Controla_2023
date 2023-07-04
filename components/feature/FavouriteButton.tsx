@@ -9,14 +9,14 @@ import { useRouter } from "next/navigation";
 
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
-import { twMerge } from "tailwind-merge";
 import { toast } from "react-hot-toast";
+import IconButton from "../common/inputs/IconButton";
 
 interface FavButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   projectId: number;
 }
 
-const FavouriteButton = ({ className, projectId }: FavButtonProps) => {
+const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
   const router = useRouter();
   const { supabaseClient } = useSessionContext();
 
@@ -48,7 +48,10 @@ const FavouriteButton = ({ className, projectId }: FavButtonProps) => {
 
   const Icon = isFavourite ? AiFillStar : AiOutlineStar;
 
-  const handleFav = async () => {
+  const handleFav = async (e:any) => {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+
     if (!user) {
       return authModal.onOpen();
     }
@@ -82,25 +85,12 @@ const FavouriteButton = ({ className, projectId }: FavButtonProps) => {
   };
 
   return (
-    <button
-      className={twMerge(
-        `
-        transition
-        rounded-full
-        hover:bg-transparent-bg-dark/20
-        p-1
-        translate
-        translate-y-1/4
-        group-hover:opacity-100
-        hover:scale-110
-        `,
-        isFavourite ? "opacity-100 " : "opacity-0",
-        className
-      )}
+    <IconButton
+      Icon={Icon}
       onClick={handleFav}
-    >
-      <Icon className="hover:text-accent-dark" size={25} />
-    </button>
+      className={isFavourite ? "opacity-100 " : "opacity-0"}
+      {...props}
+    />
   );
 };
 
