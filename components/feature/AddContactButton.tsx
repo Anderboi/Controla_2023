@@ -7,24 +7,25 @@ import { useUser } from "@/hooks/useUser";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 
-import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 
 import { toast } from "react-hot-toast";
 import IconButton from "../common/inputs/IconButton";
 import { twMerge } from "tailwind-merge";
 
-interface FavButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  projectId: number;
+interface AddContactButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  id: string;
 }
 
-const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
+const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
   const router = useRouter();
   const { supabaseClient } = useSessionContext();
 
   const authModal = useAuthModal();
   const { user } = useUser();
 
-  const [isFavourite, setIsFavourite] = useState(false);
+  const [isContact, setIsContact] = useState(false);
 
   useEffect(() => {
     if (!user?.id) {
@@ -36,18 +37,16 @@ const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
         .from("favourite_projects")
         .select("*")
         .eq("user_id", user?.id)
-        .eq("project_id", projectId)
+        .eq("project_id", id)
         .single();
 
       if (!error && data) {
-        setIsFavourite(true);
+        setIsContact(true);
       }
     };
 
     fetchData();
-  }, [projectId, supabaseClient, user?.id]);
-
-  const Icon = isFavourite ? AiFillStar : AiOutlineStar;
+  }, [id, supabaseClient, user?.id]);
 
   const handleFav = async (e: any) => {
     e.stopPropagation();
@@ -57,28 +56,28 @@ const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
       return authModal.onOpen();
     }
 
-    if (isFavourite) {
+    if (isContact) {
       const { error } = await supabaseClient
         .from("favourite_projects")
         .delete()
         .eq("user_id", user?.id)
-        .eq("project_id", projectId);
+        .eq("project_id", id);
 
       if (error) {
         toast.error(error.message);
       } else {
-        setIsFavourite(false);
+        setIsContact(false);
         toast.success("Удалено из избранного");
       }
     } else {
       const { error } = await supabaseClient
         .from("favourite_projects")
-        .insert({ user_id: user.id, project_id: projectId });
+        .insert({ user_id: user.id, project_id: id });
 
       if (error) {
         toast.error(error.message);
       } else {
-        setIsFavourite(true);
+        setIsContact(true);
         toast.success("Добавлено в избранные!");
       }
     }
@@ -87,15 +86,12 @@ const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
 
   return (
     <IconButton
-      Icon={Icon}
+      Icon={AiOutlinePlus}
       onClick={handleFav}
-      className={twMerge(
-        
-        isFavourite ? "opacity-100 " : "opacity-0"
-      )}
+      className={twMerge(isContact ? "opacity-100 " : "opacity-0")}
       {...props}
     />
   );
 };
 
-export default FavouriteButton;
+export default AddContactButton;

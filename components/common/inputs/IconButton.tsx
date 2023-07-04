@@ -8,7 +8,6 @@ interface IconButtonProps
 }
 
 const IconButton = ({
-  
   className,
   onClick,
   Icon,
@@ -18,13 +17,14 @@ const IconButton = ({
     <button
       className={twMerge(
         `
+        opacity-0
+        group-hover:opacity-100
         transition
         rounded-full
         hover:bg-transparent-bg-dark/20
         p-1
         translate
         translate-y-1/4
-        group-hover:opacity-100
         hover:scale-110
         `,
         className

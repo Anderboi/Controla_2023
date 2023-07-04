@@ -6,6 +6,7 @@ interface ContainerBoxProps {
   classname?: string;
   image?: string;
   type?: "card" | "frame";
+  onClick?: () => void;
 }
 
 const ContainerBox = ({
@@ -13,6 +14,7 @@ const ContainerBox = ({
   image,
   classname,
   type = "frame",
+  onClick
 }: ContainerBoxProps) => {
   return (
     <div
@@ -25,6 +27,7 @@ const ContainerBox = ({
         type === "frame" ? "sm:p-6" : "sm:p-4",
         classname
       )}
+      onClick={onClick}
     >
       {/* {image && <Image src={image} alt='cover' fill/>} */}
       {children}

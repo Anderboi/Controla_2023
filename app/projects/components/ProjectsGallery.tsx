@@ -1,10 +1,10 @@
 "use client";
 
+import React from "react";
+import { useRouter } from "next/navigation";
 import ProjectCard from "@/components/common/cards/ProjectCard";
 import Button from "@/components/common/inputs/Button";
 import { Project } from "@/types/supabase";
-import { useRouter } from "next/navigation";
-import React from "react";
 
 interface ProjectsGalleryProps {
   projects: Project[];
@@ -47,8 +47,6 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
       {projects.map((project) => (
         <ProjectCard
           onClick={() => {
-            //TODO: Add stopPropagation()
-            // event?.preventDefault();
             route.push(`/projects/${project.project_id}`);
           }}
           key={project.project_id}

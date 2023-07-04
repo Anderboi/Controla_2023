@@ -13,7 +13,11 @@ const ProjectsPage = async () => {
     <>
       {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Проекты" />
-      <ContainerBox classname="h-full overflow-y-auto no-scrollbar">
+      <ContainerBox classname="
+        h-full 
+        overflow-y-auto 
+        no-scrollbar
+        ">
           <ProjectsGallery projects={projects} />
       </ContainerBox>
     </>
