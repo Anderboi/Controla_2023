@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={twMerge(`flex bg-black h-full relative`, inter.className)}
+        className={twMerge(`flex bg-black h-screen relative`, inter.className)}
       >
         <HydrationZustand>
           <ToasterProvider />
@@ -37,13 +37,16 @@ export default function RootLayout({
                 flex-1
                 flex 
                 flex-col
-                min-h-screen
+                w-full
+                h-screen
                 bg-black
                 px-2
                 py-2
                 rounded-lg
-                h-screen
                 gap-y-2
+                overflow-auto
+                no-scrollbar
+                scroll-smooth
                 "
               >
                 {children}

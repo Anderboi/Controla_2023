@@ -25,10 +25,10 @@ const ContactsPage = async ({ searchParams }: SearchProps) => {
       <Header title="Контакты" />
       <ContainerBox
         classname="
-        h-full
-        flex
+        flex-1
         flex-col
         gap-y-4
+        h-fit
         "
       >
         <ContactsSearchInput />
@@ -41,7 +41,7 @@ const ContactsPage = async ({ searchParams }: SearchProps) => {
           xl:grid-cols-5
           2xl:grid-cols-6
           gap-3
-          h-fill
+          h-[fill]
           "
         >
           {contacts.map((item) => (

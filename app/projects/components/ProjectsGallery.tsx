@@ -17,11 +17,10 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
     return (
       <article
         className="
-        flex 
-        flex-col 
-        items-center 
-        justify-center 
-        h-full 
+        flex
+        flex-col
+        items-center
+        justify-center
         max-w-sm 
         m-auto 
         gap-6
@@ -43,7 +42,6 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
       xl:grid-cols-4
       2xl:grid-cols-5
       gap-3
-      h-fill
       "
     >
       {projects.map((project) => (

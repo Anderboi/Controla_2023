@@ -60,10 +60,13 @@ const Header = ({
         `
         relative
         pb-4
-        flex  
+        flex
         flex-col
-        justify-between 
-        gap-y-3
+        justify-between
+        gap-y-4
+        sm:gap-y-8
+        lg:gap-y-3
+        sm:min-h-[172px]
         h-fit
         w-full
         items-center

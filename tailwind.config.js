@@ -1,3 +1,5 @@
+const plugin = require("tailwindcss/plugin");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -13,7 +15,7 @@ module.exports = {
       black: { dark: "#000" },
       "primary-bg": { dark: "#000", light: "#fff" },
       "secondary-bg": { dark: "#121212", light: "#F7F7F7" },
-      "elevated-1-bg": { dark: "#181818" },
+      "elevated-1-bg": { dark: "#1B1B1B" },
       "elevated-2-bg": { dark: "#282828" },
       "elevated-3-bg": { dark: "#565656" },
       "transparent-bg": { dark: "#CECECE" },
@@ -30,5 +32,18 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: 'none',
+        },
+        ".no-scrollbar": {
+          "-ms-overflow-style": 'none' /* IE and Edge */,
+          "scrollbar-width": 'none' /* Firefox */,
+        },
+      });
+    }),
+  ],
 };
