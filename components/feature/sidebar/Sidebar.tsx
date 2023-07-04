@@ -7,7 +7,6 @@ import UserSidebarBlock from "./UserSidebarBlock";
 import Link from "next/link";
 import Navigation from "./Navigation";
 import SidebarMiddleSection from "./SidebarMiddleSection";
-import getProjects from "@/actions/getProjects";
 import getFavouriteProjects from '@/actions/getFavouriteProjects';
 
 export const revalidate = 0;
@@ -17,12 +16,12 @@ const Sidebar = async () => {
 
   const routes = [
     {
-      icon: RxDashboard,
+      icon: <RxDashboard size={25}/>,
       label: "Проекты",
       href: "/projects",
     },
     {
-      icon: RxAvatar,
+      icon: <RxAvatar size={25}/>,
       label: "Контакты",
       href: "/contacts",
     },

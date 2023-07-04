@@ -1,25 +1,24 @@
-// 'use client'
+'use client'
 
 import React from "react";
 import Link from "next/link";
 
 import { twMerge } from "tailwind-merge";
-import type { IconType } from "react-icons";
+import { usePathname } from 'next/navigation';
 
 interface SidebarItemsProps {
-  icon: IconType;
   label: string;
   href: string;
+  children: React.ReactNode;
 }
 
 const SidebarItem = ({
-  icon: Icon,
+  children,
   href,
   label,
 }: SidebarItemsProps) => {
-  
-  // const route = usePathname();
-  
+  const route = usePathname();
+
   return (
     <Link
       href={href}
@@ -39,10 +38,11 @@ const SidebarItem = ({
         hover:text-primary-text-dark
         transition
         `,
-        // route === href ? `text-primary-text-dark` : "text-secondary-text-dark"
+        route === href ? `text-primary-text-dark` : "text-secondary-text-dark"
       )}
     >
-      <Icon size={24} />
+      {children}
+      {/* <Icon size={24} /> */}
       <p className="truncate w-full hidden lg:flex">{label}</p>
     </Link>
   );

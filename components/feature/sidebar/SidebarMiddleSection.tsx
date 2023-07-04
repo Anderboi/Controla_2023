@@ -23,12 +23,12 @@ interface SectionProps {
 
 const secondaryRoutes = [
   {
-    icon: BiBell,
+    icon: <BiBell size={25}/>,
     label: "Уведомления",
     href: "/notifications",
   },
   {
-    icon: TbSettings2,
+    icon: <TbSettings2 size={25}/>,
     label: "Настройки",
     href: "/settings",
   },
@@ -70,29 +70,31 @@ const SidebarMiddleSection = ({ favProjects }: SectionProps) => {
         justify-between
         gap-y-2"
     >
-      <span className="
+      <span
+        className="
         hidden
         lg:flex
         font-bold
         text-xs
         text-secondary-text-dark
-        ">
+        "
+      >
         Избранное
       </span>
 
       <FavouriteContent projects={favProjects} />
 
-      <div className="
+      <div
+        className="
         flex
         flex-col
         justify-start
         align-top
-      ">
-        <SidebarItem
-          icon={CgAddR}
-          label="Создать проект"
-          href={"/new-project"}
-        />
+      "
+      >
+        <SidebarItem label="Создать проект" href={"/new-project"}>
+          <CgAddR size={25}/>
+        </SidebarItem>
       </div>
       <div className="flex flex-col gap-y-4">
         <Navigation navLinks={secondaryRoutes} />

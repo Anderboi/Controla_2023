@@ -1,11 +1,10 @@
 import React from "react";
 import SidebarItem from "./SidebarItem";
-import type { IconType } from "react-icons";
 
 export interface NavLink {
   label: string;
   href: string;
-  icon: IconType;
+  icon: React.ReactNode;
 }
 
 interface Props {
@@ -16,7 +15,7 @@ const Navigation = ({ navLinks }: Props) => {
   return (
     <nav className="flex flex-col">
       {navLinks.map((item) => (
-        <SidebarItem key={item.label} {...item} />
+        <SidebarItem key={item.label} {...item} >{item.icon}</SidebarItem>
       ))}
     </nav>
   );

@@ -25,7 +25,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
               cursor-pointer 
               group
               aspect-square
-              hover:bg-transparent-bg-dark/20
+              bg-elevated-1-bg-dark
+              hover:bg-elevated-2-bg-dark
               "
       onClick={() => onClick(data.id)}
     >

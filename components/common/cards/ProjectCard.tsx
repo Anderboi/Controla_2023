@@ -27,9 +27,9 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
         rounded-lg
         overflow-hidden
         gap-y-4
-        bg-transparent-bg-dark/10
+        bg-elevated-1-bg-dark
         cursor-pointer
-        hover:bg-transparent-bg-dark/20
+        hover:bg-elevated-2-bg-dark
         min-h-[335px]
         p-4
         "
