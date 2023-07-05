@@ -2,7 +2,7 @@
 
 import ContactCard from "@/components/common/cards/ContactCard";
 import Button from "@/components/common/inputs/Button";
-import { User } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 import React from "react";
 
 interface ContactsGalleryProps {

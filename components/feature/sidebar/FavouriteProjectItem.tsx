@@ -1,9 +1,9 @@
 import ContainerBox from "@/components/common/ContainerBox";
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 import React from "react";
 
 interface FavouriteProjectItemProps {
-  data: Project;
+  data: Database["public"]["Tables"]["projects"]["Row"];
   onClick?: (id: number) => void;
 }
 

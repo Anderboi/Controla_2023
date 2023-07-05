@@ -1,9 +1,11 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from 'next/headers';
 
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 
-const getCurrntProject = async (id: number): Promise<Project> => {
+
+
+const getCurrntProject = async (id: number): Promise<Database['public']['Tables']['projects']['Row']> => {
   const supabase = createServerComponentClient({cookies});
 
   const { data, error } = await supabase

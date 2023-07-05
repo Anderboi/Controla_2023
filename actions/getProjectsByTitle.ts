@@ -1,10 +1,12 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 import getProjects from "./getProjects";
 
-const getProjectsByTitle = async (title: string): Promise<Project[]> => {
+const getProjectsByTitle = async (
+  title: string
+): Promise<Database["public"]["Tables"]["projects"]["Row"][]> => {
   const supabase = createServerComponentClient({
     cookies: cookies,
   });

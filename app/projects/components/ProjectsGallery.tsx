@@ -4,10 +4,10 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import ProjectCard from "@/components/common/cards/ProjectCard";
 import Button from "@/components/common/inputs/Button";
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 
 interface ProjectsGalleryProps {
-  projects: Project[];
+  projects: Database["public"]["Tables"]["projects"]["Row"][];
 }
 
 const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
@@ -47,7 +47,7 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
       {projects.map((project) => (
         <ProjectCard
           onClick={() => {
-            route.push(`/projects/${project.project_id}/tabs/preProject`);
+            route.push(`/projects/${project.project_id}/preProject`);
           }}
           key={project.project_id}
           data={project}

@@ -26,7 +26,7 @@ const UploadProjectModal = () => {
       address_country: "",
       address_city: "",
       address_street: "",
-      // area: "",
+      area: "",
       design_team: [],
       client: "",
       cover_img: "",
@@ -55,7 +55,6 @@ const UploadProjectModal = () => {
 
       const uniqId = uniqid();
 
-      //TODO: Починить загрузку файла (ошибка в mime)
       //* Upload projectImage
       const { data: projectData, error: projectError } =
         await supabaseClient.storage
@@ -78,7 +77,7 @@ const UploadProjectModal = () => {
           address_country: values.address_country,
           address_city: values.address_city,
           address_street: values.address_street,
-          // area: values.area,
+          area: values.area,
           cover_img: projectData.path,
         });
 
@@ -130,13 +129,13 @@ const UploadProjectModal = () => {
           {...register("address_street", { required: true })}
           placeholder="Укажите улицу и номер дома / 'квартиры'"
         />
-        {/* <Input
+        <Input
           type="number"
           id="area"
           disabled={isLoading}
           {...register("area", { required: true })}
           placeholder="Укажите площадь объекта"
-        /> */}
+        />
         {/* //TODO: add choose client component */}
         {/* //TODO: add choose team component */}
         <div>

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "update-types": "npx supabase gen types typescript --project-id cjjfugdhjibjinwxogoz > types/supabase.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

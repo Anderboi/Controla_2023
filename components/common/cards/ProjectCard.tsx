@@ -1,13 +1,13 @@
 "use client";
 
 import useLoadImage from "@/hooks/useLoadImage";
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 import Image from "next/image";
 import React from "react";
 import FavouriteButton from "../../feature/FavouriteButton";
 
 interface ProjectCardProps {
-  data: Project;
+  data: Database["public"]["Tables"]["projects"]["Row"];
   onClick: (id: number) => void;
 }
 

@@ -13,12 +13,12 @@ import Navigation from "./Navigation";
 import { CgAddR } from "react-icons/cg";
 import { TbSettings2 } from "react-icons/tb";
 import { BiBell } from "react-icons/bi";
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 
 export const revalidate = 0;
 
 interface SectionProps {
-  favProjects: Project[];
+  favProjects: Database["public"]["Tables"]["projects"]["Row"][];
 }
 
 const secondaryRoutes = [

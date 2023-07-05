@@ -1,4 +1,3 @@
-import { Project } from "@/types/supabase";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 const useLoadImage = (

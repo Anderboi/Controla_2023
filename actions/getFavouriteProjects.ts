@@ -1,9 +1,11 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 
-const getFavouriteProjects = async (): Promise<Project[]> => {
+const getFavouriteProjects = async (): Promise<
+  Database["public"]["Tables"]["projects"]["Row"][]
+> => {
   const supabase = createServerComponentClient({
     cookies: cookies,
   });
@@ -32,8 +34,8 @@ const getFavouriteProjects = async (): Promise<Project[]> => {
     return [];
   }
 
-  return data.map((item)=> ({
-    ...item.project_id
+  return data.map((item) => ({
+    ...item.project_id,
   }));
 };
 

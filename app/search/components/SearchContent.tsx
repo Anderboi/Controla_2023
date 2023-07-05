@@ -1,11 +1,11 @@
 "use client";
 
 import ProjectCard from "@/components/common/cards/ProjectCard";
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 import React from "react";
 
 interface SearchContentProps {
-  data: Project[];
+  data: Database["public"]["Tables"]["projects"]["Row"][];
 }
 
 const SearchContent = ({ data }: SearchContentProps) => {

@@ -1,12 +1,12 @@
 "use client";
 
 import { useUser } from "@/hooks/useUser";
-import { Project } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 import React from "react";
 import FavouriteProjectItem from "./FavouriteProjectItem";
 
 interface FavContentProps {
-  projects: Project[];
+  projects: Database["public"]["Tables"]["projects"]["Row"][];
 }
 
 const FavouriteContent = ({ projects }: FavContentProps) => {

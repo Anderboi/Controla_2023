@@ -4,152 +4,257 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json | undefined }
-  | Json[];
-
-export interface Project {
-  address_city: string | null;
-  address_country: string | null;
-  address_street: string | null;
-  client_id: string | null;
-  cover_img: string | null;
-  created_at: string | null;
-  project_id: number;
-  user_id: string | null;
-}
-
-export interface User {
-  avatar_url: string | null;
-  billing_address: Json | null;
-  full_name: string | null;
-  id: string;
-  payment_method: Json | null;
-  email: string | null;
-  role: string | null;
-}
+  | Json[]
 
 export interface Database {
   public: {
     Tables: {
+      contacts: {
+        Row: {
+          contact: string | null
+          created_at: string | null
+          user_id: string
+        }
+        Insert: {
+          contact?: string | null
+          created_at?: string | null
+          user_id: string
+        }
+        Update: {
+          contact?: string | null
+          created_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contacts_contact_fkey"
+            columns: ["contact"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "contacts_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      favourite_projects: {
+        Row: {
+          created_at: string | null
+          project_id: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          project_id: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          project_id?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "favourite_projects_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["project_id"]
+          },
+          {
+            foreignKeyName: "favourite_projects_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      project_info: {
+        Row: {
+          created_at: string | null
+          premises: string | null
+          project_id: number
+          purpose: string | null
+          residing: number | null
+          storeys: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          premises?: string | null
+          project_id?: number
+          purpose?: string | null
+          residing?: number | null
+          storeys?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          premises?: string | null
+          project_id?: number
+          purpose?: string | null
+          residing?: number | null
+          storeys?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_info_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["project_id"]
+          }
+        ]
+      }
       projects: {
         Row: {
-          address_city: string | null;
-          address_country: string | null;
-          address_street: string | null;
-          client_id: string | null;
-          cover_img: string | null;
-          created_at: string | null;
-          project_id: number;
-          user_id: string | null;
-        };
+          address_city: string | null
+          address_country: string | null
+          address_street: string | null
+          area: number | null
+          client_id: string | null
+          cover_img: string | null
+          created_at: string | null
+          project_id: number
+          stage: string | null
+          user_id: string | null
+        }
         Insert: {
-          address_city?: string | null;
-          address_country?: string | null;
-          address_street?: string | null;
-          client_id?: string | null;
-          cover_img?: string | null;
-          created_at?: string | null;
-          project_id?: number;
-          user_id?: string | null;
-        };
+          address_city?: string | null
+          address_country?: string | null
+          address_street?: string | null
+          area?: number | null
+          client_id?: string | null
+          cover_img?: string | null
+          created_at?: string | null
+          project_id?: number
+          stage?: string | null
+          user_id?: string | null
+        }
         Update: {
-          address_city?: string | null;
-          address_country?: string | null;
-          address_street?: string | null;
-          client_id?: string | null;
-          cover_img?: string | null;
-          created_at?: string | null;
-          project_id?: number;
-          user_id?: string | null;
-        };
+          address_city?: string | null
+          address_country?: string | null
+          address_street?: string | null
+          area?: number | null
+          client_id?: string | null
+          cover_img?: string | null
+          created_at?: string | null
+          project_id?: number
+          stage?: string | null
+          user_id?: string | null
+        }
         Relationships: [
           {
-            foreignKeyName: "projects_client_id_fkey";
-            columns: ["client_id"];
-            referencedRelation: "users";
-            referencedColumns: ["id"];
+            foreignKeyName: "projects_client_id_fkey"
+            columns: ["client_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "projects_user_id_fkey";
-            columns: ["user_id"];
-            referencedRelation: "users";
-            referencedColumns: ["id"];
+            foreignKeyName: "projects_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
           }
-        ];
-      };
-      user_projects: {
+        ]
+      }
+      team_members: {
         Row: {
-          created_at: string | null;
-          project_id: number;
-          user_id: string;
-        };
+          created_at: string | null
+          team_id: string
+          user_id: string
+        }
         Insert: {
-          created_at?: string | null;
-          project_id: number;
-          user_id: string;
-        };
+          created_at?: string | null
+          team_id: string
+          user_id: string
+        }
         Update: {
-          created_at?: string | null;
-          project_id?: number;
-          user_id?: string;
-        };
+          created_at?: string | null
+          team_id?: string
+          user_id?: string
+        }
         Relationships: [
           {
-            foreignKeyName: "user_projects_project_id_fkey";
-            columns: ["project_id"];
-            referencedRelation: "projects";
-            referencedColumns: ["project_id"];
+            foreignKeyName: "team_members_team_id_fkey"
+            columns: ["team_id"]
+            referencedRelation: "teams"
+            referencedColumns: ["team_id"]
           },
           {
-            foreignKeyName: "user_projects_user_id_fkey";
-            columns: ["user_id"];
-            referencedRelation: "users";
-            referencedColumns: ["id"];
+            foreignKeyName: "team_members_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
           }
-        ];
-      };
+        ]
+      }
+      teams: {
+        Row: {
+          created_at: string | null
+          team_id: string
+          team_name: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          team_id: string
+          team_name?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          team_id?: string
+          team_name?: string | null
+        }
+        Relationships: []
+      }
       users: {
         Row: {
-          avatar_url: string | null;
-          billing_address: Json | null;
-          full_name: string | null;
-          id: string;
-          payment_method: Json | null;
-        };
+          avatar_url: string | null
+          billing_address: Json | null
+          email: string | null
+          full_name: string | null
+          id: string
+          payment_method: Json | null
+          role: string | null
+        }
         Insert: {
-          avatar_url?: string | null;
-          billing_address?: Json | null;
-          full_name?: string | null;
-          id: string;
-          payment_method?: Json | null;
-        };
+          avatar_url?: string | null
+          billing_address?: Json | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+          payment_method?: Json | null
+          role?: string | null
+        }
         Update: {
-          avatar_url?: string | null;
-          billing_address?: Json | null;
-          full_name?: string | null;
-          id?: string;
-          payment_method?: Json | null;
-        };
+          avatar_url?: string | null
+          billing_address?: Json | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          payment_method?: Json | null
+          role?: string | null
+        }
         Relationships: [
           {
-            foreignKeyName: "users_id_fkey";
-            columns: ["id"];
-            referencedRelation: "users";
-            referencedColumns: ["id"];
+            foreignKeyName: "users_id_fkey"
+            columns: ["id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
           }
-        ];
-      };
-    };
+        ]
+      }
+    }
     Views: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     Functions: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     Enums: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     CompositeTypes: {
-      [_ in never]: never;
-    };
-  };
+      [_ in never]: never
+    }
+  }
 }

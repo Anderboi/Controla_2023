@@ -3,11 +3,11 @@
 import React from "react";
 import ContainerBox from "../ContainerBox";
 import Image from "next/image";
-import { User } from "@/types/supabase";
+import { Database } from "@/types/supabase";
 import AddContactButton from "@/components/feature/AddContactButton";
 
 interface ContactCardProps {
-  data: User;
+  data: Database["public"]["Tables"]["users"]["Row"];
   onClick: (id: string) => void;
 }
 
