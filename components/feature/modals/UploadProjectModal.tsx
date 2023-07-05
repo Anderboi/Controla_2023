@@ -3,8 +3,12 @@
 import Modal from "@/components/common/Modal";
 import useUploadModal from "@/hooks/useUploadModal";
 import React, { useState } from "react";
-import CreateNewProject from "../NewProject";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import {
+  Controller,
+  FieldValues,
+  SubmitHandler,
+  useForm,
+} from "react-hook-form";
 import Input from "@/components/common/inputs/Input";
 import Button from "@/components/common/inputs/Button";
 import { toast } from "react-hot-toast";
@@ -12,6 +16,7 @@ import { useUser } from "@/hooks/useUser";
 import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -21,7 +26,7 @@ const UploadProjectModal = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { register, handleSubmit, reset } = useForm<FieldValues>({
+  const { register, handleSubmit, reset, control, formState: {errors} } = useForm<FieldValues>({
     defaultValues: {
       address_country: "",
       address_city: "",
@@ -96,7 +101,6 @@ const UploadProjectModal = () => {
       setIsLoading(false);
     }
   };
-
   return (
     <Modal
       title="Создать новый проект"
@@ -105,14 +109,41 @@ const UploadProjectModal = () => {
       onChange={onChange}
     >
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-3">
-        <Input
+        <Controller
+          name="address_country"
+          render={({ field: { name, onChange, value } }): any => (
+            <CountryDropdown
+              classes="
+              w-full
+              py-3
+              px-2
+              rounded-lg
+              "
+              value={value}
+              name={name}
+              defaultOptionLabel="Выберите страну"
+              id="address_country"
+              labelType="full"
+              valueType="short"
+              onChange={onChange}
+              priorityOptions={["RU", "BY", "KZ"]}
+            />
+          )}
+          control={control}
+        />
+        {errors.address_country && errors.root?.type === 'required' && (
+          <span>Необходимо заполнить</span>
+        )}
+        
+
+        {/* <Input
           maxLength={32}
           type="text"
           id="address_country"
           disabled={isLoading}
           {...register("address_country", { required: true })}
           placeholder="Укажите страну"
-        />
+        /> */}
         <Input
           maxLength={32}
           type="text"
