@@ -30,7 +30,7 @@ const SidebarItem = ({
         justify-center
         h-auto
         w-full
-        gap-x-3
+        gap-x-4
         py-2
         text-md
         font-semibold

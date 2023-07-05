@@ -20,21 +20,21 @@ const Chips = ({ children, href, ...props }: ChipsProps) => {
       href={href}
       className={twMerge(
         `
-      bg-elevated-1-bg-dark
-      px-4
-      py-2
-      rounded-full
-      text-secondary-text-dark
-      hover:bg-elevated-2-bg-dark
-      hover:text-primary-text-dark
-      whitespace-nowrap
-      border
-      border-transparent
-      w-full
-      h-fit
-      `,
+        bg-elevated-2-bg-dark
+        px-4
+        py-2
+        rounded-full
+        text-secondary-text-dark
+        hover:bg-elevated-3-bg-dark
+        hover:text-primary-text-dark
+        whitespace-nowrap
+        border
+        border-transparent
+        w-full
+        h-fit
+        `,
         exactRoute === href &&
-          "border-primary-text-dark text-primary-text-dark bg-elevated-3-bg-dark"
+          "border-primary-text-dark text-primary-bg-dark bg-primary-text-dark font-bold"
       )}
       // disabled={disabled}
       {...props}

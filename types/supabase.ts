@@ -74,7 +74,6 @@ export interface Database {
       project_info: {
         Row: {
           created_at: string | null
-          premises: string | null
           project_id: number
           purpose: string | null
           residing: number | null
@@ -82,7 +81,6 @@ export interface Database {
         }
         Insert: {
           created_at?: string | null
-          premises?: string | null
           project_id?: number
           purpose?: string | null
           residing?: number | null
@@ -90,7 +88,6 @@ export interface Database {
         }
         Update: {
           created_at?: string | null
-          premises?: string | null
           project_id?: number
           purpose?: string | null
           residing?: number | null
@@ -154,6 +151,34 @@ export interface Database {
             columns: ["user_id"]
             referencedRelation: "users"
             referencedColumns: ["id"]
+          }
+        ]
+      }
+      room_info: {
+        Row: {
+          area: number | null
+          name: string
+          project_id: number | null
+          room_id: number
+        }
+        Insert: {
+          area?: number | null
+          name: string
+          project_id?: number | null
+          room_id?: number
+        }
+        Update: {
+          area?: number | null
+          name?: string
+          project_id?: number | null
+          room_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "room_info_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["project_id"]
           }
         ]
       }
