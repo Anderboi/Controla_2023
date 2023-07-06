@@ -47,11 +47,29 @@ const UploadRoomsList = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async () => {
     try {
-      setIsLoading(true);
+      // setIsLoading(true);
+      // rooms.map((room, index) => {
+      //   (room.room_number = index),
+      //     (room.room_id = Number(
+      //       room.project_id?.toString() + index.toString()
+      //     ));
+      // });
+      // const newRooms = rooms.map((room, index)=> {
+      //   (room.room_id = Number(room.project_id?.toString() + index.toString())),
+      //     (room.room_number = index + 1);
+      // })
 
       const { error: supabaseError } = await supabaseClient
         .from("room_info")
-        .insert(rooms);
+        .insert(
+          rooms.map((room, index) => {
+            room.room_number = index+1;
+              room.room_id = Number(
+                room.project_id?.toString() + index.toString()
+              );
+              return room
+          })
+        );
 
       if (supabaseError) {
         return toast.error(supabaseError.message);
@@ -86,7 +104,7 @@ const UploadRoomsList = () => {
 
         <Input placeholder="Укажите название помещения" />
         <div className="flex flex-wrap gap-2">
-          {roomsList.map((room) => (
+          {roomsList.map((room, index) => (
             <Chips
               type="sm"
               className="text-white"
@@ -96,10 +114,8 @@ const UploadRoomsList = () => {
                   name: room.value,
                   project_id: projectId,
                   area: 4, //TODO: add area info
-                  room_id: Number(
-                    projectId.toString() + rooms.length.toString()
-                  ),
-                  room_number: rooms.length+1,
+                  room_id: Number(projectId.toString() + index.toString()),
+                  room_number: rooms.length + 1,
                 })
               }
             >
@@ -122,16 +138,20 @@ const UploadRoomsList = () => {
         >
           {rooms.map((item, index) => (
             <Chips
-              onClose={() => removeRoom(item.room_id)} //TODO: add id on remove logic
+              onClose={() => {
+                removeRoom(item.room_id);
+              }} //TODO: add id on remove logic
               isActive
               className=""
               type="md"
               hasRightIcon
             >
-              <span>{`${item.room_number?.toLocaleString("en-US", {
-                minimumIntegerDigits: 2,
-                useGrouping: false,
-              })}. ${item.name}`}</span>
+              <span>{
+              // `${item.room_number?.toLocaleString("en-US", {
+              //   minimumIntegerDigits: 2,
+              //   useGrouping: false,
+              // })}. 
+              `${item.name}`}</span>
             </Chips>
           ))}
         </div>
