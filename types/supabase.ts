@@ -160,18 +160,21 @@ export interface Database {
           name: string
           project_id: number | null
           room_id: number
+          room_number: number | null
         }
         Insert: {
           area?: number | null
           name: string
           project_id?: number | null
           room_id?: number
+          room_number?: number | null
         }
         Update: {
           area?: number | null
           name?: string
           project_id?: number | null
           room_id?: number
+          room_number?: number | null
         }
         Relationships: [
           {

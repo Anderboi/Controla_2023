@@ -1,21 +1,21 @@
 import React from "react";
-import ContainerBox from "@/components/common/ContainerBox";
 import getCurrntProject from "@/actions/getCurrentProject";
 import CommonInfoBlock from './components/CommonInfoBlock';
+import PremisesBlock from './components/PremisesBlock';
 
 const PreProject = async ({
-  searchParams,
   params,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
   params: { id: number };
 }) => {
-  console.log(searchParams);
 
   const project = await getCurrntProject(params.id);
+
   return (
     <>
-      <CommonInfoBlock project={project}/>
+      <CommonInfoBlock project={project} />
+      <PremisesBlock id={params.id} />
     </>
   );
 };

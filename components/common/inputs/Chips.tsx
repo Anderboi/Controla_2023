@@ -1,28 +1,43 @@
-"use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { twMerge } from "tailwind-merge";
+import { IoMdClose } from "react-icons/io";
+
 
 interface ChipsProps {
   // extends React.ButtonHTMLAttributes<HTMLButtonElement>
-  children: string;
-  href: string;
+  children: string | React.ReactNode;
+  // href: string;
+  onClick?: () => void;
+  onClose?: () => void;
+  isActive?: boolean;
+  type?: "sm" | "md" | "lg";
+  className?: string;
+  hasRightIcon?: boolean;
 }
 
-const Chips = ({ children, href, ...props }: ChipsProps) => {
-  const route = usePathname();
-  const exactRoute = route.split("/")[route.split("/").length - 1];
-
+const Chips = ({
+  children,
+  onClick,
+  onClose,
+  type,
+  isActive,
+  hasRightIcon,
+  className,
+  ...props
+}: ChipsProps) => {
   return (
-    <Link
-      href={href}
+    <div
+      onClick={onClick}
       className={twMerge(
         `
-        bg-elevated-2-bg-dark
+        flex
+        items-center
+        gap-4
+        bg-transparent-bg-dark/10
         px-4
-        py-2
+        py-1
         rounded-full
         text-secondary-text-dark
         hover:bg-elevated-3-bg-dark
@@ -30,17 +45,23 @@ const Chips = ({ children, href, ...props }: ChipsProps) => {
         whitespace-nowrap
         border
         border-transparent
-        w-full
+        w-fit
         h-fit
+        cursor-pointer
+        text-base
         `,
-        exactRoute === href &&
-          "border-primary-text-dark text-primary-bg-dark bg-primary-text-dark font-bold"
+        isActive &&
+          "border-primary-text-dark text-primary-bg-dark bg-primary-text-dark font-bold",
+        type === "sm" && "text-xs",
+        type === "md" && "",
+        type === "lg" && "text-lg",
+        className
       )}
-      // disabled={disabled}
       {...props}
     >
       {children}
-    </Link>
+      {hasRightIcon && <IoMdClose onClick={onClose}/>}
+    </div>
   );
 };
 

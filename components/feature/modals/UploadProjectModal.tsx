@@ -18,6 +18,8 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
+// const cid = require("@4a/cid");
+
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
   const { user } = useUser();
@@ -59,6 +61,7 @@ const UploadProjectModal = () => {
       }
 
       const uniqId = uniqid();
+      // const projId = cid(15)
 
       //* Upload projectImage
       const { data: projectData, error: projectError } =
@@ -78,6 +81,7 @@ const UploadProjectModal = () => {
       const { error: supabaseError } = await supabaseClient
         .from("projects")
         .insert({
+          // project_id: 8,
           user_id: user.id,
           address_country: values.address_country,
           address_city: values.address_city,
@@ -91,6 +95,8 @@ const UploadProjectModal = () => {
       }
 
       router.refresh();
+      // router.push(`/${8}/preProject`);
+
       setIsLoading(false);
       toast.success("Проект создан");
       reset();
@@ -101,6 +107,7 @@ const UploadProjectModal = () => {
       setIsLoading(false);
     }
   };
+
   return (
     <Modal
       title="Создать новый проект"
@@ -109,7 +116,7 @@ const UploadProjectModal = () => {
       onChange={onChange}
     >
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-3">
-        <Controller
+        {/* <Controller
           name="address_country"
           render={({ field: { name, onChange, value } }): any => (
             <CountryDropdown
@@ -133,17 +140,17 @@ const UploadProjectModal = () => {
         />
         {errors.address_country && errors.root?.type === 'required' && (
           <span>Необходимо заполнить</span>
-        )}
+        )} */}
         
 
-        {/* <Input
+        <Input
           maxLength={32}
           type="text"
           id="address_country"
           disabled={isLoading}
           {...register("address_country", { required: true })}
           placeholder="Укажите страну"
-        /> */}
+        />
         <Input
           maxLength={32}
           type="text"

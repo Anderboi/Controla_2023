@@ -6,7 +6,7 @@ interface ModalProps {
   isOpen: boolean;
   onChange: (open: boolean) => void;
   title: string;
-  description: string;
+  description?: string;
   children: React.ReactNode;
 }
 
@@ -22,10 +22,12 @@ const Modal = ({
       <Dialog.Portal>
         <Dialog.Overlay
           className="
-        bg-secondary-bg-dark/80 
-        backdrop-blur-sm 
-        fixed 
-        inset-0"
+          bg-secondary-bg-dark/80 
+          backdrop-blur-sm 
+          fixed 
+          inset-0
+          z-20
+          "
         />
         <Dialog.Content
           className="
@@ -34,9 +36,9 @@ const Modal = ({
           left-[50%]
           max-h-full
           h-full
+          overflow-y-auto //TODO: add on lower part of modal
           md:h-auto
           md:max-h-[85vh]
-          w-full
           md:w-[90vw]
           md:max-w-[450px]
           translate-x-[-50%]
@@ -45,6 +47,7 @@ const Modal = ({
           bg-elevated-2-bg-dark
           p-6
           focus:outline-none
+          z-50
           "
         >
           <Dialog.Title
