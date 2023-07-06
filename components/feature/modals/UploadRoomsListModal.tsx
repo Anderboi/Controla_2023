@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useUploadRoomsModal from "@/hooks/useUploadRoomsModal";
 import usePopulateRoomsList from "@/hooks/usePopulateRoomsList";
 
@@ -13,7 +12,6 @@ import Button from "@/components/common/inputs/Button";
 import Chips from "@/components/common/inputs/Chips";
 
 import { toast } from "react-hot-toast";
-import uniqid from "uniqid";
 import roomsList from "@/lib/roomsList";
 
 const UploadRoomsList = () => {
@@ -25,49 +23,35 @@ const UploadRoomsList = () => {
   const projectId = Number(pathname.split("/")[pathname.split("/").length - 2]);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [inputText, setInputText] = useState("");
 
   const { addRoom, removeRoom, rooms, cleanList } = usePopulateRoomsList();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    control,
-    formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {},
-  });
-
   const onChange = (open: boolean) => {
     if (!open) {
-      reset();
       uploadModal.onClose();
     }
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = async () => {
+  const onSubmit = async () => {
     try {
-      // setIsLoading(true);
-      // rooms.map((room, index) => {
-      //   (room.room_number = index),
-      //     (room.room_id = Number(
-      //       room.project_id?.toString() + index.toString()
-      //     ));
-      // });
-      // const newRooms = rooms.map((room, index)=> {
-      //   (room.room_id = Number(room.project_id?.toString() + index.toString())),
-      //     (room.room_number = index + 1);
-      // })
+      setIsLoading(true);
+      rooms.map((room, index) => {
+        (room.room_number = index),
+          (room.room_id = Number(
+            room.project_id?.toString() + index.toString()
+          ));
+      });
 
       const { error: supabaseError } = await supabaseClient
         .from("room_info")
         .insert(
           rooms.map((room, index) => {
-            room.room_number = index+1;
-              room.room_id = Number(
-                room.project_id?.toString() + index.toString()
-              );
-              return room
+            room.room_number = index + 1;
+            room.room_id = Number(
+              room.project_id?.toString() + index.toString()
+            );
+            return room;
           })
         );
 
@@ -79,7 +63,6 @@ const UploadRoomsList = () => {
       setIsLoading(false);
       cleanList();
       toast.success("Помещения добавлены");
-      reset();
       uploadModal.onClose();
     } catch (error) {
       toast.error("error.message");
@@ -87,6 +70,7 @@ const UploadRoomsList = () => {
       setIsLoading(false);
     }
   };
+
   return (
     <Modal
       title="Создать перечень помещений"
@@ -95,14 +79,32 @@ const UploadRoomsList = () => {
       onChange={onChange}
     >
       <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-y-3 h-fit"
-      >
-        {errors.address_country && errors.root?.type === "required" && (
-          <span>Необходимо заполнить</span>
-        )}
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("dsfsdfsdfsdf");
 
-        <Input placeholder="Укажите название помещения" />
+          addRoom({
+            name: inputText,
+            area: null,
+            project_id: projectId,
+            room_id: rooms.length + 1,
+            room_number: null,
+          });
+          setInputText("");
+        }}
+      >
+        <Input
+          type="text"
+          onChange={(e) => {
+            setInputText(e.target.value);
+          }}
+          placeholder="Укажите название помещения"
+          value={inputText}
+          name="name"
+          id="name"
+        />
+      </form>
+      <div className="flex flex-col gap-y-3 h-fit">
         <div className="flex flex-wrap gap-2">
           {roomsList.map((room, index) => (
             <Chips
@@ -113,7 +115,7 @@ const UploadRoomsList = () => {
                 addRoom({
                   name: room.value,
                   project_id: projectId,
-                  area: 4, //TODO: add area info
+                  area: null, //TODO: add area info
                   room_id: Number(projectId.toString() + index.toString()),
                   room_number: rooms.length + 1,
                 })
@@ -140,23 +142,18 @@ const UploadRoomsList = () => {
             <Chips
               onClose={() => {
                 removeRoom(item.room_id);
-              }} //TODO: add id on remove logic
+              }}
               isActive
               className=""
               type="md"
               hasRightIcon
             >
-              <span>{
-              // `${item.room_number?.toLocaleString("en-US", {
-              //   minimumIntegerDigits: 2,
-              //   useGrouping: false,
-              // })}. 
-              `${item.name}`}</span>
+              <span>{item.name}</span>
             </Chips>
           ))}
         </div>
-
         <Button
+          onClick={onSubmit}
           disabled={isLoading}
           type="submit"
           mode="action"
@@ -164,7 +161,7 @@ const UploadRoomsList = () => {
         >
           Добавить
         </Button>
-      </form>
+      </div>
     </Modal>
   );
 };
