@@ -45,8 +45,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       />
       <div
         className="
-          relative 
-          
+          relative
           w-full 
           h-full 
           rounded-lg 

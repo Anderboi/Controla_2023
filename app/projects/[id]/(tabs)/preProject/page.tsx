@@ -2,6 +2,7 @@ import React from "react";
 import getCurrntProject from "@/actions/getCurrentProject";
 import CommonInfoBlock from './components/CommonInfoBlock';
 import PremisesBlock from './components/PremisesBlock';
+import EngeneeringSystemsBlock from './components/EngeneeringSystemsBlock';
 
 const PreProject = async ({
   params,
@@ -16,6 +17,7 @@ const PreProject = async ({
     <>
       <CommonInfoBlock project={project} />
       <PremisesBlock id={params.id} />
+      <EngeneeringSystemsBlock/>
     </>
   );
 };
