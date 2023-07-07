@@ -11,7 +11,7 @@ const ProjectPage = async ({ params, children }: { params: { id: number }, child
   const project = await getCurrntProject(+params.id);
 
   return (
-    <section className="h-full flex flex-col gap-y-2 w-full">
+    <section className="flex flex-col gap-y-2 w-full h-fit min-h-full">
       <Header
         title={project.address_street || ""}
         subtitle={project.address_country || ""}
@@ -19,8 +19,7 @@ const ProjectPage = async ({ params, children }: { params: { id: number }, child
         addressDetails={project?.address_city || ""}
         startDate={project.created_at || ""}
       />
-      {/* <Image alt='cover' src={project?.cover_img || ''} width={150} height={150}/> */}
-      <ContainerBox classname="h-full w-full">
+      <ContainerBox classname="">
         <TabsBar/>
         <div className='flex flex-col gap-y-6'>{children}</div>
       </ContainerBox>

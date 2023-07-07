@@ -22,9 +22,9 @@ const Modal = ({
       <Dialog.Portal>
         <Dialog.Overlay
           className="
-          bg-secondary-bg-dark/80 
-          backdrop-blur-sm 
-          fixed 
+          bg-secondary-bg-dark/80
+          backdrop-blur-sm
+          fixed
           inset-0
           z-20
           "
@@ -36,13 +36,14 @@ const Modal = ({
           left-[50%]
           max-h-full
           h-full
-          overflow-y-auto //TODO: add on lower part of modal
+           //TODO: add on lower part of modal
           md:h-auto
-          md:max-h-[85vh]
+          md:max-h-[65vh]
           md:w-[90vw]
           md:max-w-[450px]
           translate-x-[-50%]
           translate-y-[-50%]
+          overflow-clip
           rounded-lg
           bg-elevated-2-bg-dark
           p-6
@@ -71,7 +72,9 @@ const Modal = ({
           >
             {description}
           </Dialog.Description>
-          <div>{children}</div>
+          <div>
+            {children}
+          </div>
           <Dialog.Close asChild>
             <button
               className="

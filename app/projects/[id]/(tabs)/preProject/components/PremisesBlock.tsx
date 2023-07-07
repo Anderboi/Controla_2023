@@ -27,8 +27,8 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
             "
         >
           {premises.length === 0 ? (
-            <div className="flex flex-col justify-center items-center">
-              <span className="text-center py-6">Нет помещений</span>
+            <div className="flex flex-col justify-center items-center w-full">
+              <span className="text-center py-4">Нет назначенных помещений</span>
               <AddRoomsBlock />
             </div>
           ) : (

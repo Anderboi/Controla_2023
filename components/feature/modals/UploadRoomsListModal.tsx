@@ -29,6 +29,7 @@ const UploadRoomsList = () => {
 
   const onChange = (open: boolean) => {
     if (!open) {
+      cleanList();
       uploadModal.onClose();
     }
   };
@@ -104,7 +105,7 @@ const UploadRoomsList = () => {
           id="name"
         />
       </form>
-      <div className="flex flex-col gap-y-3 h-fit">
+      <div className="flex flex-col gap-y-3 pt-6 h-fit">
         <div className="flex flex-wrap gap-2">
           {roomsList.map((room, index) => (
             <Chips
@@ -134,17 +135,19 @@ const UploadRoomsList = () => {
             border-t-2 
             border-primary-border-dark 
             pt-4
-            overflow-y-auto
+            max-h-[20vh]
+            overflow-y-scroll
+            no-scrollbar
             h-fit
             "
         >
           {rooms.map((item, index) => (
             <Chips
+              key={index}
               onClose={() => {
                 removeRoom(item.room_id);
               }}
               isActive
-              className=""
               type="md"
               hasRightIcon
             >
