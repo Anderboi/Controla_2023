@@ -19,7 +19,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       onClick={() => onClick(data.project_id)}
       className="
         relative
-        group 
+        group
         flex
         flex-col
         items-center
@@ -30,7 +30,6 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
         bg-elevated-1-bg-dark
         cursor-pointer
         hover:bg-elevated-2-bg-dark
-        min-h-[335px]
         p-4
         "
     >
@@ -46,12 +45,14 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       <div
         className="
           relative
-          w-full 
-          h-full 
-          rounded-lg 
+          w-full
+          h-full
+          rounded-lg
           overflow-hidden
           saturate-0
           group-hover:saturate-100
+          aspect-square
+          drop-shadow-spt
           "
       >
         {imagePath ? (
@@ -100,11 +101,13 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
           className="
             text-secondary-text-dark
             text-sm
-            truncate
+            //truncate
+            line-clamp-2
+            min-h-[2lh]
             "
         >
-          <span className="font-bold">Area: </span>
-          {data.address_city}
+          <span className="font-bold">Площадь: </span>
+          {`${data.area} кв.м.`}
         </p>
       </div>
     </div>

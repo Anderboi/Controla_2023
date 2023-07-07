@@ -40,7 +40,15 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           "
       />
 
-      <div className="relative w-full h-full">
+      <div
+        className="
+        relative 
+        w-full 
+        h-full
+        aspect-square
+        drop-shadow-spt
+      "
+      >
         <Image
           alt="avatar"
           src={data.avatar_url || ""}
@@ -48,9 +56,13 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           className="rounded-full aspect-square"
         />
       </div>
-
-      <div className="w-full items-start">
-        <p className="line-clamp-2 min-h-[2lh] font-bold">{data.full_name}</p>
+      <div className="
+          w-full 
+          items-start
+          flex flex-col
+          gap-y-1
+          ">
+        <p className="line-clamp-1 font-bold">{data.full_name}</p>
         <p className="text-xs truncate text-secondary-text-dark">
           {data.email}
         </p>

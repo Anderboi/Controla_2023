@@ -19,6 +19,7 @@ const ProjectsPage = async () => {
         no-scrollbar
         ">
           <ProjectsGallery projects={projects} />
+          
       </ContainerBox>
     </>
   );

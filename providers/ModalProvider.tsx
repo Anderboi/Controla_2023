@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import UploadRoomModal from "@/components/feature/modals/UploadRoomsListModal";
 import UploadModal from "@/components/feature/modals/UploadProjectModal";
 import AuthModal from "@/components/feature/modals/AuthModal";
+import ConditionModal from '@/components/feature/modals/engeneering/ConditionModal';
 
 const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -22,6 +23,7 @@ const ModalProvider = () => {
       <AuthModal />
       <UploadModal />
       <UploadRoomModal />
+      <ConditionModal/>
     </>
   );
 };

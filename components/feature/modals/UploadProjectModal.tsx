@@ -4,7 +4,6 @@ import Modal from "@/components/common/Modal";
 import useUploadModal from "@/hooks/useUploadModal";
 import React, { useState } from "react";
 import {
-  Controller,
   FieldValues,
   SubmitHandler,
   useForm,
@@ -16,9 +15,7 @@ import { useUser } from "@/hooks/useUser";
 import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
-import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
-// const cid = require("@4a/cid");
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
