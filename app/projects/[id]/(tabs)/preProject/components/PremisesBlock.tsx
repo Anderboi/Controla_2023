@@ -1,11 +1,11 @@
-import React from 'react'
-import ContainerBox from '@/components/common/ContainerBox'
-import getPremises from '@/actions/getPremises'
-import AddRoomsBlock from './AddRoomsBlock';
-import Button from '@/components/common/inputs/Button';
+import React from "react";
+import ContainerBox from "@/components/common/ContainerBox";
+import getPremises from "@/actions/getPremises";
+import AddRoomsBlock from "./AddRoomsBlock";
+import Button from "@/components/common/inputs/Button";
 
 interface PremisesBlockProps {
-  id: number,
+  id: number;
 }
 
 const PremisesBlock = async ({ id }: PremisesBlockProps) => {
@@ -21,14 +21,35 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
             <AddRoomsBlock />
           </div>
         ) : (
-          <>
+          <div className="flex gap-2 overflow-auto no-scrollbar">
             {premises.map((item) => (
-              <div>{`${item.room_number?.toLocaleString("en-US", {
-                minimumIntegerDigits: 2,
-                useGrouping: false,
-              })}. ${item.name}`}</div>
+              <div
+                className="
+                bg-elevated-2-bg-dark 
+                p-2 
+                min-h-[150px] 
+                min-w-[140px]
+                flex 
+                flex-col 
+                items-end 
+                text-end 
+                justify-between
+                rounded-lg
+                hover:bg-elevated-3-bg-dark
+                cursor-pointer
+                break-words
+                "
+              >
+                <span className="text-6xl text-opacity-20 text-secondary-text-dark">
+                  {item.room_number?.toLocaleString("en-US", {
+                    minimumIntegerDigits: 2,
+                    useGrouping: false,
+                  })}
+                </span>
+                <span>{item.name}</span>
+              </div>
             ))}
-          </>
+          </div>
         )}
         {/* <AddRoomsBlock /> */}
       </ContainerBox>
@@ -36,4 +57,4 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
   );
 };
 
-export default PremisesBlock
+export default PremisesBlock;
