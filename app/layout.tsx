@@ -38,7 +38,6 @@ export default function RootLayout({
                 flex 
                 flex-col
                 w-full
-                h-screen
                 bg-black
                 px-2
                 py-2

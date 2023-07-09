@@ -1,13 +1,13 @@
 import React from "react";
-import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
-import { RxDashboard, RxAvatar } from "react-icons/rx";
-
-import UserSidebarBlock from "./UserSidebarBlock";
 import Link from "next/link";
+import ContainerBox from "../../common/ContainerBox";
 import Navigation from "./Navigation";
 import SidebarMiddleSection from "./SidebarMiddleSection";
+
+import UserSidebarBlock from "./UserSidebarBlock";
 import getFavouriteProjects from '@/actions/getFavouriteProjects';
+import { RxDashboard, RxAvatar } from "react-icons/rx";
 
 export const revalidate = 0;
 

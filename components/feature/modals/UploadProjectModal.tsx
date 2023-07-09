@@ -113,33 +113,6 @@ const UploadProjectModal = () => {
       onChange={onChange}
     >
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-3">
-        {/* <Controller
-          name="address_country"
-          render={({ field: { name, onChange, value } }): any => (
-            <CountryDropdown
-              classes="
-              w-full
-              py-3
-              px-2
-              rounded-lg
-              "
-              value={value}
-              name={name}
-              defaultOptionLabel="Выберите страну"
-              id="address_country"
-              labelType="full"
-              valueType="short"
-              onChange={onChange}
-              priorityOptions={["RU", "BY", "KZ"]}
-            />
-          )}
-          control={control}
-        />
-        {errors.address_country && errors.root?.type === 'required' && (
-          <span>Необходимо заполнить</span>
-        )} */}
-        
-
         <Input
           maxLength={32}
           type="text"

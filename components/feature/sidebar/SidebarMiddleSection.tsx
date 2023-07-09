@@ -40,7 +40,6 @@ const secondaryRoutes = [
 ];
 
 const SidebarMiddleSection = ({ favProjects }: SectionProps) => {
-  const authModal = useAuthModal();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
 

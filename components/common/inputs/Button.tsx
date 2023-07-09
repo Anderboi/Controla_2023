@@ -22,7 +22,6 @@ const Button = ({
         `
         font-bold
         py-3
-        
         transition
         border
         border-transparent
@@ -32,8 +31,8 @@ const Button = ({
           : "px-6 rounded-lg",
         mode === "ghost" &&
           `
-          bg-transparent-bg-dark/10
-          hover:bg-transparent-bg-dark/20`,
+          bg-elevated-1-bg-dark
+          hover:bg-elevated-2-bg-dark`,
         mode === "action" &&
           `
           border-accent-dark

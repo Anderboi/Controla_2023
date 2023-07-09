@@ -50,10 +50,6 @@ const Header = ({
     return uploadModal.onOpen();
   };
   
-
-  console.log(startDate && new Date(startDate));
-  
-
   return (
     <ContainerBox
       classname={twMerge(
