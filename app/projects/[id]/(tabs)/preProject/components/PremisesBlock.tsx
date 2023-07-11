@@ -2,7 +2,7 @@ import React from "react";
 import ContainerBox from "@/components/common/ContainerBox";
 import getPremises from "@/actions/getPremises";
 import AddRoomsBlock from "./AddRoomsBlock";
-import ContentBlock from '@/components/common/ContentBlock';
+import ContentBlock from "@/components/common/ContentBlock";
 
 interface PremisesBlockProps {
   id: number;
@@ -13,7 +13,13 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
 
   return (
     <>
-      <ContentBlock title="Состав помещений">
+      <ContentBlock
+        title={
+          premises.length === 0
+            ? "Состав помещений"
+            : "Состав помещений и наполнение"
+        }
+      >
         <ContainerBox
           classname="
             bg-elevated-1-bg-dark 
@@ -28,7 +34,9 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
         >
           {premises.length === 0 ? (
             <div className="flex flex-col justify-center items-center w-full">
-              <span className="text-center py-4">Нет назначенных помещений</span>
+              <span className="text-center py-4">
+                Нет назначенных помещений
+              </span>
               <AddRoomsBlock />
             </div>
           ) : (
@@ -51,7 +59,8 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                   break-words
                   "
                 >
-                  <span className="
+                  <span
+                    className="
                     text-6xl
                     text-opacity-20
                     text-secondary-text-dark

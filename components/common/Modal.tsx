@@ -34,8 +34,8 @@ const Modal = ({
           fixed
           top-[50%]
           left-[50%]
-          max-h-full
-          h-full
+          h-[98%]
+          w-[96%]
            //TODO: add on lower part of modal
           md:h-auto
           md:max-h-[65vh]
@@ -54,7 +54,6 @@ const Modal = ({
           <Dialog.Title
             className="
             text-2xl
-            text-center
             font-bold
             mb-4
             "
@@ -72,7 +71,7 @@ const Modal = ({
           >
             {description}
           </Dialog.Description>
-          <div>
+          <div className=''>
             {children}
           </div>
           <Dialog.Close asChild>

@@ -2,7 +2,7 @@ import React from "react";
 
 interface InfoBlockProps {
   label: string;
-  body: string;
+  body: string | React.ReactElement;
 }
 
 const InfoBlock = ({ body, label }: InfoBlockProps) => {

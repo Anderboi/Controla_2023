@@ -1,11 +1,6 @@
 import { Database } from "@/types/supabase";
 import { create } from "zustand";
 
-// interface Room {
-//   id: string;
-//   name: string;
-// }
-
 type Room = Database["public"]["Tables"]["room_info"]["Row"];
 
 interface RoomsListStore {

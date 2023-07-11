@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   mode: "ghost" | "action" | "ghost_accent";
   corner?: "round" | "square";
+  size?: "small" | "medium" | "large";
 }
 
 const Button = ({
@@ -12,7 +13,8 @@ const Button = ({
   disabled,
   type = "button",
   mode,
-  corner = 'square',
+  size,
+  corner = "square",
   ...props
 }: ButtonProps) => {
   return (
@@ -31,7 +33,7 @@ const Button = ({
           : "px-6 rounded-lg",
         mode === "ghost" &&
           `
-          bg-elevated-1-bg-dark
+          bg-transparent
           hover:bg-elevated-2-bg-dark`,
         mode === "action" &&
           `
@@ -41,7 +43,7 @@ const Button = ({
           hover:bg-accent-dark/75
           hover:text-black-dark
           `,
-
+        size === "small" && `py-2 px-4 text-sm`,
         className
       )}
       disabled={disabled}

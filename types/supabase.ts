@@ -40,6 +40,34 @@ export interface Database {
           }
         ]
       }
+      engeneering_data: {
+        Row: {
+          conditioning: string[] | null
+          heating: string[] | null
+          plumbing: string[] | null
+          project_id: number
+        }
+        Insert: {
+          conditioning?: string[] | null
+          heating?: string[] | null
+          plumbing?: string[] | null
+          project_id?: number
+        }
+        Update: {
+          conditioning?: string[] | null
+          heating?: string[] | null
+          plumbing?: string[] | null
+          project_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "engeneering_data_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["project_id"]
+          }
+        ]
+      }
       favourite_projects: {
         Row: {
           created_at: string | null

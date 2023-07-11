@@ -82,8 +82,7 @@ const UploadRoomsList = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("dsfsdfsdfsdf");
-
+          
           addRoom({
             name: inputText,
             area: null,

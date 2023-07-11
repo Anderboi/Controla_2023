@@ -16,6 +16,7 @@ const ProjectsPage = async () => {
       <ContainerBox classname="
         overflow-y-auto
         no-scrollbar
+        h-full
         ">
           <ProjectsGallery projects={projects} />
           

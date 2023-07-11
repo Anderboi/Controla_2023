@@ -1,60 +1,77 @@
 import React from "react";
-import Link from "next/link";
 
 import ContainerBox from "@/components/common/ContainerBox";
 import ContentBlock from "@/components/common/ContentBlock";
-
-import useConditionModal from "@/hooks/engeneering/useConditionModal";
-import useUploadModal from "@/hooks/useUploadModal";
+import InfoBlock from "@/components/feature/infoblock/InfoBlock";
+import getEngeneeringData from "@/actions/getEngeneeringData";
+import AddEngSysButton from './inputs/AddEngSysButton';
 
 const engSystems = [
-  { label: "Система кондиционирования", name: "conditioning" },
-  { label: "Система водоочистки" },
-  { label: "Система отопления" },
-  { label: "Система электроснабжения" },
+  { label: "Система кондиционирования и вентиляции", name: "conditioning" },
+  { label: "Система водоподготовки и фильтрации", name: "plumbing" },
+  { label: "Система отопления", name: "heating" },
 ];
 
-const EngeneeringSystemsBlock = () => {
-
+const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
+  const engData = await getEngeneeringData(id);
 
   return (
     <>
       <ContentBlock title="Инженерные системы">
-        <div
-          className="
-          w-full
-          px-6
-          py-2
-          flex
-          flex-row
-          gap-6
-          overflow-auto
-          "
+        <ContainerBox
+          classname="
+            flex 
+            flex-col 
+            gap-y-1
+            justify-center
+            items-center
+            bg-elevated-1-bg-dark 
+            text-primary-text-dark
+            "
         >
-          {engSystems.map((item) => (
-            // <Link href={`?name=${item}`}>
-            // <Link href={`preProject/engModal`}>
-              <ContainerBox
-                type="card"
-                classname="
-              w-[184px]
-              min-h-[230px]
-              break-all
-              bg-elevated-1-bg-dark
-              flex
-              flex-col
-              justify-between
-              items-end
-              text-end
-              hover:bg-elevated-2-bg-dark
-              "
-              >
-                <div>sd</div>
-                <p>{item.label}</p>
-              </ContainerBox>
-            // </Link>
-          ))}
-        </div>
+          {engSystems.map((item) => {
+            return (
+              <>
+                {item.name === "conditioning" && (
+                  <InfoBlock
+                    label={`${item.label}:`}
+                    body={
+                      engData?.conditioning ? (
+                        `${engData?.conditioning?.map((i) => i)}`
+                      ) : (
+                        <AddEngSysButton type={item.name} />
+                      )
+                    }
+                  />
+                )}
+                {item.name === "heating" && (
+                  <InfoBlock
+                    label={`${item.label}:`}
+                    body={
+                      engData?.heating ? (
+                        `${engData?.heating?.map((i) => i)}`
+                      ) : (
+                        <AddEngSysButton type={item.name} />
+                      )
+                    }
+                  />
+                )}
+                {item.name === "plumbing" && (
+                  <InfoBlock
+                    label={`${item.label}:`}
+                    body={
+                      engData.plumbing ? (
+                        `${engData?.plumbing?.forEach((i) => i)}`
+                      ) : (
+                        <AddEngSysButton type={item.name} />
+                      )
+                    }
+                  />
+                )}
+              </>
+            );
+          })}
+        </ContainerBox>
       </ContentBlock>
     </>
   );
