@@ -61,7 +61,7 @@ const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
                     label={`${item.label}:`}
                     body={
                       engData.plumbing ? (
-                        `${engData?.plumbing?.forEach((i) => i)}`
+                        `${engData?.plumbing?.map((i) => i)}`
                       ) : (
                         <AddEngSysButton type={item.name} />
                       )

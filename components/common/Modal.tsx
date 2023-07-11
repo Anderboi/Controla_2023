@@ -22,8 +22,8 @@ const Modal = ({
       <Dialog.Portal>
         <Dialog.Overlay
           className="
-          bg-secondary-bg-dark/80
-          backdrop-blur-sm
+          bg-secondary-bg-dark/90
+          backdrop-blur-md
           fixed
           inset-0
           z-20
@@ -45,7 +45,7 @@ const Modal = ({
           translate-y-[-50%]
           overflow-clip
           rounded-lg
-          bg-elevated-2-bg-dark
+          bg-elevated-1-bg-dark
           p-6
           focus:outline-none
           z-50
