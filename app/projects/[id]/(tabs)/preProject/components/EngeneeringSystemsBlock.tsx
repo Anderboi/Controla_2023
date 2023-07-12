@@ -20,10 +20,10 @@ const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
       <ContentBlock title="Инженерные системы">
         <ContainerBox
           classname="
-            flex 
-            flex-col 
-            gap-y-1
+            flex
+            flex-col
             justify-center
+            divide-y-[0.5px]
             items-center
             bg-elevated-1-bg-dark 
             text-primary-text-dark
@@ -37,9 +37,13 @@ const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
                     label={`${item.label}:`}
                     body={
                       engData?.conditioning ? (
-                        `${engData?.conditioning?.map((i) => i)}`
+                        <div className="flex flex-col gap-y-1 ">
+                          {engData?.conditioning?.map((i) => (
+                            <span>{`- ${i}`}</span>
+                          ))}
+                        </div>
                       ) : (
-                        <AddEngSysButton type={item.name} />
+                        <AddEngSysButton className="w-full" type={item.name} />
                       )
                     }
                   />
@@ -49,9 +53,13 @@ const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
                     label={`${item.label}:`}
                     body={
                       engData?.heating ? (
-                        `${engData?.heating?.map((i) => i)}`
+                        <div className="flex flex-col">
+                          {engData?.heating?.map((i) => (
+                            <span>{`- ${i}`}</span>
+                          ))}
+                        </div>
                       ) : (
-                        <AddEngSysButton type={item.name} />
+                        <AddEngSysButton className="w-full" type={item.name} />
                       )
                     }
                   />
@@ -61,9 +69,13 @@ const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
                     label={`${item.label}:`}
                     body={
                       engData.plumbing ? (
-                        `${engData?.plumbing?.map((i) => i)}`
+                        <div className="flex flex-col">
+                          {engData?.plumbing?.map((i) => (
+                            <span>{`- ${i}`}</span>
+                          ))}
+                        </div>
                       ) : (
-                        <AddEngSysButton type={item.name} />
+                        <AddEngSysButton className="w-full" type={item.name} />
                       )
                     }
                   />

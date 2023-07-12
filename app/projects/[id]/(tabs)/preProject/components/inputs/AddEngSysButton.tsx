@@ -5,48 +5,23 @@ import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import React from "react";
 
 interface Props {
-  type: string;
+  type: "heating" | "conditioning" | "plumbing" | null;
+  className?: string;
 }
 
-const AddEngSysButton = ({ type }: Props) => {
+const AddEngSysButton = ({ type, className }: Props) => {
   const engModal = useEngeneeringModal();
 
-  switch (type) {
-    case "conditioning":
-      return (
-        <Button
-          mode="action"
-          size="small"
-          onClick={() => engModal.onOpenConditioning()}
-        >
-          Добавить
-        </Button>
-      );
-      break;
-    case "plumbing":
-      return (
-        <Button
-          mode="action"
-          size="small"
-          onClick={() => {return engModal.onOpenWater()}}
-        >
-          Добавить
-        </Button>
-      );
-    case "heating":
-      return (
-        <Button
-          mode="action"
-          size="small"
-          onClick={() => engModal.onOpenHeating()}
-        >
-          Добавить
-        </Button>
-      );
-    default:
-      return <span>Нет информации</span>;
-      break;
-  }
+  return (
+    <Button
+      className={className}
+      mode="ghost_accent"
+      size="small"
+      onClick={() => engModal.onOpen(type)}
+    >
+      Добавить
+    </Button>
+  );
 };
 
 export default AddEngSysButton;

@@ -14,15 +14,14 @@ const InfoBlock = ({ body, label }: InfoBlockProps) => {
           sm:flex-row
           justify-between
           gap-y-4
-          sm:items-end
           w-full
-          border-t-[0.5px]
+          //border-t-[0.5px]
           border-primary-border-dark
           py-2
           "
     >
-      <span>{label}</span>
-      <span>{body}</span>
+      <span className='text-primary-text-dark flex-1'>{label}</span>
+      <span className='text-start break-words text-secondary-text-dark flex-1 text-sm'>{body}</span>
     </div>
   );
 };

@@ -9,11 +9,7 @@ interface EngeneeringModalStore {
   isOpen: boolean;
   type: "heating" | "conditioning" | "plumbing" | null;
   array: Item[];
-  // plumbing: string[];
-  // heating: string[];
-  onOpenHeating: () => void;
-  onOpenConditioning: () => void;
-  onOpenWater: () => void;
+  onOpen: (type: "heating" | "conditioning" | "plumbing" | null) => void;
   onClose: () => void;
   addValue: (value: Item) => void;
   removeValue: (id: number) => void;
@@ -25,9 +21,7 @@ const useEngeneeringModal = create<EngeneeringModalStore>((set) => ({
   // heating: [],
   // plumbing: [],
   type: null,
-  onOpenHeating: () => set({ isOpen: true, type: "heating" }),
-  onOpenConditioning: () => set({ isOpen: true, type: "conditioning" }),
-  onOpenWater: () => set({ isOpen: true, type: "plumbing" }),
+  onOpen: (type) => set({ isOpen: true, type: type }),
   onClose: () => set({ isOpen: false, type: null }),
 
   addValue: ({ name, id }) =>

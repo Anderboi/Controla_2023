@@ -43,6 +43,7 @@ const Button = ({
           hover:bg-accent-dark/75
           hover:text-black-dark
           `,
+        mode === "ghost_accent" && `border-primary-border-dark hover:bg-transparent-bg-dark/10`,
         size === "small" && `py-2 px-4 text-sm`,
         className
       )}

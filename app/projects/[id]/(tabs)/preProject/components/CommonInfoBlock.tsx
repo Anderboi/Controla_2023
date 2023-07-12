@@ -15,7 +15,15 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
   return (
     <>
       <ContentBlock title="Общая информация по проекту">
-        <ContainerBox classname="bg-elevated-1-bg-dark flex flex-col gap-y-1 text-primary-text-dark">
+        <ContainerBox
+          classname="
+            flex
+            flex-col
+            bg-elevated-1-bg-dark
+            text-primary-text-dark
+            divide-y-[0.5px]
+            "
+        >
           <InfoBlock
             label="Адрес: "
             body={`${project.address_country}, ${project.address_city}, ${project.address_street}`}

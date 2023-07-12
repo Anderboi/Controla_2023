@@ -19,12 +19,12 @@ const Checkbox = ({
         w-4 
         h-4 
         bg-gray-100 
-        border-gray-300 rounded 
-        focus:accent-accent-dark 
-        dark:focus:accent-accent-dark 
-        dark:accent-accent-dark 
+        border-gray-300
+        rounded-xl
+        focus:accent-accent-dark
         focus:ring-2
-        focus:outline-none
+        outline-none
+        focus:ring-accent-dark
         dark:bg-gray-700
         dark:border-gray-600
         accent-current
