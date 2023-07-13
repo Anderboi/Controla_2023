@@ -32,6 +32,7 @@ const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
       return;
     }
 
+    //? Зачем это?
     const fetchData = async () => {
       const { data, error } = await supabaseClient
         .from("contacts")

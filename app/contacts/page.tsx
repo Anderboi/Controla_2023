@@ -27,7 +27,7 @@ const ContactsPage = async ({ searchParams }: SearchProps) => {
         no-scrollbar
         flex
         flex-col
-        gap-y-4
+        gap-y-6
         "
       >
         <ContactsSearchInput />

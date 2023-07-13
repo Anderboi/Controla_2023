@@ -17,7 +17,7 @@ const SearchInput = () => {
       title: debouncedValue,
     };
     const url = qs.stringifyUrl({
-      url: "/search",
+      url: "/projects",
       query: query,
     });
     
