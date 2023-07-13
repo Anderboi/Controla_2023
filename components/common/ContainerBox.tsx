@@ -11,7 +11,6 @@ interface ContainerBoxProps {
 
 const ContainerBox = ({
   children,
-  image,
   classname,
   type = "frame",
   onClick
@@ -21,7 +20,7 @@ const ContainerBox = ({
       className={twMerge(
         `
         bg-secondary-bg-dark
-        p-3
+        p-4
         rounded-lg
         `,
         type === "frame" ? "sm:p-6" : "sm:p-4",
@@ -29,7 +28,6 @@ const ContainerBox = ({
       )}
       onClick={onClick}
     >
-      {/* {image && <Image src={image} alt='cover' fill/>} */}
       {children}
     </div>
   );

@@ -36,8 +36,8 @@ const Chips = ({
         items-center
         gap-4
         bg-transparent-bg-dark/10
-        px-4
-        py-1
+        px-3
+        py-2
         rounded-full
         text-secondary-text-dark
         hover:bg-elevated-3-bg-dark
@@ -53,8 +53,8 @@ const Chips = ({
         isActive &&
           "border-primary-text-dark text-primary-bg-dark bg-primary-text-dark font-bold",
         type === "sm" && "text-xs",
-        type === "md" && "",
-        type === "lg" && "text-lg",
+        type === "md" && "text-sm",
+        type === "lg" && "text-base",
         className
       )}
       {...props}

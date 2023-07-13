@@ -1,10 +1,10 @@
 "use client";
 
-import useLoadImage from "@/hooks/useLoadImage";
-import { Database } from "@/types/supabase";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 import FavouriteButton from "../../feature/FavouriteButton";
+import { Database } from "@/types/supabase";
+import useLoadImage from "@/hooks/useLoadImage";
 
 interface ProjectCardProps {
   data: Database["public"]["Tables"]["projects"]["Row"];
@@ -24,21 +24,24 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
         flex-col
         items-center
         justify-center
-        rounded-lg
         overflow-hidden
-        gap-y-4
-        bg-elevated-1-bg-dark
+        gap-y-3
+        md:gap-y-4
         cursor-pointer
-        hover:bg-elevated-2-bg-dark
-        p-4
+        sm:bg-elevated-1-bg-dark
+        sm:hover:bg-elevated-2-bg-dark
+        sm:rounded-lg
+        sm:p-4
         "
     >
       <FavouriteButton
         projectId={data.project_id}
         className="
           absolute
-          top-4
-          left-6
+          top-[-4px]
+          sm:top-4
+          left-1
+          sm:left-6
           z-50
           "
       />
@@ -47,12 +50,12 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
           relative
           w-full
           h-full
-          rounded-lg
           overflow-hidden
-          saturate-0
+          md:saturate-0
           group-hover:saturate-100
           aspect-square
-          drop-shadow-spt
+          md:drop-shadow-spt
+          rounded-lg
           "
       >
         {imagePath ? (
@@ -85,11 +88,13 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
           gap-y-1
           justify-center 
           items-start 
-          w-full"
+          w-full
+          "
       >
         <span
           className="
-            text-base
+            text-sm
+            md:text-base
             font-bold
             w-full
             line-clamp-1
@@ -99,8 +104,9 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
         </span>
         <p
           className="
+            text-xs
+            md:text-sm
             text-secondary-text-dark
-            text-sm
             //truncate
             line-clamp-2
             min-h-[2lh]

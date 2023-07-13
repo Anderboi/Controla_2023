@@ -3,11 +3,7 @@
 import Modal from "@/components/common/Modal";
 import useUploadModal from "@/hooks/useUploadModal";
 import React, { useState } from "react";
-import {
-  FieldValues,
-  SubmitHandler,
-  useForm,
-} from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Input from "@/components/common/inputs/Input";
 import Button from "@/components/common/inputs/Button";
 import { toast } from "react-hot-toast";
@@ -15,7 +11,7 @@ import { useUser } from "@/hooks/useUser";
 import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
-
+import ContactsLiveSearch from '@/components/common/inputs/ContactsLiveSearch';
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -25,7 +21,13 @@ const UploadProjectModal = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { register, handleSubmit, reset, control, formState: {errors} } = useForm<FieldValues>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm<FieldValues>({
     defaultValues: {
       address_country: "",
       address_city: "",
@@ -36,6 +38,8 @@ const UploadProjectModal = () => {
       cover_img: "",
     },
   });
+  
+ 
 
   const onChange = (open: boolean) => {
     if (!open) {
@@ -50,15 +54,12 @@ const UploadProjectModal = () => {
 
       const imageFile = values.cover_img?.[0];
 
-      console.log(imageFile);
-
       if (!imageFile || !user) {
         toast.error("Missing Files");
         return;
       }
 
       const uniqId = uniqid();
-      // const projId = cid(15)
 
       //* Upload projectImage
       const { data: projectData, error: projectError } =
@@ -78,7 +79,6 @@ const UploadProjectModal = () => {
       const { error: supabaseError } = await supabaseClient
         .from("projects")
         .insert({
-          // project_id: 8,
           user_id: user.id,
           address_country: values.address_country,
           address_city: values.address_city,
@@ -144,8 +144,12 @@ const UploadProjectModal = () => {
           {...register("area", { required: true })}
           placeholder="Укажите площадь объекта"
         />
+
         {/* //TODO: add choose client component */}
+        <ContactsLiveSearch/>
         {/* //TODO: add choose team component */}
+
+        {/* //? Upload file block */}
         <div>
           <label className="mb-2 inline-block text-primary-text-dark text-sm">
             Загрузите обложку проекта

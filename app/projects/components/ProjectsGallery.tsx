@@ -17,13 +17,13 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
     return (
       <article
         className="
-        flex
-        flex-col
-        items-center
-        justify-center
-        max-w-sm 
-        m-auto 
-        gap-6
+          flex
+          flex-col
+          items-center
+          justify-center
+          max-w-sm 
+          m-auto 
+          gap-6
         "
       >
         <h1>Еще нет ни одного проекта.</h1>
@@ -35,13 +35,13 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
   return (
     <div
       className="
-      grid
-      grid-cols-1
-      sm:grid-cols-2
-      md:grid-cols-3
-      xl:grid-cols-4
-      2xl:grid-cols-5
-      gap-3
+        grid
+        grid-cols-2
+        sm:grid-cols-2
+        md:grid-cols-3
+        xl:grid-cols-4
+        2xl:grid-cols-5
+        gap-3
       "
     >
       {projects.map((project) => (

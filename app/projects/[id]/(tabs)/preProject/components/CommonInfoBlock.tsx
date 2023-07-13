@@ -1,9 +1,11 @@
-import getProjectInfo from "@/actions/getProjectInfo";
-import ContainerBox from "@/components/common/ContainerBox";
-import InfoBlock from "@/components/feature/infoblock/InfoBlock";
-import { Database } from "@/types/supabase";
 import React from "react";
+import ContainerBox from "@/components/common/ContainerBox";
 import ContentBlock from "@/components/common/ContentBlock";
+import InfoBlock from "@/components/feature/infoblock/InfoBlock";
+
+import getProjectInfo from "@/actions/getProjectInfo";
+
+import { Database } from "@/types/supabase";
 
 interface BlockProps {
   project: Database["public"]["Tables"]["projects"]["Row"];
@@ -14,11 +16,12 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
 
   return (
     <>
-      <ContentBlock title="Общая информация по проекту">
+      <ContentBlock title="Общая информация">
         <ContainerBox
           classname="
             flex
             flex-col
+            py-1
             bg-elevated-1-bg-dark
             text-primary-text-dark
             divide-y-[0.5px]
@@ -26,11 +29,24 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
         >
           <InfoBlock
             label="Адрес: "
-            body={`${project.address_country}, ${project.address_city}, ${project.address_street}`}
+            body={
+              <>
+                <span className='text-primary-text-dark'>{project.address_street}</span>
+                <br />
+                <span className='text-sm'>{`${project.address_country}, ${project.address_city}`}</span>
+              </>
+            }
           />
           <InfoBlock
-            label="Площадь подлежащая проектированию: "
-            body={`${project.area} кв.м.`}
+            label="Площадь объекта: "
+            body={
+              <>
+                <span className="text-3xl font-bold text-primary-text-dark">
+                  {project.area}
+                </span>
+                <span className="text-xs"> кв.м.</span>
+              </>
+            }
           />
           <InfoBlock
             label="Назначение объекта: "
@@ -39,12 +55,24 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
           <InfoBlock
             label="Этажность: "
             body={
-              projectInfo?.storeys ? `${projectInfo?.storeys} этаж` : "1 этаж"
+              <>
+                <span className="text-3xl font-bold text-primary-text-dark">
+                  {projectInfo?.storeys || "1"}
+                </span>
+                <span className="text-xs">{" этаж"}</span>
+              </>
             }
           />
           <InfoBlock
             label="Количество единовременно проживающих: "
-            body={`${projectInfo?.residing} человека`} //TODO: окончание фразы от числа добавить
+            body={
+              <>
+                <span className="text-3xl font-bold text-primary-text-dark">
+                  {projectInfo?.residing || "1"}
+                </span>
+                <span className="text-xs">{" человека"}</span>
+              </>
+            } //TODO: окончание фразы от числа добавить
           />
         </ContainerBox>
       </ContentBlock>

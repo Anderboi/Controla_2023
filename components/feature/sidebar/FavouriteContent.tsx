@@ -4,6 +4,7 @@ import { useUser } from "@/hooks/useUser";
 import { Database } from "@/types/supabase";
 import React from "react";
 import FavouriteProjectItem from "./FavouriteProjectItem";
+import { useRouter } from "next/navigation";
 
 interface FavContentProps {
   projects: Database["public"]["Tables"]["projects"]["Row"][];
@@ -11,6 +12,7 @@ interface FavContentProps {
 
 const FavouriteContent = ({ projects }: FavContentProps) => {
   const { user } = useUser();
+  const route = useRouter();
 
   return (
     <div
@@ -30,7 +32,9 @@ const FavouriteContent = ({ projects }: FavContentProps) => {
           <FavouriteProjectItem
             key={project.project_id}
             data={project}
-            onClick={() => {}}
+            onClick={() => {
+              route.push(`/projects/${project.project_id}/preProject`);
+            }}
           />
         ))}
     </div>

@@ -8,7 +8,17 @@ interface ContentBlockProps {
 const ContentBlock = ({ title, children }: ContentBlockProps) => {
   return (
     <div>
-      <h2 className="px-6 sm:text-2xl pb-2 font-bold">{title}</h2>
+      <h2
+        className="
+        //px-6
+        text-[21px]
+        text-start
+        pb-1
+        font-bold
+      "
+      >
+        {title}
+      </h2>
       {children}
     </div>
   );

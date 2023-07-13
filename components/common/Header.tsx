@@ -55,7 +55,7 @@ const Header = ({
       classname={twMerge(
         `
         relative
-        pb-4
+        //pb-4
         flex
         flex-col
         justify-between
@@ -116,8 +116,8 @@ const Header = ({
       >
         <span
           className="
-          text-xl
-          md:text-2xl
+          text-xs
+          md:text-xl
           text-primary-text-dark/90 
           font-bold 
           text-left  
@@ -128,15 +128,18 @@ const Header = ({
         </span>
         <span
           className="
-          lg:text-6xl/[72px]
-          md:text-5xl
-          sm:text-4xl
-          text-3xl
+          text-[24px]
+          //sm:text-3xl
+          md:text-4xl
+          lg:text-5xl/[72px]
+          xl:text-7xl/[72px]
           font-bold
           text-left
           w-full
-          line-clamp-1
-          break-all
+          break-words
+          line-clamp-2
+          md:line-clamp-1
+          //break-all
           "
         >
           {title}

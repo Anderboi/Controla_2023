@@ -4,7 +4,6 @@ import React from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import useAuthModal from "@/hooks/useAuthModal";
 import SidebarItem from "./SidebarItem";
 import Button from "@/components/common/inputs/Button";
 import FavouriteContent from "./FavouriteContent";
@@ -49,7 +48,6 @@ const SidebarMiddleSection = ({ favProjects }: SectionProps) => {
     router.push('/')
 
     if (error) {
-      // console.log(error);
 
       toast.error(error.message);
     } else {

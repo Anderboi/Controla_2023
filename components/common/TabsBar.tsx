@@ -16,7 +16,7 @@ const TabsBar = () => {
           min-h-[64px]
           h-fit
           flex
-          gap-6
+          gap-3
           pb-6
           items-center
           justify-start

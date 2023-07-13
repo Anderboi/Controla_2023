@@ -1,16 +1,16 @@
 "use client";
 
+import React from "react";
 import ContactCard from "@/components/common/cards/ContactCard";
 import Button from "@/components/common/inputs/Button";
 import { Database } from "@/types/supabase";
-import React from "react";
 
 interface ContactsGalleryProps {
   contacts: any[];
 }
 
 const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
-  console.log(contacts);
+  
 
   if (contacts.length === 0) {
     return (

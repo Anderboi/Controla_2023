@@ -7,33 +7,28 @@ interface IconButtonProps
   Icon: IconType;
 }
 
-const IconButton = ({
-  className,
-  onClick,
-  Icon,
-}: IconButtonProps) => {
-  
+const IconButton = ({ className, onClick, Icon }: IconButtonProps) => {
   return (
     <button
       className={twMerge(
         `
-        opacity-0
-        group-hover:opacity-100
+        sm:opacity-0
         transition
         rounded-full
-        hover:bg-transparent-bg-dark/20
         p-1
         translate
         translate-y-1/4
-        hover:scale-110
         ease-in-out
         duration-300
+        group-hover:opacity-100
+        hover:scale-110
+        hover:bg-transparent-bg-dark/20
         `,
         className
       )}
       onClick={onClick}
     >
-      <Icon className="hover:text-accent-dark" size={25} />
+      <Icon className="hover:text-accent-dark" size={24} />
     </button>
   );
 };
