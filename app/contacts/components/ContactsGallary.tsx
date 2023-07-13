@@ -3,15 +3,13 @@
 import React from "react";
 import ContactCard from "@/components/common/cards/ContactCard";
 import Button from "@/components/common/inputs/Button";
-import { Database } from "@/types/supabase";
+import GallaryGrid from "@/components/common/GallaryGrid";
 
 interface ContactsGalleryProps {
   contacts: any[];
 }
 
 const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
-  
-
   if (contacts.length === 0) {
     return (
       <article
@@ -33,25 +31,11 @@ const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
   }
 
   return (
-    <div
-      className="
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          md:grid-cols-3
-          xl:grid-cols-4
-          2xl:grid-cols-5
-          gap-3
-          h-[fill]
-          "
-    >
+    <GallaryGrid>
       {contacts.map((item) => (
-        <ContactCard 
-          key={item.id}
-          data={item} 
-          onClick={() => {}} />
+        <ContactCard key={item.id} data={item} onClick={() => {}} />
       ))}
-    </div>
+    </GallaryGrid>
   );
 };
 

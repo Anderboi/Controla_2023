@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import ProjectCard from "@/components/common/cards/ProjectCard";
 import Button from "@/components/common/inputs/Button";
 import { Database } from "@/types/supabase";
+import GallaryGrid from '@/components/common/GallaryGrid';
 
 interface ProjectsGalleryProps {
   projects: Database["public"]["Tables"]["projects"]["Row"][];
@@ -33,17 +34,7 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
   }
 
   return (
-    <div
-      className="
-        grid
-        grid-cols-2
-        sm:grid-cols-2
-        md:grid-cols-3
-        xl:grid-cols-4
-        2xl:grid-cols-5
-        gap-3
-      "
-    >
+    <GallaryGrid>
       {projects.map((project) => (
         <ProjectCard
           onClick={() => {
@@ -53,7 +44,7 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
           data={project}
         />
       ))}
-    </div>
+    </GallaryGrid>
   );
 };
 

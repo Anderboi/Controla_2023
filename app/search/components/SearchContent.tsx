@@ -1,5 +1,6 @@
 "use client";
 
+import GallaryGrid from '@/components/common/GallaryGrid';
 import ProjectCard from "@/components/common/cards/ProjectCard";
 import { Database } from "@/types/supabase";
 import React from "react";
@@ -18,24 +19,14 @@ const SearchContent = ({ data }: SearchContentProps) => {
   }
 
   return (
-    <div
-      className="
-      grid
-      grid-cols-1
-      sm:grid-cols-2
-      lg:grid-cols-3
-      xl:grid-cols-3
-      2xl:grid-cols-4
-      gap-3
-      mt-4"
-    >
+    <GallaryGrid>
       {data.map((item) => (
         <ProjectCard 
           key={item.project_id} 
           onClick={() => {}} 
           data={item} />
       ))}
-    </div>
+    </GallaryGrid>
   );
 };
 
