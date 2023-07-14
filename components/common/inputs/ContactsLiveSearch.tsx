@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Fragment, SetStateAction, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Database } from "@/types/supabase";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { Combobox, Transition } from "@headlessui/react";
@@ -12,7 +12,7 @@ const ContactsLiveSearch = () => {
   type User = Database["public"]["Tables"]["users"]["Row"]; // TODO: Change to contacts, if needed
 
   const supabaseClient = useSupabaseClient();
-  
+
   const [contacts, setContacts] = useState<User[]>([]);
   const [query, setQuery] = useState("");
   const [selectedPeople, setSelectedPeople] = useState<User[]>([contacts[0], contacts[1]]);

@@ -14,15 +14,6 @@ const getContactsByTitle = async (title: string): Promise<Database['public']['Ta
     return allContacts;
   }
 
-  // const { data: sessionData, error: sessionError } =
-  //   await supabase.auth.getSession();
-
-  // if (sessionError) {
-  //   console.log(sessionError.message);
-
-  //   return [];
-  // }
-
   const { data, error } = await supabase
     .from("users")
     .select("*")
