@@ -147,6 +147,7 @@ const UploadProjectModal = () => {
 
         {/* //TODO: add choose client component */}
         <ContactsLiveSearch/>
+        
         {/* //TODO: add choose team component */}
 
         {/* //? Upload file block */}
