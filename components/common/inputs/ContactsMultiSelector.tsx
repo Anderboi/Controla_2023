@@ -3,10 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { Database } from "@/types/supabase";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { ChevronUpDownIcon, CheckIcon } from "@heroicons/react/20/solid";
-import Select, { StylesConfig, components } from "react-select";
+import { StylesConfig, components } from "react-select";
 import Button from "./Button";
-import getContactsByTitle from '@/actions/getContactsByTitle';
+import BasicMultiSelector from "./BasicMultiSelector";
 
 export const revalidate = 0;
 
@@ -43,7 +42,7 @@ const ContactsMultiSelector = () => {
     const fetchData = async () => {
       const { data, error } = await supabaseClient
         .from("users")
-        .select("full_name")
+        .select("full_name");
 
       error && console.log(error.message);
 
@@ -57,66 +56,25 @@ const ContactsMultiSelector = () => {
       setSelectedPeople([]);
     };
     fetchData();
-     
   }, [supabaseClient, query]);
 
-  const colourStyles: StylesConfig<any, true> = {
-    control: (baseStyles, state) => ({
-      ...baseStyles,
-      backgroundColor: "#363636",
-      color: "#fff",
-      borderRadius: "0.375rem",
-      padding: "1px 0",
-      borderColor: "transparent",
-      outlineColor: state.isFocused ? "green" : "grey",
-    }),
-    menuList: (baseStyles, state) => ({
-      ...baseStyles,
-      backgroundColor: "#212121",
-      width: "100%",
-      borderRadius: "0.375rem",
-      overflow: "auto",
-      maxHeight: "8lv",
-    }),
-    option: (baseStyles, { data, isFocused, isDisabled, isSelected }) => ({
-      ...baseStyles,
-      backgroundColor: isFocused ? "#242424" : "#181818",
-      color: isFocused ? "#fff" : isSelected ? "red" : "#A3A3A3",
-    }),
-    multiValue: (baseStyles, { data, isFocused, isDisabled }) => ({
-      ...baseStyles,
-      backgroundColor: "#666666",
-      color: "#fff",
-      borderRadius: "8px",
-      padding: "4px 8px",
-    }),
-    multiValueLabel: (base, props) => ({
-      ...base,
-      color: "#fff",
-    }),
-    input: (base, props) => ({
-      ...base,
-      color: "#fff",
-    }),
-  };
 
+  const handleChange = (value: any) => {
+    console.log(value);
+
+    selectedPeople.includes(value)
+      ? setSelectedPeople(selectedPeople.filter((item) => item !== value))
+      : setSelectedPeople((oldValue) => [...oldValue, value]);
+  };
 
   return (
     <>
-      <div
-        className="
-        w-full
-        "
-      >
-        <label className="text-sm">Клиент</label>
-        <Select
-          isMulti
-          options={contacts}
-          styles={colourStyles}
-          closeMenuOnSelect={false}
-          components={{ MenuList: SelectMenuButton }}
-        />
-      </div>
+      <BasicMultiSelector
+        content={contacts}
+        callback={handleChange}
+        label="Клиенты"
+        aditionalButton={SelectMenuButton}
+      />
     </>
   );
 };

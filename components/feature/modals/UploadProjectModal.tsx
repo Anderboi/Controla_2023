@@ -11,8 +11,7 @@ import { useUser } from "@/hooks/useUser";
 import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
-import ContactsLiveSearch from '@/components/common/inputs/ContactsLiveSearch';
-import ContactsMultiSelector from '@/components/common/inputs/ContactsMultiSelector';
+import ContactsMultiSelector from "@/components/common/inputs/ContactsMultiSelector";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -39,8 +38,6 @@ const UploadProjectModal = () => {
       cover_img: "",
     },
   });
-  
- 
 
   const onChange = (open: boolean) => {
     if (!open) {
@@ -148,7 +145,7 @@ const UploadProjectModal = () => {
 
         {/* //TODO: add choose client component */}
         {/* <ContactsLiveSearch/> */}
-        <ContactsMultiSelector/>
+        <ContactsMultiSelector />
         {/* //TODO: add choose team component */}
 
         {/* //? Upload file block */}
