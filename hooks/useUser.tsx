@@ -35,21 +35,21 @@ export const MyUserProvider = (props: Props) => {
   const [userDetails, setUserDetails] = useState<Database | null>(null);
   // const [subscription, setSubscription] = useState<Subscription | null>(null);
 
-  const getUserDetails = () => supabase.from("users").select("*").single();
-  const getSubscription = () =>
-    supabase
-      .from("subscriptions")
-      .select("*, prices(*, products(*))")
-      .in("status", ["trailing", "active"])
-      .single();
+  const getUserDetails = () => supabase.from("users").select("*");
+  // const getSubscription = () =>
+  //   supabase
+  //     .from("subscriptions")
+  //     .select("*, prices(*, products(*))")
+  //     .in("status", ["trailing", "active"])
+  //     .single();
 
   useEffect(() => {
     if (user && !isLoadingData && !userDetails) {
       setIsLoadingData(true);
-      Promise.allSettled([getUserDetails(), getSubscription()]).then(
+      Promise.allSettled([getUserDetails()]).then(
         (results) => {
           const userDetailsPromise = results[0];
-          const subscriptionPromise = results[1];
+          // const subscriptionPromise = results[1];
 
           if (userDetailsPromise.status === "fulfilled") {
             setUserDetails(userDetailsPromise.value.data as Database);
