@@ -29,17 +29,18 @@ const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
             text-primary-text-dark
             "
         >
-          {engSystems.map((item) => {
+          {engSystems.map((item,index) => {
             return (
               <>
                 {item.name === "conditioning" && (
                   <InfoBlock
+                    key={index}
                     label={`${item.label}:`}
                     body={
                       engData?.conditioning ? (
                         <div className="flex flex-col gap-y-1 ">
-                          {engData?.conditioning?.map((i) => (
-                            <span>{`- ${i}`}</span>
+                          {engData?.conditioning?.map((i, index) => (
+                            <span key={index}>{`- ${i}`}</span>
                           ))}
                         </div>
                       ) : (
@@ -50,12 +51,13 @@ const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
                 )}
                 {item.name === "heating" && (
                   <InfoBlock
+                    key={index}
                     label={`${item.label}:`}
                     body={
                       engData?.heating ? (
                         <div className="flex flex-col">
-                          {engData?.heating?.map((i) => (
-                            <span>{`- ${i}`}</span>
+                          {engData?.heating?.map((i, index) => (
+                            <span key={index}>{`- ${i}`}</span>
                           ))}
                         </div>
                       ) : (
@@ -70,8 +72,8 @@ const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
                     body={
                       engData.plumbing ? (
                         <div className="flex flex-col">
-                          {engData?.plumbing?.map((i) => (
-                            <span>{`- ${i}`}</span>
+                          {engData?.plumbing?.map((i, index) => (
+                            <span key={index}>{`- ${i}`}</span>
                           ))}
                         </div>
                       ) : (

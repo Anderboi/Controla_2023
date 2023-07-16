@@ -12,10 +12,10 @@ import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import engeneeringSystems from "@/lib/engeneering";
 
 interface BlockProps {
-  type: 'conditioning' | 'plumbing' | 'heating'
+  type: "conditioning" | "plumbing" | "heating";
 }
 
-const EngineeringSystemCheckBlock = ({type}:BlockProps) => {
+const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
   const supabaseClient = useSupabaseClient();
   const engModal = useEngeneeringModal();
 
@@ -32,14 +32,14 @@ const EngineeringSystemCheckBlock = ({type}:BlockProps) => {
       const { data, error } = await supabaseClient
         .from("engeneering_data")
         .select(type)
-        .eq("project_id", projectId)
-        
+        .eq("project_id", projectId);
 
       if (error) toast.error(error.message);
 
       //! обязательно проверять условие (имеет значение)
+      // @ts-ignore
       if (data && data?.[type]) {
-
+        // @ts-ignore
         setArray(data?.[type]);
       } else {
         setArray([]);
@@ -90,7 +90,6 @@ const EngineeringSystemCheckBlock = ({type}:BlockProps) => {
         }
       }
 
-
       setIsLoading(false);
       toast.success("Информация по кондиционированию и вентиляции добавлена");
     } catch (error) {
@@ -110,7 +109,12 @@ const EngineeringSystemCheckBlock = ({type}:BlockProps) => {
     }
   };
 
-  const sysArray = type === 'conditioning' ? engeneeringSystems.conditioning : type === 'heating' ? engeneeringSystems.heating : engeneeringSystems.plumbing
+  const sysArray =
+    type === "conditioning"
+      ? engeneeringSystems.conditioning
+      : type === "heating"
+      ? engeneeringSystems.heating
+      : engeneeringSystems.plumbing;
 
   return (
     <form className="flex flex-col h-[450px]">
@@ -118,6 +122,7 @@ const EngineeringSystemCheckBlock = ({type}:BlockProps) => {
       <div className="flex flex-col gap-4 overflow-y-auto no-scrollbar">
         {sysArray.map(({ name, label }, index) => (
           <CheckDataCard
+            key={index}
             name={name}
             value={label}
             isChecked={array?.includes(label)}

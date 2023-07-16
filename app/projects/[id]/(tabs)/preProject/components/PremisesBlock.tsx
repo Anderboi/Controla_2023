@@ -25,8 +25,9 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
             </div>
           ) : (
             <div className="flex gap-6 overflow-y-auto no-scrollbar scroll-smooth">
-              {premises.map((item) => (
+              {premises.map((item, index) => (
                 <div
+                  key={index}
                   className="
                   bg-elevated-1-bg-dark 
                   p-3
