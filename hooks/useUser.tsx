@@ -7,10 +7,12 @@ import {
 } from "@supabase/auth-helpers-react";
 import { createContext, useContext, useEffect, useState } from "react";
 
+type UserData = Database['public']['Tables']['users']['Row']
+
 type UserContextType = {
   accessToken: string | null;
   user: User | null;
-  userDetails: Database | null;
+  userDetails: UserData | null;
   isLoading: boolean;
   // subscription: Subscription | null;
 };
@@ -32,7 +34,9 @@ export const MyUserProvider = (props: Props) => {
   const user = useSupaUser();
   const accessToken = session?.access_token ?? null;
   const [isLoadingData, setIsLoadingData] = useState(false);
-  const [userDetails, setUserDetails] = useState<Database | null>(null);
+  const [userDetails, setUserDetails] = useState<
+    UserData | null
+  >(null);
   // const [subscription, setSubscription] = useState<Subscription | null>(null);
 
   const getUserDetails = () => supabase.from("users").select("*");
@@ -52,7 +56,11 @@ export const MyUserProvider = (props: Props) => {
           // const subscriptionPromise = results[1];
 
           if (userDetailsPromise.status === "fulfilled") {
-            setUserDetails(userDetailsPromise.value.data as Database);
+            console.log(userDetailsPromise.value.data);
+            
+            setUserDetails(
+              userDetailsPromise.value.data as UserData | null
+            );
           }
 
           // if (subscriptionPromise.status === "fulfilled") {
