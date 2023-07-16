@@ -1,5 +1,4 @@
 import React from "react";
-import ContainerBox from "@/components/common/ContainerBox";
 import getPremises from "@/actions/getPremises";
 import AddRoomsBlock from "./AddRoomsBlock";
 import ContentBlock from "@/components/common/ContentBlock";
@@ -16,36 +15,16 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
   return (
     <>
       <ContentBlock title="Состав помещений">
-        {/* <ContainerBox
-          classname="
-            bg-elevated-1-bg-dark 
-            flex
-            gap-y-1
-            gap-x-2
-            text-primary-text-dark
-            overflow-auto 
-            no-scrollbar
-            scroll-smooth
-            "
-        > */}
-        <div
-          className="
-            flex 
-            gap-3 
-            overflow-auto 
-            no-scrollbar
-            scroll-smooth
-            "
-        >
+        <div>
           {premises.length === 0 ? (
-            <div className="flex flex-col justify-center items-center w-full">
+            <div className="flex flex-col justify-center items-center w-full ">
               <span className="text-center py-4">
                 Нет назначенных помещений
               </span>
               <AddRoomsBlock />
             </div>
           ) : (
-            <>
+            <div className="flex gap-6 overflow-y-auto no-scrollbar scroll-smooth">
               {premises.map((item) => (
                 <div
                   className="
@@ -76,7 +55,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                       useGrouping: false,
                     })}
                   </span>
-                  <div className='flex flex-col justify-end items-end'>
+                  <div className="flex flex-col justify-end items-end">
                     <span className="text-sm">{item.name}</span>
                     <div className="flex gap-2">
                       <TbSofa className="text-secondary-text-dark " size={20} />
@@ -92,10 +71,9 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                   </div>
                 </div>
               ))}
-            </>
+            </div>
           )}
         </div>
-        {/* </ContainerBox> */}
       </ContentBlock>
     </>
   );

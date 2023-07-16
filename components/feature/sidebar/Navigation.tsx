@@ -5,6 +5,7 @@ export interface NavLink {
   label: string;
   href: string;
   icon: React.ReactNode;
+  activeIcon?: React.ReactNode;
 }
 
 interface Props {
@@ -15,7 +16,7 @@ const Navigation = ({ navLinks }: Props) => {
   return (
     <nav className="flex flex-col">
       {navLinks.map((item) => (
-        <SidebarItem key={item.label} {...item} >{item.icon}</SidebarItem>
+        <SidebarItem key={item.label} {...item} icon={item.icon} activeIcon={item.activeIcon}/>
       ))}
     </nav>
   );

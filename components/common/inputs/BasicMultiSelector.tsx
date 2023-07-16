@@ -2,9 +2,11 @@ import React from "react";
 import Select, {
   GroupBase,
   MenuListProps,
+  OptionProps,
   StylesConfig,
   components,
 } from "react-select";
+import CreatableSelect from 'react-select/creatable'
 
 export interface SelectProps {
   value: string;
@@ -15,9 +17,11 @@ interface BasicMultiSelectorProps {
   aditionalButton?: React.ComponentType<
     MenuListProps<any, true, GroupBase<any>>
   >;
+  customOption?: React.ComponentType<OptionProps<any, true, GroupBase<any>>>;
   content: SelectProps[];
   label?: string;
   callback: (e: any) => void;
+  type: "creatable" | "select";
 }
 
 const BasicMultiSelector = ({
@@ -25,9 +29,9 @@ const BasicMultiSelector = ({
   label,
   callback,
   aditionalButton,
+  customOption,
+  type,
 }: BasicMultiSelectorProps) => {
-
-
   const colourStyles: StylesConfig<any, true> = {
     control: (baseStyles, state) => ({
       ...baseStyles,
@@ -45,6 +49,8 @@ const BasicMultiSelector = ({
       borderRadius: "0.375rem",
       overflow: "auto",
       maxHeight: "8lv",
+      overflowBlock:'visible',
+      
     }),
     option: (baseStyles, { data, isFocused, isDisabled, isSelected }) => ({
       ...baseStyles,
@@ -57,6 +63,7 @@ const BasicMultiSelector = ({
       color: "#fff",
       borderRadius: "8px",
       padding: "4px 8px",
+      top: "10px",
     }),
     multiValueLabel: (base, props) => ({
       ...base,
@@ -76,18 +83,32 @@ const BasicMultiSelector = ({
         "
       >
         <label className="text-sm">{label}</label>
-        <Select
-          isMulti
-          options={content}
-          captureMenuScroll
-          isSearchable
-          onChange={(choise: any) => callback(choise)}
-          styles={colourStyles}
-          closeMenuOnSelect={false}
-          components={{ MenuList: aditionalButton }}
-
-          
-        />
+        {type === "select" ? (
+          <Select
+            isMulti
+            options={content}
+            captureMenuScroll
+            isSearchable
+            onChange={(choise: any) => callback(choise)}
+            styles={colourStyles}
+            closeMenuOnSelect={false}
+            components={{
+              MenuList: aditionalButton,
+              // Option: customOption,
+            }}
+          />
+        ) : (
+          <CreatableSelect
+            isMulti
+            options={content}
+            captureMenuScroll
+            isSearchable
+            onChange={callback}
+            styles={colourStyles}
+            closeMenuOnSelect={false}
+            menuPosition='absolute'
+          />
+        )}
       </div>
     </>
   );

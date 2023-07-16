@@ -9,11 +9,13 @@ import { usePathname } from 'next/navigation';
 interface SidebarItemsProps {
   label: string;
   href: string;
-  children: React.ReactNode;
+  icon: React.ReactNode;
+  activeIcon: React.ReactNode;
 }
 
 const SidebarItem = ({
-  children,
+  icon,
+  activeIcon,
   href,
   label,
 }: SidebarItemsProps) => {
@@ -41,8 +43,7 @@ const SidebarItem = ({
         route === href ? `text-primary-text-dark` : "text-secondary-text-dark"
       )}
     >
-      {children}
-      {/* <Icon size={24} /> */}
+      {route === href ? activeIcon : icon}
       <p className="truncate w-full hidden lg:flex">{label}</p>
     </Link>
   );

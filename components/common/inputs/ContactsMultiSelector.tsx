@@ -14,6 +14,9 @@ interface SelectProps {
   label: string;
 }
 
+  type User = Database["public"]["Tables"]["users"]["Row"]["full_name"]; // TODO: Change to contacts, if needed
+
+
 const sendOption = () => {
   console.log("send option");
 };
@@ -28,9 +31,18 @@ const SelectMenuButton = (props: any) => {
     </components.MenuList>
   );
 };
+const Option = (props: any) => {
+  return (
+    <components.Option {...props}>
+      <div>
+        <span>{props.avatar_url}</span>
+        <span>{props}</span>
+      </div>
+    </components.Option>
+  );
+};
 
 const ContactsMultiSelector = () => {
-  type User = Database["public"]["Tables"]["users"]["Row"]["full_name"]; // TODO: Change to contacts, if needed
 
   const supabaseClient = useSupabaseClient();
 
@@ -69,11 +81,12 @@ const ContactsMultiSelector = () => {
 
   return (
     <>
-      <BasicMultiSelector
+      <BasicMultiSelector type='select'
         content={contacts}
         callback={handleChange}
         label="Клиенты"
         aditionalButton={SelectMenuButton}
+        // customOption={Option} //TODO: add custom option Component
       />
     </>
   );

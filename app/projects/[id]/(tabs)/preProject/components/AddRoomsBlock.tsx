@@ -1,24 +1,84 @@
-'use client'
+"use client";
 
-import Button from '@/components/common/inputs/Button';
-import useUploadRoomsModal from '@/hooks/useUploadRoomsModal';
-import React from 'react'
+import React, { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import BasicMultiSelector from "@/components/common/inputs/BasicMultiSelector";
+import Button from "@/components/common/inputs/Button";
+import toast from "react-hot-toast";
 
-const AddRoomsBlock = () => {
+import useUploadRoomsModal from "@/hooks/useUploadRoomsModal";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-  const uploadModal = useUploadRoomsModal();
+import roomsList from "@/lib/roomsList";
 
-  const onClick = () => {
-    //TODO: check for subscription
-
-    return uploadModal.onOpen();
-  };
-  
-  return (
-    <div>
-      <Button mode='action' onClick={onClick}>Добавить помещения</Button>
-    </div>
-  )
+interface SelectProps {
+  value: string;
+  label: string;
 }
 
-export default AddRoomsBlock
+const AddRoomsBlock = () => {
+  const uploadModal = useUploadRoomsModal();
+  const supabaseClient = useSupabaseClient();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [rooms, setRooms] = useState<SelectProps[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const projectId = Number(pathname.split("/")[pathname.split("/").length - 2]);
+
+  const onSubmit = async () => {
+    try {
+      setIsLoading(true);
+
+      const roomsArray = rooms.map((room, index) => {
+        return {
+          name: room.value,
+          area: null,
+          project_id: projectId,
+          room_id: Number(projectId.toString() + index.toString()),
+          room_number: index + 1,
+        };
+      });
+
+      const { error: supabaseError } = await supabaseClient
+        .from("room_info")
+        .insert(roomsArray);
+
+      if (supabaseError) {
+        return toast.error(supabaseError.message);
+      }
+
+      router.refresh();
+      setIsLoading(false);
+      toast.success("Помещения добавлены");
+      uploadModal.onClose();
+    } catch (error) {
+      toast.error("error.message");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div className='w-full z-50'>
+      <BasicMultiSelector
+        type="creatable"
+        content={roomsList}
+        callback={setRooms}
+        
+      />
+      <Button
+        onClick={onSubmit}
+        disabled={isLoading}
+        type="submit"
+        mode="action"
+        className="mt-4"
+      >
+        Добавить
+      </Button>
+    </div>
+  );
+};
+
+export default AddRoomsBlock;
