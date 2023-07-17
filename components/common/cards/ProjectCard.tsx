@@ -5,6 +5,10 @@ import Image from "next/image";
 import FavouriteButton from "../../feature/FavouriteButton";
 import { Database } from "@/types/supabase";
 import useLoadImage from "@/hooks/useLoadImage";
+import RemoveButton from "../inputs/RemoveButton";
+import { useSessionContext } from "@supabase/auth-helpers-react";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   data: Database["public"]["Tables"]["projects"]["Row"];
@@ -12,7 +16,44 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
-  const imagePath = useLoadImage(data.cover_img, 'project');
+  const imagePath = useLoadImage(data.cover_img, "project");
+  const route = useRouter();
+
+  const { supabaseClient } = useSessionContext();
+
+  const handleRemove = async (event: any) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    console.log(data.project_id);
+
+    const isConfirmed = confirm(`Are you sure you want to remove`);
+
+    if (isConfirmed) {
+      const table = await supabaseClient
+        .from("projects")
+        .delete()
+        .eq("project_id", data.project_id);
+
+      if (table.error) {
+        toast.error(table.error?.message);
+      } else if (data.cover_img) {
+        // Remove from storage
+        const bucket = await supabaseClient.storage
+          .from("images")
+          .remove([data.cover_img]);
+
+        if (bucket.error) {
+          toast.error(bucket.error?.message);
+        } else {
+          toast.success("Обложка удалена");
+        }
+      }
+      toast.success("Проект удален");
+      console.log("deleted");
+      route.refresh();
+    }
+  };
 
   return (
     <div
@@ -44,6 +85,17 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
           sm:left-6
           z-20
           "
+      />
+      <RemoveButton
+        className="
+        absolute
+        top-[4px]
+        sm:top-4
+        right-1
+        sm:right-6
+        z-20
+        "
+        handleClick={handleRemove}
       />
       <div
         className="
