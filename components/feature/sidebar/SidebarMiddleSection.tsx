@@ -25,8 +25,8 @@ const SidebarMiddleSection = ({ favProjects }: SectionProps) => {
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
-    // router.refresh();
-    router.push("/");
+    router.refresh();
+    // router.push("/");
 
     if (error) {
       toast.error(error.message);

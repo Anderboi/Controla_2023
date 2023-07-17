@@ -1,15 +1,20 @@
-"use client";
-
 import ContainerBox from "@/components/common/ContainerBox";
-import Button from "@/components/common/inputs/Button";
 import Image from "next/image";
 
-import useAuthModal from "@/hooks/useAuthModal";
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import SignInBlock from "@/components/SignInBlock";
 
-const Home = () => {
-  const authModal = useAuthModal();
+const Home = async () => {
+  const supabase = createServerComponentClient({ cookies });
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (session) {
+    redirect("/projects");
+  }
 
   // const router = useRouter();
 
@@ -35,20 +40,13 @@ const Home = () => {
             src="logos/controla_logo_light.svg"
             width={300}
             height={40}
-            className="w-full "
+            className="w-full"
           />
-          <p  className='text-center'>Project management web app for interior designers.</p>
+          <p className="text-center">
+            Project management web app for interior designers.
+          </p>
         </div>
-        <h1 className="text-3xl font-bold text-center">Авторизация</h1>
-        <div className="flex justify-between gap-4">
-          <Button mode="action" onClick={authModal.onOpen} className="w-full">
-            Sign In
-          </Button>
-          {/* //TODO: необхожимо заменить на signUp */}
-          {/* <Button mode="ghost" onClick={handleLogout}>
-            Sign Out
-          </Button> */}
-        </div>
+        <SignInBlock />
       </div>
     </ContainerBox>
   );

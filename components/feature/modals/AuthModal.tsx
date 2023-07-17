@@ -58,7 +58,7 @@ const AuthModal = () => {
           },
         }}
         theme="dark"
-        providers={["facebook", "google", "apple"]}
+        providers={[ "google"]}
         redirectTo='/projects'
         magicLink
       />

@@ -52,7 +52,7 @@ const UploadProjectModal = () => {
 
       const imageFile = values.cover_img?.[0];
 
-      if (!imageFile || !user) {
+      if (!user) {
         toast.error("Missing Files");
         return;
       }
@@ -70,7 +70,7 @@ const UploadProjectModal = () => {
 
       // //? Если не удалось загрузить изображение, которое не обязательное к загрузке
       if (projectError) {
-        setIsLoading(false);
+        // setIsLoading(false);
         return toast.error("Не удалось загрузить изображение");
       }
 
@@ -82,7 +82,7 @@ const UploadProjectModal = () => {
           address_city: values.address_city,
           address_street: values.address_street,
           area: values.area,
-          cover_img: projectData.path,
+          cover_img: projectData.path || "",
         });
 
       if (supabaseError) {

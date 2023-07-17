@@ -8,8 +8,6 @@ import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
 import ToasterProvider from "@/providers/ToasterProvider";
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
 
 const inter = Comfortaa({ subsets: ["cyrillic"] });
 

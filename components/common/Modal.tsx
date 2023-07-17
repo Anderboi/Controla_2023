@@ -36,6 +36,7 @@ const Modal = ({
           left-[50%]
           h-[98%]
           w-[96%]
+          overflow-y-auto
            //TODO: add on lower part of modal
           md:h-auto
           md:max-h-[65vh]
@@ -54,6 +55,7 @@ const Modal = ({
           <Dialog.Title
             className="
             text-2xl
+            text-center
             font-bold
             mb-4
             "
@@ -71,9 +73,7 @@ const Modal = ({
           >
             {description}
           </Dialog.Description>
-          <div className=''>
-            {children}
-          </div>
+          <div className="">{children}</div>
           <Dialog.Close asChild>
             <button
               className="
