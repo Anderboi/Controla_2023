@@ -1,6 +1,6 @@
 import React from "react";
 import ContainerBox from "@/components/common/ContainerBox";
-import Header from "@/components/common/Header";
+import Header from "@/components/feature/header/Header";
 import ContactsSearchInput from "@/components/common/inputs/ContactsSearchInput";
 import getContactsByTitle from "@/actions/getContactsByTitle";
 import ContactsGallary from "./components/ContactsGallary";
@@ -15,7 +15,7 @@ interface SearchProps {
 
 const ContactsPage = async ({ searchParams }: SearchProps) => {
   const contacts = await getContactsByTitle(searchParams.title);
- 
+
   return (
     <>
       {/* //TODO: придумать решение по переносу header в layout */}

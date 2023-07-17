@@ -42,7 +42,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
           sm:top-4
           left-1
           sm:left-6
-          z-50
+          z-20
           "
       />
       <div

@@ -40,9 +40,7 @@ export default function RootLayout({
                   w-full
                   bg-black
                   px-2
-                  pt-10
-                  pb-2
-                  sm:py-2
+                  py-2
                   rounded-lg
                   gap-y-2
                   overflow-auto

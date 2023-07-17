@@ -1,16 +1,17 @@
-'use client'
+"use client";
 
 import React from "react";
 import Link from "next/link";
 
 import { twMerge } from "tailwind-merge";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 
 interface SidebarItemsProps {
   label: string;
   href: string;
   icon: React.ReactNode;
   activeIcon: React.ReactNode;
+  isInBurger?: boolean;
 }
 
 const SidebarItem = ({
@@ -18,6 +19,7 @@ const SidebarItem = ({
   activeIcon,
   href,
   label,
+  isInBurger,
 }: SidebarItemsProps) => {
   const route = usePathname();
 
@@ -44,7 +46,14 @@ const SidebarItem = ({
       )}
     >
       {route === href ? activeIcon : icon}
-      <p className="truncate w-full hidden lg:flex">{label}</p>
+      <p
+        className={twMerge(
+          `truncate w-full `,
+          isInBurger ? "flex" : "hidden lg:flex"
+        )}
+      >
+        {label}
+      </p>
     </Link>
   );
 };

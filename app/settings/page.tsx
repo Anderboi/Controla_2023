@@ -1,9 +1,12 @@
-import ContainerBox from "@/components/common/ContainerBox";
 import React from "react";
+import Header from "@/components/feature/header/Header";
 
 const SettingsPage = () => {
   return (
+    <>
+      <Header title="Настройки" />
       <div>SettingsPage</div>
+    </>
   );
 };
 
