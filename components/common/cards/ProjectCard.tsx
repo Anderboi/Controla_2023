@@ -40,7 +40,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       } else if (data.cover_img) {
         // Remove from storage
         const bucket = await supabaseClient.storage
-          .from("images")
+          .from("projects")
           .remove([data.cover_img]);
 
         if (bucket.error) {
