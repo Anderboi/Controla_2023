@@ -4,6 +4,9 @@ import Header from "@/components/feature/header/Header";
 import ContactsSearchInput from "@/components/common/inputs/ContactsSearchInput";
 import getContactsByTitle from "@/actions/getContactsByTitle";
 import ContactsGallary from "./components/ContactsGallary";
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
 
 export const revalidate = 0;
 
@@ -15,6 +18,14 @@ interface SearchProps {
 
 const ContactsPage = async ({ searchParams }: SearchProps) => {
   const contacts = await getContactsByTitle(searchParams.title);
+    const supabase = createServerComponentClient({ cookies });
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    if (!session) {
+      redirect("/");
+    }
 
   return (
     <>

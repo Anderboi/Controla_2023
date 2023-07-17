@@ -1,13 +1,14 @@
 // import { Subscription, UserDetails } from "@/types/supabase";
-import { Database } from '@/types/supabase';
+import { Database } from "@/types/supabase";
 import { User } from "@supabase/auth-helpers-nextjs";
 import {
   useSessionContext,
   useUser as useSupaUser,
 } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 
-type UserData = Database['public']['Tables']['users']['Row']
+type UserData = Database["public"]["Tables"]["users"]["Row"];
 
 type UserContextType = {
   accessToken: string | null;
@@ -34,10 +35,10 @@ export const MyUserProvider = (props: Props) => {
   const user = useSupaUser();
   const accessToken = session?.access_token ?? null;
   const [isLoadingData, setIsLoadingData] = useState(false);
-  const [userDetails, setUserDetails] = useState<
-    UserData | null
-  >(null);
+  const [userDetails, setUserDetails] = useState<UserData | null>(null);
   // const [subscription, setSubscription] = useState<Subscription | null>(null);
+
+  const router = useRouter();
 
   const getUserDetails = () => supabase.from("users").select("*");
   // const getSubscription = () =>
@@ -50,27 +51,25 @@ export const MyUserProvider = (props: Props) => {
   useEffect(() => {
     if (user && !isLoadingData && !userDetails) {
       setIsLoadingData(true);
-      Promise.allSettled([getUserDetails()]).then(
-        (results) => {
-          const userDetailsPromise = results[0];
-          // const subscriptionPromise = results[1];
+      Promise.allSettled([getUserDetails()]).then((results) => {
+        const userDetailsPromise = results[0];
+        // const subscriptionPromise = results[1];
 
-          if (userDetailsPromise.status === "fulfilled") {
-            console.log(userDetailsPromise.value.data);
-            
-            setUserDetails(
-              userDetailsPromise.value.data as UserData | null
-            );
-          }
+        if (userDetailsPromise.status === "fulfilled") {
+          console.log(userDetailsPromise.value.data);
 
-          // if (subscriptionPromise.status === "fulfilled") {
-          //   setSubscription(subscriptionPromise.value.data as Subscription);
-          // }
-
-          setIsLoadingData(false);
+          setUserDetails(userDetailsPromise.value.data as UserData | null);
         }
-      );
+
+        // if (subscriptionPromise.status === "fulfilled") {
+        //   setSubscription(subscriptionPromise.value.data as Subscription);
+        // }
+        setIsLoadingData(false);
+      });
     } else if (!user && !isLoadingData && !isLoadingUser) {
+      
+      router.push("/");
+
       setUserDetails(null);
       // setSubscription(null);
     }

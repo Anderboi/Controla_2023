@@ -8,12 +8,14 @@ import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
 import ToasterProvider from "@/providers/ToasterProvider";
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 const inter = Comfortaa({ subsets: ["cyrillic"] });
 
 export const metadata = {
   title: "Controla",
-  description: "App for your projects control",
+  description: "App for your interior design projects control",
 };
 
 export default function RootLayout({
@@ -21,6 +23,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <html lang="ru">
       <body

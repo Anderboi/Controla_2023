@@ -34,19 +34,20 @@ const BurgerMenu = () => {
       {isOpen && (
         <ul
           className="
-        absolute
-        right-0
-        border
-        border-primary-border-dark
-        bg-elevated-1-bg-dark
-        rounded-lg
-        flex
-        flex-col
-        px-4
-        py-2
-        z-50
-        mt-1
-        "
+          absolute
+          right-0
+          border
+          border-primary-border-dark
+          bg-elevated-1-bg-dark
+          rounded-lg
+          flex
+          flex-col
+          px-4
+          py-2
+          z-50
+          mt-1
+          transition-all
+          "
         >
           {routes.map((item, index) => (
             <SidebarItem

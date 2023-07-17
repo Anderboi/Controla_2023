@@ -3,35 +3,35 @@
 import React from "react";
 import Avatar from "../../common/Avatar";
 import Button from "@/components/common/inputs/Button";
-import { toast } from "react-hot-toast";
+// import { toast } from "react-hot-toast";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
-import { useRouter } from "next/navigation";
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
+// import { useRouter } from "next/navigation";
+// import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 import { IoChevronUp } from "react-icons/io5";
 import ContainerBox from "@/components/common/ContainerBox";
 
 const UserSidebarBlock = () => {
   const authModal = useAuthModal();
-  const router = useRouter();
+  // const router = useRouter();
 
-  const supabaseClient = useSupabaseClient();
+  // const supabaseClient = useSupabaseClient();
   const { user } = useUser();
 
-  const handleLogout = async () => {
-    const { error } = await supabaseClient.auth.signOut();
-    router.refresh();
+  // const handleLogout = async () => {
+  //   const { error } = await supabaseClient.auth.signOut();
+  //   router.refresh();
 
-    if (error) {
-      // console.log(error);
+  //   if (error) {
+  //     // console.log(error);
 
-      toast.error(error.message);
-    } else {
-      toast.success("Logged Out");
-    }
-  };
+  //     toast.error(error.message);
+  //   } else {
+  //     toast.success("Logged Out");
+  //   }
+  // };
 
   return (
     <ContainerBox
@@ -61,7 +61,11 @@ const UserSidebarBlock = () => {
         </div>
       ) : (
         <div className="flex justify-between gap-4 w-full">
-          <Button mode="action" onClick={authModal.onOpen}>
+          <Button
+            className="w-full"
+            mode="ghost_accent"
+            onClick={authModal.onOpen}
+          >
             Sign In
           </Button>
         </div>

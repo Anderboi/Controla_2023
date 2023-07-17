@@ -11,20 +11,20 @@ import { useRouter } from "next/navigation";
 const Home = () => {
   const authModal = useAuthModal();
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const supabaseClient = useSupabaseClient();
+  // const supabaseClient = useSupabaseClient();
 
-  const handleLogout = async () => {
-    const { error } = await supabaseClient.auth.signOut();
-    router.refresh();
+  // const handleLogout = async () => {
+  //   const { error } = await supabaseClient.auth.signOut();
+  //   router.refresh();
 
-    if (error) {
-      console.log("error");
+  //   if (error) {
+  //     console.log("error");
 
-      //  toast.error(error.message);
-    }
-  };
+  //     //  toast.error(error.message);
+  //   }
+  // };
 
   return (
     <ContainerBox classname="px-6 py-6 h-full w-full ">
