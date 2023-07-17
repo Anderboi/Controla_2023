@@ -4,11 +4,9 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import useLoadImage from "@/hooks/useLoadImage";
 
-import Button from "../../common/inputs/Button";
 import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
 
-import AddProjectButton from "./AddProjectButton";
 import HeaderNavBlock from './HeaderNavBlock';
 import BurgerMenu from './BurgerMenu';
 
@@ -19,6 +17,7 @@ interface HeaderProps {
   className?: string;
   startDate?: string;
   addressDetails?: string;
+  adjustableButton?: React.ReactNode;
 }
 
 const Header = ({
@@ -28,6 +27,7 @@ const Header = ({
   subtitle,
   addressDetails,
   startDate,
+  adjustableButton,
 }: HeaderProps) => {
   const coverImage = useLoadImage(image || null, "project");
 
@@ -72,13 +72,12 @@ const Header = ({
       "
       >
         {/*//? left button block */}
-        <HeaderNavBlock/>
-        
+        <HeaderNavBlock />
+
         {/*//? right button block */}
         <div className="flex gap-4">
-          <AddProjectButton />
-          <BurgerMenu/>
-          
+          {adjustableButton}
+          <BurgerMenu />
         </div>
       </div>
       <div

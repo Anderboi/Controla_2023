@@ -3,6 +3,8 @@ import Header from "@/components/feature/header/Header";
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import SignOutBlock from './components/SignOutBlock';
+import ContainerBox from '@/components/common/ContainerBox';
 
 const SettingsPage = async () => {
   const supabase = createServerComponentClient({ cookies });
@@ -14,10 +16,14 @@ const SettingsPage = async () => {
     redirect("/");
   }
 
+  
+
   return (
     <>
       <Header title="Настройки" />
-      <div>SettingsPage</div>
+      <ContainerBox classname='h-full'>
+        <SignOutBlock/>
+      </ContainerBox>
     </>
   );
 };

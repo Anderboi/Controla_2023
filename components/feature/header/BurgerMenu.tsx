@@ -8,12 +8,14 @@ const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative sm:hidden flex">
       <Button
         mode="ghost"
         corner="round"
         className="w-10 h-10 flex justify-center items-center border-none bg-secondary-bg-dark"
-        onClick={() => {setIsOpen(!isOpen)}}
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +38,7 @@ const BurgerMenu = () => {
           className="
           absolute
           right-0
+          top-[100%]
           border
           border-primary-border-dark
           bg-elevated-1-bg-dark

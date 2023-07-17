@@ -7,6 +7,7 @@ import getProjectsByTitle from "@/actions/getProjectsByTitle";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import AddProjectButton from '@/components/feature/header/AddProjectButton';
 
 export const revalidate = 0;
 
@@ -30,7 +31,7 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
   return (
     <>
       {/* //TODO: придумать решение по переносу header в layout */}
-      <Header title="Проекты" />
+      <Header title="Проекты" adjustableButton={<AddProjectButton />} />
       <ContainerBox
         classname="
         overflow-y-auto

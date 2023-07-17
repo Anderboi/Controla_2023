@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import ContainerBox from "../ContainerBox";
@@ -13,20 +13,22 @@ interface ContactCardProps {
 
 const ContactCard = ({ data, onClick }: ContactCardProps) => {
   return (
-    <ContainerBox
-      type="card"
-      classname="
-              relative
-              flex
-              flex-col 
-              justify-center 
-              items-center
-              gap-y-4 
-              cursor-pointer 
-              group
-              aspect-square
-              bg-elevated-1-bg-dark
-              hover:bg-elevated-2-bg-dark
+    <div
+      className="
+        relative
+        group
+        flex
+        flex-col
+        items-center
+        justify-center
+        overflow-hidden
+        gap-y-3
+        md:gap-y-4
+        cursor-pointer
+        sm:bg-elevated-1-bg-dark
+        sm:hover:bg-elevated-2-bg-dark
+        sm:rounded-lg
+        sm:p-4
               "
       onClick={() => onClick(data.id)}
     >
@@ -34,19 +36,25 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         id={data.id}
         className="
           absolute
-          top-2
-          left-3
-          z-40
+          top-[-4px]
+          sm:top-4
+          left-1
+          sm:left-6
+          z-20
           "
       />
 
       <div
         className="
-        relative 
-        w-full 
-        h-full
-        aspect-square
-        drop-shadow-spt
+          relative
+          w-full
+          h-full
+          overflow-hidden
+          md:saturate-0
+          group-hover:saturate-100
+          aspect-square
+          md:drop-shadow-spt
+          rounded-lg
       "
       >
         <Image
@@ -56,19 +64,35 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           className="rounded-full aspect-square"
         />
       </div>
-      <div className="
-          w-full 
-          items-start
-          flex flex-col
+      <div
+        className="
+          flex
+          flex-col
           gap-y-1
+          justify-center
+          items-start
+          w-full
+          "
+      >
+        <p
+          className="
+            line-clamp-1 
+            font-bold
+            "
+        >
+          {data.full_name}
+        </p>
+        <p className="
+          text-xs
+          truncate
+          break-all
+          text-secondary-text-dark
           ">
-        <p className="line-clamp-1 font-bold">{data.full_name}</p>
-        <p className="text-xs truncate text-secondary-text-dark">
           {data.email}
         </p>
-        <p className="text-sm ">{data.role}</p>
+        <p className="text-sm">{data.role}</p>
       </div>
-    </ContainerBox>
+    </div>
   );
 };
 
