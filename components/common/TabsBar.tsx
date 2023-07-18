@@ -12,17 +12,17 @@ const TabsBar = () => {
   return (
     <ul
       className="
-          w-full
-          min-h-[64px]
-          h-fit
           flex
-          gap-3
-          pb-6
+          h-fit
+          min-h-[64px]
+          w-full
           items-center
           justify-start
+          gap-3
           overflow-x-scroll
-          no-scrollbar
           scroll-smooth
+          pb-6
+          no-scrollbar
           scrolling-touch
           "
     >

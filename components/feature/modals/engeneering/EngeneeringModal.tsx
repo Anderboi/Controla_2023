@@ -37,7 +37,7 @@ const EngeneeringModal = () => {
     case "heating":
       return (
         <Modal
-          title="Системы отопления"
+          title="Система отопления"
           // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
           isOpen={engModal.isOpen}
           onChange={onChange}

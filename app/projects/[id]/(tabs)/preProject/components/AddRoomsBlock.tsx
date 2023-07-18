@@ -61,7 +61,7 @@ const AddRoomsBlock = () => {
   };
 
   return (
-    <div className='w-full z-50'>
+    <div className='z-50 w-full'>
       <BasicMultiSelector
         type="creatable"
         content={roomsList}

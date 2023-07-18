@@ -9,19 +9,19 @@ const InfoBlock = ({ body, label }: InfoBlockProps) => {
   return (
     <div
       className="
-      grid
-          columns-2
-          gap-y-4
-          //sm:flex-row
-          justify-between
-          w-full
+      //sm:flex-row
           //border-t-[0.5px]
+          grid
+          w-full
+          columns-2
+          justify-between
+          gap-y-4
           border-primary-border-dark
           py-2
           "
     >
       <span className='text-primary-text-dark'>{label}</span>
-      <span className='text-start break-words text-secondary-text-dark '>{body}</span>
+      <span className='break-words text-start text-secondary-text-dark '>{body}</span>
     </div>
   );
 };

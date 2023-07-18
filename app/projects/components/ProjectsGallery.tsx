@@ -33,12 +33,12 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
     return (
       <article
         className="
+          m-auto
           flex
+          max-w-sm
           flex-col
-          items-center
-          justify-center
-          max-w-sm 
-          m-auto 
+          items-center 
+          justify-center 
           gap-6
         "
       >

@@ -8,7 +8,7 @@ const SignInBlock = () => {
   const authModal = useAuthModal();
   return (
     <>
-      <h1 className="text-3xl font-bold text-center">Авторизация</h1>
+      <h1 className="text-center text-3xl font-bold">Авторизация</h1>
       <div className="flex justify-between gap-4">
         <Button mode="action" onClick={authModal.onOpen} className="w-full">
           Sign In

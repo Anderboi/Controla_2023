@@ -18,13 +18,13 @@ const FavouriteContent = ({ projects }: FavContentProps) => {
     <div
       className="
         flex
+        h-full
+        w-full
         flex-col
         gap-y-2
         overflow-y-scroll
-        h-full
-        w-full
-        no-scrollbar
         overscroll-contain
+        no-scrollbar
         "
     >
       {user &&

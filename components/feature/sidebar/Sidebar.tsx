@@ -18,16 +18,16 @@ const Sidebar = async () => {
   return (
     <aside
       className="
+      bg-black
       hidden
       min-h-screen
-      sm:flex
+      w-[90px]
       flex-col
       gap-y-2
-      bg-black
-      w-[90px]
-      lg:w-[300px]
       py-2
       pl-2
+      sm:flex
+      lg:w-[300px]
       "
     >
       <ContainerBox
@@ -48,14 +48,14 @@ const Sidebar = async () => {
             src="logos/controla_logo_light.svg"
             width={300}
             height={40}
-            className="cursor-pointer hidden lg:flex"
+            className="hidden cursor-pointer lg:flex"
           />
           <Image
             alt="round logo"
             src="logos/c_white.svg"
             width={24}
             height={24}
-            className="hidden sm:max-lg:flex cursor-pointer"
+            className="hidden cursor-pointer sm:max-lg:flex"
           />
         </Link>
         <Navigation navLinks={routes} />

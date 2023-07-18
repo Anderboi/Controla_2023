@@ -50,10 +50,10 @@ const SidebarMiddleSection = ({ favProjects }: SectionProps) => {
       <span
         className="
         hidden
-        lg:flex
-        font-bold
         text-xs
+        font-bold
         text-secondary-text-dark
+        lg:flex
         "
       >
         Избранное

@@ -11,9 +11,9 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
       <h2
         className="
         //px-6
-        text-[21px]
-        text-start
         pb-1
+        text-start
+        text-[21px]
         font-bold
       "
       >

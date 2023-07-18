@@ -150,7 +150,7 @@ const UploadProjectModal = () => {
 
         {/* //? Upload file block */}
         <div>
-          <label className="mb-2 inline-block text-primary-text-dark text-sm">
+          <label className="mb-2 inline-block text-sm text-primary-text-dark">
             Загрузите обложку проекта
           </label>
           <Input
@@ -159,31 +159,31 @@ const UploadProjectModal = () => {
             disabled={isLoading}
             accept="image/*"
             className="
-            text-primary-text-dark
-            relative m-0 block flex-auto
-            px-0 py-4
-            transition duration-300 ease-in-out
-            cursor-pointer
+            focus:border-primary
+            focus:shadow-te-primary relative m-0 block
             w-full min-w-0
-            file:-my-4
+            flex-auto cursor-pointer px-0
+            py-4
+            text-primary-text-dark transition
+            duration-300
+            ease-in-out 
+            file:-my-4 
             file:overflow-hidden 
             file:rounded-none 
             file:border-0 
             file:border-solid 
             file:border-inherit 
-            file:bg-neutral-100 
+            file:bg-neutral-100
             file:px-3 
             file:py-4
             file:text-neutral-700 
-            file:transition
+            file:transition 
             file:duration-150 
-            file:ease-in-out 
+            file:ease-in-out
             file:[border-inline-end-width:1px] 
-            file:[margin-inline-end:0.75rem]
+            file:[margin-inline-end:0.75rem] 
             hover:file:bg-neutral-200 
-            focus:border-primary 
             focus:text-neutral-700 
-            focus:shadow-te-primary 
             focus:outline-none
             "
             {...register("cover_img", { required: false })}

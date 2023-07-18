@@ -45,9 +45,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
 
         if (bucket.error) {
           toast.error(bucket.error?.message);
-        } else {
-          toast.success("Обложка удалена");
-        }
+        } 
       }
       toast.success("Проект удален");
       console.log("deleted");
@@ -59,55 +57,55 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
     <div
       onClick={() => onClick(data.project_id)}
       className="
-        relative
         group
+        relative
         flex
+        cursor-pointer
         flex-col
         items-center
         justify-center
-        overflow-hidden
         gap-y-3
-        md:gap-y-4
-        cursor-pointer
-        sm:bg-elevated-1-bg-dark
-        sm:hover:bg-elevated-2-bg-dark
+        overflow-hidden
         sm:rounded-lg
+        sm:bg-elevated-1-bg-dark
         sm:p-4
+        sm:hover:bg-elevated-2-bg-dark
+        md:gap-y-4
         "
     >
       <FavouriteButton
         projectId={data.project_id}
         className="
           absolute
-          top-[-4px]
-          sm:top-4
           left-1
-          sm:left-6
+          top-[-4px]
           z-20
+          sm:left-6
+          sm:top-4
           "
       />
       <RemoveButton
         className="
         absolute
-        top-[4px]
-        sm:top-4
         right-1
-        sm:right-6
+        top-[-4px]
         z-20
+        sm:right-6
+        sm:top-4
         "
         handleClick={handleRemove}
       />
       <div
         className="
           relative
-          w-full
-          h-full
-          overflow-hidden
-          md:saturate-0
-          group-hover:saturate-100
           aspect-square
-          md:drop-shadow-spt
+          h-full
+          w-full
+          overflow-hidden
           rounded-lg
+          group-hover:saturate-100
+          md:drop-shadow-spt
+          md:saturate-0
           "
       >
         {imagePath ? (
@@ -115,8 +113,8 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
             src={imagePath}
             alt="cover"
             className="
-              object-cover 
-              aspect-square
+              aspect-square 
+              object-cover
               "
             fill
           />
@@ -126,9 +124,9 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
             alt="placeholder"
             fill
             className="
-              p-8 
+              aspect-square 
               bg-secondary-bg-dark 
-              aspect-square
+              p-8
               "
           />
         )}
@@ -136,32 +134,32 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       <div
         className="
           flex 
-          flex-col
-          gap-y-1
-          justify-center 
-          items-start 
           w-full
+          flex-col
+          items-start 
+          justify-center 
+          gap-y-1
           "
       >
         <span
           className="
-            text-sm
-            md:text-base
-            font-bold
-            w-full
             line-clamp-1
+            w-full
+            text-sm
+            font-bold
+            md:text-base
             "
         >
           {data.address_street}
         </span>
         <p
           className="
-            text-xs
-            md:text-sm
-            text-secondary-text-dark
             //truncate
             line-clamp-2
             min-h-[2lh]
+            text-xs
+            text-secondary-text-dark
+            md:text-sm
             "
         >
           <span className="font-bold">Площадь: </span>

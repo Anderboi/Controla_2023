@@ -117,9 +117,19 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
       : engeneeringSystems.plumbing;
 
   return (
-    <form className="flex flex-col h-[450px]">
+    <form className="flex h-[450px] flex-col ">
       {/* Input Block */}
-      <div className="flex flex-col gap-4 overflow-y-auto no-scrollbar">
+      <div
+        className="
+          flex 
+          flex-col 
+          gap-4 
+          overflow-y-auto 
+          no-scrollbar 
+          bg-elevated-1-bg-dark
+          rounded-lg
+          "
+      >
         {sysArray.map(({ name, label }, index) => (
           <CheckDataCard
             key={index}
@@ -140,7 +150,7 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
           className="mt-4"
           size="small"
         >
-          Отменить
+          Отмена
         </Button>
         <Button
           onClick={onSubmit}

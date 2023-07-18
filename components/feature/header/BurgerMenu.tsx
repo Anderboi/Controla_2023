@@ -8,11 +8,11 @@ const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative sm:hidden flex">
+    <div className="relative flex sm:hidden">
       <Button
         mode="ghost"
         corner="round"
-        className="w-10 h-10 flex justify-center items-center border-none bg-secondary-bg-dark"
+        className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark"
         onClick={() => {
           setIsOpen(!isOpen);
         }}
@@ -23,7 +23,7 @@ const BurgerMenu = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6"
+          className="h-6 w-6"
         >
           <path
             strokeLinecap="round"
@@ -39,16 +39,16 @@ const BurgerMenu = () => {
           absolute
           right-0
           top-[100%]
+          z-50
+          mt-1
+          flex
+          flex-col
+          rounded-lg
           border
           border-primary-border-dark
           bg-elevated-1-bg-dark
-          rounded-lg
-          flex
-          flex-col
           px-4
           py-2
-          z-50
-          mt-1
           transition-all
           "
         >

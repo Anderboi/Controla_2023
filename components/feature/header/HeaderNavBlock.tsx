@@ -14,7 +14,7 @@ const HeaderNavBlock = () => {
       <Button
         mode="ghost"
         corner="round"
-        className="w-10 h-10 flex justify-center items-center border-none bg-secondary-bg-dark"
+        className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark"
         onClick={() => router.back()}
       >
         <IoChevronBackOutline fontSize={24} />
@@ -22,7 +22,7 @@ const HeaderNavBlock = () => {
       <Button
         mode="ghost"
         corner="round"
-        className="w-10 h-10 flex justify-center items-center border-none bg-secondary-bg-dark"
+        className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark"
         onClick={() => router.forward()}
       >
         <IoChevronForward fontSize={24} />

@@ -20,10 +20,10 @@ const ProjectPage = async ({
     <section
       className="
       flex
+      h-screen
+      w-full
       flex-col
       gap-y-2
-      w-full
-      h-screen
       overflow-y-auto
       rounded-lg 
       no-scrollbar

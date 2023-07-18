@@ -15,14 +15,14 @@ const FavouriteProjectItem = ({ data, onClick }: FavouriteProjectItemProps) => {
   return (
     <div
       className="
+      line-clamp-1
+      cursor-pointer
+      break-all
       rounded-md
       p-2
-      line-clamp-1
-      break-all
       text-sm
       text-primary-text-dark
       hover:bg-transparent-bg-dark/10
-      cursor-pointer
       "
       onClick={handleClick}
     >

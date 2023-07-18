@@ -15,20 +15,20 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
   return (
     <div
       className="
-        relative
         group
+        relative
         flex
+        cursor-pointer
         flex-col
         items-center
         justify-center
-        overflow-hidden
         gap-y-3
-        md:gap-y-4
-        cursor-pointer
-        sm:bg-elevated-1-bg-dark
-        sm:hover:bg-elevated-2-bg-dark
+        overflow-hidden
         sm:rounded-lg
+        sm:bg-elevated-1-bg-dark
         sm:p-4
+        sm:hover:bg-elevated-2-bg-dark
+        md:gap-y-4
               "
       onClick={() => onClick(data.id)}
     >
@@ -36,42 +36,42 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         id={data.id}
         className="
           absolute
-          top-[-4px]
-          sm:top-4
           left-1
-          sm:left-6
+          top-[-4px]
           z-20
+          sm:left-6
+          sm:top-4
           "
       />
 
       <div
         className="
           relative
-          w-full
-          h-full
-          overflow-hidden
-          md:saturate-0
-          group-hover:saturate-100
           aspect-square
-          md:drop-shadow-spt
+          h-full
+          w-full
+          overflow-hidden
           rounded-lg
+          group-hover:saturate-100
+          md:drop-shadow-spt
+          md:saturate-0
       "
       >
         <Image
           alt="avatar"
           src={data.avatar_url || ""}
           fill
-          className="rounded-full aspect-square"
+          className="aspect-square rounded-full"
         />
       </div>
       <div
         className="
           flex
-          flex-col
-          gap-y-1
-          justify-center
-          items-start
           w-full
+          flex-col
+          items-start
+          justify-center
+          gap-y-1
           "
       >
         <p
@@ -83,9 +83,9 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           {data.full_name}
         </p>
         <p className="
-          text-xs
           truncate
           break-all
+          text-xs
           text-secondary-text-dark
           ">
           {data.email}

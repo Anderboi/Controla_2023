@@ -17,38 +17,38 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
       <ContentBlock title="Состав помещений">
         <div>
           {premises.length === 0 ? (
-            <div className="flex flex-col justify-center items-center w-full ">
-              <span className="text-center py-4">
+            <div className="flex w-full flex-col items-center justify-center ">
+              <span className="py-4 text-center">
                 Нет назначенных помещений
               </span>
               <AddRoomsBlock />
             </div>
           ) : (
-            <div className="flex gap-6 overflow-y-auto no-scrollbar scroll-smooth">
+            <div className="flex gap-6 overflow-y-auto scroll-smooth no-scrollbar">
               {premises.map((item, index) => (
                 <div
                   key={index}
                   className="
-                  bg-elevated-1-bg-dark 
-                  p-3
+                  flex 
                   min-h-[180px]
                   min-w-[148px]
-                  flex
-                  flex-col 
-                  items-end 
-                  text-end 
-                  justify-between
-                  rounded-lg
-                  hover:bg-elevated-2-bg-dark
                   cursor-pointer
-                  break-words
+                  flex-col
+                  items-end 
+                  justify-between 
+                  break-words 
+                  rounded-lg
+                  bg-elevated-1-bg-dark
+                  p-3
+                  text-end
+                  hover:bg-elevated-2-bg-dark
                   "
                 >
                   <span
                     className="
                     text-6xl
-                    text-opacity-20
                     text-secondary-text-dark
+                    text-opacity-20
                     "
                   >
                     {item.room_number?.toLocaleString("en-US", {
@@ -56,7 +56,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                       useGrouping: false,
                     })}
                   </span>
-                  <div className="flex flex-col justify-end items-end">
+                  <div className="flex flex-col items-end justify-end">
                     <span className="text-sm">{item.name}</span>
                     <div className="flex gap-2">
                       <TbSofa className="text-secondary-text-dark " size={20} />

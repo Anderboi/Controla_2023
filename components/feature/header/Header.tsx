@@ -36,15 +36,13 @@ const Header = ({
       classname={twMerge(
         `
         relative
-        //pb-4
         flex
         flex-col
         justify-between
         h-fit
-        //h-[240px]
-        
         w-full
         items-center
+        
         `,
         coverImage &&
           `
@@ -62,13 +60,13 @@ const Header = ({
     >
       <div
         className="
-        flex 
-        justify-between 
-        w-full 
-        z-10 
         //h-[80px] 
-        //top-0
+        //top-0 
         //sticky 
+        z-10 
+        flex 
+        w-full
+        justify-between 
       "
       >
         {/*//? left button block */}
@@ -83,58 +81,56 @@ const Header = ({
       <div
         className="
         flex
-        flex-col
         w-full
+        flex-col
         "
       >
         <span
           className="
-          text-xs
-          md:text-xl
-          text-primary-text-dark/90 
-          font-bold 
-          text-left  
           w-full
+          text-left
+          text-xs 
+          font-bold 
+          text-primary-text-dark/90  
+          md:text-xl
           "
         >
           {subtitle}
         </span>
         <span
           className="
-            text-[24px]
-            //sm:text-3xl
-            md:text-4xl
-            lg:text-5xl/[72px]
-            xl:text-7xl/[72px]
-            font-bold
-            text-left
+            //break-all
+            line-clamp-2
+            md:line-clamp-2
             w-full
             break-words
-            line-clamp-2
-            md:line-clamp-1
-            //break-all
+            font-bold
+            text-left
+            text-[24px]
+            sm:text-[5vw]/[5vw]
+            tracking-tighter
           "
         >
           {title}
         </span>
         <span
           className="
+            w-full 
+            text-left 
             text-sm 
             font-bold 
-            text-left 
-            text-primary-text-dark/90 
-            w-full
+            text-primary-text-dark/90
         "
         >
           {addressDetails}
         </span>
         <span
           className="
+            w-full 
+            text-left 
             text-xs 
             font-bold 
-            text-left 
-            text-primary-text-dark/90 
-            w-full
+            text-primary-text-dark/90
           "
         >
           {startDate && Date.parse(startDate)}
@@ -148,12 +144,12 @@ const Header = ({
           priority
           className="
             absolute
-            w-full
+            z-0
             h-full
+            w-full
+            rounded-lg
             object-cover
             mix-blend-overlay
-            rounded-lg
-            z-0
           "
         />
       )}

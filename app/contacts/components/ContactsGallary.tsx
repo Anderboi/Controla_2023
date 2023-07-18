@@ -14,13 +14,13 @@ const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
     return (
       <article
         className="
+        m-auto
         flex
-        flex-col
         h-full
-        items-center
-        justify-center
-        max-w-sm 
-        m-auto 
+        max-w-sm
+        flex-col
+        items-center 
+        justify-center 
         gap-6
         "
       >

@@ -66,17 +66,17 @@ const ContactsLiveSearch = () => {
             <Combobox.Label>Клиент: </Combobox.Label>
             <div
               className="
+                bg-white
+                focus-visible:ring-white
                 relative
                 w-full
                 cursor-default
                 overflow-hidden
                 rounded-lg
-                bg-white
                 text-left
                 shadow-md
                 focus:outline-none
                 focus-visible:ring-2
-                focus-visible:ring-white
                 focus-visible:ring-opacity-75
                 focus-visible:ring-offset-2
                 focus-visible:ring-offset-teal-300
@@ -85,7 +85,7 @@ const ContactsLiveSearch = () => {
             >
               <Combobox.Input
                 
-                className="w-full rounded-lg border-none py-3 pl-3 pr-10 text-primary-text-dark text-sm leading-5 focus:ring-0"
+                className="w-full rounded-lg border-none py-3 pl-3 pr-10 text-sm leading-5 text-primary-text-dark focus:ring-0"
                 onChange={(event) => setQuery(event.target.value)}
                 displayValue={
                   (selectedPeople: any) => selectedPeople
@@ -112,22 +112,22 @@ const ContactsLiveSearch = () => {
             >
               <Combobox.Options
                 className={`
+                  ring-black
                   absolute
+                  z-50
                   mt-1
                   max-h-60
                   w-full
                   overflow-auto
-                  rounded-lg
+                  rounded-lg 
                   bg-secondary-bg-dark
-                  py-1 
+                  py-1
                   text-base
                   shadow-lg
                   ring-1
-                  ring-black
                   ring-opacity-5
                   focus:outline-none
                   sm:text-sm
-                  z-50
                   `}
               >
                 {filteredContacts.length === 0 && query !== "" ? (
@@ -156,7 +156,7 @@ const ContactsLiveSearch = () => {
                       {({ selected, active }) => (
                         <>
                           <span
-                            className={`truncate block ${
+                            className={`block truncate ${
                               selected ? "font-medium" : "font-normal"
                             }`}
                           >
@@ -168,7 +168,6 @@ const ContactsLiveSearch = () => {
                               absolute
                               inset-0
                               flex
-                              left-0
                               items-center
                               pl-3
                               ${

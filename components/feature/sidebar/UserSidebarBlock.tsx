@@ -41,18 +41,18 @@ const UserSidebarBlock = () => {
         lg:w-full"
     >
       {user ? (
-        <div className="flex w-full justify-center lg:justify-between h-fit items-center lg:gap-x-3">
+        <div className="flex h-fit w-full items-center justify-center lg:justify-between lg:gap-x-3">
           <Avatar
             type="rectangular"
             size={40}
             image={user.user_metadata.avatar_url}
           />
-          <div className="hidden lg:flex justify-between w-full content-center items-center">
-            <div className=" flex-col justify-between flex-1 ">
-              <span className="font-bold line-clamp-1">
+          <div className="hidden w-full content-center items-center justify-between lg:flex">
+            <div className=" flex-1 flex-col justify-between ">
+              <span className="line-clamp-1 font-bold">
                 {user.user_metadata.full_name || "User"}
               </span>
-              <div className="leading-5 text-xs text-secondary-text-dark">
+              <div className="text-xs leading-5 text-secondary-text-dark">
                 {user.email}
               </div>
             </div>
@@ -60,7 +60,7 @@ const UserSidebarBlock = () => {
           </div>
         </div>
       ) : (
-        <div className="flex justify-between gap-4 w-full">
+        <div className="flex w-full justify-between gap-4">
           <Button
             className="w-full"
             mode="ghost_accent"

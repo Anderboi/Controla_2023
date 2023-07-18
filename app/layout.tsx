@@ -35,18 +35,17 @@ export default function RootLayout({
               <Sidebar />
               <main
                 className="
-                  flex-1
-                  flex
-                  flex-col
-                  w-full
                   bg-black
-                  px-2
-                  py-2
-                  rounded-lg
+                  flex
+                  w-full
+                  flex-1
+                  flex-col
                   gap-y-2
                   overflow-auto
-                  no-scrollbar
                   scroll-smooth
+                  rounded-lg
+                  p-2
+                  no-scrollbar
                 "
               >
                 {children}

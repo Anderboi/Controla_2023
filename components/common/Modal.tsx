@@ -22,42 +22,41 @@ const Modal = ({
       <Dialog.Portal>
         <Dialog.Overlay
           className="
-          bg-secondary-bg-dark/90
-          backdrop-blur-md
           fixed
           inset-0
           z-20
+          bg-secondary-bg-light/10
+          backdrop-blur-md
           "
         />
         <Dialog.Content
           className="
-          fixed
-          top-[50%]
-          left-[50%]
-          h-[98%]
+          fixed 
+          left-[50%] 
+          top-[50%] 
+          z-50 
+          h-[98%] 
           w-[96%]
+          translate-x-[-50%]
+          translate-y-[-50%]
           overflow-y-auto
-           //TODO: add on lower part of modal
+          text-clip
+          rounded-lg
+          bg-secondary-bg-dark
+          p-6
+          focus:outline-none
           md:h-auto
           md:max-h-[65vh]
           md:w-[90vw]
           md:max-w-[450px]
-          translate-x-[-50%]
-          translate-y-[-50%]
-          overflow-clip
-          rounded-lg
-          bg-elevated-1-bg-dark
-          p-6
-          focus:outline-none
-          z-50
           "
         >
           <Dialog.Title
             className="
-            text-2xl
-            text-center
-            font-bold
             mb-4
+            text-center
+            text-2xl
+            font-bold
             "
           >
             {title}
@@ -65,9 +64,9 @@ const Modal = ({
           <Dialog.Description
             className="
             mb-5
+            text-center
             text-base
             leading-normal
-            text-center
             text-primary-text-dark
             "
           >
@@ -77,17 +76,17 @@ const Modal = ({
           <Dialog.Close asChild>
             <button
               className="
-              text-secondary-text-dark 
-              hover:text-primary-text-dark
-              absolute
-              top-[10px]
+              absolute 
               right-[10px]
+              top-[10px]
               inline-flex
               h-[24px]
               w-[24px]
               appearance-none
               items-center
               justify-center
+              text-secondary-text-dark
+              hover:text-primary-text-dark
               focus:outline-none
               "
             >

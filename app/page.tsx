@@ -33,8 +33,8 @@ const Home = async () => {
 
   return (
     <ContainerBox classname="px-6 py-6 h-full w-full ">
-      <div className="max-w-[600px] m-auto h-full flex flex-col justify-center gap-y-8">
-        <div className="w-full flex flex-col gap-6 pb-10">
+      <div className="m-auto flex h-full max-w-[600px] flex-col justify-center gap-y-8">
+        <div className="flex w-full flex-col gap-6 pb-10">
           <Image
             alt="main logo"
             src="logos/controla_logo_light.svg"

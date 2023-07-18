@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
@@ -44,7 +45,9 @@
   },
   "devDependencies": {
     "@types/uniqid": "^5.3.2",
+    "@typescript-eslint/parser": "^6.1.0",
     "encoding": "^0.1.13",
+    "eslint-plugin-tailwindcss": "^3.13.0",
     "supabase": "^1.68.6"
   }
 }
