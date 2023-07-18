@@ -9,7 +9,7 @@ import CheckDataCard from "@/components/common/cards/CheckDataCard";
 import Button from "@/components/common/inputs/Button";
 
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
-import engeneeringSystems from "@/lib/engeneering";
+import {engeneeringSystems} from "@/lib/engeneering";
 
 interface BlockProps {
   type: "conditioning" | "plumbing" | "heating";
