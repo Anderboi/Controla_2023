@@ -11,17 +11,17 @@ export interface Database {
     Tables: {
       contacts: {
         Row: {
-          contact: string | null
+          contact: string
           created_at: string | null
           user_id: string
         }
         Insert: {
-          contact?: string | null
+          contact: string
           created_at?: string | null
           user_id: string
         }
         Update: {
-          contact?: string | null
+          contact?: string
           created_at?: string | null
           user_id?: string
         }
@@ -43,18 +43,21 @@ export interface Database {
       engeneering_data: {
         Row: {
           conditioning: string[] | null
+          electric: string[] | null
           heating: string[] | null
           plumbing: string[] | null
           project_id: number
         }
         Insert: {
           conditioning?: string[] | null
+          electric?: string[] | null
           heating?: string[] | null
           plumbing?: string[] | null
           project_id?: number
         }
         Update: {
           conditioning?: string[] | null
+          electric?: string[] | null
           heating?: string[] | null
           plumbing?: string[] | null
           project_id?: number

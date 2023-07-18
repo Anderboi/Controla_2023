@@ -24,39 +24,46 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
               <AddRoomsBlock />
             </div>
           ) : (
-            <div className="flex gap-6 overflow-y-auto scroll-smooth no-scrollbar">
+            <div className="flex gap-4 overflow-y-auto scroll-smooth no-scrollbar">
               {premises.map((item, index) => (
                 <div
                   key={index}
                   className="
-                  flex 
-                  min-h-[180px]
-                  min-w-[148px]
-                  cursor-pointer
-                  flex-col
-                  items-end 
-                  justify-between 
-                  break-words 
-                  rounded-lg
-                  bg-elevated-1-bg-dark
-                  p-3
-                  text-end
-                  hover:bg-elevated-2-bg-dark
-                  "
+                    flex
+                    min-h-[180px]
+                    min-w-[148px]
+                    cursor-pointer
+                    flex-col
+                    items-end
+                    justify-between
+                    break-words
+                    rounded-lg
+                    bg-elevated-1-bg-dark
+                    p-3
+                    text-end
+                    hover:bg-elevated-2-bg-dark
+                    "
                 >
                   <span
                     className="
-                    text-6xl
-                    text-secondary-text-dark
-                    text-opacity-20
-                    "
+                      text-6xl
+                      text-secondary-text-dark
+                      text-opacity-20
+                      "
                   >
                     {item.room_number?.toLocaleString("en-US", {
                       minimumIntegerDigits: 2,
                       useGrouping: false,
                     })}
                   </span>
-                  <div className="flex flex-col items-end justify-end">
+                  <div
+                    className="
+                      flex
+                      flex-col
+                      items-end
+                      justify-end
+                      "
+                  >
                     <span className="text-sm">{item.name}</span>
                     <div className="flex gap-2">
                       <TbSofa className="text-secondary-text-dark " size={20} />

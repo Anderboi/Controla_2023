@@ -9,8 +9,6 @@ const InfoBlock = ({ body, label }: InfoBlockProps) => {
   return (
     <div
       className="
-      //sm:flex-row
-          //border-t-[0.5px]
           grid
           w-full
           columns-2
