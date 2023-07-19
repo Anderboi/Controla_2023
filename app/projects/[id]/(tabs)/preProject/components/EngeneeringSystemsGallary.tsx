@@ -17,7 +17,12 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
 
   const handleOnClick = (type: string) => {
     //@ts-ignore
-    if (!data[type]) {
+    if (data[type] === null) {
+      //@ts-ignore
+      engModal.onOpen(type);
+    } else {
+      //@ts-ignore
+      engModal.loadData(data[type]);
       //@ts-ignore
       engModal.onOpen(type);
     }
@@ -32,118 +37,33 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
             gap-4
             "
     >
-      {engSystems.map((item, index) => {
-        return (
-          <>
-            {item.name === "conditioning" && (
-              <DataCard
-                illustration={
-                  <Illustration
-                    type={"conditioning"}
-                    size={60}
-                    className={twMerge(
-                      `
+      {Object.entries(data)
+        .filter((item) => item[0] !== "project_id")
+        .map(([key, value], index) => (
+          <DataCard
+            illustration={
+              <Illustration
+                type={key}
+                size={60}
+                className={twMerge(
+                  `
                           fill-secondary-text-dark
                           w-16
                           h-16
                           `,
-                      !data.conditioning
-                        ? "fill-primary-border-dark"
-                        : "fill-accent-dark"
-                    )}
-                  />
-                }
-                isFilled={
-                  (data.conditioning && data.conditioning?.length > 0) || false
-                }
-                onClick={handleOnClick}
-                // engeneeringData={engData.conditioning}
-                type={item.name}
-                label={item.label}
-                key={index}
+                  !value ? "fill-primary-border-dark" : "fill-accent-dark"
+                )}
               />
-            )}
-            {item.name === "electric" && (
-              <DataCard
-                illustration={
-                  <Illustration
-                    type={"electric"}
-                    size={60}
-                    className={twMerge(
-                      `
-                          fill-secondary-text-dark
-                          w-16
-                          h-16
-                          `,
-                      !data.electric
-                        ? "fill-primary-border-dark"
-                        : "fill-accent-dark"
-                    )}
-                  />
-                }
-                isFilled={(data.electric && data.electric?.length > 0) || false}
-                onClick={handleOnClick}
-                // engeneeringData={engData.conditioning}
-                type={item.name}
-                label={item.label}
-                key={index}
-              />
-            )}
-            {item.name === "heating" && (
-              <DataCard
-                illustration={
-                  <Illustration
-                    type={"heating"}
-                    size={60}
-                    className={twMerge(
-                      `
-                          fill-secondary-text-dark
-                          w-16
-                          h-16
-                          `,
-                      !data.heating
-                        ? "fill-primary-border-dark"
-                        : "fill-accent-dark"
-                    )}
-                  />
-                }
-                isFilled={(data.heating && data.heating?.length > 0) || false}
-                onClick={handleOnClick}
-                // engeneeringData={engData.conditioning}
-                type={item.name}
-                label={item.label}
-                key={index}
-              />
-            )}
-            {item.name === "plumbing" && (
-              <DataCard
-                illustration={
-                  <Illustration
-                    type={"plumbing"}
-                    size={60}
-                    className={twMerge(
-                      `
-                          fill-secondary-text-dark
-                          w-16
-                          h-16
-                          `,
-                      !data.plumbing
-                        ? "fill-primary-border-dark"
-                        : "fill-accent-dark"
-                    )}
-                  />
-                }
-                isFilled={(data.plumbing && data.plumbing?.length > 0) || false}
-                onClick={handleOnClick}
-                // engeneeringData={engData.conditioning}
-                type={item.name}
-                label={item.label}
-                key={index}
-              />
-            )}
-          </>
-        );
-      })}
+            }
+            isFilled={value !== null || false}
+            onClick={handleOnClick}
+            type={key}
+            label={
+              engSystems.find(({ name, label }) => name === key)?.label || ""
+            }
+            key={index}
+          />
+        ))}
     </div>
   );
 };
