@@ -18,6 +18,7 @@ const DataCard = ({ illustration, isFilled, type, label, onClick }: Props) => {
         px-4
         gap-4
         justify-between
+        group
         bg-elevated-1-bg-dark
         rounded-lg
         cursor-pointer
@@ -31,10 +32,9 @@ const DataCard = ({ illustration, isFilled, type, label, onClick }: Props) => {
         {illustration}
         <div className="text-xs">{label}</div>
       </div>
-      <span className="text-secondary-text-dark">
+      <span className="text-secondary-text-dark group-hover:text-primary-text-dark">
         {isFilled ? (
           <svg
-            xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
@@ -49,12 +49,11 @@ const DataCard = ({ illustration, isFilled, type, label, onClick }: Props) => {
           </svg>
         ) : (
           <svg
-            xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-6 h-6 "
           >
             <path
               strokeLinecap="round"

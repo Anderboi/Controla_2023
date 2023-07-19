@@ -36,6 +36,22 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        sideDialogOverlay: "overlayShow .3s cubic-bezier(0.16, 1, 0.3, 1)",
+        sideDialogContent: "contentShow .3s cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      keyframes: {
+        overlayShow: {
+          "0%": { opacity: 0 },
+
+          "100%": { opacity: 1 },
+        },
+        contentShow: {
+          "0%": { opacity: 0, transform: "translate(100%, 0)" },
+
+          "100%": { opacity: 1, transform: "translate(0, 0)" },
+        },
+      },
     },
   },
 

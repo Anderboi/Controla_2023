@@ -26,9 +26,10 @@ const SideModal = ({
           className="
           fixed
           inset-0
-          z-20
+          z-10
           bg-primary-bg-dark/70
           backdrop-blur-md
+          animate-sideDialogOverlay
           "
         />
         <Dialog.Content
@@ -47,6 +48,7 @@ const SideModal = ({
           transition-all
           md:w-[90vw]
           md:max-w-[450px]
+          animate-sideDialogContent
           "
         >
           <Dialog.Title
@@ -88,7 +90,7 @@ const SideModal = ({
               focus:outline-none
               "
             >
-              <IoMdClose size={24}/>
+              <IoMdClose size={24} />
             </button>
           </Dialog.Close>
         </Dialog.Content>

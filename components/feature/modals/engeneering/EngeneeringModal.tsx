@@ -8,6 +8,8 @@ import Modal from "@/components/common/Modal";
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import EngineeringSystemCheckBlock from "./engTypes/EngineeringSystemCheckBlock";
 import SideModal from "@/components/common/SideModal";
+import { engSystems } from "@/lib/engeneering";
+import InfoIcon from "@/components/common/icons/InfoIcon";
 
 const EngeneeringModal = () => {
   const engModal = useEngeneeringModal();
@@ -16,7 +18,7 @@ const EngeneeringModal = () => {
   const projectId = Number(pathname.split("/")[pathname.split("/").length - 2]);
 
   const onChange = (open: boolean) => {
-    if (!open && projectId) {
+    if (!open) {
       engModal.onClose();
     }
   };
@@ -77,13 +79,23 @@ const EngeneeringModal = () => {
   } else {
     return (
       <SideModal
-        title={engModal.type || "Data"}
+        title={
+          engSystems.find(({ name, label }) => name === engModal.type)?.label ||
+          "Data"
+        }
         isOpen={engModal.isOpen}
         onChange={onChange}
       >
         <div className="flex flex-col gap-4">
           {engModal.data.map((item, index) => (
-            <div key={index}>{item}</div>
+            <div className="flex items-center gap-3">
+              <span key={index} className="text-sm ">
+                - {item}
+              </span>
+              <span>
+                <InfoIcon className="text-secondary-text-dark text-sm h-5 w-5 cursor-pointer" />
+              </span>
+            </div>
           ))}
         </div>
       </SideModal>
