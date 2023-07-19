@@ -18,8 +18,6 @@ interface EngeneeringModalStore {
 const useEngeneeringModal = create<EngeneeringModalStore>((set) => ({
   isOpen: false,
   array: [],
-  // heating: [],
-  // plumbing: [],
   type: null,
   onOpen: (type) => set({ isOpen: true, type: type }),
   onClose: () => set({ isOpen: false, type: null }),

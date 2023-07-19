@@ -117,16 +117,17 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
       : engeneeringSystems.plumbing;
 
   return (
-    <form className="flex h-[450px] flex-col ">
+    // TODO: fix component height
+    <form className="flex flex-col">
       {/* Input Block */}
       <div
         className="
-          flex 
-          flex-col 
-          gap-4 
+          flex
+          flex-col
+          gap-2
           overflow-y-auto 
           no-scrollbar 
-          bg-elevated-1-bg-dark
+          bg-transparent
           rounded-lg
           "
       >

@@ -7,6 +7,7 @@ import Modal from "@/components/common/Modal";
 
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import EngineeringSystemCheckBlock from './engTypes/EngineeringSystemCheckBlock';
+import SideModal from '@/components/common/SideModal';
 
 const EngeneeringModal = () => {
   const engModal = useEngeneeringModal();
@@ -24,52 +25,52 @@ const EngeneeringModal = () => {
   switch (engModal.type) {
     case "conditioning":
       return (
-        <Modal
+        <SideModal
           title="Система кондиционирования и вентиляции"
           isOpen={engModal.isOpen}
           onChange={onChange}
         >
           <EngineeringSystemCheckBlock type="conditioning" />
-        </Modal>
+        </SideModal>
       );
       break;
 
     case "heating":
       return (
-        <Modal
+        <SideModal
           title="Система отопления"
           // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
           isOpen={engModal.isOpen}
           onChange={onChange}
         >
           <EngineeringSystemCheckBlock type="heating" />
-        </Modal>
+        </SideModal>
       );
 
       break;
 
     case "plumbing":
       return (
-        <Modal
+        <SideModal
           title="Система водоподготовки и фильтрации"
           // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
           isOpen={engModal.isOpen}
           onChange={onChange}
         >
           <EngineeringSystemCheckBlock type="plumbing" />
-        </Modal>
+        </SideModal>
       );
 
     default:
       return (
-        <Modal
+        <SideModal
           title="Нет информации по системам"
           // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
           isOpen={engModal.isOpen}
           onChange={onChange}
         >
           <span>Нет инфы</span>
-        </Modal>
+        </SideModal>
       );
   }
 };

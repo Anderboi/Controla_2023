@@ -34,7 +34,7 @@ const CheckDataCard = ({
         gap-4
         p-6
         rounded-lg
-        //border
+        border
         border-primary-border-dark
         group:focus:border-accent-dark
         hover:bg-elevated-2-bg-dark

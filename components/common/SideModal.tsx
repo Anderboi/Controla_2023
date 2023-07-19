@@ -8,14 +8,16 @@ interface ModalProps {
   title: string;
   description?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
-const Modal = ({
+const SideModal = ({
   description,
   isOpen,
   onChange,
   children,
   title,
+  className,
 }: ModalProps) => {
   return (
     <Dialog.Root open={isOpen} defaultOpen={isOpen} onOpenChange={onChange}>
@@ -25,29 +27,24 @@ const Modal = ({
           fixed
           inset-0
           z-20
-          bg-secondary-bg-dark/70
+          bg-primary-bg-dark/70
           backdrop-blur-md
           "
         />
         <Dialog.Content
           className="
-          fixed 
-          left-[50%] 
-          top-[50%] 
-          z-50 
-          h-[98%] 
-          w-[96%]
-          translate-x-[-50%]
-          translate-y-[-50%]
+          fixed
+          right-0
+          top-0
+          bottom-0
+          z-50
+          //h-full
+          w-[90%]
           overflow-y-auto
-          no-scrollbar
           text-clip
-          rounded-lg
           bg-elevated-1-bg-dark
           p-6
-          focus:outline-none
-          md:h-auto
-          md:max-h-[65vh]
+          transition-all
           md:w-[90vw]
           md:max-w-[450px]
           "
@@ -60,11 +57,11 @@ const Modal = ({
             font-bold
             "
           >
-            {title}
+            {title.charAt(0).toUpperCase() + title.slice(1)}
           </Dialog.Title>
           <Dialog.Description
             className="
-            mb-5
+            
             text-center
             text-base
             leading-normal
@@ -73,7 +70,7 @@ const Modal = ({
           >
             {description}
           </Dialog.Description>
-          <div className="">{children}</div>
+          <>{children}</>
           <Dialog.Close asChild>
             <button
               className="
@@ -100,4 +97,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default SideModal;

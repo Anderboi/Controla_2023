@@ -2,6 +2,7 @@
 
 import DataCard from "@/components/common/cards/DataCard";
 import Illustration from "@/components/common/illustrations/engeneering/Illustrations";
+import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import { engSystems } from "@/lib/engeneering";
 import { Database } from "@/types/supabase";
 import React from "react";
@@ -12,11 +13,13 @@ interface Props {
 }
 
 const EngeneeringSystemsGallary = ({ data }: Props) => {
+  const engModal = useEngeneeringModal();
+
   const handleOnClick = (type: string) => {
     //@ts-ignore
-    if (data[type]) {
+    if (!data[type]) {
       //@ts-ignore
-      alert(data[type]);
+      engModal.onOpen(type);
     }
   };
 
