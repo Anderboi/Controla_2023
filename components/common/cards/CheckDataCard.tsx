@@ -18,8 +18,6 @@ const CheckDataCard = ({
   isChecked,
   name,
 }: CheckDataCardProps) => {
-
-  console.log(isChecked);
   
   return (
     <label

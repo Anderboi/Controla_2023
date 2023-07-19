@@ -31,11 +31,11 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
   return (
     <div
       className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            gap-4
-            "
+        grid
+        grid-cols-1
+        sm:grid-cols-2
+        gap-4
+        "
     >
       {Object.entries(data)
         .filter((item) => item[0] !== "project_id")
@@ -47,10 +47,10 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
                 size={60}
                 className={twMerge(
                   `
-                          fill-secondary-text-dark
-                          w-16
-                          h-16
-                          `,
+                    fill-secondary-text-dark
+                    w-16
+                    h-16
+                    `,
                   !value ? "fill-primary-border-dark" : "fill-accent-dark"
                 )}
               />

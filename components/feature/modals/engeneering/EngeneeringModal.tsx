@@ -77,13 +77,13 @@ const EngeneeringModal = () => {
   } else {
     return (
       <SideModal
-        title={engModal.type || 'Data'}
+        title={engModal.type || "Data"}
         isOpen={engModal.isOpen}
         onChange={onChange}
       >
         <div className="flex flex-col gap-4">
-          {engModal.data.map((item) => (
-            <div>{item}</div>
+          {engModal.data.map((item, index) => (
+            <div key={index}>{item}</div>
           ))}
         </div>
       </SideModal>

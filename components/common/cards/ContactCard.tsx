@@ -61,7 +61,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           alt="avatar"
           src={data.avatar_url || ""}
           fill
-          className="aspect-square rounded-full"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="aspect-square rounded-full "
         />
       </div>
       <div
@@ -82,12 +83,14 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         >
           {data.full_name}
         </p>
-        <p className="
+        <p
+          className="
           truncate
           break-all
           text-xs
           text-secondary-text-dark
-          ">
+          "
+        >
           {data.email}
         </p>
         <p className="text-sm">{data.role}</p>

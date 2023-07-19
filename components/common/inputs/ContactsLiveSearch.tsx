@@ -34,7 +34,6 @@ const ContactsLiveSearch = () => {
       error && console.log(error.message);
 
       if (!error && data) {
-        console.log(data);
         setContacts(data as []);
         // setContacts(data)
       }

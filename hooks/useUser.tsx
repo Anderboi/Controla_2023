@@ -56,8 +56,6 @@ export const MyUserProvider = (props: Props) => {
         // const subscriptionPromise = results[1];
 
         if (userDetailsPromise.status === "fulfilled") {
-          console.log(userDetailsPromise.value.data);
-
           setUserDetails(userDetailsPromise.value.data as UserData | null);
         }
 

@@ -42,16 +42,15 @@ const Header = ({
         h-fit
         w-full
         items-center
-        
         `,
         coverImage &&
           `
           relative
-          bg-gradient-to-b 
-          from-secondary-text-dark 
-          to-elevated-2-bg-dark 
-          //h-[330px] 
-          //top-[-250px] 
+          bg-gradient-to-b
+          from-secondary-text-dark
+          to-elevated-2-bg-dark
+          //h-[330px]
+          //top-[-250px]
           //sticky
           `,
         subtitle ? "gap-y-16" : "gap-y-4",
@@ -60,13 +59,13 @@ const Header = ({
     >
       <div
         className="
-        //h-[80px] 
-        //top-0 
-        //sticky 
-        z-10 
-        flex 
+        //h-[80px]
+        //top-0
+        //sticky
+        z-10
+        flex
         w-full
-        justify-between 
+        justify-between
       "
       >
         {/*//? left button block */}
@@ -87,7 +86,6 @@ const Header = ({
       >
         <span
           className="
-          w-full
           text-left
           text-xs 
           font-bold 
@@ -102,7 +100,6 @@ const Header = ({
             //break-all
             line-clamp-2
             md:line-clamp-2
-            w-full
             break-words
             font-bold
             text-left
@@ -115,7 +112,6 @@ const Header = ({
         </span>
         <span
           className="
-            w-full 
             text-left 
             text-sm 
             font-bold 
@@ -126,7 +122,6 @@ const Header = ({
         </span>
         <span
           className="
-            w-full 
             text-left 
             text-xs 
             font-bold 
@@ -141,6 +136,7 @@ const Header = ({
           src={coverImage}
           alt="cover"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority
           className="
             absolute

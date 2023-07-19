@@ -25,8 +25,6 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
     event.preventDefault();
     event.stopPropagation();
 
-    console.log(data.project_id);
-
     const isConfirmed = confirm(`Are you sure you want to remove`);
 
     if (isConfirmed) {
@@ -48,7 +46,6 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
         } 
       }
       toast.success("Проект удален");
-      console.log("deleted");
       route.refresh();
     }
   };
@@ -117,12 +114,14 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
               object-cover
               "
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
           <Image
             src={"logos/ellipse_round.svg"}
             alt="placeholder"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="
               aspect-square 
               bg-secondary-bg-dark 
