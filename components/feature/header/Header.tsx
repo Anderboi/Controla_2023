@@ -9,7 +9,6 @@ import Image from "next/image";
 
 import HeaderNavBlock from './HeaderNavBlock';
 import BurgerMenu from './BurgerMenu';
-import MyDropdown from './RadixBurgerMenu';
 
 interface HeaderProps {
   title: string;

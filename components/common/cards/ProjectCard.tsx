@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import Image from "next/image";
 import FavouriteButton from "../../feature/FavouriteButton";
@@ -6,13 +8,16 @@ import useLoadImage from "@/hooks/useLoadImage";
 import RemoveButton from "../inputs/RemoveButton";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { toast } from "react-hot-toast";
+import { useRouter } from 'next/navigation';
 
 interface ProjectCardProps {
   data: Database["public"]["Tables"]["projects"]["Row"];
-  onClick: (id: number) => void;
+
 }
 
-const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
+const ProjectCard = ({ data }: ProjectCardProps) => {
+
+  const route = useRouter();
   const imagePath = useLoadImage(data.cover_img, "project");
 
   const { supabaseClient } = useSessionContext();
@@ -32,7 +37,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       if (table.error) {
         toast.error(table.error?.message);
       } else if (data.cover_img) {
-        
+
         //! Remove file from storage
         const bucket = await supabaseClient.storage
           .from("projects")
@@ -48,7 +53,7 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
 
   return (
     <div
-      onClick={() => onClick(data.project_id)}
+      onClick={() => route.push(`/projects/${data.project_id}/preProject`)}
       className="
         group
         relative

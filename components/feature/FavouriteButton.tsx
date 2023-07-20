@@ -37,7 +37,7 @@ const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
         .select("*")
         .eq("user_id", user?.id)
         .eq("project_id", projectId)
-        .single();
+        .maybeSingle();
 
       if (!error && data) {
         setIsFavourite(true);
