@@ -12,6 +12,7 @@ import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import ContactsMultiSelector from "@/components/common/inputs/ContactsMultiSelector";
+import { Database } from '@/types/supabase';
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -88,6 +89,20 @@ const UploadProjectModal = () => {
       if (supabaseError) {
         return toast.error(supabaseError.message);
       }
+
+      // const { error: engeneeringError } = await supabaseClient.from(
+      //   "engeneering_data"
+      // ).insert({
+      //   project_id: project.id,
+      //   heating: null,
+      //   conditioning: null,
+      //   plumbing: null,
+      //   electric: null
+      // });
+
+      //  if (engeneeringError) {
+      //    return toast.error(engeneeringError.message);
+      //  }
 
       router.refresh();
       // router.push(`/${8}/preProject`);
