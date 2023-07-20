@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import FavouriteButton from "../../feature/FavouriteButton";
@@ -8,7 +6,6 @@ import useLoadImage from "@/hooks/useLoadImage";
 import RemoveButton from "../inputs/RemoveButton";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   data: Database["public"]["Tables"]["projects"]["Row"];
@@ -17,7 +14,6 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
   const imagePath = useLoadImage(data.cover_img, "project");
-  const route = useRouter();
 
   const { supabaseClient } = useSessionContext();
 
@@ -36,7 +32,8 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       if (table.error) {
         toast.error(table.error?.message);
       } else if (data.cover_img) {
-        // Remove from storage
+        
+        //! Remove file from storage
         const bucket = await supabaseClient.storage
           .from("projects")
           .remove([data.cover_img]);
@@ -46,7 +43,6 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
         } 
       }
       toast.success("Проект удален");
-      route.refresh();
     }
   };
 
@@ -83,13 +79,13 @@ const ProjectCard = ({ data, onClick }: ProjectCardProps) => {
       />
       <RemoveButton
         className="
-        absolute
-        right-1
-        top-[-4px]
-        z-20
-        sm:right-6
-        sm:top-4
-        "
+          absolute
+          right-1
+          top-[-4px]
+          z-20
+          sm:right-6
+          sm:top-4
+          "
         handleClick={handleRemove}
       />
       <div

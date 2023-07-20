@@ -5,16 +5,12 @@ import Navigation from "./Navigation";
 import SidebarMiddleSection from "./SidebarMiddleSection";
 
 import UserSidebarBlock from "./UserSidebarBlock";
-import getFavouriteProjects from "@/actions/getFavouriteProjects";
 
 import { routes } from "@/lib/navRoutes";
 import { MainLogo } from "@/components/common/illustrations/brand/Logo";
 
-export const revalidate = 0;
-
-const Sidebar = async () => {
-  const favouriteProjects = await getFavouriteProjects();
-
+const Sidebar = () => {
+  
   return (
     <aside
       className="
@@ -54,7 +50,7 @@ const Sidebar = async () => {
         </Link>
         <Navigation navLinks={routes} />
       </ContainerBox>
-      <SidebarMiddleSection favProjects={favouriteProjects} />
+      <SidebarMiddleSection  />
       <UserSidebarBlock />
     </aside>
   );

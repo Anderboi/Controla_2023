@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 import { Database } from "@/types/supabase";
 
 const getFavouriteProjects = async (): Promise<
-  Database["public"]["Tables"]["projects"]["Row"][]
+  Database["public"]["Tables"]["projects"]["Row"][] | null
 > => {
   const supabase = createServerComponentClient({
     cookies: cookies,
@@ -16,6 +16,10 @@ const getFavouriteProjects = async (): Promise<
   if (sessionError) {
     console.log(sessionError.message);
 
+    return [];
+  }
+
+  if (!sessionData) {
     return [];
   }
 
