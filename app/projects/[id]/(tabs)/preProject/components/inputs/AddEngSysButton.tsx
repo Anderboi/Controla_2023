@@ -5,7 +5,7 @@ import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import React from "react";
 
 interface Props {
-  type: "heating" | "conditioning" | "plumbing" | null;
+  type: string | null;
   className?: string;
 }
 
@@ -17,7 +17,7 @@ const AddEngSysButton = ({ type, className }: Props) => {
       className={className}
       mode="ghost_accent"
       size="small"
-      onClick={() => engModal.onOpen(type)}
+      onClick={() => type && engModal.onOpen(type)}
     >
       Добавить
     </Button>
