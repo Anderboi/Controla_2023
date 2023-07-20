@@ -30,7 +30,7 @@ const Header = ({
   adjustableButton,
 }: HeaderProps) => {
   const coverImage = useLoadImage(image || null, "project");
-
+  
   return (
     <ContainerBox
       classname={twMerge(

@@ -12,7 +12,7 @@ import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import ContactsMultiSelector from "@/components/common/inputs/ContactsMultiSelector";
-import { Database } from '@/types/supabase';
+import { Database } from "@/types/supabase";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -36,7 +36,7 @@ const UploadProjectModal = () => {
       area: "",
       design_team: [],
       client: "",
-      cover_img: "",
+      cover_img: null,
     },
   });
 
@@ -51,29 +51,34 @@ const UploadProjectModal = () => {
     try {
       setIsLoading(true);
 
-      const imageFile = values.cover_img?.[0];
-
+      const imageFile = values.cover_img !== "" ? values.cover_img?.[0] : null;
+      let projectCover;
       if (!user) {
-        toast.error("Missing Files");
+        toast.error("Missing User");
         return;
       }
 
       const uniqId = uniqid();
 
-      //* Upload projectImage
-      const { data: projectData, error: projectError } =
-        await supabaseClient.storage
-          .from("projects")
-          .upload(`project-${uniqId}`, imageFile, {
-            cacheControl: "3600",
-            upsert: false,
-          });
+      //* Upload projectImage if it exists
+
+      if (imageFile){
+        const { data: projectData, error: projectError } =
+          await supabaseClient.storage
+            .from("projects")
+            .upload(`project-${uniqId}`, imageFile || null, {
+              cacheControl: "3600",
+              upsert: false,
+            });
+            projectCover = projectData?.path
+
+          
 
       // //? Если не удалось загрузить изображение, которое не обязательное к загрузке
       if (projectError) {
         // setIsLoading(false);
         return toast.error("Не удалось загрузить изображение");
-      }
+      }}
 
       const { error: supabaseError } = await supabaseClient
         .from("projects")
@@ -83,7 +88,7 @@ const UploadProjectModal = () => {
           address_city: values.address_city,
           address_street: values.address_street,
           area: values.area,
-          cover_img: projectData.path || "",
+          cover_img: imageFile ? projectCover : null,
         });
 
       if (supabaseError) {

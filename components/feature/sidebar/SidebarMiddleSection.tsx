@@ -20,7 +20,9 @@ const favouriteProjects = await getFavouriteProjects();
         flex
         flex-col
         justify-between
-        gap-y-2"
+        gap-y-2
+        sm:max-lg:!p-2
+        "
     >
       <span
         className="
