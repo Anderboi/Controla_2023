@@ -35,7 +35,7 @@ export default function RootLayout({
               <Sidebar />
               <main
                 className="
-                  bg-black
+                  bg-primary-bg-dark
                   flex
                   w-full
                   flex-1

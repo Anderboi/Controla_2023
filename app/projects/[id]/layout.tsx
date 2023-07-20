@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import getCurrntProject from "@/actions/getCurrentProject";
 import Header from "@/components/feature/header/Header";
 import ContainerBox from "@/components/common/ContainerBox";
 import TabsBar from "@/components/common/TabsBar";
+import ProjectLoading from './(tabs)/preProject/loading';
 
 export const revalidate = 0;
 
@@ -29,17 +30,20 @@ const ProjectPage = async ({
       no-scrollbar
     "
     >
-      <Header
-        title={project.address_street || ""}
-        subtitle={project.address_country || ""}
-        image={project.cover_img}
-        addressDetails={project?.address_city || ""}
-        startDate={project.created_at || ""}
-      />
-      <ContainerBox classname="h-fit">
-        <TabsBar />
-        <div className="flex flex-col gap-y-8">{children}</div>
-      </ContainerBox>
+      
+        <Header
+          title={project.address_street || ""}
+          subtitle={project.address_country || ""}
+          image={project.cover_img}
+          addressDetails={project?.address_city || ""}
+          startDate={project.created_at || ""}
+        />
+
+        <ContainerBox classname="h-fit">
+          <TabsBar />
+          <div className="flex flex-col gap-y-8">{children}</div>
+        </ContainerBox>
+     
     </section>
   );
 };

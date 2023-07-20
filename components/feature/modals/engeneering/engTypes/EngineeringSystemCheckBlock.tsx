@@ -12,7 +12,7 @@ import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import {engeneeringSystems} from "@/lib/engeneering";
 
 interface BlockProps {
-  type: "conditioning" | "plumbing" | "heating";
+  type: string;
 }
 
 const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {

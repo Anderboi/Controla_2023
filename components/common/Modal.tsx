@@ -27,6 +27,7 @@ const Modal = ({
           z-20
           bg-secondary-bg-dark/70
           backdrop-blur-md
+          data-[state=open]:animate-centerOverlayShow
           "
         />
         <Dialog.Content
@@ -50,11 +51,13 @@ const Modal = ({
           md:max-h-[65vh]
           md:w-[90vw]
           md:max-w-[450px]
+          data-[state=open]:animate-centerContentShow
+          shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px]
           "
         >
           <Dialog.Title
             className="
-            mb-4
+            m-0
             text-center
             text-2xl
             font-bold
@@ -66,9 +69,9 @@ const Modal = ({
             className="
             mb-5
             text-center
-            text-base
+            text-sm
             leading-normal
-            text-primary-text-dark
+            text-secondary-text-dark
             "
           >
             {description}
@@ -77,7 +80,7 @@ const Modal = ({
           <Dialog.Close asChild>
             <button
               className="
-              absolute 
+              absolute
               right-[10px]
               top-[10px]
               inline-flex
@@ -91,7 +94,7 @@ const Modal = ({
               focus:outline-none
               "
             >
-              <IoMdClose size={24}/>
+              <IoMdClose size={24} />
             </button>
           </Dialog.Close>
         </Dialog.Content>

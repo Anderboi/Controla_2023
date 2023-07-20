@@ -23,9 +23,9 @@ module.exports = {
         "elevated-3-bg": { dark: "#363636" },
         "elevated-4-bg": { dark: "#404040" },
         "transparent-bg": { dark: "#CECECE" },
-        "primary-text": { dark: "#fff" },
+        "primary-text": { dark: "#fff", light: "#121212" },
         "secondary-text": { dark: "#A3A3A3", light: "#9C9C9C" },
-        "primary-border": { dark: "#505155" },
+        "primary-border": { dark: "#505155", light: "#e1e1e1" },
         accent: { light: "#1AB17B", dark: "#4FD1A2" },
       },
       dropShadow: {
@@ -38,18 +38,23 @@ module.exports = {
       },
       animation: {
         sideDialogOverlay: "overlayShow .3s cubic-bezier(0.16, 1, 0.3, 1)",
-        sideDialogContent: "contentShow .3s cubic-bezier(0.16, 1, 0.3, 1)",
+        sideDialogContent: "contentShowSide .3s cubic-bezier(0.16, 1, 0.3, 1)",
+        centerOverlayShow: "overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        centerContentShow:
+          "contentShowCenter 150ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         overlayShow: {
-          "0%": { opacity: 0 },
-
-          "100%": { opacity: 1 },
+          from: { opacity: 0 },
+          to: { opacity: 1 },
         },
-        contentShow: {
-          "0%": { opacity: 0, transform: "translate(100%, 0)" },
-
-          "100%": { opacity: 1, transform: "translate(0, 0)" },
+        contentShowSide: {
+          from: { opacity: 0, transform: "translate(100%, 0)" },
+          to: { opacity: 1, transform: "translate(0, 0)" },
+        },
+        contentShowCenter: {
+          from: { opacity: 0, transform: "translate(-50%, -48%) scale(0.96)" },
+          to: { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
         },
       },
     },

@@ -43,56 +43,59 @@ const SideModal = ({
           w-[90%]
           overflow-y-auto
           text-clip
-          bg-elevated-1-bg-dark
-          p-6
+          
+          p-2
           transition-all
           md:w-[90vw]
           md:max-w-[450px]
           animate-sideDialogContent
           "
         >
-          <Dialog.Title
-            className="
-            mb-4
-            text-center
-            text-2xl
-            font-bold
-            "
-          >
-            {title.charAt(0).toUpperCase() + title.slice(1)}
-          </Dialog.Title>
-          <Dialog.Description
-            className="
+          <div className="bg-secondary-bg-dark p-6 h-full rounded-lg
+          ">
+            <Dialog.Title
+              className="
+                mb-4
+                text-start
+                text-2xl
+                font-bold
+                "
+            >
+              {title.charAt(0).toUpperCase() + title.slice(1)}
+            </Dialog.Title>
+            <Dialog.Description
+              className="
             
             text-center
             text-base
             leading-normal
             text-primary-text-dark
             "
-          >
-            {description}
-          </Dialog.Description>
-          <>{children}</>
-          <Dialog.Close asChild>
-            <button
-              className="
-              absolute 
-              right-[10px]
-              top-[10px]
-              inline-flex
-              h-[24px]
-              w-[24px]
-              appearance-none
-              items-center
-              justify-center
-              text-secondary-text-dark
-              hover:text-primary-text-dark
-              focus:outline-none
-              "
             >
-              <IoMdClose size={24} />
-            </button>
-          </Dialog.Close>
+              {description}
+            </Dialog.Description>
+            <>{children}</>
+            <Dialog.Close asChild>
+              <button
+                className="
+                  absolute 
+                  right-[16px]
+                  top-[16px]
+                  inline-flex
+                  h-[24px]
+                  w-[24px]
+                  appearance-none
+                  items-center
+                  justify-center
+                  text-secondary-text-dark
+                  hover:text-primary-text-dark
+                  focus:outline-none
+                  "
+              >
+                <IoMdClose size={24} />
+              </button>
+            </Dialog.Close>
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

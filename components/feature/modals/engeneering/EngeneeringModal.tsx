@@ -25,57 +25,69 @@ const EngeneeringModal = () => {
 
   //! switches
   if (!engModal.data) {
-    switch (engModal.type) {
-      case "conditioning":
-        return (
-          <SideModal
-            title="Система кондиционирования и вентиляции"
-            isOpen={engModal.isOpen}
-            onChange={onChange}
-          >
-            <EngineeringSystemCheckBlock type="conditioning" />
-          </SideModal>
-        );
-        break;
+    return (
+      <SideModal
+        title={
+          engSystems.find(({ name, label }) => name === engModal.type)?.label ||
+          "Data"
+        }
+        isOpen={engModal.isOpen}
+        onChange={onChange}
+      >
+        <EngineeringSystemCheckBlock type={engModal.type} />
+      </SideModal>
+    );
+    // switch (engModal.type) {
+    //   case "conditioning":
+    //     return (
+    //       <SideModal
+    //         title="Система кондиционирования и вентиляции"
+    //         isOpen={engModal.isOpen}
+    //         onChange={onChange}
+    //       >
+    //         <EngineeringSystemCheckBlock type="conditioning" />
+    //       </SideModal>
+    //     );
+    //     break;
 
-      case "heating":
-        return (
-          <SideModal
-            title="Система отопления"
-            // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
-            isOpen={engModal.isOpen}
-            onChange={onChange}
-          >
-            <EngineeringSystemCheckBlock type="heating" />
-          </SideModal>
-        );
+    //   case "heating":
+    //     return (
+    //       <SideModal
+    //         title="Система отопления"
+    //         // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
+    //         isOpen={engModal.isOpen}
+    //         onChange={onChange}
+    //       >
+    //         <EngineeringSystemCheckBlock type="heating" />
+    //       </SideModal>
+    //     );
 
-        break;
+    //     break;
 
-      case "plumbing":
-        return (
-          <SideModal
-            title="Система водоподготовки и фильтрации"
-            // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
-            isOpen={engModal.isOpen}
-            onChange={onChange}
-          >
-            <EngineeringSystemCheckBlock type="plumbing" />
-          </SideModal>
-        );
+    //   case "plumbing":
+    //     return (
+    //       <SideModal
+    //         title="Система водоподготовки и фильтрации"
+    //         // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
+    //         isOpen={engModal.isOpen}
+    //         onChange={onChange}
+    //       >
+    //         <EngineeringSystemCheckBlock type="plumbing" />
+    //       </SideModal>
+    //     );
 
-      default:
-        return (
-          <SideModal
-            title="Нет информации по системам"
-            // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
-            isOpen={engModal.isOpen}
-            onChange={onChange}
-          >
-            <span>Нет инфы</span>
-          </SideModal>
-        );
-    }
+    //   default:
+    //     return (
+    //       <SideModal
+    //         title="Нет информации по системам"
+    //         // description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
+    //         isOpen={engModal.isOpen}
+    //         onChange={onChange}
+    //       >
+    //         <span>Нет инфы</span>
+    //       </SideModal>
+    //     );
+    // }
   } else {
     return (
       <SideModal
@@ -88,7 +100,7 @@ const EngeneeringModal = () => {
       >
         <div className="flex flex-col gap-4">
           {engModal.data.map((item, index) => (
-            <div className="flex items-center gap-3">
+            <div key={index} className="flex items-center gap-3">
               <span key={index} className="text-sm ">
                 - {item}
               </span>

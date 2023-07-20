@@ -8,7 +8,7 @@ const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative flex sm:hidden">
+    <div className="relative flex sm:hidden ">
       <Button
         mode="ghost"
         corner="round"
@@ -39,7 +39,6 @@ const BurgerMenu = () => {
           absolute
           right-0
           top-[100%]
-          z-50
           mt-1
           flex
           flex-col
@@ -50,6 +49,7 @@ const BurgerMenu = () => {
           px-4
           py-2
           transition-all
+          z-30
           "
         >
           {routes.map((item, index) => (

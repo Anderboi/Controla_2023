@@ -16,21 +16,6 @@ const Home = async () => {
     redirect("/projects");
   }
 
-  // const router = useRouter();
-
-  // const supabaseClient = useSupabaseClient();
-
-  // const handleLogout = async () => {
-  //   const { error } = await supabaseClient.auth.signOut();
-  //   router.refresh();
-
-  //   if (error) {
-  //     console.log("error");
-
-  //     //  toast.error(error.message);
-  //   }
-  // };
-
   return (
     <ContainerBox classname="px-6 py-6 h-full w-full ">
       <div className="m-auto flex h-full max-w-[600px] flex-col justify-center gap-y-8">
