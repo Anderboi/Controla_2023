@@ -118,17 +118,18 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <Image
-            src={"logos/ellipse_round.svg"}
-            alt="placeholder"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="
-              aspect-square 
-              bg-secondary-bg-dark 
-              p-8
-              "
-          />
+          // <Image
+          //   src={"logos/ellipse_round.svg"}
+          //   alt="placeholder"
+          //   fill
+          //   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          //   className="
+          //     aspect-square
+          //     bg-secondary-bg-dark
+          //     p-8
+          //     "
+          // />
+          <div className="w-full h-full bg-gradient-to-b from-accent-dark/50   "></div>
         )}
       </div>
       <div
