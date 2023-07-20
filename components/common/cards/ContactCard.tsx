@@ -1,10 +1,7 @@
-"use client";
-
 import React from "react";
-import ContainerBox from "../ContainerBox";
 import Image from "next/image";
-import { Database } from "@/types/supabase";
 import AddContactButton from "@/components/feature/AddContactButton";
+import { Database } from "@/types/supabase";
 
 interface ContactCardProps {
   data: Database["public"]["Tables"]["users"]["Row"];
@@ -22,7 +19,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         flex-col
         items-center
         justify-center
-        gap-y-3
+        sm:gap-y-3
         overflow-hidden
         sm:rounded-lg
         sm:bg-elevated-1-bg-dark
@@ -39,8 +36,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           left-1
           top-[-4px]
           z-20
-          sm:left-6
-          sm:top-4
+          sm:left-3
+          sm:top-2
           "
       />
 
@@ -62,7 +59,12 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           src={data.avatar_url || ""}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="aspect-square rounded-full "
+          className="
+            aspect-square
+            rounded-full
+            p-4
+            sm:p-0
+            "
         />
       </div>
       <div

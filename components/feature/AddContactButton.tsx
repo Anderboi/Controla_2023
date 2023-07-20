@@ -18,8 +18,13 @@ interface AddContactButtonProps
   id: string;
 }
 
-const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
+const AddContactButton = ({
+  id,
+  className,
+  ...props
+}: AddContactButtonProps) => {
   const router = useRouter();
+
   const { supabaseClient } = useSessionContext();
 
   const authModal = useAuthModal();
@@ -39,7 +44,7 @@ const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
         .select("*")
         .eq("user_id", user?.id)
         .eq("contact", id)
-        .single();
+        .maybeSingle();
 
       if (!error && data) {
         setIsContact(true);
@@ -89,7 +94,10 @@ const AddContactButton = ({ id, ...props }: AddContactButtonProps) => {
     <IconButton
       Icon={AiOutlinePlus}
       onClick={handleSetContact}
-      className={twMerge(isContact ? "opacity-100 " : "opacity-0")}
+      className={twMerge(
+        isContact ? "opacity-100 rotate-45" : "opacity-0",
+        className
+      )}
       {...props}
     />
   );

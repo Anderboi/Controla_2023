@@ -28,6 +28,7 @@ const SearchInput = () => {
 
   return (
     <Input
+      type='search'
       placeholder="Найти ..."
       value={value}
       onChange={(e) => setValue(e.target.value)}

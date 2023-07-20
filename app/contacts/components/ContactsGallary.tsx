@@ -1,12 +1,14 @@
-"use client";
+'use client'
 
 import React from "react";
 import ContactCard from "@/components/common/cards/ContactCard";
 import Button from "@/components/common/inputs/Button";
 import GallaryGrid from "@/components/common/GallaryGrid";
 
+import { Database } from '@/types/supabase';
+
 interface ContactsGalleryProps {
-  contacts: any[];
+  contacts: Database["public"]["Tables"]["users"]["Row"][];
 }
 
 const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
@@ -25,7 +27,7 @@ const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
         "
       >
         <h1>У вас нет контактов.</h1>
-        <Button mode="action">Пригласить</Button>
+        <Button mode="action">Пригласить (не работает)</Button>
       </article>
     );
   }
@@ -33,7 +35,8 @@ const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
   return (
     <GallaryGrid>
       {contacts.map((item) => (
-        <ContactCard key={item.id} data={item} onClick={() => {}} />
+        <ContactCard key={item.id} data={item} onClick={() => {console.log('hi');
+        }} />
       ))}
     </GallaryGrid>
   );
