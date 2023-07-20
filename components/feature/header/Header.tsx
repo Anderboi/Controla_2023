@@ -7,8 +7,8 @@ import useLoadImage from "@/hooks/useLoadImage";
 import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
 
-import HeaderNavBlock from './HeaderNavBlock';
-import BurgerMenu from './BurgerMenu';
+import HeaderNavBlock from "./HeaderNavBlock";
+import BurgerMenu from "./BurgerMenu";
 
 interface HeaderProps {
   title: string;
@@ -30,7 +30,7 @@ const Header = ({
   adjustableButton,
 }: HeaderProps) => {
   const coverImage = useLoadImage(image || null, "project");
-  
+
   return (
     <ContainerBox
       classname={twMerge(
@@ -42,6 +42,7 @@ const Header = ({
         h-fit
         w-full
         items-center
+        
         `,
         coverImage &&
           `
@@ -53,6 +54,7 @@ const Header = ({
           //top-[-250px]
           //sticky
           `,
+        !coverImage && subtitle && `bg-gradient-to-b from-accent-dark/50`,
         subtitle ? "gap-y-16" : "gap-y-4",
         className
       )}
@@ -62,7 +64,6 @@ const Header = ({
         //h-[80px]
         //top-0
         //sticky
-        z-10
         flex
         w-full
         justify-between
@@ -72,7 +73,7 @@ const Header = ({
         <HeaderNavBlock />
 
         {/*//? right button block */}
-        <div className="flex gap-4">
+        <div className="flex gap-4 ">
           {adjustableButton}
           <BurgerMenu />
         </div>

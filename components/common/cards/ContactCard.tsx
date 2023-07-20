@@ -35,7 +35,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           absolute
           left-1
           top-[-4px]
-          z-20
+          //z-20
           sm:left-3
           sm:top-2
           "

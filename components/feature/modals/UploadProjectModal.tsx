@@ -171,7 +171,7 @@ const UploadProjectModal = () => {
         {/* //? Upload file block */}
         <div>
           <label className="mb-2 inline-block text-sm text-primary-text-dark">
-            Загрузите обложку проекта
+            {`Загрузите обложку проекта (Не обязательно)`}
           </label>
           <Input
             type="file"

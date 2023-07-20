@@ -91,7 +91,7 @@ const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
       onClick={handleFav}
       className={twMerge(
         
-        isFavourite && "opacity-100 "
+        isFavourite && "opacity-100"
       )}
       {...props}
     />

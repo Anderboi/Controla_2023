@@ -7,7 +7,7 @@ import qs from "query-string";
 import useDebounce from "@/hooks/useDebounce";
 import Input from "./Input";
 
-const SearchInput = () => {
+const SearchInput = ({className}:{className?:string}) => {
   const router = useRouter();
   const [value, setValue] = useState<string>("");
   const debouncedValue = useDebounce<string>(value, 500);
@@ -31,6 +31,7 @@ const SearchInput = () => {
       type='search'
       placeholder="Найти ..."
       value={value}
+      className={className}
       onChange={(e) => setValue(e.target.value)}
     />
   );

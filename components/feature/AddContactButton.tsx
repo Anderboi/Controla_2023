@@ -95,7 +95,7 @@ const AddContactButton = ({
       Icon={AiOutlinePlus}
       onClick={handleSetContact}
       className={twMerge(
-        isContact ? "opacity-100 rotate-45" : "opacity-0",
+        isContact ? "opacity-100 rotate-45" : "sm:opacity-0",
         className
       )}
       {...props}

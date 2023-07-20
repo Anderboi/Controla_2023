@@ -31,9 +31,11 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
             label="Адрес: "
             body={
               <>
-                <span className='text-primary-text-dark'>{project.address_street}</span>
+                <span className="text-primary-text-dark">
+                  {project.address_street}
+                </span>
                 <br />
-                <span className='text-sm'>{`${project.address_country}, ${project.address_city}`}</span>
+                <span className="text-sm">{`${project.address_country}, ${project.address_city}`}</span>
               </>
             }
           />
@@ -41,10 +43,10 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
             label="Площадь объекта: "
             body={
               <>
-                <span className="text-3xl font-bold text-primary-text-dark">
+                <span className="text-3xl font-black text-primary-text-dark">
                   {project.area}
                 </span>
-                <span className="text-xs"> кв.м.</span>
+                <span className="text-sm"> кв.м.</span>
               </>
             }
           />
@@ -56,10 +58,10 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
             label="Этажность: "
             body={
               <>
-                <span className="text-3xl font-bold text-primary-text-dark">
+                <span className="text-3xl font-black text-primary-text-dark">
                   {projectInfo?.storeys || "1"}
                 </span>
-                <span className="text-xs">{" этаж"}</span>
+                <span className="text-sm">{" этаж"}</span>
               </>
             }
           />
@@ -67,10 +69,10 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
             label="Количество единовременно проживающих: "
             body={
               <>
-                <span className="text-3xl font-bold text-primary-text-dark">
+                <span className="text-3xl font-black text-primary-text-dark">
                   {projectInfo?.residing || "1"}
                 </span>
-                <span className="text-xs">{" человека"}</span>
+                <span className="text-sm">{" человека"}</span>
               </>
             } //TODO: окончание фразы от числа добавить
           />

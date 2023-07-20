@@ -41,8 +41,8 @@ export default function RootLayout({
                   flex-1
                   flex-col
                   gap-y-2
-                  overflow-auto
-                  scroll-smooth
+                  //overflow-auto
+                  //scroll-smooth
                   rounded-lg
                   p-2
                   no-scrollbar

@@ -77,7 +77,7 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
           absolute
           left-1
           top-[-4px]
-          z-20
+          z-10
           sm:left-6
           sm:top-4
           "
@@ -87,7 +87,7 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
           absolute
           right-1
           top-[-4px]
-          z-20
+          z-10
           sm:right-6
           sm:top-4
           "
@@ -118,17 +118,6 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          // <Image
-          //   src={"logos/ellipse_round.svg"}
-          //   alt="placeholder"
-          //   fill
-          //   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          //   className="
-          //     aspect-square
-          //     bg-secondary-bg-dark
-          //     p-8
-          //     "
-          // />
           <div className="w-full h-full bg-gradient-to-b from-accent-dark/50   "></div>
         )}
       </div>

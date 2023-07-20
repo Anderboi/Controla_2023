@@ -8,11 +8,11 @@ const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative flex sm:hidden ">
+    <div className="relative flex sm:hidden">
       <Button
         mode="ghost"
         corner="round"
-        className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark"
+        className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark z-10"
         onClick={() => {
           setIsOpen(!isOpen);
         }}
@@ -34,22 +34,30 @@ const BurgerMenu = () => {
       </Button>
 
       {isOpen && (
-        <ul
+        <div
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="user-menu-button"
           className="
+          origin-top-right
           absolute
           right-0
           top-[100%]
-          mt-1
+          focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800
+          
+          shadow-lg
+          focus:outline-none
+          mt-2
           flex
           flex-col
           rounded-lg
-          border
-          border-primary-border-dark
+          //border
+          //border-primary-border-dark
           bg-elevated-1-bg-dark
-          px-4
-          py-2
-          transition-all
-          z-30
+          px-6
+          py-3
+          //transition-all
+          z-20
           "
         >
           {routes.map((item, index) => (
@@ -70,7 +78,7 @@ const BurgerMenu = () => {
               activeIcon={item.activeIcon}
             />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
