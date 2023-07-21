@@ -213,7 +213,7 @@ const UploadProjectModal = () => {
             placeholder="кв.м."
           />
           <Input
-            label="Количество проживающих"
+            label="Кол-во жильцов"
             type="number"
             id="residing"
             disabled={isLoading}
@@ -228,7 +228,17 @@ const UploadProjectModal = () => {
             </label>
             <select
               id="purpose"
-              className="w-full h-fit px-6 py-2.5 rounded-md  text-sm"
+              className=" 
+                w-full 
+                h-fit 
+                px-6 
+                py-2.5 
+                rounded-md 
+                text-start
+                items-center 
+                text-sm 
+                indent-0 
+                leading-3"
               {...register("purpose", { required: false })}
             >
               <option value={"Жилое"}>Жилое</option>
@@ -242,7 +252,18 @@ const UploadProjectModal = () => {
             </label>
             <select
               id="storeys"
-              className="w-full h-fit px-6 py-2.5 rounded-md text-center items-center text-sm"
+              className="
+                w-full
+                h-fit
+                px-6
+                py-2.5
+                rounded-md
+                text-start
+                items-center
+                text-sm
+                indent-0
+                leading-3
+                "
               {...register("storeys", { required: false })}
             >
               <option value={1}>1</option>

@@ -51,7 +51,7 @@ const ContactsPage = async ({ children }: SearchProps) => {
             "
         >
           <ContactsSearchInput
-            className=" 
+            className="
               z-10
               "
           />
