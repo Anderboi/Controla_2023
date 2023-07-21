@@ -47,7 +47,7 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
     };
 
     fetchData();
-  }, [supabaseClient, projectId]);
+  }, [supabaseClient, projectId,type]);
 
   const onSubmit = async () => {
     try {
@@ -126,9 +126,9 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
           flex-col
           gap-2
           overflow-y-auto 
-          no-scrollbar 
+          rounded-lg 
           bg-transparent
-          rounded-lg
+          no-scrollbar
           "
       >
         {sysArray.map(({ name, label }, index) => (

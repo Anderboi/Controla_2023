@@ -99,13 +99,13 @@ const Header = ({
           className="
             //break-all
             line-clamp-2
-            md:line-clamp-2
             break-words
-            font-bold
             text-left
             text-[24px]
-            sm:text-[5vw]/[5vw]
+            font-bold
             tracking-tighter
+            sm:text-[5vw]/[5vw]
+            md:line-clamp-2
           "
         >
           {title}

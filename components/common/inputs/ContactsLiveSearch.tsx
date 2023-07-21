@@ -42,7 +42,6 @@ const ContactsLiveSearch = () => {
 
 
     fetchData();
-    console.log(contacts);
     
   }, [supabaseClient]);
 

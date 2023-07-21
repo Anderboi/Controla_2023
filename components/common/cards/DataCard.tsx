@@ -12,19 +12,19 @@ const DataCard = ({ illustration, isFilled, type, label, onClick }: Props) => {
   return (
     <div
       className="
-        flex
-        items-center
-        py-2
-        px-4
-        gap-4
-        justify-between
+        to-bg-elevated-1-bg-dark
         group
-        bg-elevated-1-bg-dark
-        rounded-lg
+        flex
         cursor-pointer
-        transition-all
-        hover:bg-elevated-2-bg-dark
-        hover:bg-gradient-to-l from-accent-dark/30 to-bg-elevated-1-bg-dark to-15%
+        items-center
+        justify-between
+        gap-4
+        rounded-lg
+        bg-elevated-1-bg-dark
+        from-accent-dark/30
+        to-15%
+        px-4
+        py-2 transition-all hover:bg-elevated-2-bg-dark hover:bg-gradient-to-l
         "
       onClick={() => onClick(type)}
     >
@@ -39,7 +39,7 @@ const DataCard = ({ illustration, isFilled, type, label, onClick }: Props) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="h-6 w-6"
           >
             <path
               strokeLinecap="round"
@@ -53,7 +53,7 @@ const DataCard = ({ illustration, isFilled, type, label, onClick }: Props) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6 "
+            className="h-6 w-6 "
           >
             <path
               strokeLinecap="round"

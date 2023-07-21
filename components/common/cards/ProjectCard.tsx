@@ -118,7 +118,7 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-b from-accent-dark/50   "></div>
+          <div className="h-full w-full bg-gradient-to-b from-accent-dark/50   "></div>
         )}
       </div>
       <div

@@ -15,7 +15,6 @@ import useUploadModal from "@/hooks/useUploadModal";
 import { toast } from "react-hot-toast";
 import uniqid from "uniqid";
 import { Database } from "@/types/supabase";
-import CustomMultSelect from '@/components/common/inputs/CustomMultSelect';
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -230,15 +229,15 @@ const UploadProjectModal = () => {
             <select
               id="purpose"
               className=" 
-                w-full 
                 h-fit 
-                px-6 
-                py-2.5 
-                rounded-md 
-                text-start
+                w-full 
                 items-center 
-                text-sm 
+                rounded-md 
+                px-6 
+                py-2.5
+                text-start 
                 indent-0 
+                text-sm 
                 leading-3"
               {...register("purpose", { required: false })}
             >
@@ -254,15 +253,15 @@ const UploadProjectModal = () => {
             <select
               id="storeys"
               className="
-                w-full
                 h-fit
+                w-full
+                items-center
+                rounded-md
                 px-6
                 py-2.5
-                rounded-md
                 text-start
-                items-center
-                text-sm
                 indent-0
+                text-sm
                 leading-3
                 "
               {...register("storeys", { required: false })}
@@ -278,7 +277,7 @@ const UploadProjectModal = () => {
         <ContactsMultiSelector isMulti label="Клиенты" />
         <ContactsMultiSelector isMulti label="Команда" />
         {/* //TODO: add choose team component */}
-        <CustomMultSelect/>
+        
         {/* //? Upload file block */}
         <div>
           <label className="mb-2 inline-block text-xs text-primary-text-dark">

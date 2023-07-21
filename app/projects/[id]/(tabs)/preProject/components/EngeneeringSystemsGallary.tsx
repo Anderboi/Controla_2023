@@ -37,8 +37,8 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
       className="
         grid
         grid-cols-1
-        sm:grid-cols-2
         gap-3
+        sm:grid-cols-2
         "
     >
       {engSystems.map(({ name, label }, index) => (

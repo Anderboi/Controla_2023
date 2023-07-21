@@ -65,7 +65,7 @@ const AddRoomsBlock = () => {
 
 
   return (
-    <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-4">
+    <div className="flex w-full flex-col items-start justify-start gap-4 sm:flex-row">
       <BasicMultiSelector
         isMulti
         type="creatable"

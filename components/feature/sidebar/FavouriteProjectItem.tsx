@@ -20,47 +20,47 @@ const FavouriteProjectItem = ({ data, onClick }: FavouriteProjectItemProps) => {
     <>
       <div
         className="
-          hidden
-          sm:flex
-          gap-4
-          justify-start
+          group
           line-clamp-2
+          hidden
           cursor-pointer
+          justify-start
+          gap-4
           break-all
           rounded-md
-          lg:p-2
           text-sm
           text-primary-text-dark
           hover:bg-transparent-bg-dark/10
-          group
+          sm:flex
+          lg:p-2
           "
         onClick={handleClick}
       >
         <div
           className="
             relative
+            aspect-square
+            text-clip
+            rounded-lg
             sm:max-lg:w-[64px]
             lg:h-[40px]
             lg:w-[40px]
-            aspect-square
-            rounded-lg
-            overflow-clip
             
             "
         >
           <span
             className="
               absolute
-              hidden
-              group-hover:block
-              top-[50%]
               left-[50%]
+              top-[50%]
+              z-10
+              hidden
               translate-x-[-50%]
               translate-y-[-50%]
               text-center
-              z-10
               text-xl
               font-bold
+              group-hover:block
               "
           >
             {`${data.address_street?.split("")[0]}`}

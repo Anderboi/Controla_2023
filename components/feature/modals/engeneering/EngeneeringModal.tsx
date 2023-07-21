@@ -105,7 +105,7 @@ const EngeneeringModal = () => {
                 - {item}
               </span>
               <span>
-                <InfoIcon className="text-secondary-text-dark text-sm h-5 w-5 cursor-pointer" />
+                <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
               </span>
             </div>
           ))}

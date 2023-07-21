@@ -43,9 +43,9 @@ export default function RootLayout({
                   overflow-auto
                   scroll-smooth
                   rounded-lg
+                  bg-primary-bg-dark
                   p-2
                   no-scrollbar
-                  bg-primary-bg-dark
                   "
               >
                 {children}

@@ -5,7 +5,7 @@ import InfoBlock from '../infoblock/InfoBlock';
 const InfoModal = () => {
   return (
     <SideModal isOpen={false} title={"title"} onChange={() => {}}>
-      <div className="bg-elevated-1-bg-dark rounded-lg"><InfoBlock body={'sdfsdf'} label='sdfsdf'/></div>
+      <div className="rounded-lg bg-elevated-1-bg-dark"><InfoBlock body={'sdfsdf'} label='sdfsdf'/></div>
     </SideModal>
   );
 };

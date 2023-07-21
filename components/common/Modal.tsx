@@ -41,27 +41,27 @@ const Modal = ({
           translate-x-[-50%]
           translate-y-[-50%]
           overflow-y-auto
-          no-scrollbar
           text-clip
           rounded-lg
           bg-elevated-1-bg-dark
           p-6
+          shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px]
+          no-scrollbar
           focus:outline-none
+          data-[state=open]:animate-centerContentShow
           md:h-auto
           md:max-h-[65vh]
           md:w-[90vw]
           md:max-w-[450px]
-          data-[state=open]:animate-centerContentShow
-          shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px]
           "
         >
           <Dialog.Title
             className="
+            sticky
             m-0
             text-center
             text-2xl
             font-bold
-            sticky
             "
           >
             {title}

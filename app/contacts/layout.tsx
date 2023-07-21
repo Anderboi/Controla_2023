@@ -40,14 +40,14 @@ const ContactsPage = async ({ children }: SearchProps) => {
       >
         <div
           className="
-            bg-secondary-bg-dark/80
-            backdrop-blur-md
-            z-10
             sticky
-            p-4
-            top-0
-            w-full
             left-0
+            top-0
+            z-10
+            w-full
+            bg-secondary-bg-dark/80
+            p-4
+            backdrop-blur-md
             "
         >
           <ContactsSearchInput

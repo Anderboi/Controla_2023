@@ -9,9 +9,9 @@ const ProjectLoading = () => {
           flex
           h-screen
           w-full
+          animate-pulse
           flex-col
-          gap-y-2
-          animate-pulse 
+          gap-y-2 
           "
       >
         <div

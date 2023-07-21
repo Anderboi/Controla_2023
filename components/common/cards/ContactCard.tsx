@@ -19,8 +19,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         flex-col
         items-center
         justify-center
-        sm:gap-y-3
         overflow-hidden
+        sm:gap-y-3
         sm:rounded-lg
         sm:bg-elevated-1-bg-dark
         sm:p-4
@@ -32,10 +32,10 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
       <AddContactButton
         id={data.id}
         className="
+          //z-20
           absolute
           left-1
           top-[-4px]
-          //z-20
           sm:left-3
           sm:top-2
           "

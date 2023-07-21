@@ -10,7 +10,7 @@ const HeaderNavBlock = () => {
     const router = useRouter();
     
   return (
-    <div className="flex gap-4 z-10">
+    <div className="z-10 flex gap-4">
       <Button
         mode="ghost"
         corner="round"

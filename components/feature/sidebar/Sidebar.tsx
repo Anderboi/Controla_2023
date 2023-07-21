@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <aside
       className="
-      bg-black
+      bg-primary-bg-dark
       hidden
       min-h-screen
       w-[90px]
@@ -28,7 +28,7 @@ const Sidebar = () => {
     >
       <ContainerBox
         classname="
-        w-fill
+        w-full
         lg:w-full
         h-fit
         flex
@@ -41,11 +41,11 @@ const Sidebar = () => {
         <Link href={"/"}>
           <MainLogo
             type="sm"
-            className="fill-primary-text-dark w-full text-primary-text-dark w-fill m-auto hidden sm:max-lg:flex"
+            className=" m-auto hidden w-full fill-primary-text-dark text-primary-text-dark sm:max-lg:flex"
           />
           <MainLogo
             type="md"
-            className="fill-primary-text-dark w-full text-primary-text-dark w-fill m-auto hidden lg:flex"
+            className=" m-auto hidden w-full fill-primary-text-dark text-primary-text-dark lg:flex"
           />
         </Link>
         <Navigation navLinks={routes} />
