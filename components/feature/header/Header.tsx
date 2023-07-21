@@ -42,7 +42,6 @@ const Header = ({
         h-fit
         w-full
         items-center
-        
         `,
         coverImage &&
           `
@@ -55,7 +54,7 @@ const Header = ({
           //sticky
           `,
         !coverImage && subtitle && `bg-gradient-to-b from-accent-dark/50`,
-        subtitle ? "gap-y-16" : "gap-y-4",
+        subtitle ? "gap-y-16" : "gap-y-2 sm:gap-y-4",
         className
       )}
     >

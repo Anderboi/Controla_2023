@@ -1,17 +1,19 @@
 "use client";
 
-import Modal from "@/components/common/Modal";
-import useUploadModal from "@/hooks/useUploadModal";
 import React, { useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import Modal from "@/components/common/Modal";
 import Input from "@/components/common/inputs/Input";
 import Button from "@/components/common/inputs/Button";
-import { toast } from "react-hot-toast";
+import ContactsMultiSelector from "@/components/common/inputs/ContactsMultiSelector";
+
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useUser } from "@/hooks/useUser";
-import uniqid from "uniqid";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
-import ContactsMultiSelector from "@/components/common/inputs/ContactsMultiSelector";
+import useUploadModal from "@/hooks/useUploadModal";
+
+import { toast } from "react-hot-toast";
+import uniqid from "uniqid";
 import { Database } from "@/types/supabase";
 
 const UploadProjectModal = () => {
@@ -26,7 +28,6 @@ const UploadProjectModal = () => {
     register,
     handleSubmit,
     reset,
-    control,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -34,6 +35,7 @@ const UploadProjectModal = () => {
       address_city: "",
       address_street: "",
       area: "",
+      storeys: 1,
       design_team: [],
       client: "",
       cover_img: null,
@@ -60,9 +62,11 @@ const UploadProjectModal = () => {
 
       const uniqId = uniqid();
 
+      const streetAddress = `${values.address_street} ${values.building} / ${values.room_number}`;
+
       //* Upload projectImage if it exists
 
-      if (imageFile){
+      if (imageFile) {
         const { data: projectData, error: projectError } =
           await supabaseClient.storage
             .from("projects")
@@ -70,44 +74,60 @@ const UploadProjectModal = () => {
               cacheControl: "3600",
               upsert: false,
             });
-            projectCover = projectData?.path
+        projectCover = projectData?.path;
 
-          
+        // //? Если не удалось загрузить изображение, которое не обязательное к загрузке
+        if (projectError) {
+          // setIsLoading(false);
+          return toast.error("Не удалось загрузить изображение");
+        }
+      }
 
-      // //? Если не удалось загрузить изображение, которое не обязательное к загрузке
-      if (projectError) {
-        // setIsLoading(false);
-        return toast.error("Не удалось загрузить изображение");
-      }}
-
-      const { error: supabaseError } = await supabaseClient
+      const { data: projectData, error: supabaseError } = await supabaseClient
         .from("projects")
         .insert({
           user_id: user.id,
           address_country: values.address_country,
           address_city: values.address_city,
-          address_street: values.address_street,
+          address_street: streetAddress,
           area: values.area,
           cover_img: imageFile ? projectCover : null,
-        });
+        })
+        .select()
+        .single();
 
       if (supabaseError) {
         return toast.error(supabaseError.message);
       }
 
-      // const { error: engeneeringError } = await supabaseClient.from(
-      //   "engeneering_data"
-      // ).insert({
-      //   project_id: project.id,
-      //   heating: null,
-      //   conditioning: null,
-      //   plumbing: null,
-      //   electric: null
-      // });
+      if (projectData) {
+        const { error: infoError } = await supabaseClient
+          .from("project_info")
+          .insert({
+            project_id: projectData.project_id,
+            purpose: values.purpose,
+            storeys: values.storeys,
+            residing: values.residing,
+          });
 
-      //  if (engeneeringError) {
-      //    return toast.error(engeneeringError.message);
-      //  }
+        if (infoError) {
+          return toast.error(infoError.message);
+        }
+
+        const { error: engeneeringError } = await supabaseClient
+          .from("engeneering_data")
+          .insert({
+            project_id: projectData.project_id,
+            heating: null,
+            conditioning: null,
+            plumbing: null,
+            electric: null,
+          });
+
+        if (engeneeringError) {
+          return toast.error(engeneeringError.message);
+        }
+      }
 
       router.refresh();
       // router.push(`/${8}/preProject`);
@@ -131,46 +151,116 @@ const UploadProjectModal = () => {
       onChange={onChange}
     >
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-3">
-        <Input
-          maxLength={32}
-          type="text"
-          id="address_country"
-          disabled={isLoading}
-          {...register("address_country", { required: true })}
-          placeholder="Укажите страну"
-        />
-        <Input
-          maxLength={32}
-          type="text"
-          id="address_city"
-          disabled={isLoading}
-          {...register("address_city", { required: true })}
-          placeholder="Укажите город"
-        />
-        <Input
-          maxLength={60}
-          type="text"
-          id="address_street"
-          disabled={isLoading}
-          {...register("address_street", { required: true })}
-          placeholder="Укажите улицу и номер дома / 'квартиры'"
-        />
-        <Input
-          type="number"
-          id="area"
-          disabled={isLoading}
-          {...register("area", { required: true })}
-          placeholder="Укажите площадь объекта"
-        />
+        <div className="grid grid-cols-2 gap-3">
+          <Input
+            label="Страна"
+            maxLength={32}
+            type="text"
+            id="address_country"
+            disabled={isLoading}
+            {...register("address_country", { required: true })}
+            placeholder="Россия"
+          />
+          <Input
+            label="Город"
+            maxLength={32}
+            type="text"
+            id="address_city"
+            disabled={isLoading}
+            {...register("address_city", { required: true })}
+            placeholder="Москва"
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <Input
+            label="Улица"
+            maxLength={60}
+            type="text"
+            id="address_street"
+            className=" w-full"
+            disabled={isLoading}
+            {...register("address_street", { required: true })}
+            placeholder="ул. Тверская"
+          />
+          <div className="grid grid-cols-2 gap-3">
+            <Input
+              label="Дом"
+              maxLength={60}
+              type="text"
+              id="building"
+              disabled={isLoading}
+              {...register("building", { required: true })}
+              placeholder="№"
+            />
+            <Input
+              label="Квартира"
+              maxLength={60}
+              type="text"
+              id="room_number"
+              disabled={isLoading}
+              {...register("room_number", { required: true })}
+              placeholder="№"
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <Input
+            label="Площадь"
+            type="number"
+            id="area"
+            disabled={isLoading}
+            {...register("area", { required: true })}
+            placeholder="кв.м."
+          />
+          <Input
+            label="Количество проживающих"
+            type="number"
+            id="residing"
+            disabled={isLoading}
+            {...register("residing", { required: true })}
+            placeholder="# человек"
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="w-full">
+            <label htmlFor="purpose" className="text-xs">
+              Назначнение
+            </label>
+            <select
+              id="purpose"
+              className="w-full h-fit px-6 py-2.5 rounded-md  text-sm"
+              {...register("purpose", { required: false })}
+            >
+              <option value={"Жилое"}>Жилое</option>
+              <option value={"Коммерческое"}>Коммерческое</option>
+              <option value={"Для аренды"}>Для аренды</option>
+            </select>
+          </div>
+          <div className="w-full">
+            <label htmlFor="storeys" className="text-xs">
+              Этажность
+            </label>
+            <select
+              id="storeys"
+              className="w-full h-fit px-6 py-2.5 rounded-md text-center items-center text-sm"
+              {...register("storeys", { required: false })}
+            >
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+            </select>
+          </div>
+        </div>
 
         {/* //TODO: add choose client component */}
-        {/* <ContactsLiveSearch/> */}
-        <ContactsMultiSelector />
+        <ContactsMultiSelector isMulti label="Клиенты" />
+        <ContactsMultiSelector isMulti label="Команда" />
         {/* //TODO: add choose team component */}
 
         {/* //? Upload file block */}
         <div>
-          <label className="mb-2 inline-block text-sm text-primary-text-dark">
+          <label className="mb-2 inline-block text-xs text-primary-text-dark">
             {`Загрузите обложку проекта (Не обязательно)`}
           </label>
           <Input

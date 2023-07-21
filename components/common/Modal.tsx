@@ -61,6 +61,7 @@ const Modal = ({
             text-center
             text-2xl
             font-bold
+            sticky
             "
           >
             {title}

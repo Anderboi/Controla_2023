@@ -33,7 +33,7 @@ const ContactsPage = async ({ children }: SearchProps) => {
           no-scrollbar
           flex
           flex-col
-          gap-y-6
+          //gap-y-6
           relative
           !p-0
           "

@@ -14,8 +14,7 @@ interface SelectProps {
   label: string;
 }
 
-  type User = Database["public"]["Tables"]["users"]["Row"]["full_name"]; // TODO: Change to contacts, if needed
-
+type User = Database["public"]["Tables"]["users"]["Row"]["full_name"]; // TODO: Change to contacts, if needed
 
 const sendOption = () => {
   console.log("send option");
@@ -25,7 +24,11 @@ const SelectMenuButton = (props: any) => {
   return (
     <components.MenuList {...props}>
       {props.children}
-      <Button mode="ghost" className="w-full" onClick={() => sendOption()}>
+      <Button
+        mode="ghost_accent"
+        className="w-full"
+        onClick={() => sendOption()}
+      >
         Отправить приглашение
       </Button>
     </components.MenuList>
@@ -42,8 +45,7 @@ const Option = (props: any) => {
   );
 };
 
-const ContactsMultiSelector = () => {
-
+const ContactsMultiSelector = ({ isMulti, label }: { isMulti?: boolean, label:string }) => {
   const supabaseClient = useSupabaseClient();
 
   const [contacts, setContacts] = useState<SelectProps[]>([]);
@@ -70,21 +72,22 @@ const ContactsMultiSelector = () => {
     fetchData();
   }, [supabaseClient, query]);
 
-
   const handleChange = (value: any) => {
-    console.log(value);
-
-    selectedPeople.includes(value)
-      ? setSelectedPeople(selectedPeople.filter((item) => item !== value))
-      : setSelectedPeople((oldValue) => [...oldValue, value]);
+    isMulti
+      ? selectedPeople.includes(value)
+        ? setSelectedPeople(selectedPeople.filter((item) => item !== value))
+        : setSelectedPeople((oldValue) => [...oldValue, value])
+      : setSelectedPeople(value);
   };
 
   return (
     <>
-      <BasicMultiSelector type='select'
+      <BasicMultiSelector
+        isMulti={isMulti}
+        type="select"
         content={contacts}
         callback={handleChange}
-        label="Клиенты"
+        label={label}
         aditionalButton={SelectMenuButton}
         // customOption={Option} //TODO: add custom option Component
       />

@@ -72,7 +72,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           flex
           w-full
           flex-col
-          items-start
+          items-center
           justify-center
           gap-y-1
           "
@@ -80,12 +80,13 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         <p
           className="
             line-clamp-1 
-            font-bold
+            font-semibold
             "
         >
           {data.full_name}
         </p>
-        <p
+        <p className="text-sm font-thin">{data.role}</p>
+        {/* <p
           className="
           truncate
           break-all
@@ -94,8 +95,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           "
         >
           {data.email}
-        </p>
-        <p className="text-sm">{data.role}</p>
+        </p> */}
       </div>
     </div>
   );

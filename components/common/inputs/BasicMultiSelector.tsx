@@ -6,7 +6,7 @@ import Select, {
   StylesConfig,
   components,
 } from "react-select";
-import CreatableSelect from 'react-select/creatable'
+import CreatableSelect from "react-select/creatable";
 
 export interface SelectProps {
   value: string;
@@ -15,13 +15,14 @@ export interface SelectProps {
 
 interface BasicMultiSelectorProps {
   aditionalButton?: React.ComponentType<
-    MenuListProps<any, true, GroupBase<any>>
+    MenuListProps<any, boolean, GroupBase<any>>
   >;
-  customOption?: React.ComponentType<OptionProps<any, true, GroupBase<any>>>;
+  customOption?: React.ComponentType<OptionProps<any, boolean, GroupBase<any>>>;
   content: SelectProps[];
   label?: string;
   callback: (e: any) => void;
   type: "creatable" | "select";
+  isMulti?: boolean;
 }
 
 const BasicMultiSelector = ({
@@ -31,6 +32,7 @@ const BasicMultiSelector = ({
   aditionalButton,
   customOption,
   type,
+  isMulti,
 }: BasicMultiSelectorProps) => {
   const colourStyles: StylesConfig<any, true> = {
     control: (baseStyles, state) => ({
@@ -41,6 +43,7 @@ const BasicMultiSelector = ({
       padding: "1px 0",
       borderColor: "transparent",
       outlineColor: state.isFocused ? "green" : "grey",
+      fontSize: "1rem",
     }),
     menuList: (baseStyles, state) => ({
       ...baseStyles,
@@ -49,8 +52,8 @@ const BasicMultiSelector = ({
       borderRadius: "0.375rem",
       overflow: "auto",
       maxHeight: "8lv",
-      overflowBlock:'visible',
-      
+      overflowBlock: "visible",
+      fontSize: ".75rem",
     }),
     option: (baseStyles, { data, isFocused, isDisabled, isSelected }) => ({
       ...baseStyles,
@@ -82,10 +85,10 @@ const BasicMultiSelector = ({
         w-full
         "
       >
-        <label className="text-sm">{label}</label>
+        <label className="text-xs">{label}</label>
         {type === "select" ? (
           <Select
-            isMulti
+            isMulti={isMulti}
             options={content}
             captureMenuScroll
             isSearchable
@@ -99,14 +102,14 @@ const BasicMultiSelector = ({
           />
         ) : (
           <CreatableSelect
-            isMulti
+            isMulti={isMulti}
             options={content}
             captureMenuScroll
             isSearchable
             onChange={callback}
             styles={colourStyles}
             closeMenuOnSelect={false}
-            menuPosition='absolute'
+            menuPosition="absolute"
           />
         )}
       </div>

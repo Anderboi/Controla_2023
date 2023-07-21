@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={twMerge(`flex bg-black h-screen relative`, inter.className)}
+        className={twMerge(`flex bg-primary-bg-dark h-[100dhv] relative`, inter.className)}
       >
         <HydrationZustand>
           <ToasterProvider />
@@ -35,18 +35,18 @@ export default function RootLayout({
               <Sidebar />
               <main
                 className="
-                  bg-primary-bg-dark
                   flex
                   w-full
                   flex-1
                   flex-col
                   gap-y-2
-                  //overflow-auto
-                  //scroll-smooth
+                  overflow-auto
+                  scroll-smooth
                   rounded-lg
                   p-2
                   no-scrollbar
-                "
+                  bg-primary-bg-dark
+                  "
               >
                 {children}
               </main>
