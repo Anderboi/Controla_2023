@@ -44,7 +44,7 @@ const ContactsPage = async ({ children }: SearchProps) => {
             backdrop-blur-md
             z-10
             sticky
-            p-6
+            p-4
             top-0
             w-full
             left-0
@@ -56,7 +56,7 @@ const ContactsPage = async ({ children }: SearchProps) => {
               "
           />
         </div>
-        <div className="px-6">{children}</div>
+        <div className="px-4">{children}</div>
       </ContainerBox>
     </>
   );

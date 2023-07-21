@@ -41,7 +41,7 @@ const ProjectPage = async ({
 
         <ContainerBox classname="h-fit">
           <TabsBar />
-          <div className="flex flex-col gap-y-8">{children}</div>
+          <div className="flex flex-col gap-y-6">{children}</div>
         </ContainerBox>
      
     </section>

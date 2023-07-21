@@ -60,20 +60,24 @@ const AddRoomsBlock = () => {
     }
   };
 
+
+  // [...Array(projectInfo.storeys)].map((e, i) => ()
+
+
   return (
-    <div className='z-50 w-full'>
+    <div className="flex flex-col sm:flex-row w-full items-start justify-start gap-4">
       <BasicMultiSelector
+        isMulti
         type="creatable"
         content={roomsList}
         callback={setRooms}
-        
       />
-      <Button
+      <Button size='small'
         onClick={onSubmit}
         disabled={isLoading}
         type="submit"
         mode="action"
-        className="mt-4"
+        className="w-full sm:w-fit"
       >
         Добавить
       </Button>

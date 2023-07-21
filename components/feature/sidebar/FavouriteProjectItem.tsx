@@ -63,9 +63,7 @@ const FavouriteProjectItem = ({ data, onClick }: FavouriteProjectItemProps) => {
               font-bold
               "
           >
-            {`${data.address_street?.split("")[0]}${
-              data.address_street?.split("")[1]
-            }`}
+            {`${data.address_street?.split("")[0]}`}
           </span>
           {data.cover_img ? (
             <Image

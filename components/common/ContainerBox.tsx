@@ -23,7 +23,7 @@ const ContainerBox = ({
         p-4
         rounded-lg
         `,
-        type === "frame" ? "sm:p-6" : "sm:p-4",
+        type === "frame" ? "sm:p-4" : "sm:p-4",
         classname
       )}
       onClick={onClick}
