@@ -13,23 +13,26 @@ interface Props {
 }
 
 const EngeneeringSystemsGallary = ({ data }: Props) => {
-
   const engModal = useEngeneeringModal();
-  console.log(engModal.array);
 
-  console.log(data);
+  console.log(Boolean(data));
+  
 
   const handleOnClick = (type: string) => {
     //@ts-ignore
-    if (data[type] === null) {
-      //@ts-ignore
-      engModal.onOpen(type);
-    } else {
-      //@ts-ignore
-      engModal.loadData(data[type]);
-      //@ts-ignore
-      engModal.onOpen(type);
-    }
+
+    console.log(type, data[type]);
+
+    //@ts-ignore
+    // if (data[type] === null || undefined) {
+    //@ts-ignore
+    engModal.onOpen(type, data[type]); //TODO: fix this
+    // } else {
+    //@ts-ignore
+    // engModal.loadData(data[type]);
+    //@ts-ignore
+    // engModal.onOpen(type);
+    // }
   };
 
   return (
@@ -52,21 +55,29 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
                 fill-secondary-text-dark
                 w-16
                 h-16
+                transition-all
+                sm:-translate-x-8
+                sm:rotate-12
+                sm:group-hover:-translate-x-4
                 `,
-                Object.entries(data).find(
-                  ([key, value]) => key === name
-                )?.[1] === null
-                  ? "fill-primary-border-dark"
-                  : "fill-accent-dark"
+                data &&
+                  Object.entries(data).find(
+                    ([key, value]) => key === name
+                  )?.[1] !== null
+                  ? "fill-accent-dark"
+                  : "fill-primary-border-dark"
               )}
             />
           }
           isFilled={
+            data &&
             Object.entries(data).find(([key, value]) => key === name)?.[1] !==
-            null
+              null
+              ? true
+              : false
           }
-          onClick={handleOnClick}
-          type={name}
+          onClick={() => handleOnClick(name)}
+          // type={name}
           label={label || ""}
           key={index}
         />

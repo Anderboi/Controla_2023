@@ -3,15 +3,17 @@ import React from "react";
 interface Props {
   isFilled: boolean;
   label: string;
-  type: string;
+  // type: string;
   illustration: React.ReactNode;
-  onClick: (type: string) => void;
+  onClick: () => void;
 }
 
-const DataCard = ({ illustration, isFilled, type, label, onClick }: Props) => {
+const DataCard = ({ illustration, isFilled, label, onClick }: Props) => {
   return (
     <div
       className="
+        overflow-clip
+        group
         to-bg-elevated-1-bg-dark
         group
         flex
@@ -24,9 +26,12 @@ const DataCard = ({ illustration, isFilled, type, label, onClick }: Props) => {
         from-accent-dark/30
         to-15%
         px-4
-        py-2 transition-all hover:bg-elevated-2-bg-dark hover:bg-gradient-to-l
+        py-2
+        transition-all
+        hover:bg-elevated-2-bg-dark 
+        hover:bg-gradient-to-l
         "
-      onClick={() => onClick(type)}
+      onClick={onClick}
     >
       <div className="flex items-center gap-4">
         {illustration}

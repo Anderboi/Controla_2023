@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter, Comfortaa } from "next/font/google";
+import { Inter, Comfortaa, IBM_Plex_Sans } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
 import Sidebar from "@/components/feature/sidebar/Sidebar";
@@ -9,7 +9,9 @@ import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
 import ToasterProvider from "@/providers/ToasterProvider";
 
-const inter = Comfortaa({ subsets: ["cyrillic"] });
+const font = Comfortaa({
+  subsets: ["cyrillic"],
+});
 
 export const metadata = {
   title: "Controla",
@@ -21,11 +23,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  
   return (
     <html lang="ru">
       <body
-        className={twMerge(`flex bg-primary-bg-dark h-[100dhv] relative`, inter.className)}
+        className={twMerge(
+          `flex bg-primary-bg-dark h-[100dhv] relative`,
+          font.className
+        )}
       >
         <HydrationZustand>
           <ToasterProvider />

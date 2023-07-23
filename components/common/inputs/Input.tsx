@@ -23,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             `
             inline-flex
             w-full
-            rounded-md
+            rounded-lg
             items-center 
             justify-center
             leading-none

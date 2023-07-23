@@ -47,7 +47,7 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
     };
 
     fetchData();
-  }, [supabaseClient, projectId,type]);
+  }, [supabaseClient, projectId]);
 
   const onSubmit = async () => {
     try {
@@ -58,7 +58,7 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
           .from("engeneering_data")
           .upsert(
             { project_id: projectId, conditioning: array },
-            { onConflict: "project_id" }
+            { onConflict: "project_id"}
           );
 
         if (supabaseError) {

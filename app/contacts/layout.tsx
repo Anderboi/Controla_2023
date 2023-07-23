@@ -28,13 +28,13 @@ const ContactsPage = async ({ children }: SearchProps) => {
       <Header title="Контакты" />
       <ContainerBox
         classname="
+          relative
           h-full
           overflow-y-auto 
           no-scrollbar
           flex
           flex-col
           //gap-y-6
-          relative
           !p-0
           "
       >
@@ -53,6 +53,7 @@ const ContactsPage = async ({ children }: SearchProps) => {
           <ContactsSearchInput
             className="
               z-10
+              opacity-70
               "
           />
         </div>

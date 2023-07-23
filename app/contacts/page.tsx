@@ -1,5 +1,4 @@
 import React from "react";
-import ContactsSearchInput from "@/components/common/inputs/ContactsSearchInput";
 import getContactsByTitle from "@/actions/getContactsByTitle";
 import ContactsGallary from "./components/ContactsGallary";
 

@@ -7,7 +7,7 @@ import getProjectsByTitle from "@/actions/getProjectsByTitle";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import AddProjectButton from '@/components/feature/header/AddProjectButton';
+import AddProjectButton from "@/components/feature/header/AddProjectButton";
 
 export const revalidate = 0;
 
@@ -34,16 +34,35 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
       <ContainerBox
         classname="
-        overflow-y-auto
-        no-scrollbar
-        h-full
-        flex
-        flex-col
-        gap-y-6
+          h-full
+          overflow-y-auto
+          no-scrollbar
+          flex
+          flex-col
+          //gap-y-6
+          relative
+          !p-0
         "
       >
-        <SearchInput />
-        <ProjectsGallery projects={projects} />
+        <div
+          className="
+            sticky
+            left-0
+            top-0
+            z-20
+            w-full
+            rounded-tr-lg
+            rounded-tl-lg
+            bg-secondary-bg-dark/80
+            p-4
+            backdrop-blur-md
+            "
+        >
+          <SearchInput />
+        </div>
+        <div className="px-4">
+          <ProjectsGallery projects={projects} />
+        </div>
       </ContainerBox>
     </>
   );

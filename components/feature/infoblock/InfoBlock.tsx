@@ -18,7 +18,7 @@ const InfoBlock = ({ body, label }: InfoBlockProps) => {
           py-2
           "
     >
-      <span className='text-primary-text-dark'>{label}</span>
+      <span className='text-primary-text-dark text-sm'>{label}</span>
       <span className='break-words text-start text-secondary-text-dark '>{body}</span>
     </div>
   );

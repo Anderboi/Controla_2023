@@ -14,7 +14,6 @@ import useUploadModal from "@/hooks/useUploadModal";
 
 import { toast } from "react-hot-toast";
 import uniqid from "uniqid";
-import { Database } from "@/types/supabase";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -39,6 +38,7 @@ const UploadProjectModal = () => {
       design_team: [],
       client: "",
       cover_img: null,
+      //client_id:'',
     },
   });
 
@@ -92,6 +92,7 @@ const UploadProjectModal = () => {
           address_street: streetAddress,
           area: values.area,
           cover_img: imageFile ? projectCover : null,
+          //client_id: values.client_id,
         })
         .select()
         .single();
@@ -114,25 +115,25 @@ const UploadProjectModal = () => {
           return toast.error(infoError.message);
         }
 
-        const { error: engeneeringError } = await supabaseClient
-          .from("engeneering_data")
-          .insert({
-            project_id: projectData.project_id,
-            heating: null,
-            conditioning: null,
-            plumbing: null,
-            electric: null,
-          });
+        // const { error: engeneeringError } = await supabaseClient
+        //   .from("engeneering_data")
+        //   .insert({
+        //     project_id: projectData.project_id,
+        //     heating: null,
+        //     conditioning: null,
+        //     plumbing: null,
+        //     electric: null,
+        //   });
 
-        if (engeneeringError) {
-          return toast.error(engeneeringError.message);
-        }
+        // if (engeneeringError) {
+        //   return toast.error(engeneeringError.message);
+        // }
       }
 
-      router.refresh();
-      // router.push(`/${8}/preProject`);
-
+      // router.refresh();
+      
       setIsLoading(false);
+      router.push(`projects/${projectData.project_id}/preProject`);
       toast.success("Проект создан");
       reset();
       uploadModal.onClose();
@@ -274,7 +275,7 @@ const UploadProjectModal = () => {
           </div>
         </div>
         {/* //TODO: add choose client component */}
-        <ContactsMultiSelector isMulti label="Клиенты" />
+        <ContactsMultiSelector  isMulti label="Клиенты" />
         <ContactsMultiSelector isMulti label="Команда" />
         {/* //TODO: add choose team component */}
         
