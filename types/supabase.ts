@@ -108,21 +108,24 @@ export interface Database {
           project_id: number
           purpose: string | null
           residing: number | null
-          storeys: number | null
+          stage: number
+          storeys: number
         }
         Insert: {
           created_at?: string | null
           project_id?: number
           purpose?: string | null
           residing?: number | null
-          storeys?: number | null
+          stage: number
+          storeys?: number
         }
         Update: {
           created_at?: string | null
           project_id?: number
           purpose?: string | null
           residing?: number | null
-          storeys?: number | null
+          stage?: number
+          storeys?: number
         }
         Relationships: [
           {
@@ -130,8 +133,29 @@ export interface Database {
             columns: ["project_id"]
             referencedRelation: "projects"
             referencedColumns: ["project_id"]
+          },
+          {
+            foreignKeyName: "project_info_stage_fkey"
+            columns: ["stage"]
+            referencedRelation: "project_stages"
+            referencedColumns: ["id"]
           }
         ]
+      }
+      project_stages: {
+        Row: {
+          id: number
+          name: string
+        }
+        Insert: {
+          id?: number
+          name: string
+        }
+        Update: {
+          id?: number
+          name?: string
+        }
+        Relationships: []
       }
       projects: {
         Row: {
@@ -192,6 +216,7 @@ export interface Database {
           project_id: number | null
           room_id: number
           room_number: number | null
+          storey: number
         }
         Insert: {
           area?: number | null
@@ -199,6 +224,7 @@ export interface Database {
           project_id?: number | null
           room_id?: number
           room_number?: number | null
+          storey?: number
         }
         Update: {
           area?: number | null
@@ -206,6 +232,7 @@ export interface Database {
           project_id?: number | null
           room_id?: number
           room_number?: number | null
+          storey?: number
         }
         Relationships: [
           {
