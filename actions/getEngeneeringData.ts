@@ -18,7 +18,7 @@ const getEngeneeringData = async (
     console.log(error.message);
   }
 
-  return (data as any) || []; // TODO: [] or null ?
+  return (data as any) || null;
 };
 
 export default getEngeneeringData;

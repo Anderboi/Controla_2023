@@ -112,25 +112,26 @@ const UploadProjectModal = () => {
             purpose: values.purpose,
             storeys: values.storeys,
             residing: values.residing,
+            stage: 1,
           });
 
         if (infoError) {
           return toast.error(infoError.message);
         }
 
-        // const { error: engeneeringError } = await supabaseClient
-        //   .from("engeneering_data")
-        //   .insert({
-        //     project_id: projectData.project_id,
-        //     heating: null,
-        //     conditioning: null,
-        //     plumbing: null,
-        //     electric: null,
-        //   });
+        const { error: engeneeringError } = await supabaseClient
+          .from("engeneering_data")
+          .insert({
+            project_id: projectData.project_id,
+            heating: null,
+            conditioning: null,
+            plumbing: null,
+            electric: null,
+          });
 
-        // if (engeneeringError) {
-        //   return toast.error(engeneeringError.message);
-        // }
+        if (engeneeringError) {
+          return toast.error(engeneeringError.message);
+        }
       }
 
       // router.refresh();

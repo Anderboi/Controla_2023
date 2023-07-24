@@ -15,24 +15,29 @@ interface Props {
 const EngeneeringSystemsGallary = ({ data }: Props) => {
   const engModal = useEngeneeringModal();
 
-  console.log(Boolean(data));
+  console.log( data);
+
+  // const hasData = ({ array, name }: { array: [], name:string }) => {
+  //   //If it's not an array, return FALSE.
+  //   if (!Array.isArray(array)) {
+  //     return false;
+  //   }
+  //   //If it is an array, check its length property
+  //   if (array.length == 0) {
+  //     //Return TRUE if the array is empty
+  //     return true;
+  //   }
+  //   //Otherwise, return FALSE.
+  //   Object.entries(array).find(([key, value]) => key === name)?.[1] !== null;
+  //   return false;
+  // };
   
 
   const handleOnClick = (type: string) => {
     //@ts-ignore
-
     console.log(type, data[type]);
-
     //@ts-ignore
-    // if (data[type] === null || undefined) {
-    //@ts-ignore
-    engModal.onOpen(type, data[type]); //TODO: fix this
-    // } else {
-    //@ts-ignore
-    // engModal.loadData(data[type]);
-    //@ts-ignore
-    // engModal.onOpen(type);
-    // }
+    engModal.onOpen(type, data[type]); //TODO: fix this data[type]
   };
 
   return (
@@ -60,19 +65,18 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
                 sm:rotate-12
                 sm:group-hover:-translate-x-4
                 `,
-                data &&
-                  Object.entries(data).find(
-                    ([key, value]) => key === name
-                  )?.[1] !== null
+
+                data && Object.entries(data).find(
+                  ([key, value]) => key === name
+                )?.[1] !== null
                   ? "fill-accent-dark"
                   : "fill-primary-border-dark"
               )}
             />
           }
           isFilled={
-            data &&
-            Object.entries(data).find(([key, value]) => key === name)?.[1] !==
-              null
+            data && Object.entries(data).find(([key, value]) => key === name)?.[1] !==
+            null
               ? true
               : false
           }
