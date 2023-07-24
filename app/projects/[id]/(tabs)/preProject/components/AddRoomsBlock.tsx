@@ -36,7 +36,7 @@ const AddRoomsBlock = () => {
           name: room.value,
           area: null,
           project_id: projectId,
-          room_id: Number(projectId.toString() + index.toString()),
+          // room_id: Number(projectId.toString() + index.toString()),
           room_number: index + 1,
         };
       });

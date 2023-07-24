@@ -213,25 +213,22 @@ export interface Database {
         Row: {
           area: number | null
           name: string
-          project_id: number | null
-          room_id: number
-          room_number: number | null
+          project_id: number
+          room_number: number
           storey: number
         }
         Insert: {
           area?: number | null
           name: string
-          project_id?: number | null
-          room_id?: number
-          room_number?: number | null
+          project_id: number
+          room_number: number
           storey?: number
         }
         Update: {
           area?: number | null
           name?: string
-          project_id?: number | null
-          room_id?: number
-          room_number?: number | null
+          project_id?: number
+          room_number?: number
           storey?: number
         }
         Relationships: [

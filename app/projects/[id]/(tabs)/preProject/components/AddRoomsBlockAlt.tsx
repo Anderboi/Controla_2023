@@ -38,16 +38,12 @@ const AddRoomsBlockAlt = ({ storey }: { storey: number }) => {
           name: room.value,
           area: null,
           project_id: projectId,
-          room_id: Number(
-            projectId.toString() + storey.toString() + (index + 1).toString()
-          ),
           room_number: Number(
             storey.toString() +
               (index < 10
                 ? (index + 1).toString().padStart(2, "0")
                 : (index + 1).toString())
           ),
-
           storey: storey,
         };
       });
