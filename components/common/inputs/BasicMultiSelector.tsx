@@ -37,7 +37,7 @@ const BasicMultiSelector = ({
   const colourStyles: StylesConfig<any, true> = {
     control: (baseStyles, state) => ({
       ...baseStyles,
-      backgroundColor: "#363636",
+      backgroundColor: "#242424",
       color: "#fff",
       borderRadius: "0.5rem",
       padding: "1px 0",
@@ -47,7 +47,7 @@ const BasicMultiSelector = ({
     }),
     menuList: (baseStyles, state) => ({
       ...baseStyles,
-      backgroundColor: "#212121",
+      backgroundColor: "#242424",
       width: "100%",
       borderRadius: "0.5rem",
       overflowY: "scroll",
@@ -57,16 +57,17 @@ const BasicMultiSelector = ({
     }),
     option: (baseStyles, { data, isFocused, isDisabled, isSelected }) => ({
       ...baseStyles,
-      backgroundColor: isFocused ? "#242424" : "#181818",
+      backgroundColor: isFocused ? "#363636" : "#242424",
       color: isFocused ? "#fff" : isSelected ? "red" : "#A3A3A3",
     }),
     multiValue: (baseStyles, { data, isFocused, isDisabled }) => ({
       ...baseStyles,
-      backgroundColor: "#666666",
+      backgroundColor: "#343434",
       color: "#fff",
       borderRadius: "8px",
-      padding: "4px 8px",
+      padding: "0px 8px",
       top: "10px",
+      border: "1px solid #A3A3A3",
     }),
     multiValueLabel: (base, props) => ({
       ...base,
@@ -75,6 +76,12 @@ const BasicMultiSelector = ({
     input: (base, props) => ({
       ...base,
       color: "#fff",
+    }),
+    multiValueRemove: (base) => ({
+      ...base,
+      backgroundColor: 'transparent',
+      color: '#A3A3A3',
+      
     }),
   };
 

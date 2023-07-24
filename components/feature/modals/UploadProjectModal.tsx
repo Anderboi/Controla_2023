@@ -14,6 +14,7 @@ import useUploadModal from "@/hooks/useUploadModal";
 
 import { toast } from "react-hot-toast";
 import uniqid from "uniqid";
+import ModalAlt from '@/components/common/ModalAlt';
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -145,7 +146,7 @@ const UploadProjectModal = () => {
   };
 
   return (
-    <Modal
+    <ModalAlt
       title="Создать новый проект"
       description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
       isOpen={uploadModal.isOpen}
@@ -329,7 +330,7 @@ const UploadProjectModal = () => {
           Создать
         </Button>
       </form>
-    </Modal>
+    </ModalAlt>
   );
 };
 

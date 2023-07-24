@@ -5,6 +5,7 @@ import ContentBlock from "@/components/common/ContentBlock";
 import { IoColorPaletteOutline, IoTvOutline } from "react-icons/io5";
 import { TbSofa } from "react-icons/tb";
 import getProjectInfo from "@/actions/getProjectInfo";
+import AddRoomsBlockAlt from './AddRoomsBlockAlt';
 
 interface PremisesBlockProps {
   id: number;
@@ -30,6 +31,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
           >
             <span className="py-4 text-center">Нет назначенных помещений</span>
             <div className="w-full">
+              <AddRoomsBlockAlt/>
               <AddRoomsBlock />
             </div>
           </div>
