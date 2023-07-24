@@ -13,13 +13,12 @@ interface PremisesBlockProps {
 const PremisesBlock = async ({ id }: PremisesBlockProps) => {
   const premises = await getPremises(id);
   const projectInfo = await getProjectInfo(id);
-  console.log(premises.find((key) => key.storey === 2));
 
   return (
     <>
       <ContentBlock title="Состав помещений">
         {Array.from(Array(projectInfo.storeys)).map((storey, i) => (
-          <div className="pt-4">
+          <div className="pt-4" key={i}>
             {premises && premises.find((key) => key.storey === i + 1) ? (
               <>
                 <span className="text-sm">{`${i + 1} этаж`}</span>
@@ -107,9 +106,6 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 gap-6
                 "
               >
-                {/* <span className="py-4 text-center">
-                  Нет назначенных помещений
-                </span> */}
                 <div className="w-full">
                   <AddRoomsBlockAlt storey={i + 1} />
                 </div>
