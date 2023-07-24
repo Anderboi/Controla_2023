@@ -15,6 +15,7 @@ interface ChipsProps {
   type?: "sm" | "md" | "lg";
   className?: string;
   hasRightIcon?: boolean;
+  disabled?: boolean;
 }
 
 const Chips = ({
@@ -23,6 +24,7 @@ const Chips = ({
   onClose,
   type,
   isActive,
+  disabled,
   hasRightIcon,
   className,
   ...props
@@ -55,6 +57,7 @@ const Chips = ({
         type === "sm" && "text-xs",
         type === "md" && "text-sm",
         type === "lg" && "text-base",
+        disabled && 'opacity-40 cursor-not-allowed',
         className
       )}
       {...props}

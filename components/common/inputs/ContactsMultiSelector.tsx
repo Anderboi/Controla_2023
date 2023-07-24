@@ -89,6 +89,7 @@ const ContactsMultiSelector = ({ isMulti, label }: { isMulti?: boolean, label:st
         callback={handleChange}
         label={label}
         aditionalButton={SelectMenuButton}
+        
         // customOption={Option} //TODO: add custom option Component
       />
     </>

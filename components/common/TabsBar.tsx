@@ -44,6 +44,7 @@ const TabsBar = () => {
             route.push("concept");
           }}
           isActive={exactRoute === "concept"}
+          disabled
         >
           Эскизная стадия
         </Chips>
@@ -55,6 +56,7 @@ const TabsBar = () => {
             route.push("working");
           }}
           isActive={exactRoute === "working"}
+          disabled
         >
           Рабочая стадия
         </Chips>
@@ -66,6 +68,7 @@ const TabsBar = () => {
             route.push("furnishing");
           }}
           isActive={exactRoute === "furnishing"}
+          disabled
         >
           Комплектация
         </Chips>
@@ -77,6 +80,7 @@ const TabsBar = () => {
             route.push("construction");
           }}
           isActive={exactRoute === "construction"}
+          disabled
         >
           Строительство
         </Chips>

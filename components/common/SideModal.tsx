@@ -26,7 +26,7 @@ const SideModal = ({
           className="
           fixed
           inset-0
-          z-10
+          z-20
           animate-sideDialogOverlay
           bg-primary-bg-dark/70
           backdrop-blur-md
@@ -35,13 +35,14 @@ const SideModal = ({
         <Dialog.Content
           className="
           //h-full
+          
           fixed
           inset-y-0
           right-0
-          z-50
+          z-20
           w-[90%]
           animate-sideDialogContent
-          overflow-y-auto
+          //overflow-y-auto
           text-clip
           
           p-2
@@ -50,7 +51,7 @@ const SideModal = ({
           md:max-w-[450px]
           "
         >
-          <div className="h-full rounded-lg bg-secondary-bg-dark p-6
+          <div className="h-full relative rounded-lg bg-elevated-1-bg-dark p-6
           ">
             <Dialog.Title
               className="
@@ -65,15 +66,15 @@ const SideModal = ({
             <Dialog.Description
               className="
             
-            text-center
-            text-base
-            leading-normal
-            text-primary-text-dark
-            "
+                text-center
+                text-base
+                leading-normal
+                text-primary-text-dark
+                "
             >
               {description}
             </Dialog.Description>
-            <>{children}</>
+            <div className='h-full overflow-y-auto'>{children}</div>
             <Dialog.Close asChild>
               <button
                 className="
