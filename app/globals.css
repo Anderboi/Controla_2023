@@ -12,16 +12,57 @@ body,
 }
 
 @layer utilities {
-    @variants responsive {
-      /* Hide scrollbar for Chrome, Safari and Opera */
-      .no-scrollbar::-webkit-scrollbar {
-          display: none;
-      }
+  @variants responsive {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-      /* Hide scrollbar for IE, Edge and Firefox */
-      .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-      }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
     }
   }
+}
+
+@layer base {
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full
+            rounded-lg
+            items-center 
+            justify-center
+            leading-none
+            outline-none
+            text-base
+            border-transparent
+            focus:ring-accent-dark
+            focus:border-accent-dark 
+            bg-elevated-2-bg-dark
+            placeholder:text-secondary-text-dark
+            mt-1
+  }
+  [type="checkbox"],
+  [type="radio"] {
+    @apply 
+            !rounded
+            bg-secondary-bg-dark
+            focus:ring-accent-dark
+            focus:border-accent-dark
+            text-accent-dark
+  }
+}

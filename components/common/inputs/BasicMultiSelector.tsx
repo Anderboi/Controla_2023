@@ -44,6 +44,7 @@ const BasicMultiSelector = ({
       borderColor: "transparent",
       outlineColor: state.isFocused ? "green" : "grey",
       fontSize: "1rem",
+      
     }),
     menuList: (baseStyles, state) => ({
       ...baseStyles,
@@ -76,6 +77,7 @@ const BasicMultiSelector = ({
     input: (base, props) => ({
       ...base,
       color: "#fff",
+      outline: 'none'
     }),
     multiValueRemove: (base) => ({
       ...base,

@@ -3,10 +3,11 @@ import { twMerge } from "tailwind-merge";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  borderType?: 'with_border' | 'borderless';
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, disabled, label, ...props }, ref) => {
+  ({ className, type, disabled, borderType = 'with_border', label, ...props }, ref) => {
     return (
       <div>
         {label && (
@@ -28,10 +29,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             justify-center
             leading-none
             outline-none
-
-            bg-elevated-3-bg-dark
-            border
-            border-transparent
+            
+            
             px-4
             py-2
             gap-x-1
@@ -44,7 +43,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             disabled:cursor-not-allowed
             disabled:opacity-50
             focus:outline-none
-            focus:border-accent-dark`,
+            `,
+            borderType === 'with_border' ? `
+            border border-transparent
+            focus:border-accent-dark
+            bg-elevated-2-bg-dark
+            `: `
+            border-none
+            bg-transparent
+            `,
             className
           )}
         />

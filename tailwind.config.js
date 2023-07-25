@@ -73,5 +73,6 @@ module.exports = {
         ".scrolling-touch": { "-webkit-overflow-scrolling": "touch" },
       });
     }),
+    require("@tailwindcss/forms"),
   ],
 };

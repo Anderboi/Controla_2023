@@ -45,7 +45,13 @@ const Option = (props: any) => {
   );
 };
 
-const ContactsMultiSelector = ({ isMulti, label }: { isMulti?: boolean, label:string }) => {
+const ContactsMultiSelector = ({
+  isMulti,
+  label,
+}: {
+  isMulti?: boolean;
+  label: string;
+}) => {
   const supabaseClient = useSupabaseClient();
 
   const [contacts, setContacts] = useState<SelectProps[]>([]);
@@ -90,6 +96,7 @@ const ContactsMultiSelector = ({ isMulti, label }: { isMulti?: boolean, label:st
         label={label}
         aditionalButton={SelectMenuButton}
         
+
         // customOption={Option} //TODO: add custom option Component
       />
     </>
