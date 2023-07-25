@@ -9,10 +9,10 @@ import CheckDataCard from "@/components/common/cards/CheckDataCard";
 import Button from "@/components/common/inputs/Button";
 
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
-import {engeneeringSystems} from "@/lib/engeneering";
+import { engeneeringSystems } from "@/lib/engeneering";
 
 interface BlockProps {
-  type: string;
+  type: string | null;
 }
 
 const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
@@ -29,6 +29,9 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!type) {
+        return;
+      }
       const { data, error } = await supabaseClient
         .from("engeneering_data")
         .select(type)
@@ -58,7 +61,7 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
           .from("engeneering_data")
           .upsert(
             { project_id: projectId, conditioning: array },
-            { onConflict: "project_id"}
+            { onConflict: "project_id" }
           );
 
         if (supabaseError) {
@@ -91,7 +94,7 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
       }
 
       setIsLoading(false);
-      toast.success("Информация по кондиционированию и вентиляции добавлена");
+      toast.success("Данные успешно добавлены");
     } catch (error) {
       toast.error("error.message");
     } finally {
@@ -155,7 +158,6 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
         </Button>
         <Button
           onClick={onSubmit}
-          // onClick={onSubmit}
           disabled={isLoading}
           type="submit"
           mode="action"

@@ -105,7 +105,6 @@ const ModalAlt = ({
                           text-secondary-text-dark
                           hover:text-primary-text-dark
                           focus:outline-none
-
                           
                           "
                       >
@@ -120,7 +119,6 @@ const ModalAlt = ({
                     </p>
                   </div>
                   <div className="pt-6 px-6 h-fit">{children}</div>
-
                   <div className="//mt-4 px-6 sticky bottom-0 pb-6 bg-elevated-1-bg-dark">
                     {button}
                   </div>

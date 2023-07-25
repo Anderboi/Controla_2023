@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import qs from "query-string";
 
 import useDebounce from "@/hooks/useDebounce";
-import Input from "./Input";
 
 const SearchInput = ({className}:{className?:string}) => {
   const router = useRouter();
@@ -27,7 +26,7 @@ const SearchInput = ({className}:{className?:string}) => {
   }, [debouncedValue, router]);
 
   return (
-    <Input
+    <input
       type='search'
       placeholder="Найти ..."
       value={value}

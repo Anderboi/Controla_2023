@@ -21,7 +21,6 @@ const ProjectsGallery = ({ projects }: ProjectsGalleryProps) => {
     <GallaryGrid>
       {projects.map((project) => (
         <ProjectCard
-         
           key={project.project_id}
           data={project}
         />

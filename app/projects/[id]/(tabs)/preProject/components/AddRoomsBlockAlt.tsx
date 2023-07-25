@@ -68,65 +68,50 @@ const AddRoomsBlockAlt = ({ storey }: { storey: number }) => {
   };
 
   return (
-    
     <>
       <span>{`${storey} этаж`}</span>
       <li
         className="
-        flex
-        items-center
-        justify-between
-        py-2
-        //pl-4
-        //pr-5
-        text-sm
-        leading-6
-        "
+          flex
+          flex-col
+          sm:flex-row
+          gap-4
+          items-center
+          justify-between
+          py-2
+          text-sm
+          leading-6
+          "
       >
         <div
           className="
-          flex
-          w-0
-          flex-1
-          items-center
-          gap-x-2
-          "
-        >
-          <div
-            className="
-            //ml-4
-            flex
-            min-w-0
-            flex-1
-            gap-2
+            w-full
             "
-          >
-            <BasicMultiSelector
-              isMulti
-              type="creatable"
-              content={roomsList}
-              callback={setRooms}
-            />
-          </div>
+        >
+          <BasicMultiSelector
+            isMulti
+            type="creatable"
+            content={roomsList}
+            callback={setRooms}
+          />
         </div>
-        <div className="ml-4 flex-shrink-0">
+        <div className="sm:flex-shrink-0 w-full sm:w-fit">
           <Button
             size="small"
             onClick={onSubmit}
             disabled={isLoading}
             type="submit"
-            mode="ghost"
+            mode="ghost_accent"
             className="
-          w-full 
-          sm:w-fit
-          "
+              w-full 
+              sm:w-fit
+              "
           >
             Добавить
           </Button>
         </div>
       </li>
     </>
-   
   );
 };
 

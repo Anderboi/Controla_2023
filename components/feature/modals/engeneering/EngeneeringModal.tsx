@@ -12,12 +12,12 @@ const EngeneeringModal = () => {
   const engModal = useEngeneeringModal();
 
   const onChange = (open: boolean) => {
+    
     if (!open) {
       engModal.onClose();
     }
   };
 
-  //! switches
   if (!engModal.data) {
     return (
       <SideModal
