@@ -1,9 +1,8 @@
-import React, { Suspense } from "react";
+import React from "react";
 import getCurrntProject from "@/actions/getCurrentProject";
 import Header from "@/components/feature/header/Header";
 import ContainerBox from "@/components/common/ContainerBox";
 import TabsBar from "@/components/common/TabsBar";
-import ProjectLoading from './(tabs)/preProject/loading';
 
 export const revalidate = 0;
 

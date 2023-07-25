@@ -28,7 +28,10 @@ const getProjectsByTitle = async (
   const { data, error } = await supabase
     .from("projects")
     .select("*")
-    .eq("user_id", sessionData.session?.user.id)
+    // .eq("user_id", sessionData.session?.user.id)
+    .or(
+      `user_id.eq.${sessionData.session?.user.id},client_id.eq.${sessionData.session?.user.id}`
+    )
     .ilike("address_street", `%${title}%`)
     .order("created_at", { ascending: false });
 
