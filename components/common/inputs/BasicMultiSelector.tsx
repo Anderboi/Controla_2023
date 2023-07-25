@@ -93,7 +93,7 @@ const BasicMultiSelector = ({
         <label className="text-sm">{label}</label>
         {type === "select" ? (
           <Select
-            isMulti={isMulti}
+            isMulti
             options={content}
             captureMenuScroll
             isSearchable
@@ -107,7 +107,7 @@ const BasicMultiSelector = ({
           />
         ) : (
           <CreatableSelect
-            isMulti={isMulti}
+            isMulti
             options={content}
             captureMenuScroll
             isSearchable

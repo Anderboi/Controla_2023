@@ -15,6 +15,7 @@ import uniqid from "uniqid";
 import ModalAlt from "@/components/common/ModalAlt";
 
 import { PhotoIcon } from "@heroicons/react/24/solid";
+import AsyncSelectContactComponent from "@/components/common/inputs/AsyncSelectContactComponent";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -27,6 +28,7 @@ const UploadProjectModal = () => {
   const {
     register,
     handleSubmit,
+    control,
     reset,
     formState: { errors },
   } = useForm<FieldValues>({
@@ -53,6 +55,10 @@ const UploadProjectModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
     try {
       setIsLoading(true);
+
+
+      console.log(values.client_id.value);
+      
 
       const imageFile = values.cover_img !== "" ? values.cover_img?.[0] : null;
       let projectCover;
@@ -93,7 +99,7 @@ const UploadProjectModal = () => {
           address_street: streetAddress,
           area: values.area,
           cover_img: imageFile ? projectCover : null,
-          // client_id: values.client_id,
+          client_id: values.client_id.value,
         })
         .select()
         .single();
@@ -280,7 +286,11 @@ const UploadProjectModal = () => {
         </div>
         {/* //TODO: add choose client component */}
         <div className="col-span-2">
-          <ContactsMultiSelector isMulti label="Клиенты" />
+          <label htmlFor="client_id" className="block text-sm font-medium">
+            Клиент
+          </label>
+          <AsyncSelectContactComponent control={control} name="client_id" />
+          {/* <ContactsMultiSelector isMulti label="Клиенты" /> */}
         </div>
         <div className="col-span-2">
           <ContactsMultiSelector isMulti label="Команда" />
