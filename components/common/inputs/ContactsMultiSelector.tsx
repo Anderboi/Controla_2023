@@ -26,6 +26,7 @@ const SelectMenuButton = (props: any) => {
       {props.children}
       <Button
         mode="ghost_accent"
+        size='small'
         className="w-full"
         onClick={() => sendOption()}
       >

@@ -246,7 +246,7 @@ const UploadProjectModal = () => {
         </div>
         <div>
           <label className="block text-sm font-medium" htmlFor="residing">
-            Квартира
+            Проживающих
           </label>
           <input
             type="number"
@@ -290,7 +290,7 @@ const UploadProjectModal = () => {
         <div className="col-span-2">
           <label
             htmlFor="cover-photo"
-            className="block text-xs font-medium leading-6 text-primary-text-dark"
+            className="block text-sm font-medium leading-6 text-primary-text-dark"
           >
             Загрузите обложку проекта (Не обязательно)
           </label>

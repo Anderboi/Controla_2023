@@ -17,8 +17,6 @@ module.exports = {
         "primary-bg": { dark: "#000", light: "#fff" },
         "secondary-bg": { dark: "#121212", light: "#F7F7F7" },
         "elevated-1-bg": { dark: "#232323" },
-        // "elevated-1-bg": { dark: "#242424" },
-        // "elevated-2-bg": { dark: "#242424" },
         "elevated-2-bg": { dark: "#303030" },
         "elevated-3-bg": { dark: "#363636" },
         "elevated-4-bg": { dark: "#404040" },

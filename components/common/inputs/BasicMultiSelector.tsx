@@ -37,7 +37,7 @@ const BasicMultiSelector = ({
   const colourStyles: StylesConfig<any, true> = {
     control: (baseStyles, state) => ({
       ...baseStyles,
-      backgroundColor: "#242424",
+      backgroundColor: "#303030",
       color: "#fff",
       borderRadius: "0.5rem",
       padding: "1px 0",
@@ -52,9 +52,9 @@ const BasicMultiSelector = ({
       width: "100%",
       borderRadius: "0.5rem",
       overflowY: "scroll",
-      maxHeight: "12lh",
+      maxHeight: "10lh",
       overflowBlock: "visible",
-      fontSize: ".75rem",
+      fontSize: "1rem",
     }),
     option: (baseStyles, { data, isFocused, isDisabled, isSelected }) => ({
       ...baseStyles,
@@ -89,12 +89,8 @@ const BasicMultiSelector = ({
 
   return (
     <>
-      <div
-        className="
-        w-full
-        "
-      >
-        <label className="text-xs">{label}</label>
+      <div>
+        <label className="text-sm">{label}</label>
         {type === "select" ? (
           <Select
             isMulti={isMulti}
