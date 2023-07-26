@@ -9,6 +9,8 @@ body,
   background-color: black;
   color-scheme: dark;
   font-size: 16px;
+  
+  -webkit-tap-highlight-color: transparent;
 }
 
 @layer utilities {
@@ -43,26 +45,26 @@ body,
   textarea,
   select {
     @apply w-full
+            mt-1
             rounded-lg
-            items-center 
+            items-center
             justify-center
             leading-none
             outline-none
             text-base
             border-transparent
             focus:ring-accent-dark
-            focus:border-accent-dark 
+            focus:border-accent-dark
             bg-elevated-2-bg-dark
             placeholder:text-secondary-text-dark
-            mt-1
+            
   }
   [type="checkbox"],
   [type="radio"] {
-    @apply 
-            !rounded
+    @apply !rounded
             bg-secondary-bg-dark
             focus:ring-accent-dark
             focus:border-accent-dark
-            text-accent-dark
+            text-accent-dark;
   }
 }

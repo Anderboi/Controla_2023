@@ -43,7 +43,7 @@ const BurgerMenu = () => {
           //border
           //border-primary-border-dark
           //transition-all
-          absolute right-0 top-[100%] z-20
+          absolute right-0 top-[100%] z-30
           
           mt-2
           flex

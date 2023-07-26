@@ -15,6 +15,7 @@ import ModalAlt from "@/components/common/ModalAlt";
 
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import AsyncSelectContactComponent from "@/components/common/inputs/AsyncSelectContactComponent";
+import { twMerge } from "tailwind-merge";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -171,7 +172,8 @@ const UploadProjectModal = () => {
         className="
           grid 
           grid-cols-2 
-          gap-4
+          gap-x-4
+          gap-y-4
           "
       >
         <div>
@@ -186,9 +188,20 @@ const UploadProjectModal = () => {
             maxLength={32}
             id="address_country"
             disabled={isLoading}
-            {...register("address_country", { required: true })}
+            {...register("address_country", { required: true, minLength: 3 })}
             placeholder="Укажите страну"
+            className={twMerge(
+              errors.address_country && `border-red-500 ring-red-500`
+            )}
           />
+          {/* <small
+            className={twMerge(
+              "opacity-0",
+              errors.address_country && "text-xs text-red-500 opacity-100"
+            )}
+          >
+            {"Country is required"}
+          </small> */}
         </div>
         <div>
           <label className="block text-sm font-medium" htmlFor="address_city">
@@ -201,7 +214,18 @@ const UploadProjectModal = () => {
             disabled={isLoading}
             {...register("address_city", { required: true })}
             placeholder="Укажите город"
+            className={twMerge(
+              errors.address_city && `border-red-500 ring-red-500`
+            )}
           />
+          {/* <small
+            className={twMerge(
+              "opacity-0",
+              errors.address_city && "text-xs text-red-500 opacity-100"
+            )}
+          >
+            {"City is required"}
+          </small> */}
         </div>
         <div>
           <label className="block text-sm font-medium" htmlFor="address_street">
@@ -212,9 +236,22 @@ const UploadProjectModal = () => {
             maxLength={60}
             id="address_street"
             disabled={isLoading}
-            {...register("address_street", { required: true })}
+            {...register("address_street", {
+              required: "Street address is required",
+            })}
             placeholder="Укажите улицу"
+            className={twMerge(
+              errors.address_street && `border-red-500 ring-red-500`
+            )}
           />
+          {/* <small
+            className={twMerge(
+              "opacity-0",
+              errors.address_street && "text-xs text-red-500 opacity-100"
+            )}
+          >
+            {"Street address is required"}
+          </small> */}
         </div>
         <div className="flex gap-4">
           <div>
@@ -223,11 +260,14 @@ const UploadProjectModal = () => {
             </label>
             <input
               type="number"
-              maxLength={60}
+              maxLength={5}
               id="building"
               disabled={isLoading}
               {...register("building", { required: true })}
               placeholder="№"
+              className={twMerge(
+                errors.building && `border-red-500 ring-red-500`
+              )}
             />
           </div>
           <div>
@@ -236,7 +276,7 @@ const UploadProjectModal = () => {
             </label>
             <input
               type="number"
-              maxLength={60}
+              maxLength={5}
               id="room_number"
               disabled={isLoading}
               {...register("room_number", { required: false })}
@@ -250,11 +290,19 @@ const UploadProjectModal = () => {
           </label>
           <input
             type="number"
+            min={0}
             maxLength={60}
             id="area"
             disabled={isLoading}
-            {...register("area", { required: false })}
+            {...register("area", {
+              required: true,
+              min: 0,
+              validate: {
+                positive: (v) => parseInt(v) > 0 || "should be greater than 0",
+              },
+            })}
             placeholder="кв.м."
+            className={twMerge(errors.area && `border-red-500 ring-red-500`)}
           />
         </div>
         <div>
@@ -263,7 +311,8 @@ const UploadProjectModal = () => {
           </label>
           <input
             type="number"
-            maxLength={60}
+            max={20}
+            min={0}
             id="residing"
             disabled={isLoading}
             {...register("residing", { required: false })}
