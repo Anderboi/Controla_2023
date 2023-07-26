@@ -43,9 +43,8 @@ const AsyncSelectContactComponent = ({
     }));
   };
 
-  const [selectedOption, setSelectedOption] = isMultiple
-    ? useState<OptionType | null>(null)
-    : useState<OptionType[]>([]);
+  const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
+  const [selectedOptions, setSelectedOptions] = useState<OptionType[]>([]);
 
   const colourStyle: StylesConfig<any, boolean> = {
     control: (baseStyles, state) => ({
@@ -130,10 +129,10 @@ const AsyncSelectContactComponent = ({
           defaultOptions
           loadOptions={loadOptions}
           onChange={(option) => {
-            setSelectedOption(option);
+            isMultiple ? setSelectedOptions(option) : setSelectedOption(option);
             field.onChange(option);
           }}
-          value={selectedOption}
+          value={isMultiple ? selectedOptions : selectedOption}
           className="
           bg-secondary-bg-dark 
           text-primary-text-light 
