@@ -10,10 +10,10 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
     <div>
       <h2
         className="
-        //px-6
         pb-1
         text-start
-        text-[21px]
+        text-lg
+        sm:text-xl
         font-bold
       "
       >

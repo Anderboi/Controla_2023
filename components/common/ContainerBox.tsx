@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 interface ContainerBoxProps {
   children: React.ReactNode;
-  classname?: string;
+  className?: string;
   image?: string;
   type?: "card" | "frame";
   onClick?: () => void;
@@ -11,9 +11,9 @@ interface ContainerBoxProps {
 
 const ContainerBox = ({
   children,
-  classname,
+  className,
   type = "frame",
-  onClick
+  onClick,
 }: ContainerBoxProps) => {
   return (
     <div
@@ -24,7 +24,7 @@ const ContainerBox = ({
         rounded-lg
         `,
         type === "frame" ? "sm:p-4" : "sm:p-4",
-        classname
+        className
       )}
       onClick={onClick}
     >

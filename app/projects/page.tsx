@@ -33,7 +33,7 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
       {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
       <ContainerBox
-        classname="
+        className="
           h-full
           overflow-y-auto
           no-scrollbar

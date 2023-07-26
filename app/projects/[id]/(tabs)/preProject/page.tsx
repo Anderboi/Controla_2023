@@ -4,6 +4,7 @@ import CommonInfoBlock from "./components/CommonInfoBlock";
 import PremisesBlock from "./components/PremisesBlock";
 import EngeneeringSystemsBlock from "./components/EngeneeringSystemsBlock";
 import CommonInfoBlockAlt from './components/CommonInfoBlockAlt';
+import ResidingInfoBlock from './components/ResidingInfoBlock';
 
 const PreProject = async ({
   params,
@@ -18,6 +19,7 @@ const PreProject = async ({
   return (
     <>
       <CommonInfoBlockAlt project={project} />
+      <ResidingInfoBlock projectId={id}/>
       {/* <CommonInfoBlock project={project} /> */}
       <PremisesBlock id={id} />
       <EngeneeringSystemsBlock id={id} />

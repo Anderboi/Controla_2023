@@ -33,7 +33,7 @@ const Header = ({
 
   return (
     <ContainerBox
-      classname={twMerge(
+      className={twMerge(
         `
         relative
         flex

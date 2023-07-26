@@ -35,7 +35,7 @@ const UserSidebarBlock = () => {
 
   return (
     <ContainerBox
-      classname="
+      className="
         h-fit
         w-fill
         lg:w-full"

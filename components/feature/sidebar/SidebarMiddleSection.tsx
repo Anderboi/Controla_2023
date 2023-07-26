@@ -12,7 +12,7 @@ const favouriteProjects = await getFavouriteProjects();
 
   return (
     <ContainerBox
-      classname="
+      className="
         overflow-y-auto
         h-full
         w-fill

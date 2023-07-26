@@ -35,7 +35,7 @@ const DataCard = ({ illustration, isFilled, label, onClick }: Props) => {
     >
       <div className="flex items-center gap-4">
         {illustration}
-        <div className="text-xs">{label}</div>
+        <div className="text-sm">{label}</div>
       </div>
       <span className="text-secondary-text-dark group-hover:text-primary-text-dark">
         {isFilled ? (

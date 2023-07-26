@@ -21,8 +21,8 @@ const SettingsPage = async () => {
   return (
     <>
       <Header title="Настройки" />
-      <ContainerBox classname='h-full'>
-        <SignOutBlock/>
+      <ContainerBox className="h-full">
+        <SignOutBlock />
       </ContainerBox>
     </>
   );

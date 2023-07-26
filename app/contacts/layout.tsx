@@ -27,7 +27,7 @@ const ContactsPage = async ({ children }: SearchProps) => {
       {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Контакты" />
       <ContainerBox
-        classname="
+        className="
           relative
           h-full
           overflow-y-auto 

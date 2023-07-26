@@ -29,20 +29,18 @@ const ProjectPage = async ({
       no-scrollbar
     "
     >
-      
-        <Header
-          title={project.address_street || ""}
-          subtitle={project.address_country || ""}
-          image={project.cover_img}
-          addressDetails={project?.address_city || ""}
-          startDate={project.created_at || ""}
-        />
+      <Header
+        title={project.address_street || ""}
+        subtitle={project.address_country || ""}
+        image={project.cover_img}
+        addressDetails={project?.address_city || ""}
+        startDate={project.created_at || ""}
+      />
 
-        <ContainerBox classname="h-fit">
-          <TabsBar />
-          <div className="flex flex-col gap-y-6">{children}</div>
-        </ContainerBox>
-     
+      <ContainerBox className="h-fit">
+        <TabsBar />
+        <div className="flex flex-col gap-y-6">{children}</div>
+      </ContainerBox>
     </section>
   );
 };

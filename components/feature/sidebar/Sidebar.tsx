@@ -27,7 +27,7 @@ const Sidebar = () => {
       "
     >
       <ContainerBox
-        classname="
+        className="
         w-full
         lg:w-full
         h-fit
@@ -50,7 +50,7 @@ const Sidebar = () => {
         </Link>
         <Navigation navLinks={routes} />
       </ContainerBox>
-      <SidebarMiddleSection  />
+      <SidebarMiddleSection />
       <UserSidebarBlock />
     </aside>
   );

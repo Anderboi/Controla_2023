@@ -20,7 +20,7 @@ const CommonInfoBlockAlt = async ({ project }: BlockProps) => {
     <>
       <ContentBlock title="Общая информация">
         <ContainerBox
-          classname="
+          className="
             flex
             flex-col
             !py-0

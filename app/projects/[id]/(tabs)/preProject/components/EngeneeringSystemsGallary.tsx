@@ -7,6 +7,7 @@ import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import { engSystems } from "@/lib/engeneering";
 import { Database } from "@/types/supabase";
 import { twMerge } from "tailwind-merge";
+import ContentBlockGrid from '@/components/common/ContentBlockGrid';
 
 interface Props {
   data: Database["public"]["Tables"]["engeneering_data"]["Row"];
@@ -35,20 +36,13 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
 
   const handleOnClick = (type: string) => {
     //@ts-ignore
-    console.log(type, data[type]);
+    // console.log(type, data[type]);
     //@ts-ignore
     engModal.onOpen(type, data[type]); //TODO: fix this data[type]
   };
 
   return (
-    <div
-      className="
-        grid
-        grid-cols-1
-        gap-3
-        sm:grid-cols-2
-        "
-    >
+    <ContentBlockGrid>
       {engSystems.map(({ name, label }, index) => (
         <DataCard
           illustration={
@@ -113,7 +107,7 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
             key={index}
           />
         ))} */}
-    </div>
+    </ContentBlockGrid>
   );
 };
 
