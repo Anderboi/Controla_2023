@@ -63,7 +63,8 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                               className="
                                 flex
                                 flex-col
-                                items-end
+                                items-start
+                                sm:items-end
                                 justify-end
                                 "
                             >

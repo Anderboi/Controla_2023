@@ -1,5 +1,4 @@
 import React from "react";
-import ContainerBox from "@/components/common/ContainerBox";
 
 const ProjectLoading = () => {
   return (

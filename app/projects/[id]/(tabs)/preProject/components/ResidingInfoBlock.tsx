@@ -35,7 +35,7 @@ const ResidingInfoBlock = async ({ projectId }: ResidingInfoBlockProps) => {
         >
           {/* //! + Add */}
           <GallaryDataCard
-            size="sm"
+            size="md"
             className="bg-transparent sm:border border-dashed border-primary-border-dark"
             illustration={<VscPersonAdd className="" />}
             actionIcon={<AddIcon />}
@@ -44,7 +44,7 @@ const ResidingInfoBlock = async ({ projectId }: ResidingInfoBlockProps) => {
           </GallaryDataCard>
 
           <GallaryDataCard
-            size="sm"
+            size="md"
             illustration={<VscPerson className="text-accent-dark" />}
             actionIcon={<ChevronRightIcon />}
           >
