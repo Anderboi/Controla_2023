@@ -11,7 +11,7 @@ const SignInBlock = () => {
       <h1 className="text-center text-3xl font-bold">Авторизация</h1>
       <div className="flex justify-between gap-4">
         <Button mode="action" onClick={authModal.onOpen} className="w-full">
-          Sign In
+          Войти
         </Button>
         {/* //TODO: необхожимо заменить на signUp */}
         {/* <Button mode="ghost" onClick={handleLogout}>
