@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Button from "@/components/common/inputs/Button";
-import ContactsMultiSelector from "@/components/common/inputs/ContactsMultiSelector";
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useUser } from "@/hooks/useUser";
@@ -45,8 +44,20 @@ const UploadProjectModal = () => {
     },
   });
 
-  const onChange = (open: boolean) => {
-    if (!open) {
+  // const onChange = (open: boolean) => {
+  //   if (!open) {
+  //     reset();
+  //     uploadModal.onClose();
+  //   }
+  // };
+
+  //? Confirm on closing or misclicking
+  const handleClose = () => {
+    const isConfirmed = confirm(
+      `Are you sure you want to close window? All your data will be lost.`
+    );
+
+    if (isConfirmed) {
       reset();
       uploadModal.onClose();
     }
@@ -55,10 +66,6 @@ const UploadProjectModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
     try {
       setIsLoading(true);
-
-
-      console.log(values.client_id.value);
-      
 
       const imageFile = values.cover_img !== "" ? values.cover_img?.[0] : null;
       let projectCover;
@@ -157,7 +164,7 @@ const UploadProjectModal = () => {
       title="Создать новый проект"
       description="Вам необходимо ввести основные параметры проекта, чтобы создать его."
       isOpen={uploadModal.isOpen}
-      onChange={onChange}
+      onChange={handleClose}
     >
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -284,18 +291,25 @@ const UploadProjectModal = () => {
             <option value={4}>4</option>
           </select>
         </div>
-        {/* //TODO: add choose client component */}
+
+        {/* //? Selector Components Block */}
         <div className="col-span-2">
           <label htmlFor="client_id" className="block text-sm font-medium">
             Клиент
           </label>
           <AsyncSelectContactComponent control={control} name="client_id" />
-          {/* <ContactsMultiSelector isMulti label="Клиенты" /> */}
         </div>
         <div className="col-span-2">
-          <ContactsMultiSelector isMulti label="Команда" />
+          <label htmlFor="client_id" className="block text-sm font-medium">
+            Команда
+          </label>
+          <AsyncSelectContactComponent
+            control={control}
+            isMultiple
+            name="team"
+          />
         </div>
-        {/* //TODO: add choose team component */}
+
         {/* //? Upload file block */}
         <div className="col-span-2">
           <label
@@ -330,7 +344,6 @@ const UploadProjectModal = () => {
                   <span>Upload a file</span>
                   <input
                     id="file-upload"
-                    // name="file-upload"
                     type="file"
                     className="sr-only"
                     {...register("cover_img", { required: false })}

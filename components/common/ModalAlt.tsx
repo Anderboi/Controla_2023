@@ -19,6 +19,7 @@ const ModalAlt = ({
   title,
   button,
 }: ModalProps) => {
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>

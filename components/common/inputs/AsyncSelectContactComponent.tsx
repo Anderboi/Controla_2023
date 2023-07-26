@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { Controller } from "react-hook-form";
-import { StylesConfig } from 'react-select';
+import { StylesConfig } from "react-select";
 
 interface OptionType {
   label: string;
@@ -16,12 +16,14 @@ const AsyncSelectContactComponent = ({
   onSubmit,
   control,
   name,
+  isMultiple,
   ...props
 }: {
   className?: string;
   onSubmit?: () => void;
   control: any;
   name: string;
+  isMultiple?: boolean;
 }) => {
   const supabaseClient = useSupabaseClient();
 
@@ -41,9 +43,11 @@ const AsyncSelectContactComponent = ({
     }));
   };
 
-  const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
+  const [selectedOption, setSelectedOption] = isMultiple
+    ? useState<OptionType | null>(null)
+    : useState<OptionType[]>([]);
 
-  const colourStyle: StylesConfig<any, false> = {
+  const colourStyle: StylesConfig<any, boolean> = {
     control: (baseStyles, state) => ({
       ...baseStyles,
       backgroundColor: "#303030",
@@ -56,7 +60,7 @@ const AsyncSelectContactComponent = ({
     }),
     menuList: (baseStyles, state) => ({
       ...baseStyles,
-      backgroundColor: "#242424",
+      backgroundColor: "#303030",
       width: "100%",
       borderRadius: "0.5rem",
       overflowY: "scroll",
@@ -66,7 +70,7 @@ const AsyncSelectContactComponent = ({
     }),
     option: (baseStyles, { data, isFocused, isDisabled, isSelected }) => ({
       ...baseStyles,
-      backgroundColor: isFocused ? "#363636" : "#242424",
+      backgroundColor: isFocused ? "#404040" : "#303030",
       color: isFocused ? "#fff" : isSelected ? "teal" : "#A3A3A3",
     }),
     input: (base, props) => ({
@@ -93,6 +97,20 @@ const AsyncSelectContactComponent = ({
       ...baseStyles,
       color: "#fff",
     }),
+    multiValueRemove: (base, props) => ({
+      ...base,
+      "&:hover": {
+        background: "transparent",
+        color: "#4FD1A2",
+      },
+    }),
+    clearIndicator: (base, props) => ({
+      ...base,
+      "&:hover": {
+        background: "transparent",
+        color: "#4FD1A2",
+      },
+    }),
   };
 
   return (
@@ -101,9 +119,12 @@ const AsyncSelectContactComponent = ({
       name={name}
       render={({ field }) => (
         <AsyncSelect
-          // isMulti
+          isMulti={isMultiple}
           // {...props}
           styles={colourStyle}
+          captureMenuScroll
+          isSearchable
+          closeMenuOnSelect={false}
           isClearable
           cacheOptions
           defaultOptions
