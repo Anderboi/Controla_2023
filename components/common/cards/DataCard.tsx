@@ -12,24 +12,25 @@ const DataCard = ({ illustration, isFilled, label, onClick }: Props) => {
   return (
     <div
       className="
-        overflow-clip
-        group
-        to-bg-elevated-1-bg-dark
         group
         flex
-        cursor-pointer
         items-center
         justify-between
         gap-4
         rounded-lg
+        cursor-pointer
+        overflow-clip
+
         bg-elevated-1-bg-dark
-        from-accent-dark/30
-        to-15%
+        hover:bg-elevated-2-bg-dark
+        //to-bg-elevated-1-bg-dark
+        //from-accent-dark/30
+        //to-15%
+        //hover:bg-gradient-to-l
+
         px-4
         py-2
         transition-all
-        hover:bg-elevated-2-bg-dark 
-        hover:bg-gradient-to-l
         "
       onClick={onClick}
     >

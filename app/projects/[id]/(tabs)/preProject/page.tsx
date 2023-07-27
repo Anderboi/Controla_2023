@@ -18,7 +18,7 @@ const PreProject = async ({
   return (
     <>
       <CommonInfoBlockAlt project={project} />
-      <ResidingInfoBlock projectId={id}/>
+      <ResidingInfoBlock projectId={id} />
       <PremisesBlock id={id} />
       <EngeneeringSystemsBlock id={id} />
     </>

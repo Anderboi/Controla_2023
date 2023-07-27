@@ -18,10 +18,12 @@ const ResidingInfoBlock = async ({ projectId }: ResidingInfoBlockProps) => {
       <ContentBlock title="Информация о проживающих">
         <div
           className="
-            flex 
-            flex-col 
-            sm:flex-row 
-            sm:gap-2
+            sm:inline-flex
+            //flex 
+            //flex-col 
+            //sm:flex-row 
+            
+            sm:gap-3
             overflow-x-auto 
             no-scrollbar 
             bg-elevated-1-bg-dark 

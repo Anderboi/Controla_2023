@@ -55,9 +55,9 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
                 w-16
                 h-16
                 transition-all
-                sm:-translate-x-8
-                sm:rotate-12
-                sm:group-hover:-translate-x-4
+                //sm:-translate-x-8
+                //sm:rotate-12
+                //sm:group-hover:-translate-x-4
                 `,
 
                 data && Object.entries(data).find(

@@ -28,12 +28,17 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 )}
                 <div
                   className="
-                    flex 
-                    flex-col 
-                    sm:flex-row 
-                    sm:gap-2
-                    overflow-x-auto 
+                    sm:inline-flex
+
+                    //flex 
+                    //flex-col 
+                    //sm:flex-row 
+                    
+                    w-full
+                    sm:gap-3
+                    overflow-x-scroll
                     no-scrollbar 
+
                     bg-elevated-1-bg-dark 
                     sm:bg-transparent 
                     max-sm:px-4
