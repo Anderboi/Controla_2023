@@ -36,8 +36,6 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
 
   const handleOnClick = (type: string) => {
     //@ts-ignore
-    // console.log(type, data[type]);
-    //@ts-ignore
     engModal.onOpen(type, data[type]); //TODO: fix this data[type]
   };
 

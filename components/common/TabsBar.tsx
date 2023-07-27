@@ -3,6 +3,7 @@
 import React from "react";
 import Chips from "./inputs/Chips";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 const TabsBar = () => {
   const route = useRouter();
@@ -10,9 +11,24 @@ const TabsBar = () => {
   const exactRoute = path.split("/")[path.split("/").length - 1];
 
   return (
-    <ul
-      className="
-          flex
+    <>
+      <div className="pb-6 sm:hidden">
+        <select
+          name="stages"
+          id="stages"
+          onChange={(i) => route.push(i.target.value)}
+        >
+          <option value="preProject">Предпроектная стадия</option>
+          <option value="concept">Эскизная стадия</option>
+          <option value="working">Рабочая стадия</option>
+          <option value="furnishing">Комплектация</option>
+          <option value="construction">Строительство</option>
+        </select>
+      </div>
+      <ul
+        className="
+          hidden
+          sm:flex
           h-fit
           min-h-[64px]
           w-full
@@ -25,67 +41,34 @@ const TabsBar = () => {
           no-scrollbar
           scrolling-touch
           "
-    >
-      <li>
-        <Chips
-          type="md"
-          onClick={() => {
-            route.push("preProject");
-          }}
-          isActive={exactRoute === "preProject"}
-        >
-          Предпроектная стадия
-        </Chips>
-      </li>
-      <li>
-        <Chips
-          type="md"
-          onClick={() => {
-            route.push("concept");
-          }}
-          isActive={exactRoute === "concept"}
-          disabled
-        >
-          Эскизная стадия
-        </Chips>
-      </li>
-      <li>
-        <Chips
-          type="md"
-          onClick={() => {
-            route.push("working");
-          }}
-          isActive={exactRoute === "working"}
-          disabled
-        >
-          Рабочая стадия
-        </Chips>
-      </li>
-      <li>
-        <Chips
-          type="md"
-          onClick={() => {
-            route.push("furnishing");
-          }}
-          isActive={exactRoute === "furnishing"}
-          disabled
-        >
-          Комплектация
-        </Chips>
-      </li>
-      <li>
-        <Chips
-          type="md"
-          onClick={() => {
-            route.push("construction");
-          }}
-          isActive={exactRoute === "construction"}
-          disabled
-        >
-          Строительство
-        </Chips>
-      </li>
-    </ul>
+      >
+        <li>
+          <Chips type="md" isActive={exactRoute === "preProject"}>
+            <Link href={"preProject"}>Предпроектная стадия</Link>
+          </Chips>
+        </li>
+        <li>
+          <Chips type="md" isActive={exactRoute === "concept"} disabled>
+            <Link href={"concept"}>Эскизная стадия</Link>
+          </Chips>
+        </li>
+        <li>
+          <Chips type="md" isActive={exactRoute === "working"} disabled>
+            <Link href={"working"}>Рабочая стадия</Link>
+          </Chips>
+        </li>
+        <li>
+          <Chips type="md" isActive={exactRoute === "furnishing"} disabled>
+            <Link href={"furnishing"}>Комплектация</Link>
+          </Chips>
+        </li>
+        <li>
+          <Chips type="md" isActive={exactRoute === "construction"} disabled>
+            <Link href={"construction"}>Строительство</Link>
+          </Chips>
+        </li>
+      </ul>
+    </>
   );
 };
 

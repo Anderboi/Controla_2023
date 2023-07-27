@@ -12,7 +12,7 @@ import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import { engeneeringSystems } from "@/lib/engeneering";
 
 interface BlockProps {
-  type: string | null;
+  type: "conditioning" | "heating" | "plumbing" | "electric";
 }
 
 const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
@@ -92,6 +92,18 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
           return toast.error(supabaseError.message);
         }
       }
+      if (type === "electric") {
+        const { error: supabaseError } = await supabaseClient
+          .from("engeneering_data")
+          .upsert(
+            { project_id: projectId, electric: array },
+            { onConflict: "project_id" }
+          );
+
+        if (supabaseError) {
+          return toast.error(supabaseError.message);
+        }
+      }
 
       setIsLoading(false);
       toast.success("Данные успешно добавлены");
@@ -112,17 +124,16 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
     }
   };
 
-  const sysArray =
-    type === "conditioning"
-      ? engeneeringSystems.conditioning
-      : type === "heating"
-      ? engeneeringSystems.heating
-      : engeneeringSystems.plumbing;
+  const sysArray = engeneeringSystems[type || "conditioning"]; //TODO: remove conditioning
+  // type === "conditioning"
+  //   ? engeneeringSystems.conditioning
+  //   : type === "heating"
+  //   ? engeneeringSystems.heating
+  //   : engeneeringSystems.plumbing;
 
   return (
-    // TODO: fix component height
     <form className="flex flex-col">
-      {/* Input Block */}
+      {/*//? Input Block */}
       <div
         className="
           flex
@@ -144,7 +155,7 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
           />
         ))}
       </div>
-      {/* Button Block */}
+      {/*//? Button Block */}
       <div className="flex justify-end">
         <Button
           onClick={() => router.back()}
