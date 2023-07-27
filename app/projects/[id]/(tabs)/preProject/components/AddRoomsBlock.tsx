@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import BasicMultiSelector from "@/components/common/inputs/BasicMultiSelector";
 import Button from "@/components/common/inputs/Button";
-import toast from "react-hot-toast";
+import BasicMultiSelector from "@/components/common/inputs/BasicMultiSelector";
 
+import { usePathname, useRouter } from "next/navigation";
 import useUploadRoomsModal from "@/hooks/useUploadRoomsModal";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
+import toast from "react-hot-toast";
 import roomsList from "@/lib/roomsList";
 
 interface SelectProps {
@@ -16,7 +16,7 @@ interface SelectProps {
   label: string;
 }
 
-const AddRoomsBlock = () => {
+const AddRoomsBlock = ({ storey }: { storey: number }) => {
   const uploadModal = useUploadRoomsModal();
   const supabaseClient = useSupabaseClient();
   const router = useRouter();
@@ -31,13 +31,20 @@ const AddRoomsBlock = () => {
     try {
       setIsLoading(true);
 
+      uploadModal.setStorey(storey);
+
       const roomsArray = rooms.map((room, index) => {
         return {
           name: room.value,
           area: null,
           project_id: projectId,
-          // room_id: Number(projectId.toString() + index.toString()),
-          room_number: index + 1,
+          room_number: Number(
+            storey.toString() +
+              (index < 10
+                ? (index + 1).toString().padStart(2, "0")
+                : (index + 1).toString())
+          ),
+          storey: storey,
         };
       });
 
@@ -60,28 +67,51 @@ const AddRoomsBlock = () => {
     }
   };
 
-
-  // [...Array(projectInfo.storeys)].map((e, i) => ()
-
-
   return (
-    <div className="flex w-full flex-col items-start justify-start gap-4 sm:flex-row">
-      <BasicMultiSelector
-        isMulti
-        type="creatable"
-        content={roomsList}
-        callback={setRooms}
-      />
-      <Button size='small'
-        onClick={onSubmit}
-        disabled={isLoading}
-        type="submit"
-        mode="action"
-        className="w-full sm:w-fit"
+    <>
+      <span>{`${storey} этаж`}</span>
+      <li
+        className="
+          flex
+          flex-col
+          sm:flex-row
+          gap-4
+          items-center
+          justify-between
+          py-2
+          text-sm
+          leading-6
+          "
       >
-        Добавить
-      </Button>
-    </div>
+        <div
+          className="
+            w-full
+            "
+        >
+          <BasicMultiSelector
+            isMulti
+            type="creatable"
+            content={roomsList}
+            callback={setRooms}
+          />
+        </div>
+        <div className="sm:flex-shrink-0 w-full sm:w-fit">
+          <Button
+            size="small"
+            onClick={onSubmit}
+            disabled={isLoading}
+            type="submit"
+            mode="ghost_accent"
+            className="
+              w-full 
+              sm:w-fit
+              "
+          >
+            Добавить
+          </Button>
+        </div>
+      </li>
+    </>
   );
 };
 

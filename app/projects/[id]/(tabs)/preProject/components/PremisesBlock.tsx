@@ -4,9 +4,9 @@ import ContentBlock from "@/components/common/ContentBlock";
 import { IoColorPaletteOutline, IoTvOutline } from "react-icons/io5";
 import { TbSofa } from "react-icons/tb";
 import getProjectInfo from "@/actions/getProjectInfo";
-import AddRoomsBlockAlt from "./AddRoomsBlockAlt";
 import GallaryDataCard from '@/components/common/cards/GallaryDataCard';
 import ChevronRightIcon from '@/components/common/icons/ChevronRightIcon';
+import AddRoomsBlock from './AddRoomsBlock';
 
 interface PremisesBlockProps {
   id: number;
@@ -90,61 +90,6 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                               </div>
                             </div>
                           </GallaryDataCard>
-                          {/* <div
-                            key={index}
-                            className="
-                              flex
-                              min-h-[180px]
-                              min-w-[148px]
-                              cursor-pointer
-                              flex-col
-                              items-end
-                              justify-between
-                              break-words
-                              rounded-lg
-                              bg-elevated-1-bg-dark
-                              p-3
-                              text-end
-                              hover:bg-elevated-2-bg-dark
-                              "
-                          >
-                            <span
-                              className="
-                                text-6xl
-                                text-secondary-text-dark
-                                text-opacity-20
-                                "
-                            >
-                              {item.room_number?.toLocaleString("en-US", {
-                                minimumIntegerDigits: 2,
-                                useGrouping: false,
-                              })}
-                            </span>
-                            <div
-                              className="
-                                flex
-                                flex-col
-                                items-end
-                                justify-end
-                                "
-                            >
-                              <span className="text-sm">{item.name}</span>
-                              <div className="flex gap-2">
-                                <TbSofa
-                                  className="text-secondary-text-dark "
-                                  size={20}
-                                />
-                                <IoTvOutline
-                                  className="text-secondary-text-dark "
-                                  size={20}
-                                />
-                                <IoColorPaletteOutline
-                                  className="text-secondary-text-dark "
-                                  size={20}
-                                />
-                              </div>
-                            </div>
-                          </div> */}
                         </>
                       )
                   )}
@@ -162,7 +107,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 "
               >
                 <div className="w-full">
-                  <AddRoomsBlockAlt storey={i + 1} />
+                  <AddRoomsBlock storey={i + 1} />
                 </div>
               </div>
             )}

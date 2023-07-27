@@ -8,7 +8,6 @@ import ResidingInfoBlock from './components/ResidingInfoBlock';
 const PreProject = async ({
   params,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
   params: { id: number };
 }) => {
   const id = params.id;
