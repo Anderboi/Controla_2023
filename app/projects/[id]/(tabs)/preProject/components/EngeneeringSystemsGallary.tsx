@@ -16,8 +16,6 @@ interface Props {
 const EngeneeringSystemsGallary = ({ data }: Props) => {
   const engModal = useEngeneeringModal();
 
-  console.log( data);
-
   // const hasData = ({ array, name }: { array: [], name:string }) => {
   //   //If it's not an array, return FALSE.
   //   if (!Array.isArray(array)) {

@@ -2,9 +2,10 @@ import React from "react";
 import getProjectInfo from "@/actions/getProjectInfo";
 import ContentBlock from "@/components/common/ContentBlock";
 import { VscPersonAdd, VscPerson } from "react-icons/vsc";
-import GallaryDataCard from "@/components/common/cards/GallaryDataCard";
+import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
 import AddIcon from "@/components/common/icons/AddIcon";
 import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
+import ResidingGallary from "./ResidingGallary";
 
 interface ResidingInfoBlockProps {
   projectId: number;
@@ -35,8 +36,9 @@ const ResidingInfoBlock = async ({ projectId }: ResidingInfoBlockProps) => {
             divide-primary-border-dark
             "
         >
+          <ResidingGallary />
           {/* //! + Add */}
-          <GallaryDataCard
+          {/* <GallaryDataCard
             size="md"
             className="bg-transparent sm:border border-dashed border-primary-border-dark"
             illustration={<VscPersonAdd className="" />}
@@ -54,7 +56,7 @@ const ResidingInfoBlock = async ({ projectId }: ResidingInfoBlockProps) => {
               <span>38 лет</span>
               <span>жен.</span>
             </>
-          </GallaryDataCard>
+          </GallaryDataCard> */}
         </div>
       </ContentBlock>
     </>

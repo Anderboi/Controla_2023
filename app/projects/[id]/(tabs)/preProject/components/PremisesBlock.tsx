@@ -4,9 +4,9 @@ import ContentBlock from "@/components/common/ContentBlock";
 import { IoColorPaletteOutline, IoTvOutline } from "react-icons/io5";
 import { TbSofa } from "react-icons/tb";
 import getProjectInfo from "@/actions/getProjectInfo";
-import GallaryDataCard from '@/components/common/cards/GallaryDataCard';
-import ChevronRightIcon from '@/components/common/icons/ChevronRightIcon';
-import AddRoomsBlock from './AddRoomsBlock';
+import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
+import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
+import AddRoomsBlock from "./AddRoomsBlock";
 
 interface PremisesBlockProps {
   id: number;
@@ -62,7 +62,9 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                                 })}
                               </div>
                             }
-                            actionIcon={<ChevronRightIcon className='text-secondary-text-dark'/>}
+                            actionIcon={
+                              <ChevronRightIcon className="text-secondary-text-dark" />
+                            }
                           >
                             <div
                               className="

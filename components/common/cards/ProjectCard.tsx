@@ -103,7 +103,7 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
           rounded-lg
           group-hover:saturate-100
           md:drop-shadow-spt
-          md:saturate-0
+          //md:saturate-0
           "
       >
         {imagePath ? (
@@ -118,7 +118,17 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <div className="h-full w-full bg-gradient-to-b from-accent-dark/50   "></div>
+          <div
+            className="
+              h-full
+              w-full
+              //bg-gradient-to-b
+              from-accent-dark/50
+              bg-gradient-to-br 
+              //from-green-500 
+              //to-green-700
+              "
+          ></div>
         )}
       </div>
       <div
