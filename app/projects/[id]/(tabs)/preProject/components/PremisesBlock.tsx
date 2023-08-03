@@ -63,7 +63,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                               </div>
                             }
                             actionIcon={
-                              <ChevronRightIcon className="text-secondary-text-dark" />
+                              <ChevronRightIcon type='right' className="text-secondary-text-dark" />
                             }
                           >
                             <div
