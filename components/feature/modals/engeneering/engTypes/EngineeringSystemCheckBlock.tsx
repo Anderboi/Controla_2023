@@ -11,11 +11,13 @@ import Button from "@/components/common/inputs/Button";
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import { engeneeringSystems } from "@/lib/engeneering";
 
-interface BlockProps {
+export interface EngeneeringType {
   type: "conditioning" | "heating" | "plumbing" | "electric";
 }
 
-const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
+
+
+const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
   const supabaseClient = useSupabaseClient();
   const engModal = useEngeneeringModal();
 

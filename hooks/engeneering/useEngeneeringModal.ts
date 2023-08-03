@@ -8,9 +8,12 @@ interface Item {
 interface EngeneeringModalStore {
   isOpen: boolean;
   data: string[] | null;
-  type: string | '';
+  type: "conditioning" | "heating" | "plumbing" | "electric";
   array: Item[];
-  onOpen: (type: string, data: string[] | null) => void;
+  onOpen: (
+    type: "conditioning" | "heating" | "plumbing" | "electric",
+    data: string[] | null
+  ) => void;
   onClose: () => void;
   addValue: (value: Item) => void;
   removeValue: (id: number) => void;
@@ -21,7 +24,7 @@ const useEngeneeringModal = create<EngeneeringModalStore>((set) => ({
   isOpen: false,
   data: null,
   array: [],
-  type: '',
+  type: "conditioning",
   onOpen: (type, data) => set({ isOpen: true, type: type, data: data }),
   onClose: () => set({ isOpen: false }),
 
