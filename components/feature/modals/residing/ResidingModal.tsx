@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import SideModal from "@/components/common/SideModal";
+import SideModal from "@/components/common/SideModalHeadless";
 import useCommonModal from "@/hooks/useCommonModal";
 import GalleryDataCard from "@/components/common/cards/GalleryDataCard";
 import ResidingDataForm from "./ResidingDataForm";

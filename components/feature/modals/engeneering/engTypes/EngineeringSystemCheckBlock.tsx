@@ -124,7 +124,7 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
     }
   };
 
-  const sysArray = engeneeringSystems[type || "conditioning"]; //TODO: remove conditioning
+  const sysArray = engeneeringSystems[type] || [];
   // type === "conditioning"
   //   ? engeneeringSystems.conditioning
   //   : type === "heating"
@@ -132,10 +132,11 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
   //   : engeneeringSystems.plumbing;
 
   return (
-    <form className="flex flex-col">
+    <form className="flex flex-col ">
       {/*//? Input Block */}
       <div
         className="
+          relative
           flex
           flex-col
           gap-2
@@ -156,7 +157,16 @@ const EngineeringSystemCheckBlock = ({ type }: BlockProps) => {
         ))}
       </div>
       {/*//? Button Block */}
-      <div className="flex justify-end">
+      <div
+        className="
+          flex 
+          justify-end
+          sticky
+          bottom-0
+          pb-4
+          bg-elevated-1-bg-dark
+          "
+      >
         <Button
           onClick={() => router.back()}
           disabled={isLoading}

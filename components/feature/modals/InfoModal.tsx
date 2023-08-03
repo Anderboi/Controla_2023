@@ -1,13 +1,9 @@
 import React from "react";
-import SideModal from "@/components/common/SideModal";
+import SideModal from "@/components/common/SideModalHeadless";
 import InfoBlock from "../infoblock/InfoBlock";
 
 
 const InfoModal = () => {
-
-
-
-  
 
   return (
     <SideModal isOpen={false} title={"title"} onChange={() => {}}>

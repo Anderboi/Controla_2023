@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Modal from "@/components/common/Modal";
 import {
   useSessionContext,
   useSupabaseClient,
@@ -10,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import useAuthModal from "@/hooks/useAuthModal";
+import Modal from "@/components/common/Modal";
 
 const AuthModal = () => {
   const supabaseClient = useSupabaseClient();
@@ -20,7 +20,7 @@ const AuthModal = () => {
   useEffect(() => {
     if (session) {
       // router.refresh();
-      router.push('/projects')
+      router.push("/projects");
       onClose();
     }
   }, [session, router, onClose]);
@@ -58,8 +58,8 @@ const AuthModal = () => {
           },
         }}
         theme="dark"
-        providers={[ "google"]}
-        redirectTo='/projects'
+        providers={["google"]}
+        redirectTo="/projects"
         magicLink
       />
     </Modal>

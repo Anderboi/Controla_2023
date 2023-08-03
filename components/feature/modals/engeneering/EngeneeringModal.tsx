@@ -4,7 +4,7 @@ import React from "react";
 
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import EngineeringSystemCheckBlock from "./engTypes/EngineeringSystemCheckBlock";
-import SideModal from "@/components/common/SideModal";
+import SideModal from "@/components/common/SideModalHeadless";
 import { engSystems } from "@/lib/engeneering";
 import InfoIcon from "@/components/common/icons/InfoIcon";
 
@@ -12,7 +12,6 @@ const EngeneeringModal = () => {
   const engModal = useEngeneeringModal();
 
   const onChange = (open: boolean) => {
-    
     if (!open) {
       engModal.onClose();
     }
