@@ -29,10 +29,6 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 <div
                   className="
                     sm:inline-flex
-
-                    //flex 
-                    //flex-col 
-                    //sm:flex-row 
                     
                     w-full
                     sm:gap-3

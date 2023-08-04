@@ -39,26 +39,26 @@ const BurgerMenu = () => {
           aria-orientation="vertical"
           aria-labelledby="user-menu-button"
           className="
-          focus:ring-white
-          //border
-          //border-primary-border-dark
-          //transition-all
-          absolute right-0 top-[100%] z-30
-          
-          mt-2
-          flex
-          origin-top-right
-          flex-col
-          rounded-lg
-          bg-elevated-1-bg-dark
-          px-6
-          py-3
-          shadow-lg
-          focus:outline-none
-          focus:ring-2
-          focus:ring-offset-2
-          focus:ring-offset-gray-800
-          "
+            focus:ring-white
+            //border
+            //border-primary-border-dark
+            //transition-all
+            absolute right-0 top-[100%] z-30
+            
+            mt-2
+            flex
+            origin-top-right
+            flex-col
+            rounded-lg
+            bg-elevated-1-bg-dark
+            px-6
+            py-3
+            shadow-lg
+            focus:outline-none
+            focus:ring-2
+            focus:ring-offset-2
+            focus:ring-offset-gray-800
+            "
         >
           {routes.map((item, index) => (
             <SidebarItem

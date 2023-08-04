@@ -1,8 +1,9 @@
 import React from "react";
 import ProjectCard from "@/components/common/cards/ProjectCard";
 import { Database } from "@/types/supabase";
-import GallaryGrid from "@/components/common/GallaryGrid";
+
 import CreateNewProjectBlock from './CreateNewProjectBlock';
+import GallaryGrid from '@/components/common/grids/GallaryGrid';
 
 interface ProjectsGalleryProps {
   projects: Database["public"]["Tables"]["projects"]["Row"][];

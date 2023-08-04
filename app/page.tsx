@@ -4,8 +4,8 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import SignInBlock from "@/components/SignInBlock";
-import { MainLogo } from '@/components/common/illustrations/brand/Logo';
+import SignInBlock from "@/components/feature/SignInBlock";
+import { MainLogo } from "@/components/common/illustrations/brand/Logo";
 
 const Home = async () => {
   const supabase = createServerComponentClient({ cookies });

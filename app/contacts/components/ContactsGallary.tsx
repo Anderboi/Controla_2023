@@ -3,7 +3,7 @@
 import React from "react";
 import ContactCard from "@/components/common/cards/ContactCard";
 import Button from "@/components/common/inputs/Button";
-import GallaryGrid from "@/components/common/GallaryGrid";
+import GallaryGrid from "@/components/common/grids/GallaryGrid";
 
 import { Database } from '@/types/supabase';
 

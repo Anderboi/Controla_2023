@@ -7,7 +7,7 @@ import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import { engSystems } from "@/lib/engeneering";
 import { Database } from "@/types/supabase";
 import { twMerge } from "tailwind-merge";
-import ContentBlockGrid from '@/components/common/ContentBlockGrid';
+import ContentBlockGrid from "@/components/common/grids/ContentBlockGrid";
 
 interface Props {
   data: Database["public"]["Tables"]["engeneering_data"]["Row"];
@@ -16,21 +16,6 @@ interface Props {
 const EngeneeringSystemsGallary = ({ data }: Props) => {
   const engModal = useEngeneeringModal();
 
-  // const hasData = ({ array, name }: { array: [], name:string }) => {
-  //   //If it's not an array, return FALSE.
-  //   if (!Array.isArray(array)) {
-  //     return false;
-  //   }
-  //   //If it is an array, check its length property
-  //   if (array.length == 0) {
-  //     //Return TRUE if the array is empty
-  //     return true;
-  //   }
-  //   //Otherwise, return FALSE.
-  //   Object.entries(array).find(([key, value]) => key === name)?.[1] !== null;
-  //   return false;
-  // };
-  
 
   const handleOnClick = (type: string) => {
     //@ts-ignore
@@ -56,17 +41,19 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
                 //sm:group-hover:-translate-x-4
                 `,
 
-                data && Object.entries(data).find(
-                  ([key, value]) => key === name
-                )?.[1] !== null
+                data &&
+                  Object.entries(data).find(
+                    ([key, value]) => key === name
+                  )?.[1] !== null
                   ? "fill-accent-dark"
                   : "fill-primary-border-dark"
               )}
             />
           }
           isFilled={
-            data && Object.entries(data).find(([key, value]) => key === name)?.[1] !==
-            null
+            data &&
+            Object.entries(data).find(([key, value]) => key === name)?.[1] !==
+              null
               ? true
               : false
           }
@@ -76,33 +63,7 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
           key={index}
         />
       ))}
-      {/* {Object.entries(data)
-        .filter(([key, value]) => key !== "project_id")
-        .map(([key, value], index) => (
-          <DataCard
-            illustration={
-              <Illustration
-                type={key}
-                size={60}
-                className={twMerge(
-                  `
-                    fill-secondary-text-dark
-                    w-16
-                    h-16
-                    `,
-                  !value ? "fill-primary-border-dark" : "fill-accent-dark"
-                )}
-              />
-            }
-            isFilled={value !== null || false}
-            onClick={handleOnClick}
-            type={key}
-            label={
-              engSystems.find(({ name, label }) => name === key)?.label || ""
-            }
-            key={index}
-          />
-        ))} */}
+     
     </ContentBlockGrid>
   );
 };

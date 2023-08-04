@@ -1,117 +1,76 @@
-import Button from "@/components/common/inputs/Button";
-import useCommonModal from "@/hooks/useCommonModal";
-import React, { useState } from "react";
+import { useState } from "react";
+
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { twMerge } from "tailwind-merge";
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import useCommonModal from "@/hooks/useCommonModal";
+
+import toast from 'react-hot-toast';
+import { twMerge } from 'tailwind-merge';
+import Button from '@/components/common/inputs/Button';
+import { useRouter } from 'next/navigation';
 
 const ResidingDataForm = () => {
   const modal = useCommonModal();
+  const supabaseClient = useSupabaseClient();
+  const router = useRouter()
 
   const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
     handleSubmit,
-    control,
     reset,
     formState: { errors },
   } = useForm<FieldValues>({
-    defaultValues: {},
+    defaultValues: {
+      gender: "",
+      age: 0,
+      health_concerns: "",
+      lifestyle: '',
+      name: '',
+    },
   });
 
-  const handleClose = () => {
-    const isConfirmed = confirm(
-      `Are you sure you want to close window? All your data will be lost.`
-    );
+  // const handleClose = () => {
+  //   const isConfirmed = confirm(
+  //     `Are you sure you want to close window? All your data will be lost.`
+  //   );
 
-    if (isConfirmed) {
-      reset();
-      modal.onClose();
-    }
-  };
+  //   if (isConfirmed) {
+  //     reset();
+  //     modal.onClose();
+  //   }
+  // };
 
   const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-    // try {
-    //   setIsLoading(true);
-    //   const imageFile =
-    //     values.cover_img !== "" ? values.cover_img?.[0] : null;
-    //   let projectCover;
-    //   if (!user) {
-    //     toast.error("Missing User");
-    //     return;
-    //   }
-    //   const uniqId = uniqid();
-    //   const streetAddress = `${values.address_street} ${values.building} / ${values.room_number}`;
-    //   //* Upload projectImage if it exists
-    //   if (imageFile) {
-    //     const { data: projectData, error: projectError } =
-    //       await supabaseClient.storage
-    //         .from("projects")
-    //         .upload(`project-${uniqId}`, imageFile || null, {
-    //           cacheControl: "3600",
-    //           upsert: false,
-    //         });
-    //     projectCover = projectData?.path;
-    //     // //? Если не удалось загрузить изображение, которое не обязательное к загрузке
-    //     if (projectError) {
-    //       // setIsLoading(false);
-    //       return toast.error("Не удалось загрузить изображение");
-    //     }
-    //   }
-    //   const { data: projectData, error: supabaseError } =
-    //     await supabaseClient
-    //       .from("projects")
-    //       .insert({
-    //         user_id: user.id,
-    //         address_country: values.address_country,
-    //         address_city: values.address_city,
-    //         address_street: streetAddress,
-    //         area: values.area,
-    //         cover_img: imageFile ? projectCover : null,
-    //         client_id: values.client_id.value,
-    //       })
-    //       .select()
-    //       .single();
-    //   if (supabaseError) {
-    //     return toast.error(supabaseError.message);
-    //   }
-    //   if (projectData) {
-    //     const { error: infoError } = await supabaseClient
-    //       .from("project_info")
-    //       .insert({
-    //         project_id: projectData.project_id,
-    //         purpose: values.purpose,
-    //         storeys: values.storeys,
-    //         residing: values.residing,
-    //         stage: 1,
-    //       });
-    //     if (infoError) {
-    //       return toast.error(infoError.message);
-    //     }
-    //     const { error: engeneeringError } = await supabaseClient
-    //       .from("engeneering_data")
-    //       .insert({
-    //         project_id: projectData.project_id,
-    //         heating: null,
-    //         conditioning: null,
-    //         plumbing: null,
-    //         electric: null,
-    //       });
-    //     if (engeneeringError) {
-    //       return toast.error(engeneeringError.message);
-    //     }
-    //   }
-    //   // router.refresh();
-    //   setIsLoading(false);
-    //   router.push(`projects/${projectData.project_id}/preProject`);
-    //   toast.success("Проект создан");
-    //   reset();
-    //   uploadModal.onClose();
-    // } catch (error) {
-    //   toast.error("error.message");
-    // } finally {
-    //   setIsLoading(false);
-    // }
+    try {
+      setIsLoading(true);
+
+      const { data: projectData, error: supabaseError } = await supabaseClient
+        .from("inhabitant_info")
+        .insert({
+          project_id: modal.data,
+          name: values.name,
+          gender: values.gender,
+          age: values.age,
+          health_concerns: values.health_concerns,
+          lifestyle: values.lifestyle,
+        });
+      if (supabaseError) {
+        return toast.error(supabaseError.message);
+      }
+      
+      
+      router.refresh();
+      setIsLoading(false);
+      toast.success("Проект создан");
+      reset();
+      modal.onClose();
+    } catch (error) {
+      toast.error("error.message");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -154,10 +113,10 @@ const ResidingDataForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="sex" className="block text-sm font-medium">
+        <label htmlFor="gender" className="block text-sm font-medium">
           Пол
         </label>
-        <select id="sex" {...register("sex", { required: false })}>
+        <select id="gender" {...register("gender", { required: false })}>
           <option defaultValue={"-"}>--</option>
           <option value={"Мужской"}>Мужской</option>
           <option value={"Женский"}>Женский</option>
@@ -165,7 +124,7 @@ const ResidingDataForm = () => {
       </div>
       <div className="col-span-2">
         <label className="block text-sm font-medium " htmlFor="health_concerns">
-          Имя
+          Здоровье
         </label>
         <input
           type="text"
@@ -181,7 +140,7 @@ const ResidingDataForm = () => {
       </div>
       <div className="col-span-2">
         <label className="block text-sm font-medium " htmlFor="lifestyle">
-          Имя
+          Увлечения
         </label>
         <input
           type="text"

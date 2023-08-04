@@ -1,5 +1,5 @@
 import ContainerBox from '@/components/common/ContainerBox';
-import GallaryGrid from "@/components/common/GallaryGrid";
+import GallaryGrid from '@/components/common/grids/GallaryGrid';
 import Header from "@/components/feature/header/Header";
 
 export default function Loading() {

@@ -102,6 +102,76 @@ export interface Database {
           }
         ]
       }
+      inhabitant_info: {
+        Row: {
+          age: number | null
+          client_id: string | null
+          created_at: string | null
+          gender: string | null
+          health_concerns: string | null
+          id: number
+          lifestyle: string | null
+          name: string | null
+          project_id: number | null
+        }
+        Insert: {
+          age?: number | null
+          client_id?: string | null
+          created_at?: string | null
+          gender?: string | null
+          health_concerns?: string | null
+          id?: number
+          lifestyle?: string | null
+          name?: string | null
+          project_id?: number | null
+        }
+        Update: {
+          age?: number | null
+          client_id?: string | null
+          created_at?: string | null
+          gender?: string | null
+          health_concerns?: string | null
+          id?: number
+          lifestyle?: string | null
+          name?: string | null
+          project_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "inhabitant_info_client_id_fkey"
+            columns: ["client_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "inhabitant_info_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["project_id"]
+          }
+        ]
+      }
+      lookup_engeneering: {
+        Row: {
+          description_ru: string | null
+          id: number
+          label_ru: string | null
+          name: string | null
+        }
+        Insert: {
+          description_ru?: string | null
+          id?: number
+          label_ru?: string | null
+          name?: string | null
+        }
+        Update: {
+          description_ru?: string | null
+          id?: number
+          label_ru?: string | null
+          name?: string | null
+        }
+        Relationships: []
+      }
       project_info: {
         Row: {
           created_at: string | null
@@ -145,14 +215,17 @@ export interface Database {
       project_stages: {
         Row: {
           id: number
+          label_ru: string | null
           name: string
         }
         Insert: {
           id?: number
+          label_ru?: string | null
           name: string
         }
         Update: {
           id?: number
+          label_ru?: string | null
           name?: string
         }
         Relationships: []
@@ -167,7 +240,7 @@ export interface Database {
           cover_img: string | null
           created_at: string | null
           project_id: number
-          stage: string | null
+          stage: number
           user_id: string | null
         }
         Insert: {
@@ -179,7 +252,7 @@ export interface Database {
           cover_img?: string | null
           created_at?: string | null
           project_id?: number
-          stage?: string | null
+          stage?: number
           user_id?: string | null
         }
         Update: {
@@ -191,7 +264,7 @@ export interface Database {
           cover_img?: string | null
           created_at?: string | null
           project_id?: number
-          stage?: string | null
+          stage?: number
           user_id?: string | null
         }
         Relationships: [
@@ -199,6 +272,12 @@ export interface Database {
             foreignKeyName: "projects_client_id_fkey"
             columns: ["client_id"]
             referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "projects_stage_fkey"
+            columns: ["stage"]
+            referencedRelation: "project_stages"
             referencedColumns: ["id"]
           },
           {

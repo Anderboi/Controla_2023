@@ -116,15 +116,19 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
               "
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            // placeholder='blur'
+            // blurDataURL={'/favicon.svg'}
           />
         ) : (
           <div
             className="
               h-full
               w-full
-              //bg-gradient-to-b
+              
               from-accent-dark/50
-              bg-gradient-to-br 
+              bg-gradient-to-br
+
+              //bg-gradient-to-b
               //from-green-500 
               //to-green-700
               "

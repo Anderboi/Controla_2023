@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import useAuthModal from '@/hooks/useAuthModal';
-import React from 'react'
-import Button from './common/inputs/Button';
+import useAuthModal from "@/hooks/useAuthModal";
+import React from "react";
+import Button from "../common/inputs/Button";
 
 const SignInBlock = () => {
   const authModal = useAuthModal();
@@ -20,6 +20,6 @@ const SignInBlock = () => {
       </div>
     </>
   );
-}
+};
 
-export default SignInBlock
+export default SignInBlock;

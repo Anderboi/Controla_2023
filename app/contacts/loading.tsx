@@ -1,4 +1,5 @@
-import GallaryGrid from "@/components/common/GallaryGrid";
+import GallaryGrid from '@/components/common/grids/GallaryGrid';
+
 
 export default function Loading() {
   // You can add any UI inside Loading, including a Skeleton.

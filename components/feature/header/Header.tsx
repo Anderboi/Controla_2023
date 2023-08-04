@@ -9,6 +9,7 @@ import Image from "next/image";
 
 import HeaderNavBlock from "./HeaderNavBlock";
 import BurgerMenu from "./BurgerMenu";
+import HeadlessMenu from './Menu';
 
 interface HeaderProps {
   title: string;
@@ -72,9 +73,10 @@ const Header = ({
         <HeaderNavBlock />
 
         {/*//? right button block */}
-        <div className="flex gap-4 ">
+        <div className="flex //gap-4 sm:hidden z-30">
           {adjustableButton}
-          <BurgerMenu />
+          <HeadlessMenu />
+          {/* <BurgerMenu /> */}
         </div>
       </div>
       <div

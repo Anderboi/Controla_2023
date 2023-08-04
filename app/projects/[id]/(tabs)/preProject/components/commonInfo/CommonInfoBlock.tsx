@@ -13,7 +13,7 @@ interface BlockProps {
   project: Database["public"]["Tables"]["projects"]["Row"];
 }
 
-const CommonInfoBlockAlt = async ({ project }: BlockProps) => {
+const CommonInfoBlock = async ({ project }: BlockProps) => {
   const projectInfo = await getProjectInfo(project.project_id);
 
   return (
@@ -117,4 +117,4 @@ const CommonInfoBlockAlt = async ({ project }: BlockProps) => {
   );
 };
 
-export default CommonInfoBlockAlt;
+export default CommonInfoBlock;
