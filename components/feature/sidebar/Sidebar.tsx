@@ -14,12 +14,12 @@ const Sidebar = () => {
   return (
     <aside
       className="
-      bg-primary-bg-dark
       hidden
       min-h-screen
       w-[90px]
       flex-col
       gap-y-2
+      bg-primary-bg-dark
       py-2
       pl-2
       sm:flex
@@ -28,14 +28,14 @@ const Sidebar = () => {
     >
       <ContainerBox
         className="
-        w-full
-        lg:w-full
-        h-fit
         flex
+        h-fit
+        w-full
         flex-col
         items-center
-        lg:items-start
         gap-y-4
+        lg:w-full
+        lg:items-start
         "
       >
         <Link href={"/"}>

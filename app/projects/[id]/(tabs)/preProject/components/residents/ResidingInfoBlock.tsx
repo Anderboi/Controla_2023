@@ -13,21 +13,21 @@ const ResidingInfoBlock = ({ projectId }: ResidingInfoBlockProps) => {
       <ContentBlock title="Информация о проживающих">
         <div
           className="
-            sm:inline-flex
             //flex
             //flex-col
             //sm:flex-row
-            
-            sm:gap-3
-            overflow-x-auto
-            no-scrollbar
-            bg-elevated-1-bg-dark
-            sm:bg-transparent
-            max-sm:px-4
-            rounded-lg
-            sm:divide-none
             divide-y
+            
             divide-primary-border-dark
+            overflow-x-auto
+            rounded-lg
+            bg-elevated-1-bg-dark
+            no-scrollbar
+            max-sm:px-4
+            sm:inline-flex
+            sm:gap-3
+            sm:divide-none
+            sm:bg-transparent
             "
         >
           <ResidingGallary project_id={projectId} />

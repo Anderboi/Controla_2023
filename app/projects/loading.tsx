@@ -7,7 +7,7 @@ export default function Loading() {
   return (
     <>
       <Header title="Проекты" />
-      <ContainerBox className="px-6 py-6 h-full w-full ">
+      <ContainerBox className="h-full w-full p-6">
         <div className="flex w-full animate-pulse flex-col gap-4">
           <div
             className="

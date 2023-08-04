@@ -28,7 +28,6 @@ const TabsBar = () => {
       <ul
         className="
           hidden
-          sm:flex
           h-fit
           min-h-[64px]
           w-full
@@ -40,6 +39,7 @@ const TabsBar = () => {
           pb-6
           no-scrollbar
           scrolling-touch
+          sm:flex
           "
       >
         <li>

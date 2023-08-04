@@ -23,10 +23,10 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
           className="
             flex
             flex-col
-            !py-0
-            bg-elevated-1-bg-dark
-            text-primary-text-dark
             divide-y-[0.5px]
+            bg-elevated-1-bg-dark
+            !py-0
+            text-primary-text-dark
             "
         >
           <dl className="divide-y divide-primary-border-dark">

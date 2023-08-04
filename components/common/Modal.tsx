@@ -36,7 +36,7 @@ const Modal = ({
             <div className="fixed inset-0 bg-primary-bg-dark bg-opacity-75 " />
           </Transition.Child>
 
-          <div className="fixed inset-0 //overflow-y-auto">
+          <div className="//overflow-y-auto fixed inset-0">
             <div className="flex h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -49,45 +49,44 @@ const Modal = ({
               >
                 <Dialog.Panel
                   className="
-                    w-full
-                    relative
-                    
-                    h-[80dvh]
-
-                    max-w-md
-                    transform
-
-                    overflow-y-auto
-                    no-scrollbar
-
-                    bg-elevated-1-bg-dark
-                    rounded-xl
                     bg-white
                     //p-6
+                    
+                    relative
+
+                    h-[80dvh]
+                    w-full
+
+                    max-w-md
+                    overflow-y-auto
+
+                    rounded-xl
+                    bg-elevated-1-bg-dark
                     text-left
                     align-middle
                     shadow-xl
                     transition-all
+                    no-scrollbar
                     "
                 >
                   <Dialog.Title
                     as="h3"
                     className="
-                    text-lg 
-                    font-medium 
-                    leading-6
-
-                    bg-elevated-1-bg-dark
-                    text-primary-text-dark
-
-                    sticky
+                    //w-full 
+                    sticky 
                     top-0
 
-                    //w-full
-                    px-6
-                    pt-6
-                    pb-2
                     z-10
+                    bg-elevated-1-bg-dark
+
+                    px-6
+                    pb-2
+
+                    pt-6
+                    text-lg
+                    font-medium
+                    leading-6
+                    text-primary-text-dark
                     "
                   >
                     <>
@@ -119,8 +118,8 @@ const Modal = ({
                       {description}
                     </p>
                   </div>
-                  <div className="pt-6 px-6 h-fit">{children}</div>
-                  <div className="//mt-4 px-6 sticky bottom-0 pb-6 bg-elevated-1-bg-dark">
+                  <div className="h-fit px-6 pt-6">{children}</div>
+                  <div className="//mt-4 sticky bottom-0 bg-elevated-1-bg-dark px-6 pb-6">
                     {button}
                   </div>
                 </Dialog.Panel>

@@ -24,7 +24,7 @@ const AddResidentBlock = () => {
   return (
     <GallaryDataCard
       size="md"
-      className="bg-transparent sm:border border-dashed border-primary-border-dark"
+      className="border-dashed border-primary-border-dark bg-transparent sm:border"
       illustration={<VscPersonAdd className="" />}
       actionIcon={<AddIcon />}
       onClick={handleOnAdd}

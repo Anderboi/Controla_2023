@@ -34,14 +34,14 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
       <ContainerBox
         className="
-          h-full
-          overflow-y-auto
-          no-scrollbar
-          flex
-          flex-col
           //gap-y-6
           relative
+          flex
+          h-full
+          flex-col
+          overflow-y-auto
           !p-0
+          no-scrollbar
         "
       >
         <div
@@ -51,8 +51,7 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
             top-0
             z-20
             w-full
-            rounded-tr-lg
-            rounded-tl-lg
+            rounded-t-lg
             bg-secondary-bg-dark/80
             p-4
             backdrop-blur-md

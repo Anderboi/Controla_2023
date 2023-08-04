@@ -28,14 +28,14 @@ const ContactsPage = async ({ children }: SearchProps) => {
       <Header title="Контакты" />
       <ContainerBox
         className="
-          relative
-          h-full
-          overflow-y-auto 
-          no-scrollbar
-          flex
-          flex-col
           //gap-y-6
+          relative
+          flex 
+          h-full
+          flex-col
+          overflow-y-auto
           !p-0
+          no-scrollbar
           "
       >
         <div

@@ -172,8 +172,7 @@ const UploadProjectModal = () => {
         className="
           grid 
           grid-cols-2 
-          gap-x-4
-          gap-y-4
+          gap-4
           "
       >
         <div>
@@ -388,7 +387,7 @@ const UploadProjectModal = () => {
               <div className="mt-4 flex text-sm leading-6 text-secondary-text-dark">
                 <label
                   htmlFor="file-upload"
-                  className="relative cursor-pointer rounded-md bg-white font-semibold text-accent-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-dark focus-within:ring-offset-2 hover:text-accent-light"
+                  className="bg-white relative cursor-pointer rounded-md font-semibold text-accent-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-dark focus-within:ring-offset-2 hover:text-accent-light"
                 >
                   <span>Upload a file</span>
                   <input
@@ -412,7 +411,7 @@ const UploadProjectModal = () => {
           type="submit"
           mode="action"
           size="small"
-          className="mt-4 col-span-2 sticky bottom-6"
+          className="sticky bottom-6 col-span-2 mt-4"
         >
           Создать
         </Button>

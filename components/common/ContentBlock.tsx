@@ -16,17 +16,17 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
             pb-1
             text-start
             text-lg
-            sm:text-xl
             font-bold
+            sm:text-xl
             "
         >
           {title}
         </h2>
-        <div className="flex justify-center items-center gap-3">
-          <EditIcon className=" text-secondary-text-dark sm:hover:text-accent-dark cursor-pointer" />
+        <div className="flex items-center justify-center gap-3">
+          <EditIcon className=" cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark" />
           <ChevronRightIcon
             type="down"
-            className=" text-secondary-text-dark sm:hover:text-accent-dark cursor-pointer"
+            className=" cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark"
           />
         </div>
       </div>

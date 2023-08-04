@@ -7,7 +7,7 @@ interface InfoItemProps {
 
 const InfoItem = ({ title, content }: InfoItemProps) => {
   return (
-    <div className="px-0 py-4 sm:py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+    <div className="px-0 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0 sm:py-4">
       <dt className="text-sm font-medium leading-5 text-primary-text-dark">
         {title}
       </dt>

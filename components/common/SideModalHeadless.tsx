@@ -66,40 +66,39 @@ const SideModal = ({
               >
                 <Dialog.Panel
                   className="
-                    w-full
                     relative
                     h-full
+                    w-full
                     max-w-md
 
-                    transform
-
                     overflow-y-auto
-                    no-scrollbar
 
-                    bg-elevated-1-bg-dark
                     rounded-xl
+                    bg-elevated-1-bg-dark
+
                     text-left
                     shadow-xl
                     transition-all
+                    no-scrollbar
                     "
                 >
                   <Dialog.Title
                     as="h3"
                     className="
-                    text-lg 
-                    font-medium 
-                    leading-6
+                    sticky 
+                    top-0 
+                    z-10
 
                     bg-elevated-1-bg-dark
-                    text-primary-text-dark
-
-                    sticky
-                    top-0
-
                     px-6
-                    pt-6
+
                     pb-2
-                    z-10
+                    pt-6
+
+                    text-lg
+                    font-medium
+                    leading-6
+                    text-primary-text-dark
                     "
                   >
                     <button

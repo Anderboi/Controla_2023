@@ -79,8 +79,7 @@ const ResidingDataForm = () => {
       className="
           grid 
           grid-cols-2 
-          gap-x-4
-          gap-y-4
+          gap-4
           "
     >
       <div className="col-span-2">
@@ -160,7 +159,7 @@ const ResidingDataForm = () => {
         type="submit"
         mode="action"
         size="small"
-        className="mt-4 col-span-2 sticky bottom-6"
+        className="sticky bottom-6 col-span-2 mt-4"
       >
         Создать
       </Button>

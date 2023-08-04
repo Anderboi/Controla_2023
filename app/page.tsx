@@ -18,13 +18,13 @@ const Home = async () => {
   }
 
   return (
-    <ContainerBox className="px-6 py-6 h-full w-full ">
+    <ContainerBox className="h-full w-full p-6">
       <MainLogo type="lg" className="w-full fill-primary-text-dark sm:hidden" />
-      <p className="text-center text-secondary-text-dark text-sm sm:hidden">
+      <p className="text-center text-sm text-secondary-text-dark sm:hidden">
         Project management web app for interior designers.
       </p>
       <div className="m-auto flex h-full max-w-[600px] flex-col justify-center gap-y-4">
-        <div className="flex w-full flex-col gap-2 pb-10 items-center"></div>
+        <div className="flex w-full flex-col items-center gap-2 pb-10"></div>
         <SignInBlock />
       </div>
     </ContainerBox>

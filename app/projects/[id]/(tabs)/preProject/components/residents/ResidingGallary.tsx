@@ -14,12 +14,13 @@ const ResidingGallary = async ({ project_id }: { project_id: number }) => {
       <div
         className="
           flex
-          gap-3
           w-full
+          gap-3
           "
       >
-        {residents.map((resident) => (
+        {residents.map((resident, index) => (
           <GallaryDataCard
+          key={index}
             size="md"
             illustration={<VscPerson className="text-accent-dark" />}
             actionIcon={

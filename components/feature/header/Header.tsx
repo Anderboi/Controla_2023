@@ -61,9 +61,6 @@ const Header = ({
     >
       <div
         className="
-        //h-[80px]
-        //top-0
-        //sticky
         flex
         w-full
         justify-between
@@ -73,7 +70,7 @@ const Header = ({
         <HeaderNavBlock />
 
         {/*//? right button block */}
-        <div className="flex //gap-4 sm:hidden z-30">
+        <div className="z-30 flex sm:hidden">
           {adjustableButton}
           <HeadlessMenu />
           {/* <BurgerMenu /> */}
@@ -99,7 +96,6 @@ const Header = ({
         </span>
         <span
           className="
-            //break-all
             line-clamp-2
             break-words
             text-left

@@ -7,8 +7,8 @@ const HeadlessMenu = () => {
   return (
     <Menu>
       <Menu.Button
-        className={`relative 
-          //z-10
+        className={`
+          relative
           flex
           h-10
           w-10
@@ -43,25 +43,24 @@ const HeadlessMenu = () => {
       >
         <Menu.Items
           className={`
-            bg-elevated-1-bg-dark
-            rounded-lg
+            absolute
+            right-0
+            top-12
             flex
             flex-col
-            absolute
-            top-12
-            right-0
+            rounded-lg
+            bg-elevated-1-bg-dark
             px-4
             py-2
             `}
         >
           {routes.map((route, index) => (
-            <Menu.Item>
+            <Menu.Item key={index}>
               {({ active }) => (
                 <SidebarItem
                   // className={`${
                   //   active && "text-accent-dark bg-secondary-bg-dark"
                   // } px-4 py-2 rounded-md`}
-                  key={index}
                   isInBurger
                   {...route}
                 />
@@ -69,13 +68,12 @@ const HeadlessMenu = () => {
             </Menu.Item>
           ))}
           {secondaryRoutes.map((route, index) => (
-            <Menu.Item>
+            <Menu.Item key={index}>
               {({ active }) => (
                 <SidebarItem
                   // className={`${
                   //   active && "text-accent-dark bg-secondary-bg-dark"
                   // } px-4 py-2 rounded-md`}
-                  key={index}
                   isInBurger
                   {...route}
                 />

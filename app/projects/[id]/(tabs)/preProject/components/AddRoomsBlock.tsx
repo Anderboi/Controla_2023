@@ -74,13 +74,13 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
         className="
           flex
           flex-col
-          sm:flex-row
-          gap-4
           items-center
           justify-between
+          gap-4
           py-2
           text-sm
           leading-6
+          sm:flex-row
           "
       >
         <div
@@ -95,7 +95,7 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
             callback={setRooms}
           />
         </div>
-        <div className="sm:flex-shrink-0 w-full sm:w-fit">
+        <div className="w-full sm:w-fit sm:shrink-0">
           <Button
             size="small"
             onClick={onSubmit}

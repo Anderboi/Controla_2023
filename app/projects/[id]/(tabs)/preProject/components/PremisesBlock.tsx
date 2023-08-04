@@ -28,20 +28,20 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 )}
                 <div
                   className="
-                    sm:inline-flex
-                    
                     w-full
-                    sm:gap-3
-                    overflow-x-scroll
-                    no-scrollbar 
-
-                    bg-elevated-1-bg-dark 
-                    sm:bg-transparent 
-                    max-sm:px-4
-                    rounded-lg
-                    sm:divide-none
+                    
                     divide-y
                     divide-primary-border-dark
+                    overflow-x-scroll
+                    rounded-lg 
+
+                    bg-elevated-1-bg-dark 
+                    no-scrollbar 
+                    max-sm:px-4
+                    sm:inline-flex
+                    sm:gap-3
+                    sm:divide-none
+                    sm:bg-transparent
                     "
                 >
                   {premises.map(
@@ -67,8 +67,8 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                                 flex
                                 flex-col
                                 items-start
-                                sm:items-end
                                 justify-end
+                                sm:items-end
                                 "
                             >
                               <span className="text-right">{item.name}</span>

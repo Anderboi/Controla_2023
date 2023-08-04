@@ -13,15 +13,14 @@ const favouriteProjects = await getFavouriteProjects();
   return (
     <ContainerBox
       className="
-        overflow-y-auto
-        h-full
-        w-fill
-        lg:w-full
         flex
+        h-full
         flex-col
         justify-between
         gap-y-2
+        overflow-y-auto
         sm:max-lg:!p-2
+        lg:w-full
         "
     >
       <span

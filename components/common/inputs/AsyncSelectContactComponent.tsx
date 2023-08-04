@@ -134,13 +134,13 @@ const AsyncSelectContactComponent = ({
           }}
           value={isMultiple ? selectedOptions : selectedOption}
           className="
+          rounded-lg 
           bg-secondary-bg-dark 
           text-primary-text-light 
-          focus:bg-accent-dark 
-          focus:border-accent-dark
-          ring-accent-dark
           outline-none
-          rounded-lg
+          ring-accent-dark
+          focus:border-accent-dark
+          focus:bg-accent-dark
           "
         />
       )}

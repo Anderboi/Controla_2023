@@ -161,12 +161,12 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
       {/*//? Button Block */}
       <div
         className="
-          flex 
-          justify-end
-          sticky
+          sticky 
           bottom-0
-          pb-4
+          flex
+          justify-end
           bg-elevated-1-bg-dark
+          pb-4
           "
       >
         <Button
