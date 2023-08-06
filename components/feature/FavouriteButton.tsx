@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
@@ -15,37 +15,21 @@ import { twMerge } from "tailwind-merge";
 
 interface FavButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   projectId: number;
+  isChecked: boolean;
 }
 
-const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
+const FavouriteButton = ({
+  projectId,
+  isChecked,
+  ...props
+}: FavButtonProps) => {
   const router = useRouter();
   const { supabaseClient } = useSessionContext();
 
   const authModal = useAuthModal();
   const { user } = useUser();
 
-  const [isFavourite, setIsFavourite] = useState(false);
-
-  useEffect(() => {
-    if (!user?.id) {
-      return;
-    }
-
-    const fetchData = async () => {
-      const { data, error } = await supabaseClient
-        .from("favourite_projects")
-        .select("*")
-        .eq("user_id", user?.id)
-        .eq("project_id", projectId)
-        .maybeSingle();
-
-      if (!error && data) {
-        setIsFavourite(true);
-      }
-    };
-
-    fetchData();
-  }, [projectId, supabaseClient, user?.id]);
+  const [isFavourite, setIsFavourite] = useState(isChecked);
 
   const Icon = isFavourite ? AiFillStar : AiOutlineStar;
 
@@ -89,10 +73,7 @@ const FavouriteButton = ({ projectId, ...props }: FavButtonProps) => {
     <IconButton
       Icon={Icon}
       onClick={handleFav}
-      className={twMerge(
-        
-        isFavourite && "opacity-100"
-      )}
+      className={twMerge(isFavourite && "opacity-100")}
       {...props}
     />
   );

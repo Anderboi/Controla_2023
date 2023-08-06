@@ -40,9 +40,9 @@ const EngeneeringModal = () => {
         isOpen={engModal.isOpen}
         onChange={onChange}
       >
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col bg-elevated-1-bg-dark  px-4 rounded-lg divide-y-[1px] divide-primary-border-dark">
           {engModal.data.map((item, index) => (
-            <div key={index} className="flex items-center gap-3">
+            <div key={index} className="flex items-center gap-3 py-4 text-secondary-text-dark">
               <span key={index} className="text-sm ">
                 - {item}
               </span>

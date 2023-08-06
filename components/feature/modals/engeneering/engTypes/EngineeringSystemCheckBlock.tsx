@@ -15,8 +15,6 @@ export interface EngeneeringType {
   type: "conditioning" | "heating" | "plumbing" | "electric";
 }
 
-
-
 const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
   const supabaseClient = useSupabaseClient();
   const engModal = useEngeneeringModal();
@@ -134,7 +132,7 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
   //   : engeneeringSystems.plumbing;
 
   return (
-    <form className="flex flex-col ">
+    <form className="flex flex-col">
       {/*//? Input Block */}
       <div
         className="
@@ -165,14 +163,14 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
           bottom-0
           flex
           justify-end
-          bg-elevated-1-bg-dark
+          bg-secondary-bg-dark
           pb-4
           "
       >
         <Button
-          onClick={() => router.back()}
+          onClick={() => engModal.onClose()}
           disabled={isLoading}
-          type="submit"
+          type="button"
           mode="ghost"
           className="mt-4"
           size="small"

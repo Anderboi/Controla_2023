@@ -1,10 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { Fragment } from "react";
 import Chips from "./inputs/Chips";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { Tab } from "@headlessui/react";
 
+function classNames(...classes: any) {
+  return classes.filter(Boolean).join(" ");
+}
 const TabsBar = () => {
   const route = useRouter();
   const path = usePathname();
@@ -25,7 +29,94 @@ const TabsBar = () => {
           <option value="construction">Строительство</option>
         </select>
       </div>
-      <ul
+      <Tab.Group defaultIndex={0}>
+        <Tab.List
+          className="
+            hidden 
+            sm:grid
+            grid-cols-5
+            text-center
+            rounded-lg
+            bg-elevated-1-bg-dark
+            p-1
+            text-sm
+            items-center
+            mb-6
+            "
+        >
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              <Link
+                href={"preProject"}
+                className={`rounded-md px-4 py-2 w-full ${
+                  selected
+                    ? "bg-accent-dark text-primary-text-light"
+                    : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
+                }`}
+              >
+                Предпроектная стадия
+              </Link>
+            )}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              <Link
+                href={"concept"}
+                className={`rounded-md px-4 py-2 h-full  ${
+                  selected
+                    ? "bg-accent-dark text-primary-text-light"
+                    : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
+                }`}
+              >
+                Эскизная стадия
+              </Link>
+            )}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              <Link
+                href={"working"}
+                className={`rounded-md px-4 py-2 h-full ${
+                  selected
+                    ? "bg-accent-dark text-primary-text-light"
+                    : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
+                }`}
+              >
+                Рабочая стадия
+              </Link>
+            )}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              <Link
+                href={"furnishing"}
+                className={`rounded-md px-4 py-2 h-full ${
+                  selected
+                    ? "bg-accent-dark text-primary-text-light"
+                    : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
+                }`}
+              >
+                Комплектация
+              </Link>
+            )}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              <Link
+                href={"construction"}
+                className={`rounded-md px-4 py-2 h-full ${
+                  selected
+                    ? "bg-accent-dark text-primary-text-light"
+                    : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
+                }`}
+              >
+                Строительство
+              </Link>
+            )}
+          </Tab>
+        </Tab.List>
+      </Tab.Group>
+      {/* <ul
         className="
           hidden
           h-fit
@@ -67,7 +158,7 @@ const TabsBar = () => {
             <Link href={"construction"}>Строительство</Link>
           </Chips>
         </li>
-      </ul>
+      </ul> */}
     </>
   );
 };

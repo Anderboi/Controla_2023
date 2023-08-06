@@ -1,10 +1,13 @@
 'use client'
 
 import React from 'react'
+import { usePathname } from 'next/navigation';
+
 import GallaryDataCard from '@/components/common/cards/GalleryDataCard';
 import AddIcon from '@/components/common/icons/AddIcon';
+
 import useCommonModal from '@/hooks/useCommonModal';
-import { usePathname } from 'next/navigation';
+
 import { VscPersonAdd } from 'react-icons/vsc';
 
 const AddResidentBlock = () => {

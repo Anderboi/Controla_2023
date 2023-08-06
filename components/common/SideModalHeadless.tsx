@@ -74,7 +74,7 @@ const SideModal = ({
                     overflow-y-auto
 
                     rounded-xl
-                    bg-elevated-1-bg-dark
+                    bg-secondary-bg-dark
 
                     text-left
                     shadow-xl
@@ -89,11 +89,10 @@ const SideModal = ({
                     top-0 
                     z-10
 
-                    bg-elevated-1-bg-dark
+                    bg-secondary-bg-dark
                     px-6
 
-                    pb-2
-                    pt-6
+                    py-6
 
                     text-lg
                     font-medium
@@ -105,8 +104,8 @@ const SideModal = ({
                       onClick={() => onChange(!isOpen)}
                       className="
                           absolute
-                          right-[10px]
-                          top-[10px]
+                          right-[16px]
+                          top-[16px]
                           inline-flex
                           h-[24px]
                           w-[24px]
@@ -143,7 +142,7 @@ const SideModal = ({
                   >
                     {children}
                   </div>
-                  
+
                   <button
                     className="
                     absolute 

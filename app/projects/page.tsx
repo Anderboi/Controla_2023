@@ -18,6 +18,7 @@ interface SearchProps {
 }
 
 const ProjectsPage = async ({ searchParams }: SearchProps) => {
+  //TODO move getProjects to ProjectsGallary
   const projects = await getProjectsByTitle(searchParams.title);
   const supabase = createServerComponentClient({ cookies });
   const {

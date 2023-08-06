@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import Image from "next/image";
@@ -8,15 +8,14 @@ import useLoadImage from "@/hooks/useLoadImage";
 import RemoveButton from "../inputs/RemoveButton";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { toast } from "react-hot-toast";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   data: Database["public"]["Tables"]["projects"]["Row"];
-
+  isFavourite: boolean;
 }
 
-const ProjectCard = ({ data }: ProjectCardProps) => {
-
+const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
   const route = useRouter();
   const imagePath = useLoadImage(data.cover_img, "project");
 
@@ -37,7 +36,6 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
       if (table.error) {
         toast.error(table.error?.message);
       } else if (data.cover_img) {
-
         //! Remove file from storage
         const bucket = await supabaseClient.storage
           .from("projects")
@@ -45,7 +43,7 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
 
         if (bucket.error) {
           toast.error(bucket.error?.message);
-        } 
+        }
       }
       toast.success("Проект удален");
     }
@@ -72,6 +70,7 @@ const ProjectCard = ({ data }: ProjectCardProps) => {
         "
     >
       <FavouriteButton
+        isChecked={isFavourite}
         projectId={data.project_id}
         className="
           absolute

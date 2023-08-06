@@ -19,8 +19,10 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
   return (
     <>
       <ContentBlock title="Состав помещений">
+        <div className='flex flex-col gap-4'>
+          
         {Array.from(Array(projectInfo.storeys)).map((storey, i) => (
-          <div className="" key={i}>
+          <div key={i}>
             {premises && premises.find((key) => key.storey === i + 1) ? (
               <>
                 {projectInfo.storeys > 1 && (
@@ -111,6 +113,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
             )}
           </div>
         ))}
+        </div>
       </ContentBlock>
     </>
   );

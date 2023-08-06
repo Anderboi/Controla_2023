@@ -16,6 +16,7 @@ const HeadlessMenu = () => {
           justify-center
           border-none
           bg-secondary-bg-dark
+          rounded-full
           `}
       >
         <svg

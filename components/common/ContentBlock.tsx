@@ -10,7 +10,7 @@ interface ContentBlockProps {
 const ContentBlock = ({ title, children }: ContentBlockProps) => {
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between pb-1">
         <h2
           className="
             pb-1
@@ -24,10 +24,10 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
         </h2>
         <div className="flex items-center justify-center gap-3">
           <EditIcon className=" cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark" />
-          <ChevronRightIcon
+          {/* <ChevronRightIcon
             type="down"
             className=" cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark"
-          />
+          /> */}
         </div>
       </div>
       {children}

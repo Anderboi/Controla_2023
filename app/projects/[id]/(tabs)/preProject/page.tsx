@@ -1,6 +1,6 @@
 import React from "react";
 import getCurrntProject from "@/actions/getCurrentProject";
-import PremisesBlock from "./components/PremisesBlock";
+import PremisesBlock from "./components/premises/PremisesBlock";
 import EngeneeringSystemsBlock from "./components/engeneering/EngeneeringSystemsBlock";
 import CommonInfoBlock from './components/commonInfo/CommonInfoBlock';
 import ResidingInfoBlock from './components/residents/ResidingInfoBlock';

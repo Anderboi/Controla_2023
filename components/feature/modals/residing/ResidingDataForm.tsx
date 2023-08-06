@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
+import Button from '@/components/common/inputs/Button';
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
@@ -6,8 +8,6 @@ import useCommonModal from "@/hooks/useCommonModal";
 
 import toast from 'react-hot-toast';
 import { twMerge } from 'tailwind-merge';
-import Button from '@/components/common/inputs/Button';
-import { useRouter } from 'next/navigation';
 
 const ResidingDataForm = () => {
   const modal = useCommonModal();
@@ -61,9 +61,9 @@ const ResidingDataForm = () => {
       }
       
       
-      router.refresh();
       setIsLoading(false);
-      toast.success("Проект создан");
+      toast.success("Человек добавлен");
+      router.refresh();
       reset();
       modal.onClose();
     } catch (error) {
