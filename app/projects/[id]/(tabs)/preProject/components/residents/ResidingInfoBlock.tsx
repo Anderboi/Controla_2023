@@ -1,39 +1,25 @@
 import React from "react";
 import ContentBlock from "@/components/common/ContentBlock";
-import ResidingGallary from "./ResidingGallary";
+import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
+import AddResidentBlock from "./AddResidentBlock";
+import getResidentsInfo from "@/actions/getResidentsInfo";
+import ResidingCard from "./ResidingCard";
 
 interface ResidingInfoBlockProps {
   projectId: number;
 }
 
-const ResidingInfoBlock = ({ projectId }: ResidingInfoBlockProps) => {
-
+const ResidingInfoBlock = async ({ projectId }: ResidingInfoBlockProps) => {
+  const residents = await getResidentsInfo(projectId);
   return (
-    <>
-      <ContentBlock title="Информация о проживающих">
-        <div
-          className="
-            //flex
-            //flex-col
-            //sm:flex-row
-            divide-y
-            
-            divide-primary-border-dark
-            overflow-x-auto
-            rounded-lg
-            bg-elevated-1-bg-dark
-            no-scrollbar
-            max-sm:px-4
-            sm:inline-flex
-            sm:gap-3
-            sm:divide-none
-            sm:bg-transparent
-            "
-        >
-          <ResidingGallary project_id={projectId} />
-        </div>
-      </ContentBlock>
-    </>
+    <ContentBlock title="Информация о проживающих">
+      <InfoDataGrid>
+        <AddResidentBlock />
+        {residents.map((resident, index) => (
+          <ResidingCard key={index} resident={resident} />
+        ))}
+      </InfoDataGrid>
+    </ContentBlock>
   );
 };
 

@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -42,14 +40,12 @@ const GallaryDataCard = ({
           `
           sm:h-28
           sm:w-24
-          w-full
           text-secondary-text-dark
           `,
         size === "md" &&
           `
           sm:h-[180px]
           sm:min-w-[148px]
-          w-full
           `,
         className
       )}

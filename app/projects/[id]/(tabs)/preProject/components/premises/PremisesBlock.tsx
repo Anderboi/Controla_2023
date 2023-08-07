@@ -7,6 +7,7 @@ import getProjectInfo from "@/actions/getProjectInfo";
 import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
 import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
 import AddRoomsBlock from "./AddRoomsBlock";
+import InfoDataGrid from '@/components/common/grids/InfoDataGrid';
 
 interface PremisesBlockProps {
   id: number;
@@ -19,8 +20,6 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
   return (
     <>
       <ContentBlock title="Состав помещений">
-        <div className='flex flex-col gap-4'>
-          
         {Array.from(Array(projectInfo.storeys)).map((storey, i) => (
           <div key={i}>
             {premises && premises.find((key) => key.storey === i + 1) ? (
@@ -28,24 +27,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 {projectInfo.storeys > 1 && (
                   <span className="text-sm">{`${i + 1} этаж`}</span>
                 )}
-                <div
-                  className="
-                    w-full
-                    
-                    divide-y
-                    divide-primary-border-dark
-                    overflow-x-scroll
-                    rounded-lg 
-
-                    bg-elevated-1-bg-dark 
-                    no-scrollbar 
-                    max-sm:px-4
-                    sm:inline-flex
-                    sm:gap-3
-                    sm:divide-none
-                    sm:bg-transparent
-                    "
-                >
+                <InfoDataGrid>
                   {premises.map(
                     (item, index) =>
                       item.storey === i + 1 && (
@@ -61,7 +43,10 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                               </div>
                             }
                             actionIcon={
-                              <ChevronRightIcon type='right' className="text-secondary-text-dark" />
+                              <ChevronRightIcon
+                                type="right"
+                                className="text-secondary-text-dark"
+                              />
                             }
                           >
                             <div
@@ -93,7 +78,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                         </>
                       )
                   )}
-                </div>
+                </InfoDataGrid>
               </>
             ) : (
               <div
@@ -113,7 +98,6 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
             )}
           </div>
         ))}
-        </div>
       </ContentBlock>
     </>
   );

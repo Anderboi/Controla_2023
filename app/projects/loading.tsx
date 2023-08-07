@@ -11,7 +11,7 @@ export default function Loading() {
         <div className="flex w-full animate-pulse flex-col gap-4">
           <div
             className="
-            h-[35px]
+            h-[36px]
             w-full
             space-x-1
             rounded-lg
