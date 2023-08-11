@@ -1,13 +1,12 @@
 import React from "react";
 import getPremises from "@/actions/getPremises";
 import ContentBlock from "@/components/common/ContentBlock";
-import { IoColorPaletteOutline, IoTvOutline } from "react-icons/io5";
-import { TbSofa } from "react-icons/tb";
+
 import getProjectInfo from "@/actions/getProjectInfo";
-import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
-import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
+
 import AddRoomsBlock from "./AddRoomsBlock";
-import InfoDataGrid from '@/components/common/grids/InfoDataGrid';
+import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
+import RoomCard from "./RoomCard";
 
 interface PremisesBlockProps {
   id: number;
@@ -30,66 +29,20 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 <InfoDataGrid>
                   {premises.map(
                     (item, index) =>
-                      item.storey === i + 1 && (
-                        <>
-                          <GallaryDataCard
-                            size="md"
-                            illustration={
-                              <div className="">
-                                {item.room_number?.toLocaleString("en-US", {
-                                  minimumIntegerDigits: 2,
-                                  useGrouping: false,
-                                })}
-                              </div>
-                            }
-                            actionIcon={
-                              <ChevronRightIcon
-                                type="right"
-                                className="text-secondary-text-dark"
-                              />
-                            }
-                          >
-                            <div
-                              className="
-                                flex
-                                flex-col
-                                items-start
-                                justify-end
-                                sm:items-end
-                                "
-                            >
-                              <span className="text-right">{item.name}</span>
-                              <div className="flex gap-2">
-                                <TbSofa
-                                  className="text-secondary-text-dark "
-                                  size={20}
-                                />
-                                <IoTvOutline
-                                  className="text-secondary-text-dark "
-                                  size={20}
-                                />
-                                <IoColorPaletteOutline
-                                  className="text-secondary-text-dark "
-                                  size={20}
-                                />
-                              </div>
-                            </div>
-                          </GallaryDataCard>
-                        </>
-                      )
+                      item.storey === i + 1 && <RoomCard data={item} />
                   )}
                 </InfoDataGrid>
               </>
             ) : (
               <div
                 className="
-                flex 
-                w-full 
-                flex-col 
-                items-center 
-                justify-center 
-                gap-6
-                "
+                  flex 
+                  w-full 
+                  flex-col 
+                  items-center 
+                  justify-center 
+                  gap-6
+                  "
               >
                 <div className="w-full">
                   <AddRoomsBlock storey={i + 1} />

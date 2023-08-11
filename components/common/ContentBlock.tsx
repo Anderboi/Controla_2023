@@ -1,5 +1,4 @@
 import React from "react";
-import ChevronRightIcon from "./icons/ChevronRightIcon";
 import EditIcon from "./icons/EditIcon";
 
 interface ContentBlockProps {
@@ -13,7 +12,6 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
       <div className="flex justify-between pb-1">
         <h2
           className="
-            pb-1
             text-start
             text-lg
             font-bold
@@ -24,10 +22,7 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
         </h2>
         <div className="flex items-center justify-center gap-3">
           <EditIcon className=" cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark" />
-          {/* <ChevronRightIcon
-            type="down"
-            className=" cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark"
-          /> */}
+          
         </div>
       </div>
       {children}

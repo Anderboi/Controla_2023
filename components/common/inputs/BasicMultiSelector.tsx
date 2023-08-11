@@ -18,7 +18,7 @@ interface BasicMultiSelectorProps {
     MenuListProps<any, boolean, GroupBase<any>>
   >;
   customOption?: React.ComponentType<OptionProps<any, boolean, GroupBase<any>>>;
-  content: SelectProps[];
+  content?: SelectProps[];
   label?: string;
   callback: (e: any) => void;
   type: "creatable" | "select";
@@ -89,7 +89,7 @@ const BasicMultiSelector = ({
 
   return (
     <>
-      <div>
+      
         <label className="text-sm">{label}</label>
         {type === "select" ? (
           <Select
@@ -117,7 +117,7 @@ const BasicMultiSelector = ({
             menuPosition="absolute"
           />
         )}
-      </div>
+      
     </>
   );
 };

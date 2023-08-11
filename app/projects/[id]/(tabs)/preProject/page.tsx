@@ -2,7 +2,7 @@ import React from "react";
 import getCurrntProject from "@/actions/getCurrentProject";
 import PremisesBlock from "./components/premises/PremisesBlock";
 import EngeneeringSystemsBlock from "./components/engeneering/EngeneeringSystemsBlock";
-import CommonInfoBlock from './components/commonInfo/CommonInfoBlock';
+import CommonInfoBlock from './components/CommonInfoBlock';
 import ResidingInfoBlock from './components/residents/ResidingInfoBlock';
 
 const PreProject = async ({

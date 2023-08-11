@@ -2,24 +2,35 @@ import React from "react";
 
 interface InfoBlockProps {
   label: string;
-  body: string | React.ReactElement;
+  children: string | React.ReactElement;
+  button?:React.ReactNode
 }
 
-const InfoBlock = ({ body, label }: InfoBlockProps) => {
+const InfoBlock = ({ children, label, button }: InfoBlockProps) => {
   return (
-    <div
-      className="
-          grid
+    <div>
+      <span className="text-base text-primary-text-dark">{label}</span>
+      <span
+        className="
           w-full
-          columns-2
-          justify-between
-          gap-y-4
-          border-primary-border-dark
-          py-2
+          flex
+          flex-col
+
+          bg-elevated-1-bg-dark
+          rounded-lg
+          px-4
           "
-    >
-      <span className='text-sm text-primary-text-dark'>{label}</span>
-      <span className='break-words text-start text-secondary-text-dark '>{body}</span>
+      >
+        <div
+          className="
+            divide-y-[.5px]
+            divide-primary-border-dark
+            "
+        >
+          {children}
+        </div>
+        {button}
+      </span>
     </div>
   );
 };

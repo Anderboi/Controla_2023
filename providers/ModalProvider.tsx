@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import UploadModal from "@/components/feature/modals/UploadProjectModal";
 import AuthModal from "@/components/feature/modals/AuthModal";
 import EngeneeringModal from '@/components/feature/modals/engeneering/EngeneeringModal';
-import InfoModal from '@/components/feature/modals/InfoModal';
+import RoomInfoModal from "@/components/feature/modals/RoomInfoModal";
 import ResidingModal from '@/components/feature/modals/residing/ResidingModal';
 
 const ModalProvider = () => {
@@ -24,8 +24,8 @@ const ModalProvider = () => {
       <AuthModal />
       <UploadModal />
       <EngeneeringModal />
-      <InfoModal/>
-      <ResidingModal/>
+      <RoomInfoModal />
+      <ResidingModal />
     </>
   );
 };

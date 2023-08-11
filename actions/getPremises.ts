@@ -10,7 +10,7 @@ const getPremises = async (
 
   const { data, error } = await supabase
     .from("room_info")
-    .select("*")
+    .select("*, room_furnishing(*)")
     .eq("project_id", id)
     .order("room_number", { ascending: true });
 

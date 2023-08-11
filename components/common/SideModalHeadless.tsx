@@ -85,20 +85,19 @@ const SideModal = ({
                   <Dialog.Title
                     as="h3"
                     className="
-                    sticky 
-                    top-0 
-                    z-10
+                      sticky
+                      top-0
+                      //z-10
 
-                    bg-secondary-bg-dark
-                    px-6
+                      bg-secondary-bg-dark
+                      px-6
+                      py-6
 
-                    py-6
-
-                    text-lg
-                    font-medium
-                    leading-6
-                    text-primary-text-dark
-                    "
+                      text-2xl
+                      font-bold
+                      leading-6
+                      text-primary-text-dark
+                      "
                   >
                     <button
                       onClick={() => onChange(!isOpen)}
@@ -138,11 +137,11 @@ const SideModal = ({
                   <div
                     className="
                       px-6
+                      space-y-6
                       "
                   >
                     {children}
                   </div>
-
                   <button
                     className="
                     absolute 

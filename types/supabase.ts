@@ -288,9 +288,46 @@ export interface Database {
           }
         ]
       }
+      room_furnishing: {
+        Row: {
+          brand: string | null
+          created_at: string
+          id: string
+          link: string | null
+          materials: string[] | null
+          name: string | null
+          price: number | null
+          quantity: number | null
+          tech_spec: string | null
+        }
+        Insert: {
+          brand?: string | null
+          created_at?: string
+          id?: string
+          link?: string | null
+          materials?: string[] | null
+          name?: string | null
+          price?: number | null
+          quantity?: number | null
+          tech_spec?: string | null
+        }
+        Update: {
+          brand?: string | null
+          created_at?: string
+          id?: string
+          link?: string | null
+          materials?: string[] | null
+          name?: string | null
+          price?: number | null
+          quantity?: number | null
+          tech_spec?: string | null
+        }
+        Relationships: []
+      }
       room_info: {
         Row: {
           area: number | null
+          furnishing: string | null
           name: string
           project_id: number
           room_number: number
@@ -298,6 +335,7 @@ export interface Database {
         }
         Insert: {
           area?: number | null
+          furnishing?: string | null
           name: string
           project_id: number
           room_number: number
@@ -305,12 +343,19 @@ export interface Database {
         }
         Update: {
           area?: number | null
+          furnishing?: string | null
           name?: string
           project_id?: number
           room_number?: number
           storey?: number
         }
         Relationships: [
+          {
+            foreignKeyName: "room_info_furnishing_fkey"
+            columns: ["furnishing"]
+            referencedRelation: "room_furnishing"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "room_info_project_id_fkey"
             columns: ["project_id"]

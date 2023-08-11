@@ -46,6 +46,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         }
       }
       toast.success("Проект удален");
+      route.refresh()
     }
   };
 

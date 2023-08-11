@@ -44,7 +44,7 @@ const Button = ({
           hover:text-black-dark
           `,
         mode === "ghost_accent" && `border-primary-border-dark hover:bg-transparent-bg-dark/10`,
-        size === "small" && `py-2 px-4 text-sm`,
+        size === "small" && `py-2 px-4 text-sm h-[40px]`,
         className
       )}
       disabled={disabled}
