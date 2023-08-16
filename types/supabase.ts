@@ -293,36 +293,55 @@ export interface Database {
           brand: string | null
           created_at: string
           id: string
+          isDelivered: boolean
+          isOrdered: boolean
           link: string | null
           materials: string[] | null
           name: string | null
           price: number | null
+          project_id: number
           quantity: number | null
+          room_number: number
           tech_spec: string | null
         }
         Insert: {
           brand?: string | null
           created_at?: string
           id?: string
+          isDelivered?: boolean
+          isOrdered?: boolean
           link?: string | null
           materials?: string[] | null
           name?: string | null
           price?: number | null
+          project_id: number
           quantity?: number | null
+          room_number: number
           tech_spec?: string | null
         }
         Update: {
           brand?: string | null
           created_at?: string
           id?: string
+          isDelivered?: boolean
+          isOrdered?: boolean
           link?: string | null
           materials?: string[] | null
           name?: string | null
           price?: number | null
+          project_id?: number
           quantity?: number | null
+          room_number?: number
           tech_spec?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "room_furnishing_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["project_id"]
+          }
+        ]
       }
       room_info: {
         Row: {

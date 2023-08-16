@@ -6,7 +6,7 @@ import getProjectInfo from "@/actions/getProjectInfo";
 
 import AddRoomsBlock from "./AddRoomsBlock";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
-import RoomCard from "./RoomCard";
+import RoomCardWrapper from "./RoomCardWrapper";
 
 interface PremisesBlockProps {
   id: number;
@@ -29,7 +29,9 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 <InfoDataGrid>
                   {premises.map(
                     (item, index) =>
-                      item.storey === i + 1 && <RoomCard data={item} />
+                      item.storey === i + 1 && (
+                        <RoomCardWrapper key={index} data={item} />
+                      )
                   )}
                 </InfoDataGrid>
               </>

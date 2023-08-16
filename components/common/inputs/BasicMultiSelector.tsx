@@ -89,35 +89,33 @@ const BasicMultiSelector = ({
 
   return (
     <>
-      
-        <label className="text-sm">{label}</label>
-        {type === "select" ? (
-          <Select
-            isMulti
-            options={content}
-            captureMenuScroll
-            isSearchable
-            onChange={(choise: any) => callback(choise)}
-            styles={colourStyles}
-            closeMenuOnSelect={false}
-            components={{
-              MenuList: aditionalButton,
-              // Option: customOption,
-            }}
-          />
-        ) : (
-          <CreatableSelect
-            isMulti
-            options={content}
-            captureMenuScroll
-            isSearchable
-            onChange={callback}
-            styles={colourStyles}
-            closeMenuOnSelect={false}
-            menuPosition="absolute"
-          />
-        )}
-      
+      <label className="text-sm">{label}</label>
+      {type === "select" ? (
+        <Select
+          isMulti
+          options={content}
+          captureMenuScroll
+          isSearchable
+          onChange={(choise: any) => callback(choise)}
+          styles={colourStyles}
+          closeMenuOnSelect={false}
+          components={{
+            MenuList: aditionalButton,
+            // Option: customOption,
+          }}
+        />
+      ) : (
+        <CreatableSelect
+          isMulti
+          options={content}
+          captureMenuScroll
+          isSearchable
+          onChange={(choise: any) => callback(choise)}
+          styles={colourStyles}
+          closeMenuOnSelect={false}
+          menuPosition="absolute"
+        />
+      )}
     </>
   );
 };

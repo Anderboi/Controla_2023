@@ -11,13 +11,17 @@ import { Database } from "@/types/supabase";
 
 interface RoomCardProps {
   data: Database["public"]["Tables"]["room_info"]["Row"];
+  furniture: Database["public"]["Tables"]["room_furnishing"]["Row"][];
 }
 
-const RoomCard = ({ data }: RoomCardProps) => {
+const RoomCard = ({ data, furniture }: RoomCardProps) => {
   const roomModal = useRoomInfoModal();
 
-  const handleOnClick = (title: string, data: any) => {
-    roomModal.onOpen(title, data);
+  const handleOnClick = (
+    title: string,
+    data: Database["public"]["Tables"]["room_info"]["Row"]
+  ) => {
+    roomModal.onOpen(title, data, furniture);
   };
 
   return (
