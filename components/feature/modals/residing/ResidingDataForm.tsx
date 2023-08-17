@@ -158,7 +158,6 @@ const ResidingDataForm = () => {
         disabled={isLoading}
         type="submit"
         mode="action"
-        size="small"
         className="sticky bottom-6 col-span-2 mt-4"
       >
         Создать

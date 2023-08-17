@@ -17,11 +17,15 @@ interface RoomCardProps {
 const RoomCard = ({ data, furniture }: RoomCardProps) => {
   const roomModal = useRoomInfoModal();
 
+  const currentRoomData = furniture.filter(
+    (item) => item.room_number === data.room_number
+  ); 
+
   const handleOnClick = (
     title: string,
     data: Database["public"]["Tables"]["room_info"]["Row"]
   ) => {
-    roomModal.onOpen(title, data, furniture);
+    roomModal.onOpen(title, data, currentRoomData);
   };
 
   return (
