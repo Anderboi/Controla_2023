@@ -25,6 +25,9 @@ const FurnitureBlock = ({ title, furniture, callback, room_number }: Props) => {
       case "Гостиная": {
         return furnitureList.livingRoom;
       }
+      case "Кабинет": {
+        return furnitureList.livingRoom;
+      }
       case "Мастер спальня": {
         return furnitureList.bedroom;
       }
@@ -40,17 +43,22 @@ const FurnitureBlock = ({ title, furniture, callback, room_number }: Props) => {
       case "Санузел": {
         return furnitureList.bathroom;
       }
-      case "Кухня":
-        {
-          return furnitureList.kitchen;
-        }
-        break;
+      case "Кухня": {
+        return furnitureList.kitchen;
+      }
+      case "Столовая": {
+        return furnitureList.kitchen;
+      }
+      case "Постирочная": {
+        return furnitureList.loundry;
+      }
+      case "Прихожая": {
+        return furnitureList.loundry;
+      }
 
-      default:
-        {
-          return undefined;
-        }
-        break;
+      default: {
+        return undefined;
+      }
     }
   };
 

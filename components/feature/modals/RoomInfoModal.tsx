@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import SideModal from "@/components/common/SideModalHeadless";
 import FurnitureBlock from "./FurnitureBlock";
-import EquipmentBlock from "./EquipmentBlock";
 
 import useRoomInfoModal from "@/hooks/useRoomInfoModal";
 import { useRouter } from "next/navigation";
@@ -18,7 +17,6 @@ const RoomInfoModal = () => {
   const supabase = useSupabaseClient();
 
   const [furnitureList, setFurnitureList] = useState([]);
-  // const [currentFurnitureList, setCurrentFurnitureList] = useState(roomModal.furniture);
 
 
   if (!roomModal.data) {
@@ -60,8 +58,6 @@ const RoomInfoModal = () => {
     if (!error && data) {
       toast.success("Success");
       //TODO: add useState for furnData, show selector on empty, data on full
-      // setSelectedEq(data.)
-      // setCurrentFurnitureList(furnitureList);
       roomModal.onClose()
       router.refresh();
     }
@@ -85,7 +81,7 @@ const RoomInfoModal = () => {
         room_number={roomModal.data.room_number}
         callback={setFurnitureList}
       />
-      <EquipmentBlock project_id={project_id} />
+      {/* <EquipmentBlock project_id={project_id} /> */}
       <Button className="w-full" mode="action" onClick={onSubmit}>
         Сохранить
       </Button>

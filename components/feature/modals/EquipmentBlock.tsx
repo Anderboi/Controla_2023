@@ -1,21 +1,20 @@
 "use client";
 
 import BasicMultiSelector from "@/components/common/inputs/BasicMultiSelector";
-import Button from "@/components/common/inputs/Button";
-import { furnitureList } from "@/lib/furnitureEquipmentList";
+import { finishingList, furnitureList } from "@/lib/furnitureEquipmentList";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import InfoBlock from '../infoblock/InfoBlock';
-import InfoItem from '@/components/common/InfoBlock/InfoItem';
+import InfoBlock from "../infoblock/InfoBlock";
+import InfoItem from "@/components/common/InfoBlock/InfoItem";
 
 interface Props {
   title?: string;
   project_id: number;
 }
 
-const EquipmentBlock = ({project_id,title}:Props) => {
+const EquipmentBlock = ({ project_id, title }: Props) => {
   const roomType = (type?: string) => {
     if (!title) {
       return;
@@ -86,22 +85,34 @@ const EquipmentBlock = ({project_id,title}:Props) => {
     <InfoBlock
       label="Оборудование"
       button={
-        <div className="inline-flex space-x-4 pb-4">
-          <div className="w-full">
-            <BasicMultiSelector
-              type="creatable"
-              content={roomType(title)}
-              callback={setEquipment} //TODO: add callback
-            />
-          </div>
-          <Button
-            mode="ghost_accent"
-            size="small"
-            className="mb-4 px-8"
-            onClick={onSubmit}
-          >
-            +
-          </Button>
+        <div className="space-y-4 pb-4 w-full">
+          <BasicMultiSelector
+            type="creatable"
+            label="Напольное покрытие"
+            content={finishingList.floor}
+            isMulti={false}
+            callback={() => {}}
+          />
+          <BasicMultiSelector
+            type="creatable"
+            content={[]}
+            isMulti={false}
+            callback={() => {}}
+          />
+          <BasicMultiSelector
+            type="creatable"
+            content={[]}
+            isMulti={false}
+            callback={() => {}}
+          />
+          {/* <label htmlFor="gender" className="block text-sm font-medium">
+              Пол
+            </label>
+            <select id="gender" {...register("gender", { required: false })}>
+              <option defaultValue={"-"}>--</option>
+              <option value={"Мужской"}>Мужской</option>
+              <option value={"Женский"}>Женский</option>
+            </select> */}
         </div>
       }
     >

@@ -88,7 +88,7 @@ const BasicMultiSelector = ({
   };
 
   return (
-    <>
+    <div>
       <label className="text-sm">{label}</label>
       {type === "select" ? (
         <Select
@@ -116,7 +116,7 @@ const BasicMultiSelector = ({
           menuPosition="absolute"
         />
       )}
-    </>
+    </div>
   );
 };
 
