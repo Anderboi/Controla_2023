@@ -7,12 +7,23 @@ import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
 import { VscPerson } from "react-icons/vsc";
 
 import { Database } from '@/types/supabase';
+import useCommonModal from '@/hooks/useCommonModal';
 
 interface ResidingCardProps {
   resident: Database["public"]["Tables"]["inhabitant_info"]["Row"];
 }
 
+
+
 const ResidingCard = ({resident}: ResidingCardProps) => {
+  const residentModal = useCommonModal()
+
+  const handleClick = () => {
+    if(!resident.name){return}
+    residentModal.onOpen(resident.name, 'null', resident);
+  };
+
+
   return (
     <GallaryDataCard
       size="md"
@@ -20,7 +31,7 @@ const ResidingCard = ({resident}: ResidingCardProps) => {
       actionIcon={
         <ChevronRightIcon type="right" className="text-secondary-text-dark" />
       }
-      onClick={()=>console.log('handleOnClick')}
+      onClick={handleClick}
     >
       <>
         <span>{resident.name}</span>

@@ -52,6 +52,9 @@ const FurnitureBlock = ({ title, furniture, callback, room_number }: Props) => {
       case "Постирочная": {
         return furnitureList.loundry;
       }
+      case "Гардеробная": {
+        return furnitureList.loundry;
+      }
       case "Прихожая": {
         return furnitureList.loundry;
       }

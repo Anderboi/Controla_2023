@@ -45,7 +45,7 @@ const GallaryDataCard = ({
         size === "md" &&
           `
           sm:h-[180px]
-          sm:min-w-[148px]
+          sm:min-w-[160px]
           `,
         className
       )}

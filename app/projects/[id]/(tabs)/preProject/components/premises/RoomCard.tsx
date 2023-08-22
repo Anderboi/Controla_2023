@@ -33,7 +33,7 @@ const RoomCard = ({ data, furniture }: RoomCardProps) => {
       onClick={() => handleOnClick(data.name, data)}
       size="md"
       illustration={
-        <div className="">
+        <div>
           {data.room_number?.toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false,

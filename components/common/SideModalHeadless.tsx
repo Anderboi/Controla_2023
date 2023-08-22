@@ -21,7 +21,7 @@ const SideModal = ({
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-20" onClose={onChange}>
+        <Dialog as="div" className="relative z-30" onClose={onChange}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -114,15 +114,12 @@ const SideModal = ({
                           text-secondary-text-dark
                           hover:text-primary-text-dark
                           focus:outline-none
-                          
                           "
                     >
                       <IoMdClose size={24} />
                     </button>
-
                     {title.charAt(0).toUpperCase() + title.slice(1)}
                   </Dialog.Title>
-
                   <Dialog.Description
                     className="
                       text-center
@@ -142,24 +139,6 @@ const SideModal = ({
                   >
                     {children}
                   </div>
-                  <button
-                    className="
-                    absolute 
-                    right-[16px]
-                    top-[16px]
-                    inline-flex
-                    h-[24px]
-                    w-[24px]
-                    appearance-none
-                    items-center
-                    justify-center
-                    text-secondary-text-dark
-                    hover:text-primary-text-dark
-                    focus:outline-none
-                    "
-                  >
-                    <IoMdClose size={24} />
-                  </button>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

@@ -26,7 +26,7 @@ const PremisesBlock = async ({ id }: PremisesBlockProps) => {
                 {projectInfo.storeys > 1 && (
                   <span className="text-sm">{`${i + 1} этаж`}</span>
                 )}
-                <InfoDataGrid>
+                <InfoDataGrid> 
                   {premises.map(
                     (item, index) =>
                       item.storey === i + 1 && (

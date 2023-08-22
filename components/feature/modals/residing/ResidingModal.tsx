@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 
@@ -6,6 +6,7 @@ import SideModal from "@/components/common/SideModalHeadless";
 import useCommonModal from "@/hooks/useCommonModal";
 import GalleryDataCard from "@/components/common/cards/GalleryDataCard";
 import ResidingDataForm from "./ResidingDataForm";
+import InfoIcon from "@/components/common/icons/InfoIcon";
 
 const ResidingModal = () => {
   const modal = useCommonModal();
@@ -28,8 +29,66 @@ const ResidingModal = () => {
     //? Show Data
     return (
       <SideModal title={modal.title} isOpen={modal.isOpen} onChange={onChange}>
-        <div className="flex flex-col gap-4">
-          <GalleryDataCard>sdfsdfsdfsdf</GalleryDataCard>
+        <div
+          className="
+            flex 
+            flex-col
+            bg-elevated-1-bg-dark  
+            px-4 
+            rounded-lg 
+            divide-y-[1px] 
+            divide-primary-border-dark
+            "
+        >
+          <div className="flex items-center justify-between py-4 text-secondary-text-dark">
+            <div>
+              <span className="text-sm [text-wrap:balance]">- Возраст: </span>
+              <span className="text-sm [text-wrap:balance]">
+                {modal.data?.age}
+              </span>
+            </div>
+            <span>
+              <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between py-4 text-secondary-text-dark">
+            <div>
+              <span className="text-sm [text-wrap:balance]">- Пол: </span>
+              <span className="text-sm [text-wrap:balance]">
+                {modal.data?.gender}
+              </span>
+            </div>
+            <span>
+              <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between py-4 text-secondary-text-dark">
+            <div>
+              <span className="text-sm [text-wrap:balance]">
+                - Ограничения по здоровью:{" "}
+              </span>
+              <span className="text-sm [text-wrap:balance]">
+                {modal.data?.health_concerns}
+              </span>
+            </div>
+            <span>
+              <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between py-4 text-secondary-text-dark">
+            <div>
+              <span className="text-sm [text-wrap:balance]">- Увлечения: </span>
+              <span className="text-sm [text-wrap:balance]">
+                {modal.data?.lifestyle}
+              </span>
+            </div>
+            <span>
+              <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+            </span>
+          </div>
         </div>
       </SideModal>
     );

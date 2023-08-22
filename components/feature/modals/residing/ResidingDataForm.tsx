@@ -116,7 +116,7 @@ const ResidingDataForm = () => {
           Пол
         </label>
         <select id="gender" {...register("gender", { required: false })}>
-          <option defaultValue={"-"}>--</option>
+          {/* <option defaultValue={"-"}>--</option> */}
           <option value={"Мужской"}>Мужской</option>
           <option value={"Женский"}>Женский</option>
         </select>

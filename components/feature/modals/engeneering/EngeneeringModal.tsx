@@ -12,6 +12,7 @@ const EngeneeringModal = () => {
   const engModal = useEngeneeringModal();
 
   const onChange = (open: boolean) => {
+    
     if (!open) {
       engModal.onClose();
     }
@@ -54,9 +55,9 @@ const EngeneeringModal = () => {
           {engModal.data.map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 py-4 text-secondary-text-dark"
+              className="flex items-center justify-between gap-3 py-4 text-secondary-text-dark"
             >
-              <span key={index} className="text-sm ">
+              <span className="text-sm [text-wrap:balance]">
                 - {item}
               </span>
               <span>
