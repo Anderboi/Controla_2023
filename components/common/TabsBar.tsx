@@ -1,18 +1,17 @@
 "use client";
 
 import React, { Fragment } from "react";
-import Chips from "./inputs/Chips";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Tab } from "@headlessui/react";
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(" ");
-}
+// function classNames(...classes: any) {
+//   return classes.filter(Boolean).join(" ");
+// }
 const TabsBar = () => {
   const route = useRouter();
-  const path = usePathname();
-  const exactRoute = path.split("/")[path.split("/").length - 1];
+  // const path = usePathname();
+  // const exactRoute = path.split("/")[path.split("/").length - 1];
 
   return (
     <>
@@ -24,7 +23,7 @@ const TabsBar = () => {
         >
           <option value="preProject">Предпроектная стадия</option>
           <option value="concept">Эскизная стадия</option>
-          <option value="working">Рабочая стадия</option>
+          <option value="schemas">Рабочая стадия</option>
           <option value="furnishing">Комплектация</option>
           <option value="construction">Строительство</option>
         </select>
