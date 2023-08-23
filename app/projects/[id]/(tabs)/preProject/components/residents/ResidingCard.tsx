@@ -33,11 +33,11 @@ const ResidingCard = ({resident}: ResidingCardProps) => {
       }
       onClick={handleClick}
     >
-      <>
-        <span>{resident.name}</span>
+      <div className='flex flex-col items-start'>
+        <span className='text-right text-primary-text-dark'>{resident.name}</span>
         <span className="text-secondary-text-dark">{resident.gender}</span>
         <span className="text-secondary-text-dark">{resident.age}</span>
-      </>
+      </div>
     </GallaryDataCard>
   );
 };

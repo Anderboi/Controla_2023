@@ -22,20 +22,20 @@ const GallaryDataCard = ({
     <div
       onClick={onClick}
       className={twMerge(
-          `
-          sm:rounded-lg 
-          bg-elevated-1-bg-dark
-          sm:hover:bg-elevated-2-bg-dark
-          py-4
-          sm:px-4
-          flex
-          sm:flex-col
-          gap-4
-          items-center
-          sm:items-end
-          justify-between
-          cursor-pointer
-          `,
+        `
+        sm:rounded-lg 
+        bg-elevated-1-bg-dark
+        sm:hover:bg-elevated-2-bg-dark
+        py-4
+        sm:px-4
+        flex
+        sm:flex-col
+        gap-4
+        items-center
+        sm:items-end
+        justify-between
+        cursor-pointer
+        `,
         size === "sm" &&
           `
           sm:h-28
@@ -65,9 +65,11 @@ const GallaryDataCard = ({
           flex
           flex-col
           max-sm:flex-1
-          sm:items-end
           w-16
           text-xs
+          
+          sm:items-end
+          sm:text-right
           `,
           size === "md" && `text-sm`
         )}

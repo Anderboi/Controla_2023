@@ -40,7 +40,7 @@ const EngeneeringSystemList = ({ data }: Props) => {
           illustration={
             <Illustration
               type={name}
-              size={60}
+              size={48}
               className={twMerge(
                 `
                 fill-secondary-text-dark
@@ -61,17 +61,7 @@ const EngeneeringSystemList = ({ data }: Props) => {
             />
           }
         >
-          <div
-            className="
-              flex
-              flex-col
-              items-start
-              justify-end
-              sm:items-end
-              "
-          >
-            <span className="text-right">{label}</span>
-          </div>
+          <span className="text-right [text-wrap:balance]">{label}</span>
         </GallaryDataCard>
       ))}
     </InfoDataGrid>
