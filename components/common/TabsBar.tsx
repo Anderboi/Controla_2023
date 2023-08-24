@@ -47,7 +47,7 @@ const TabsBar = () => {
             {({ selected }) => (
               <Link
                 href={"preProject"}
-                className={`rounded-md px-4 py-2 w-full ${
+                className={`rounded-md px-4 py-2 w-full  ${
                   selected
                     ? "bg-accent-dark text-primary-text-light"
                     : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
@@ -74,7 +74,7 @@ const TabsBar = () => {
           <Tab as={Fragment}>
             {({ selected }) => (
               <Link
-                href={"working"}
+                href={"schemas"}
                 className={`rounded-md px-4 py-2 h-full ${
                   selected
                     ? "bg-accent-dark text-primary-text-light"
@@ -103,7 +103,7 @@ const TabsBar = () => {
             {({ selected }) => (
               <Link
                 href={"construction"}
-                className={`rounded-md px-4 py-2 h-full ${
+                className={`rounded-md px-4 py-2 h-full place-self-center  ${
                   selected
                     ? "bg-accent-dark text-primary-text-light"
                     : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"

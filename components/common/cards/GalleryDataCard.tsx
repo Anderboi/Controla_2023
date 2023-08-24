@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 interface Props {
   onClick?: () => void;
   size?: "sm" | "md" | "lg";
+  type?: 'filled' | 'outlined';
   children?: React.ReactNode | string | number;
   illustration?: React.ReactNode | string | number;
   actionIcon?: React.ReactNode | string | number;
@@ -16,6 +17,7 @@ const GallaryDataCard = ({
   illustration,
   children,
   actionIcon,
+  type,
   className,
 }: Props) => {
   return (
@@ -47,6 +49,8 @@ const GallaryDataCard = ({
           sm:h-[180px]
           sm:min-w-[160px]
           `,
+        type === "outlined" &&
+          `bg-transparent  border-dashed border-primary-border-dark sm:border`,
         className
       )}
     >
