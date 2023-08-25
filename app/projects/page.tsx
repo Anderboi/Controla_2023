@@ -60,7 +60,7 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
         >
           <SearchInput />
         </div>
-        <div className="px-4">
+        <div className="px-4 pb-4">
           <ProjectsGallery projects={projects} />
         </div>
       </ContainerBox>

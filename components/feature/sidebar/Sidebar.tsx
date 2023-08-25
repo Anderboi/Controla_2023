@@ -14,17 +14,17 @@ const Sidebar = () => {
   return (
     <aside
       className="
-      hidden
-      min-h-screen
-      w-[90px]
-      flex-col
-      gap-y-2
-      bg-primary-bg-dark
-      py-2
-      pl-2
-      sm:flex
-      lg:w-[300px]
-      "
+        hidden
+        min-h-screen
+        w-[90px]
+        flex-col
+        gap-y-2
+        bg-primary-bg-dark
+        py-2
+        pl-2
+        sm:flex
+        lg:w-[300px]
+        "
     >
       <ContainerBox
         className="
