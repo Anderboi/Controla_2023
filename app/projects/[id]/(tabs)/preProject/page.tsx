@@ -1,25 +1,31 @@
 import React from "react";
-import getCurrntProject from "@/actions/getCurrentProject";
+
 import PremisesBlock from "./components/premises/PremisesBlock";
 import EngeneeringSystemsBlock from "./components/engeneering/EngeneeringSystemsBlock";
-import CommonInfoBlock from './components/CommonInfoBlock';
-import ResidingInfoBlock from './components/residents/ResidingInfoBlock';
+import CommonInfoBlock from "./components/CommonInfoBlock";
+import ResidingInfoBlock from "./components/residents/ResidingInfoBlock";
+import PDFBlock from './components/pdf/PDFBlock';
 
-const PreProject = async ({
-  params,
-}: {
-  params: { id: number };
-}) => {
-  const id = params.id;
+import getCurrntProject from "@/actions/getCurrentProject";
+// import getProjectInfo from "@/actions/getProjectInfo";
+// import getResidentsInfo from "@/actions/getResidentsInfo";
+// import PDFWrapper from "./components/pdf/PDFWrapper";
 
-  const project = await getCurrntProject(id);
+const PreProject = async ({ params }: { params: { id: number } }) => {
+  const projectId = params.id;
+
+  const project = await getCurrntProject(projectId);
+  // const info = await getProjectInfo(id);
+  // const residingInfo = await getResidentsInfo(id);
 
   return (
     <>
+      {/* <MyPDFView /> */}
       <CommonInfoBlock project={project} />
-      <ResidingInfoBlock projectId={id} />
-      <PremisesBlock id={id} />
-      <EngeneeringSystemsBlock id={id} />
+      <ResidingInfoBlock projectId={projectId} />
+      <PremisesBlock projectId={projectId} />
+      <EngeneeringSystemsBlock projectId={projectId} />
+      <PDFBlock projectId={projectId}/>
     </>
   );
 };

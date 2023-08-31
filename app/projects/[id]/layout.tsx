@@ -45,8 +45,9 @@ const ProjectPage = async ({
           <div className="flex flex-col gap-y-6">{children}</div>
         </ContainerBox>
       </section>
-      {/*//? experimental side block */}
-      <aside className="w-[500px] pl-2 max-xl:hidden xl:flex">
+      {/*//? experimental side block */} 
+      {/* //TODO */}
+      {/* <aside className="w-[500px] pl-2 max-xl:hidden xl:flex">
         <ContainerBox className="h-full w-full">
           <ContentBlock title="Команда">
             <div className="space-y-2">
@@ -88,7 +89,7 @@ const ProjectPage = async ({
             </div>
           </ContentBlock>
         </ContainerBox>
-      </aside>
+      </aside> */}
     </div>
   );
 };

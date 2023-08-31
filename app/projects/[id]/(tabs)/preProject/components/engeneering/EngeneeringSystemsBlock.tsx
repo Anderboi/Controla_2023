@@ -1,13 +1,12 @@
 import React from "react";
 
 import ContentBlock from "@/components/common/ContentBlock";
-import EngeneeringSystemsGallary from "./EngeneeringSystemsGallary";
 
 import getEngeneeringData from "@/actions/getEngeneeringData";
 import EngeneeringSystemList from './EngeneeringSystemList';
 
-const EngeneeringSystemsBlock = async ({ id }: { id: number }) => {
-  const engData = await getEngeneeringData(id);
+const EngeneeringSystemsBlock = async ({ projectId }: { projectId: number }) => {
+  const engData = await getEngeneeringData(projectId);
 
   return (
     <>

@@ -9,12 +9,12 @@ import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
 import RoomCardWrapper from "./RoomCardWrapper";
 
 interface PremisesBlockProps {
-  id: number;
+  projectId: number;
 }
 
-const PremisesBlock = async ({ id }: PremisesBlockProps) => {
-  const premises = await getPremises(id);
-  const projectInfo = await getProjectInfo(id);
+const PremisesBlock = async ({ projectId }: PremisesBlockProps) => {
+  const premises = await getPremises(projectId);
+  const projectInfo = await getProjectInfo(projectId);
 
   return (
     <>
