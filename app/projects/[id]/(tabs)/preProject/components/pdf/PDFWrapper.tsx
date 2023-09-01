@@ -4,15 +4,17 @@ import React, { useEffect, useState } from "react";
 import ReactPDFFile from "./ReactPDFFile";
 import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import Button from "@/components/common/inputs/Button";
+import { Database } from '@/types/supabase';
 
 export interface PDFProps {
-  project: any;
-  info: any;
-  residents: any;
-  client: any
+  project: Database["public"]["Tables"]["projects"]["Row"];
+  info: Database["public"]["Tables"]["project_info"]["Row"];
+  residents: Database["public"]["Tables"]["inhabitant_info"]["Row"][];
+  client: any;
+  premises: Database["public"]["Tables"]["room_info"]['Row'][]
 }
 
-const PDFWrapper = ({ info, project, residents, client }: PDFProps) => {
+const PDFWrapper = ({ info, project, residents, client, premises }: PDFProps) => {
   const [state, setState] = useState(false);
 
   useEffect(() => {
@@ -21,14 +23,15 @@ const PDFWrapper = ({ info, project, residents, client }: PDFProps) => {
 
   return (
     <>
-      {/* <PDFViewer height={"900px"} width={"100%"} showToolbar={true}>
+      <PDFViewer height={"900px"} width={"100%"} showToolbar={true}>
         <ReactPDFFile
           info={info}
           project={project}
           residents={residents}
           client={client}
+          premises={premises}
         />
-      </PDFViewer> */}
+      </PDFViewer>
 
       {/* //? Button */}
       <PDFDownloadLink
@@ -39,6 +42,7 @@ const PDFWrapper = ({ info, project, residents, client }: PDFProps) => {
             project={project}
             residents={residents}
             client={client}
+            premises={premises}
           />
         }
         fileName="Техническое задание.pdf"
