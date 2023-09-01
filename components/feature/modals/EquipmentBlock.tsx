@@ -85,7 +85,7 @@ const EquipmentBlock = ({ project_id, title }: Props) => {
     <InfoBlock
       label="Оборудование"
       button={
-        <div className="space-y-4 pb-4 w-full">
+        <div className="w-full space-y-4 pb-4">
           <BasicMultiSelector
             type="creatable"
             label="Напольное покрытие"

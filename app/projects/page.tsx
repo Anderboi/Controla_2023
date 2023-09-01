@@ -35,7 +35,6 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
       <ContainerBox
         className="
-          //gap-y-6
           relative
           flex
           h-full

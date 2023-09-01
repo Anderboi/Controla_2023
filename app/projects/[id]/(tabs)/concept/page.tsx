@@ -20,7 +20,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="sm:w-12 sm:h-12 h-[30px] w-[30px]"
+                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
               >
                 <path
                   strokeLinecap="round"
@@ -71,7 +71,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="sm:w-12 sm:h-12 h-[30px] w-[30px]"
+                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
               >
                 <path
                   strokeLinecap="round"
@@ -122,7 +122,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="sm:w-12 sm:h-12 h-[30px] w-[30px]"
+                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
               >
                 <path
                   strokeLinecap="round"

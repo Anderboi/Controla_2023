@@ -33,10 +33,10 @@ const Modal = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-primary-bg-dark bg-opacity-75 " />
+            <div className="fixed inset-0 bg-primary-bg-dark/75" />
           </Transition.Child>
 
-          <div className="//overflow-y-auto fixed inset-0">
+          <div className="fixed inset-0">
             <div className="flex h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -49,9 +49,6 @@ const Modal = ({
               >
                 <Dialog.Panel
                   className="
-                    bg-white
-                    //p-6
-                    
                     relative
 
                     h-[80dvh]
@@ -71,8 +68,7 @@ const Modal = ({
                 >
                   <Dialog.Title
                     as="h3"
-                    className="
-                    //w-full 
+                    className=" 
                     sticky 
                     top-0
 
@@ -119,7 +115,7 @@ const Modal = ({
                     </p>
                   </div>
                   <div className="h-fit px-6 pt-6">{children}</div>
-                  <div className="//mt-4 sticky bottom-0 bg-elevated-1-bg-dark px-6 pb-6">
+                  <div className="sticky bottom-0 bg-elevated-1-bg-dark px-6 pb-6">
                     {button}
                   </div>
                 </Dialog.Panel>

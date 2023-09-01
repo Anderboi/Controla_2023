@@ -32,10 +32,11 @@ const SideModal = ({
             leaveTo="opacity-0"
           >
             <div
-              className="fixed 
-            inset-0 
-            bg-primary-bg-dark 
-            bg-opacity-75"
+              className="
+                fixed 
+                inset-0 
+                bg-primary-bg-dark/75
+                "
             />
           </Transition.Child>
 
@@ -87,13 +88,11 @@ const SideModal = ({
                     className="
                       sticky
                       top-0
-                      //z-10
 
                       bg-secondary-bg-dark
-                      px-6
-                      py-6
-
+                      p-6
                       text-2xl
+
                       font-bold
                       leading-6
                       text-primary-text-dark
@@ -133,8 +132,8 @@ const SideModal = ({
                   {/* //? Content */}
                   <div
                     className="
-                      px-6
                       space-y-6
+                      px-6
                       "
                   >
                     {children}

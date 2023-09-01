@@ -32,7 +32,6 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
       <AddContactButton
         id={data.id}
         className="
-          //z-20
           absolute
           left-1
           top-[-4px]

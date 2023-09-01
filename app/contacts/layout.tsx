@@ -28,7 +28,6 @@ const ContactsPage = async ({ children }: SearchProps) => {
       <Header title="Контакты" />
       <ContainerBox
         className="
-          //gap-y-6
           relative
           flex 
           h-full

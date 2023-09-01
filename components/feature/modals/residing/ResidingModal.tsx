@@ -33,11 +33,11 @@ const ResidingModal = () => {
           className="
             flex 
             flex-col
-            bg-elevated-1-bg-dark  
-            px-4 
+            divide-y-[1px]  
+            divide-primary-border-dark 
             rounded-lg 
-            divide-y-[1px] 
-            divide-primary-border-dark
+            bg-elevated-1-bg-dark 
+            px-4
             "
         >
           <div className="flex items-center justify-between py-4 text-secondary-text-dark">

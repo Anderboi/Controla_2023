@@ -102,7 +102,7 @@ const ReactPDFFile = ({
     <Document>
       <Page size="A4" style={styles.page} wrap>
         <Text style={styles.header}>Техническое задание (приложение №3)</Text>
-        //* Общие сведения
+        {/* //* Общие сведения */}
         <View style={styles.section}>
           <Text style={styles.subheader}>Общие сведения</Text>
 
@@ -119,7 +119,7 @@ const ReactPDFFile = ({
             </View>
           </View>
         </View>
-        //* Данные объекта
+        {/* //* Данные объекта */}
         <View style={styles.section}>
           <Text style={styles.subheader}>Данные объекта</Text>
 
@@ -152,12 +152,12 @@ const ReactPDFFile = ({
             </View>
           </View>
         </View>
-        //* Данные жильцов
+        {/* //* Данные жильцов */}
         <View style={styles.section}>
           <Text style={styles.subheader}>Данные жильцов</Text>
 
           <View style={styles.datatable}>
-            //* Heading
+            {/* //* Heading */}
             <View style={styles.tableRow}>
               <Text style={styles.extendedValue1}>Имя</Text>
 
@@ -169,7 +169,7 @@ const ReactPDFFile = ({
                 Увлечения / Ограничения
               </Text>
             </View>
-            //* Data
+            {/* //* Data */}
             {residents.map((person, index) => (
               <View key={index} style={styles.tableRow}>
                 <Text style={styles.extendedValue1}>{person.name}</Text>
@@ -184,7 +184,7 @@ const ReactPDFFile = ({
             ))}
           </View>
         </View>
-        //* Планировочная структура
+        {/* //* Планировочная структура */}
         <View style={styles.section} break>
           <Text style={styles.subheader}>Планировочная структура</Text>
 

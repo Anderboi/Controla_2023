@@ -12,12 +12,12 @@ const InfoBlock = ({ children, label, button }: InfoBlockProps) => {
       <span className="text-base text-primary-text-dark">{label}</span>
       <span
         className="
-          w-full
           flex
+          w-full
           flex-col
 
-          bg-elevated-1-bg-dark
           rounded-lg
+          bg-elevated-1-bg-dark
           px-4
           "
       >

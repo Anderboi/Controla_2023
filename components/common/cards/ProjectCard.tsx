@@ -122,10 +122,6 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         ) : (
           <div
             className="
-              //bg-gradient-to-b
-              //from-green-500
-              
-              //to-green-700
               h-full
 
               w-full
@@ -158,7 +154,6 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         </span>
         <p
           className="
-            //truncate
             line-clamp-2
             min-h-[2lh]
             text-xs

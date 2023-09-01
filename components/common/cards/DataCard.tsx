@@ -12,10 +12,6 @@ const DataCard = ({ illustration, isFilled, label, onClick }: Props) => {
   return (
     <div
       className="
-        //to-bg-elevated-1-bg-dark
-        //from-accent-dark/30
-        //to-15%
-        //hover:bg-gradient-to-l
         group
         flex
         cursor-pointer

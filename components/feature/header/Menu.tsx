@@ -14,9 +14,9 @@ const HeadlessMenu = () => {
           w-10
           items-center
           justify-center
+          rounded-full
           border-none
           bg-secondary-bg-dark
-          rounded-full
           `}
       >
         <svg

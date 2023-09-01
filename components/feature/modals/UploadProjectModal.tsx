@@ -387,7 +387,7 @@ const UploadProjectModal = () => {
               <div className="mt-4 flex text-sm leading-6 text-secondary-text-dark">
                 <label
                   htmlFor="file-upload"
-                  className="bg-white relative cursor-pointer rounded-md font-semibold text-accent-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-dark focus-within:ring-offset-2 hover:text-accent-light"
+                  className="bg-white-dark relative cursor-pointer rounded-md font-semibold text-accent-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-dark focus-within:ring-offset-2 hover:text-accent-light"
                 >
                   <span>Upload a file</span>
                   <input

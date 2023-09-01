@@ -31,23 +31,23 @@ const TabsBar = () => {
       <Tab.Group defaultIndex={0}>
         <Tab.List
           className="
-            hidden 
-            sm:grid
+            mb-6 
+            hidden
             grid-cols-5
-            text-center
+            items-center
             rounded-lg
             bg-elevated-1-bg-dark
             p-1
+            text-center
             text-sm
-            items-center
-            mb-6
+            sm:grid
             "
         >
           <Tab as={Fragment}>
             {({ selected }) => (
               <Link
                 href={"preProject"}
-                className={`rounded-md px-4 py-2 w-full  ${
+                className={`w-full rounded-md px-4 py-2  ${
                   selected
                     ? "bg-accent-dark text-primary-text-light"
                     : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
@@ -61,7 +61,7 @@ const TabsBar = () => {
             {({ selected }) => (
               <Link
                 href={"concept"}
-                className={`rounded-md px-4 py-2 h-full  ${
+                className={`h-full rounded-md px-4 py-2  ${
                   selected
                     ? "bg-accent-dark text-primary-text-light"
                     : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
@@ -75,7 +75,7 @@ const TabsBar = () => {
             {({ selected }) => (
               <Link
                 href={"schemas"}
-                className={`rounded-md px-4 py-2 h-full ${
+                className={`h-full rounded-md px-4 py-2 ${
                   selected
                     ? "bg-accent-dark text-primary-text-light"
                     : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
@@ -89,10 +89,10 @@ const TabsBar = () => {
             {({ selected }) => (
               <Link
                 href={"furnishing"}
-                className={`rounded-md px-4 py-2 h-full ${
+                className={`h-full rounded-md px-4 py-2 ${
                   selected
                     ? "bg-accent-dark text-primary-text-light"
-                    : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
+                    : "bg-white-dark text-secondary-text-dark hover:bg-elevated-2-bg-dark"
                 }`}
               >
                 Комплектация
@@ -103,10 +103,10 @@ const TabsBar = () => {
             {({ selected }) => (
               <Link
                 href={"construction"}
-                className={`rounded-md px-4 py-2 h-full place-self-center  ${
+                className={`h-full place-self-center rounded-md px-4 py-2  ${
                   selected
                     ? "bg-accent-dark text-primary-text-light"
-                    : "bg-white text-black text-secondary-text-dark hover:bg-elevated-2-bg-dark"
+                    : "bg-white-dark text-secondary-text-dark hover:bg-elevated-2-bg-dark"
                 }`}
               >
                 Строительство

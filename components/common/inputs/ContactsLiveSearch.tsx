@@ -64,8 +64,8 @@ const ContactsLiveSearch = () => {
             <Combobox.Label>Клиент: </Combobox.Label>
             <div
               className="
-                bg-white
-                focus-visible:ring-white
+                bg-white-dark
+                focus-visible:ring-white-dark
                 relative
                 w-full
                 cursor-default
@@ -110,7 +110,7 @@ const ContactsLiveSearch = () => {
             >
               <Combobox.Options
                 className={`
-                  ring-black
+                  ring-black-dark
                   absolute
                   z-50
                   mt-1
