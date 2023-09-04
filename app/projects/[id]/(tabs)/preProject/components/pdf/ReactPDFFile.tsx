@@ -9,10 +9,10 @@ import {
 } from "@react-pdf/renderer";
 import { PDFProps } from "./PDFWrapper";
 
-// Register font
+//* Register font
 Font.register({ family: "Inter-Regular", src: "/assets/Inter-Regular.ttf" });
 
-// Create styles
+//* Create styles
 const styles = StyleSheet.create({
   page: {
     display: "flex",
@@ -68,7 +68,11 @@ const styles = StyleSheet.create({
     borderBottom: "0.5px solid #dbdbdb",
     paddingBottom: 8,
   },
-  value: { width: "30%", paddingRight: 8 },
+  value: {
+    width: "30%",
+    paddingRight: 8,
+    // color: "#A3A3A3"
+  },
   label: { width: "70%" },
 
   extendedValue1: {
@@ -94,6 +98,7 @@ const ReactPDFFile = ({
   residents,
   client,
   premises,
+  engeneeringData,
 }: PDFProps) => {
   //@ts-ignore //TODO: remove
   const startDate = new Date(info.created_at).toLocaleDateString("ru-RU");
@@ -206,7 +211,7 @@ const ReactPDFFile = ({
                   <>
                     <Text key={index}>{`${index + 1} этаж`}</Text>
                     {premises
-                      .filter((room) => room.storey === index+1)
+                      .filter((room) => room.storey === index + 1)
                       .map((room, index) => (
                         <View key={index} style={styles.tableRow}>
                           <Text
@@ -219,6 +224,69 @@ const ReactPDFFile = ({
                 ))}
               </>
             )}
+          </View>
+        </View>
+        {/* //* Инженерные системы */}
+        <View style={styles.section}>
+          <Text style={styles.subheader}>Инженерные системы</Text>
+
+          <View style={styles.datatable}>
+            {/* //* Система отопления */}
+            <View style={styles.tableRow}>
+              <Text style={styles.value}>Система отопления:</Text>
+              <Text style={styles.label}>
+                {engeneeringData.heating
+                  ? `${engeneeringData.heating?.join(", ")}`
+                  : ""}
+              </Text>
+            </View>
+            {/* //* Система кондиционирования и вентиляции */}
+            <View style={styles.tableRow}>
+              <Text style={styles.value}>
+                Система кондиционирования и вентиляции:
+              </Text>
+              <Text style={styles.label}>
+                {engeneeringData.conditioning
+                  ? `${engeneeringData.conditioning?.join(", ")}`
+                  : ""}
+              </Text>
+            </View>
+            {/* //* Система водоподготовки и фильтрации */}
+            <View style={styles.tableRow}>
+              <Text style={styles.value}>
+                Система водоподготовки и фильтрации:
+              </Text>
+              <Text style={styles.label}>
+                {engeneeringData.plumbing
+                  ? `${engeneeringData.plumbing?.join(", ")}`
+                  : ""}
+              </Text>
+            </View>
+            {/* //* Слаботочные системы */}
+            <View style={styles.tableRow}>
+              <Text style={styles.value}>Слаботочные системы:</Text>
+              <Text style={styles.label}>
+                {engeneeringData.electric
+                  ? `${engeneeringData.electric?.join(", ")}`
+                  : ""}
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        {/* //* Комплектация сантехническим оборудованием*/}
+        <View style={styles.section}>
+          <Text style={styles.subheader}>
+            Комплектация сантехническим оборудованием
+          </Text>
+
+          <View style={styles.datatable}>
+            {premises.map((item, index) => (
+              <View key={index} style={styles.tableRow}>
+                <Text style={styles.value}>{item.name}</Text>
+                <Text style={styles.label}>{item.room_furnishing?.name}</Text>
+              </View>
+            ))}
           </View>
         </View>
       </Page>

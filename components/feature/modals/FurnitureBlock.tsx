@@ -71,7 +71,7 @@ const FurnitureBlock = ({ title, furniture, callback, room_number }: Props) => {
       button={
         furniture && furniture.length === 0 ? (
           <div className="inline-flex space-x-4 py-4">
-            <div className="w-full ">
+            <div className="w-full">
               <BasicMultiSelector
                 type="creatable"
                 content={roomType(title)}
