@@ -11,7 +11,27 @@ export interface PDFProps {
   info: Database["public"]["Tables"]["project_info"]["Row"];
   residents: Database["public"]["Tables"]["inhabitant_info"]["Row"][];
   client: any;
-  premises: Database["public"]["Tables"]["room_info"]["Row"][];
+  // premises: Database["public"]["Tables"]["room_info"]["Row"][];
+  premises: {
+    area: number | null;
+    furnishing: string | null;
+    name: string;
+    project_id: number;
+    room_number: number;
+    storey: number;
+    room_furnishing?: {
+      name: string;
+      room_number: number;
+      quantity: number;
+      brand: string;
+      materials: string[];
+      price: number;
+      link: string;
+      tech_spec: string;
+      isOrdered: boolean;
+      isDelivered: boolean;
+    };
+  }[];
   engeneeringData: Database["public"]["Tables"]["engeneering_data"]["Row"];
 }
 

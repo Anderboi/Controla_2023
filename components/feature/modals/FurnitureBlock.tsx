@@ -99,8 +99,8 @@ const FurnitureBlock = ({ title, furniture, callback, room_number }: Props) => {
               item.room_number === room_number && (
                 <InfoItem
                   key={item.id}
+                  title={`${item.quantity}` || "1"}
                   content={item.name || "name"}
-                  title={item.name || "name"}
                 />
               )
           )}

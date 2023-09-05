@@ -41,7 +41,7 @@ const EngeneeringModal = () => {
         isOpen={engModal.isOpen}
         onChange={onChange}
       >
-        <div
+        <section
           className="
             flex 
             flex-col 
@@ -53,7 +53,7 @@ const EngeneeringModal = () => {
             "
         >
           {engModal.data.map((item, index) => (
-            <div
+            <article
               key={index}
               className="flex items-center justify-between gap-3 py-4 text-secondary-text-dark"
             >
@@ -63,9 +63,9 @@ const EngeneeringModal = () => {
               <span>
                 <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
               </span>
-            </div>
+            </article>
           ))}
-        </div>
+        </section>
       </SideModal>
     );
   }

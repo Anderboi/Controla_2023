@@ -44,12 +44,9 @@ const EngeneeringSystemList = ({ data }: Props) => {
               className={twMerge(
                 `
                 fill-secondary-text-dark
-                w-16
-                h-16
+                //w-16
+                //h-16
                 transition-all
-                //sm:-translate-x-8
-                //sm:rotate-12
-                //sm:group-hover:-translate-x-4
                 `,
                 data &&
                   Object.entries(data).find(
@@ -61,7 +58,7 @@ const EngeneeringSystemList = ({ data }: Props) => {
             />
           }
         >
-          <span className="text-right [text-wrap:balance]">{label}</span>
+          <span className="//text-right [text-wrap:balance]">{label}</span>
         </GallaryDataCard>
       ))}
     </InfoDataGrid>
