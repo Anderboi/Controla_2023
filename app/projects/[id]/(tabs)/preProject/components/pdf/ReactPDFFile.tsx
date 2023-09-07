@@ -103,6 +103,9 @@ const ReactPDFFile = ({
   //@ts-ignore //TODO: remove
   const startDate = new Date(info.created_at).toLocaleDateString("ru-RU");
 
+
+  console.log(premises.map((premise)=>premise.room_furnishing?.name));
+  
   return (
     <Document>
       <Page size="A4" style={styles.page} wrap>

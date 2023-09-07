@@ -4,10 +4,18 @@ import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
 import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
 import AddIcon from "@/components/common/icons/AddIcon";
+import RangeSlider from '@/components/common/inputs/RangeSlider';
 
 const Concept = () => {
   return (
     <>
+      <RangeSlider
+        max={100000000}
+        min={100000}
+        step={10000}
+        initMax={25000000}
+        initMin={15000000}
+      />
       <ContentBlock title="Планировка">
         <InfoDataGrid>
           <GallaryDataCard

@@ -9,7 +9,7 @@ body,
   background-color: black;
   color-scheme: dark;
   font-size: 16px;
-  
+
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -56,8 +56,7 @@ body,
             focus:ring-accent-dark
             focus:border-accent-dark
             bg-elevated-2-bg-dark
-            placeholder:text-secondary-text-dark
-            
+            placeholder:text-secondary-text-dark;
   }
   [type="checkbox"],
   [type="radio"] {
@@ -67,4 +66,13 @@ body,
             focus:border-accent-dark
             text-accent-dark;
   }
+
+}
+input[type=range]::-webkit-slider-thumb {
+  pointer-events: auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  @apply bg-accent-dark;
 }
