@@ -11,27 +11,27 @@ export interface PDFProps {
   info: Database["public"]["Tables"]["project_info"]["Row"];
   residents: Database["public"]["Tables"]["inhabitant_info"]["Row"][];
   client: any;
-  // premises: Database["public"]["Tables"]["room_info"]["Row"][];
-  premises: {
-    area: number | null;
-    furnishing: string | null;
-    name: string;
-    project_id: number;
-    room_number: number;
-    storey: number;
-    room_furnishing?: {
-      name: string;
-      room_number: number;
-      quantity: number;
-      brand: string;
-      materials: string[];
-      price: number;
-      link: string;
-      tech_spec: string;
-      isOrdered: boolean;
-      isDelivered: boolean;
-    };
-  }[];
+  premises: Database["public"]["Tables"]["room_info"]["Row"][];
+  // premises: {
+  //   area: number | null;
+  //   furnishing: string | null;
+  //   name: string;
+  //   project_id: number;
+  //   room_number: number;
+  //   storey: number;
+  //   room_furnishing?: {
+  //     name: string;
+  //     room_number: number;
+  //     quantity: number;
+  //     brand: string;
+  //     materials: string[];
+  //     price: number;
+  //     link: string;
+  //     tech_spec: string;
+  //     isOrdered: boolean;
+  //     isDelivered: boolean;
+  //   };
+  // }[];
   engeneeringData: Database["public"]["Tables"]["engeneering_data"]["Row"];
 }
 
@@ -49,9 +49,12 @@ const PDFWrapper = ({
     setState(true);
   }, []);
 
+  
+
   return (
     <>
-      <PDFViewer height={"900px"} width={"100%"} showToolbar={true}>
+    {/* //! PDF Viewer, only for development purposes. Remove on deploy */}
+      {/* <PDFViewer height={"900px"} width={"100%"} showToolbar={true}>
         <ReactPDFFile
           info={info}
           project={project}
@@ -60,7 +63,7 @@ const PDFWrapper = ({
           premises={premises}
           engeneeringData={engeneeringData}
         />
-      </PDFViewer>
+      </PDFViewer> */}
 
       {/* //? Button */}
       <PDFDownloadLink

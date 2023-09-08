@@ -103,8 +103,7 @@ const ReactPDFFile = ({
   //@ts-ignore //TODO: remove
   const startDate = new Date(info.created_at).toLocaleDateString("ru-RU");
 
-
-  console.log(premises.map((premise)=>premise.room_furnishing?.name));
+console.log(premises);
   
   return (
     <Document>
@@ -287,7 +286,7 @@ const ReactPDFFile = ({
             {premises.map((item, index) => (
               <View key={index} style={styles.tableRow}>
                 <Text style={styles.value}>{item.name}</Text>
-                <Text style={styles.label}>{item.room_furnishing?.name}</Text>
+                {/* <Text style={styles.label}>{item.room_furnishing?.name}</Text> */}
               </View>
             ))}
           </View>

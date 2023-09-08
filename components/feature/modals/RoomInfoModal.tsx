@@ -25,6 +25,10 @@ const RoomInfoModal = () => {
 
   const project_id = roomModal.data?.project_id;
 
+  const furnitureBlockCallback = () => {
+
+  }
+
   const onSubmit = async () => {
     
     if (!furnitureList) {
@@ -46,21 +50,39 @@ const RoomInfoModal = () => {
       })
     );
 
-    const { data, error } = await supabase
+    const { data: furnishingData, error: furnishingError } = await supabase
       .from("room_furnishing")
       .insert(array)
       .select();
 
-    if (error) {
-      return toast.error(error.message);
+    if (furnishingError) {
+      return toast.error(furnishingError.message);
     }
 
-    if (!error && data) {
+    if (!furnishingError && furnishingData) {
       toast.success("Success");
       //TODO: add useState for furnData, show selector on empty, data on full
-      roomModal.onClose()
+      roomModal.onClose();
       router.refresh();
     }
+
+
+
+    // if (furnishingData) {
+
+    //   console.log(`'success' : ${furnishingData}`);
+      
+    //   const { error: infoError } = await supabase
+    //     .from("room_info")
+    //     .update({ furnishing: furnishingData })
+    //     .eq("project_id", project_id)
+    //     .eq("room_number", roomModal.data?.room_number);
+
+    //   if (infoError) {
+    //     return toast.error(infoError.message);
+    //   }
+
+    // }
   };
 
   const onChange = (open: boolean) => {
@@ -77,7 +99,7 @@ const RoomInfoModal = () => {
     >
       <FurnitureBlock
         title={roomModal.data?.name}
-        furniture={roomModal.furniture}
+        furniture={roomModal.furniture} 
         room_number={roomModal.data.room_number}
         callback={setFurnitureList}
       />

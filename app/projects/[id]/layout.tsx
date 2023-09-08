@@ -1,10 +1,8 @@
 import React from "react";
-import getCurrntProject from "@/actions/getCurrentProject";
 import Header from "@/components/feature/header/Header";
 import ContainerBox from "@/components/common/ContainerBox";
 import TabsBar from "@/components/common/TabsBar";
-import ContentBlock from "@/components/common/ContentBlock";
-import Image from "next/image";
+import getCurrntProject from "@/actions/getCurrentProject";
 
 export const revalidate = 0;
 
@@ -23,7 +21,6 @@ const ProjectPage = async ({
       <section
         className="
           flex
-          
           w-full
           flex-col
           gap-y-2
@@ -45,8 +42,9 @@ const ProjectPage = async ({
           <div className="flex flex-col gap-y-6">{children}</div>
         </ContainerBox>
       </section>
+
       {/*//? experimental side block */} 
-      {/* //TODO */}
+      {/* //TODO: Решить, нужен ли блок с инфой */}
       {/* <aside className="w-[500px] pl-2 max-xl:hidden xl:flex">
         <ContainerBox className="h-full w-full">
           <ContentBlock title="Команда">

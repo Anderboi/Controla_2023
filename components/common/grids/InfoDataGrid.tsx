@@ -20,7 +20,7 @@ const InfoDataGrid = ({ children }: InfoDataGridProps) => {
         max-sm:px-4
 
         sm:inline-flex
-        sm:gap-3
+        sm:gap-4
         sm:divide-none
         sm:bg-transparent
         "

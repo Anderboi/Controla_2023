@@ -10,7 +10,7 @@ const getRoomInfo = async (id: number): Promise<Database['public']['Tables']['ro
 
   const { data, error } = await supabase
     .from("room_furnishing")
-    .select("*")
+    .select(`*, room_furnishing(name)`)
     .eq("project_id", id)
     .select();
     

@@ -9,13 +9,6 @@ import RangeSlider from '@/components/common/inputs/RangeSlider';
 const Concept = () => {
   return (
     <>
-      <RangeSlider
-        max={100000000}
-        min={100000}
-        step={10000}
-        initMax={25000000}
-        initMin={15000000}
-      />
       <ContentBlock title="Планировка">
         <InfoDataGrid>
           <GallaryDataCard

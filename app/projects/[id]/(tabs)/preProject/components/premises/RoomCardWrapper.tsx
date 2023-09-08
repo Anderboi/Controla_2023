@@ -9,15 +9,15 @@ interface RoomCardProps {
 
 const RoomCardWrapper = async ({data}: RoomCardProps) => {
 
-const furniture = await getRoomEquipment(data.project_id)
+const furniture = await getRoomEquipment(data.project_id, data.room_number)
 
-const currentRoomData = furniture.filter(
-  (item) => item.room_number === data.room_number
-); 
+// const currentRoomData = furniture.filter(
+//   (item) => item.room_number === data.room_number
+// ); 
 
   return (
     <>
-      <RoomCard data={data} furniture={currentRoomData} />
+      <RoomCard data={data} furniture={furniture} />
     </>
   );
 };
