@@ -1,5 +1,4 @@
 import React from "react";
-import Checkbox from "../inputs/Checkbox";
 import { twMerge } from 'tailwind-merge';
 
 interface CheckDataCardProps {
@@ -43,7 +42,7 @@ const CheckDataCard = ({
       )}
     >
       <div className="flex h-5 w-5 items-center">
-        <Checkbox
+        <input type='checkbox'
           onChange={onChange}
           value={value}
           name={name}

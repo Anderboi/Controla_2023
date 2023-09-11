@@ -4,6 +4,7 @@ import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
 import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
 import Accordion from "@/components/common/InfoBlock/Accordion";
+import CheckboxGroup from '@/components/common/inputs/CheckboxGroup';
 
 const Schemas = () => {
   return (
@@ -11,34 +12,15 @@ const Schemas = () => {
       <ContentBlock title="Схемы">
         <article className="space-y-4">
           <Accordion title="Обмерный план">
-            <section className="space-x-4 flex items-center justify-between">
-              <label htmlFor="01">sdasd</label>
-              <input type="checkbox" name="01" id="01" />
-            </section>
-            <section className="space-x-4 flex items-center justify-between">
-              <label htmlFor="02">sdasd</label>
-              <input type="checkbox" name="02" id="02" />
-            </section>
-            <section className="space-x-4 flex items-center justify-between">
-              <label htmlFor="03">sdasd</label>
-              <input type="checkbox" name="03" id="03" />
-            </section>
-            <section className="space-x-4 flex items-center justify-between">
-              <label htmlFor="04">sdasd</label>
-              <input type="checkbox" name="04" id="04" />
-            </section>
+            <CheckboxGroup name="001">Demolition 01</CheckboxGroup>
           </Accordion>
           <Accordion title="Схема демонтажа конструкций">
-            <section className="space-x-4 flex items-center justify-between">
-              <label htmlFor="01">sdasd</label>
-              <input type="checkbox" name="01" id="01" />
-            </section>
+            <CheckboxGroup name="0011">Demolition 01</CheckboxGroup>
+            <CheckboxGroup name="0012">Demolition 02</CheckboxGroup>
+            <CheckboxGroup name="0013">Demolition 03</CheckboxGroup>
           </Accordion>
           <Accordion title="Кладочный план">
-            <section className="space-x-4 flex items-center justify-between">
-              <label htmlFor="01">sdasd</label>
-              <input type="checkbox" name="01" id="01" />
-            </section>
+            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
           </Accordion>
           <Accordion title="Схема расстановки мебели и оборудования">
             <section className="space-x-4 flex items-center justify-between">

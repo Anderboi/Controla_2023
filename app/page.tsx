@@ -1,5 +1,4 @@
 import ContainerBox from "@/components/common/ContainerBox";
-import Image from "next/image";
 
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
