@@ -7,16 +7,11 @@ import ResidingInfoBlock from "./components/residents/ResidingInfoBlock";
 import PDFBlock from './components/pdf/PDFBlock';
 
 import getCurrntProject from "@/actions/getCurrentProject";
-// import getProjectInfo from "@/actions/getProjectInfo";
-// import getResidentsInfo from "@/actions/getResidentsInfo";
-// import PDFWrapper from "./components/pdf/PDFWrapper";
 
 const PreProject = async ({ params }: { params: { id: number } }) => {
   const projectId = params.id;
 
   const project = await getCurrntProject(projectId);
-  // const info = await getProjectInfo(id);
-  // const residingInfo = await getResidentsInfo(id);
 
   return (
     <>

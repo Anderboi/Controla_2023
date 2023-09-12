@@ -1,7 +1,7 @@
 "use client";
 
-import { Disclosure } from "@headlessui/react";
 import React from "react";
+import { Disclosure } from "@headlessui/react";
 
 interface Props {
   children: React.ReactNode;
@@ -16,8 +16,7 @@ const Accordion = ({ children, title }: Props) => {
           <Disclosure.Button
             className={`
               bg-elevated-1-bg-dark
-              p-4 
-              //rounded-lg
+              p-4
               w-full
               flex
               justify-between

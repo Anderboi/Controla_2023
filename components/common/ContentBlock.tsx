@@ -42,11 +42,11 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
           </Disclosure.Button>
           <Transition
             enter="transition duration-100 ease-out"
-            enterFrom="transform opacity-0 scale-y-0"
+            enterFrom="transform opacity-0"
             enterTo="transform opacity-100"
             leave="transition duration-100 ease-out"
             leaveFrom="transform opacity-100"
-            leaveTo="transform opacity-0 scale-y-0"
+            leaveTo="transform opacity-0"
           >
             <Disclosure.Panel>{children}</Disclosure.Panel>
           </Transition>

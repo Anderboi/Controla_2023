@@ -5,6 +5,7 @@ import SideModal from "@/components/common/SideModalHeadless";
 import FurnitureBlock from "./FurnitureBlock";
 
 import useRoomInfoModal from "@/hooks/useRoomInfoModal";
+import { shallow } from "zustand/shallow";
 import { useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
@@ -12,25 +13,30 @@ import toast from "react-hot-toast";
 import Button from "@/components/common/inputs/Button";
 
 const RoomInfoModal = () => {
-  const roomModal = useRoomInfoModal();
+  const { roomData, isOpen, onClose, furniture, title } = useRoomInfoModal(
+    (state) => ({
+      roomData: state.data,
+      isOpen: state.isOpen,
+      onClose: state.onClose,
+      furniture: state.furniture,
+      title: state.title,
+    }),
+    shallow
+  );
   const router = useRouter();
   const supabase = useSupabaseClient();
 
   const [furnitureList, setFurnitureList] = useState([]);
 
-
-  if (!roomModal.data) {
+  if (!roomData) {
     return;
   }
 
-  const project_id = roomModal.data?.project_id;
+  const project_id = roomData?.project_id;
 
-  const furnitureBlockCallback = () => {
-
-  }
+  const furnitureBlockCallback = () => {};
 
   const onSubmit = async () => {
-    
     if (!furnitureList) {
       return;
     }
@@ -46,7 +52,7 @@ const RoomInfoModal = () => {
         link: null,
         isDelivered: false,
         isOrdered: false,
-        room_number: roomModal.data?.room_number,
+        room_number: roomData?.room_number,
       })
     );
 
@@ -62,45 +68,23 @@ const RoomInfoModal = () => {
     if (!furnishingError && furnishingData) {
       toast.success("Success");
       //TODO: add useState for furnData, show selector on empty, data on full
-      roomModal.onClose();
+      onClose();
       router.refresh();
     }
-
-
-
-    // if (furnishingData) {
-
-    //   console.log(`'success' : ${furnishingData}`);
-      
-    //   const { error: infoError } = await supabase
-    //     .from("room_info")
-    //     .update({ furnishing: furnishingData })
-    //     .eq("project_id", project_id)
-    //     .eq("room_number", roomModal.data?.room_number);
-
-    //   if (infoError) {
-    //     return toast.error(infoError.message);
-    //   }
-
-    // }
   };
 
   const onChange = (open: boolean) => {
     if (!open) {
-      roomModal.onClose();
+      onClose();
     }
   };
 
   return (
-    <SideModal
-      isOpen={roomModal.isOpen}
-      title={roomModal.title}
-      onChange={onChange}
-    >
+    <SideModal isOpen={isOpen} title={title} onChange={onChange}>
       <FurnitureBlock
-        title={roomModal.data?.name}
-        furniture={roomModal.furniture} 
-        room_number={roomModal.data.room_number}
+        title={roomData?.name}
+        furniture={furniture}
+        room_number={roomData.room_number}
         callback={setFurnitureList}
       />
       {/* <EquipmentBlock project_id={project_id} /> */}

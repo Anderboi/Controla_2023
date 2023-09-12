@@ -469,6 +469,31 @@ export interface Database {
           }
         ]
       }
+      working_stage: {
+        Row: {
+          id: number
+          project_id: number | null
+          todo_list: Json | null
+        }
+        Insert: {
+          id?: number
+          project_id?: number | null
+          todo_list?: Json | null
+        }
+        Update: {
+          id?: number
+          project_id?: number | null
+          todo_list?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "working_stage_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "projects"
+            referencedColumns: ["project_id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never
