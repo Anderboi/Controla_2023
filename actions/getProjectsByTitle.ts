@@ -27,7 +27,7 @@ const getProjectsByTitle = async (
 
   const { data, error } = await supabase
     .from("projects")
-    .select("*")
+    .select('*, users( * )')
     // .eq("user_id", sessionData.session?.user.id)
     .or(
       `user_id.eq.${sessionData.session?.user.id},client_id.eq.${sessionData.session?.user.id}`

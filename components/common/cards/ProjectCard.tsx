@@ -16,6 +16,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
+  console.log(data);
+
   const route = useRouter();
   const imagePath = useLoadImage(data.cover_img, "project");
 
@@ -46,7 +48,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         }
       }
       toast.success("Проект удален");
-      route.refresh()
+      route.refresh();
     }
   };
 
@@ -93,7 +95,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           "
         handleClick={handleRemove}
       />
-      <div
+      <section
         className="
           //md:saturate-0
           relative
@@ -130,14 +132,14 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
               "
           ></div>
         )}
-      </div>
-      <div
+      </section>
+      <section
         className="
           flex 
           w-full
           flex-col
-          items-start 
-          justify-center 
+          items-start
+          justify-center
           gap-y-1
           "
       >
@@ -155,7 +157,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         <p
           className="
             line-clamp-2
-            min-h-[2lh]
+            //min-h-[2lh]
             text-xs
             text-secondary-text-dark
             md:text-sm
@@ -164,7 +166,19 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           <span className="font-bold">Площадь: </span>
           {`${data.area} кв.м.`}
         </p>
-      </div>
+        <p
+          className="
+            line-clamp-1
+            //min-h-[2lh]
+            text-xs
+            text-secondary-text-dark
+            md:text-sm
+            "
+        >
+          {/* //TODO: add created by user name */}
+          {`${data.user_id ? data.user_id : "User"}`}
+        </p>
+      </section>
     </div>
   );
 };

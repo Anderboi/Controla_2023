@@ -16,6 +16,7 @@ import Modal from "@/components/common/Modal";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import AsyncSelectContactComponent from "@/components/common/inputs/AsyncSelectContactComponent";
 import { twMerge } from "tailwind-merge";
+import { schemaData } from "@/lib/workingStageSupabaseFillRows";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -52,7 +53,7 @@ const UploadProjectModal = () => {
   //   }
   // };
 
-  //? Confirm on closing or misclicking
+  //? Confirm on closing or missclicking
   const handleClose = () => {
     const isConfirmed = confirm(
       `Are you sure you want to close window? All your data will be lost.`
@@ -143,6 +144,16 @@ const UploadProjectModal = () => {
 
         if (engeneeringError) {
           return toast.error(engeneeringError.message);
+        }
+
+        // ? fill set of checkpoints for working stage page
+        const wsData = schemaData(projectData.project_id);
+        const { error: schemasError } = await supabaseClient
+          .from("working_stage")
+          .insert(wsData);
+
+        if (schemasError) {
+          return toast.error(schemasError.message);
         }
       }
 

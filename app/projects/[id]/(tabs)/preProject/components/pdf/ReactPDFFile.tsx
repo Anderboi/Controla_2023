@@ -102,8 +102,6 @@ const ReactPDFFile = ({
 }: PDFProps) => {
   //@ts-ignore //TODO: remove
   const startDate = new Date(info.created_at).toLocaleDateString("ru-RU");
-
-console.log(premises);
   
   return (
     <Document>

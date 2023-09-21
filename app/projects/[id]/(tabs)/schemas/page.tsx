@@ -3,60 +3,98 @@ import ContentBlock from "@/components/common/ContentBlock";
 import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
 import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
-import Accordion from "@/components/common/InfoBlock/Accordion";
-import CheckboxGroup from "@/components/common/inputs/CheckboxGroup";
-import DimmensionsBlock from './components/DimmensionsBlock';
-import DemolitionBlock from './components/DemolitionBlock';
+import ProjectSheetBlock from "./components/ProjectSheetBlock";
+import getProjectSchemaData from "@/actions/getProjectSchemaData";
 
-const Schemas = () => {
+const Schemas = async ({ params }: { params: { id: number } }) => {
+  const projectId = params.id;
+  const projectTasks = await getProjectSchemaData(projectId);
+
   return (
     <>
       <ContentBlock title="Схемы">
         <article className="space-y-4">
-          <DimmensionsBlock/>
-          <DemolitionBlock/>
-          <Accordion title="Кладочный план">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема расстановки мебели и оборудования">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="План потолков">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема размещения напольного покрытия">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема размещения контура тёплого пола">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема размещения потолочных осветительных приборов">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема электрокоммуникаций с привязками">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема привязки электровыводов">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема управления освещением">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема расположения приборов кондиционирования и вентиляции">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема расположения сантехнического оборудования">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема расположения межкомнатных дверей">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Схема маркировки разверток">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
-          <Accordion title="Развертки помещений">
-            <CheckboxGroup name="0021">Demolition 01</CheckboxGroup>
-          </Accordion>
+          <ProjectSheetBlock
+            data={projectTasks.filter((item) => item.sheet === "Обмерный план")}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема демонтажа конструкций"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Кладочный план"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема расстановки мебели и оборудования"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter((item) => item.sheet === "План потолков")}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема размещения напольного покрытия"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема размещения контура тёплого пола"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) =>
+                item.sheet ===
+                "Схема размещения потолочных осветительных приборов"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема электрокоммуникаций с привязками"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема привязки электровыводов"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема управления освещением"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) =>
+                item.sheet ===
+                "Схема расположения приборов кондиционирования и вентиляции"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) =>
+                item.sheet === "Схема расположения сантехнического оборудования"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема расположения межкомнатных дверей"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Схема маркировки разверток"
+            )}
+          />
+          <ProjectSheetBlock
+            data={projectTasks.filter(
+              (item) => item.sheet === "Развертки помещений"
+            )}
+          />
         </article>
       </ContentBlock>
 

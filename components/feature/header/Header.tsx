@@ -70,9 +70,9 @@ const Header = ({
         <HeaderNavBlock />
 
         {/*//? right button block */}
-        <div className="z-30 flex sm:hidden">
+        <div className="z-30 flex //sm:hidden">
           {adjustableButton}
-          <HeadlessMenu />
+          <HeadlessMenu/>
           {/* <BurgerMenu /> */}
         </div>
       </div>

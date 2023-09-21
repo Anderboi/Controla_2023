@@ -6,9 +6,10 @@ import { Disclosure } from "@headlessui/react";
 interface Props {
   children: React.ReactNode;
   title: string;
+  amount: string;
 }
 
-const Accordion = ({ children, title }: Props) => {
+const Accordion = ({ amount, children, title }: Props) => {
   return (
     <Disclosure>
       {({ open }) => (
@@ -24,7 +25,9 @@ const Accordion = ({ children, title }: Props) => {
               ${open ? "rounded-tl-lg rounded-tr-lg" : "rounded-lg"}`}
           >
             <span className="text-left">{title}</span>
-            <span className="text-right w-2/4 text-secondary-text-dark">00 / 02</span>
+            <span className="text-right w-2/4 text-secondary-text-dark">
+              {amount}
+            </span>
           </Disclosure.Button>
           <Disclosure.Panel
             className="

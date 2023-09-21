@@ -471,19 +471,28 @@ export interface Database {
       }
       working_stage: {
         Row: {
+          description: string | null
           id: number
-          project_id: number | null
-          todo_list: Json | null
+          isDone: boolean
+          project_id: number
+          sheet: string
+          task_name: string
         }
         Insert: {
+          description?: string | null
           id?: number
-          project_id?: number | null
-          todo_list?: Json | null
+          isDone?: boolean
+          project_id: number
+          sheet: string
+          task_name: string
         }
         Update: {
+          description?: string | null
           id?: number
-          project_id?: number | null
-          todo_list?: Json | null
+          isDone?: boolean
+          project_id?: number
+          sheet?: string
+          task_name?: string
         }
         Relationships: [
           {
