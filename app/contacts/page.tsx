@@ -13,7 +13,6 @@ const ContactsPage = async ({ searchParams }: SearchProps) => {
 
   return (
     <>
-      
       <ContactsGallary contacts={contacts} />
     </>
   );

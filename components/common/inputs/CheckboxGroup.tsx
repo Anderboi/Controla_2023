@@ -8,6 +8,7 @@ interface CheckboxGroupProps {
   checked?: boolean;
   taskId: number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onRemove: () => void;
 }
 
 const CheckboxGroup = ({
@@ -15,6 +16,7 @@ const CheckboxGroup = ({
   name,
   checked,
   onChange,
+  onRemove,
   taskId,
 }: CheckboxGroupProps) => {
   const [state, setState] = useState(checked);
@@ -50,6 +52,8 @@ const CheckboxGroup = ({
             hover:text-accent-dark
             "
           />
+          <button onClick={onRemove}>
+
           <DeleteIcon
             className="
             h-4
@@ -60,6 +64,7 @@ const CheckboxGroup = ({
             hover:text-red-600
             "
           />
+          </button>
         </div>
       </label>
     </section>

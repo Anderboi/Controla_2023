@@ -21,7 +21,6 @@ const ProjectSheetBlock = ({ data }: DataType) => {
 
   const supabaseClient = useSupabaseClient();
 
-
   //! Add new task
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
@@ -43,7 +42,7 @@ const ProjectSheetBlock = ({ data }: DataType) => {
     }
   };
 
-  //! Handle checkbox
+  //! Handle checkbox check
   const handleCheckboxChange = async (
     e: React.ChangeEvent<HTMLInputElement>,
     taskId: number
@@ -63,6 +62,24 @@ const ProjectSheetBlock = ({ data }: DataType) => {
     }
   };
 
+  //! Handle checkbox delete
+  const handleRemove = async (taskId: number) => {
+    const isConfirmed = confirm(`Are you sure you want to remove`);
+
+    if (isConfirmed) {
+      const { data, error } = await supabaseClient
+        .from("working_stage")
+        .delete()
+        .eq("id", taskId);
+
+      if (error) {
+        toast.error(error?.message);
+      }
+      toast.success("Пункт удален");
+      router.refresh();
+    }
+  };
+
   return (
     <Accordion
       title={data[0].sheet}
@@ -78,6 +95,7 @@ const ProjectSheetBlock = ({ data }: DataType) => {
             key={id}
             checked={isDone}
             onChange={(e) => handleCheckboxChange(e, id)}
+            onRemove={() => handleRemove(id)}
           >
             {task_name}
           </CheckboxGroup>

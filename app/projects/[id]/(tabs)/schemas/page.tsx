@@ -12,6 +12,7 @@ const Schemas = async ({ params }: { params: { id: number } }) => {
 
   return (
     <>
+      {/* //? Схемы */}
       <ContentBlock title="Схемы">
         <article className="space-y-4">
           <ProjectSheetBlock
@@ -97,7 +98,6 @@ const Schemas = async ({ params }: { params: { id: number } }) => {
           />
         </article>
       </ContentBlock>
-
       {/* //? Спецификации */}
       <ContentBlock title="Спецификации">
         <InfoDataGrid>
