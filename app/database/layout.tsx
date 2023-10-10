@@ -1,6 +1,7 @@
 import React from "react";
 import ContainerBox from "@/components/common/ContainerBox";
 import Header from "@/components/feature/header/Header";
+import AddDataButton from '@/components/feature/header/AddDataButton';
 
 export const revalidate = 0;
 
@@ -11,7 +12,7 @@ interface DataProps {
 const DatabasePage = ({ children }: DataProps) => {
   return (
     <>
-      <Header title="База данных" />
+      <Header title="База данных" adjustableButton={<AddDataButton />} />
       <ContainerBox
         className="
           relative

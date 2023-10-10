@@ -7,6 +7,7 @@ import AuthModal from "@/components/feature/modals/AuthModal";
 import EngeneeringModal from '@/components/feature/modals/engeneering/EngeneeringModal';
 import RoomInfoModal from "@/components/feature/modals/RoomInfoModal";
 import ResidingModal from '@/components/feature/modals/residing/ResidingModal';
+import UploadDataModal from '@/components/feature/modals/UploadDataModal';
 
 const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -26,6 +27,7 @@ const ModalProvider = () => {
       <EngeneeringModal />
       <RoomInfoModal />
       <ResidingModal />
+      <UploadDataModal/>
     </>
   );
 };

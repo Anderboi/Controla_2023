@@ -2,22 +2,20 @@
 
 import React from "react";
 import Button from "../../common/inputs/Button";
-import useAuthModal from "@/hooks/useAuthModal";
-import { useUser } from "@/hooks/useUser";
-import useUploadModal from "@/hooks/useUploadModal";
+// import useAuthModal from "@/hooks/useAuthModal";
+// import { useUser } from "@/hooks/useUser";
 import { MdOutlineAdd } from "react-icons/md";
+import useUploadDataModal from '@/hooks/useUploadDataModal';
 
-const AddProjectButton = () => {
-  const authModal = useAuthModal();
-  const { user } = useUser();
-  const uploadModal = useUploadModal();
+const AddDataButton = () => {
+  // const authModal = useAuthModal();
+  // const { user } = useUser();
+  const uploadModal = useUploadDataModal();
 
   const onClick = () => {
-    if (!user) {
-      return authModal.onOpen();
-    }
-
-    //TODO: check for subscription
+    // if (!user) {
+    //   return authModal.onOpen();
+    // }
 
     return uploadModal.onOpen();
   };
@@ -34,4 +32,4 @@ const AddProjectButton = () => {
   );
 };
 
-export default AddProjectButton;
+export default AddDataButton;

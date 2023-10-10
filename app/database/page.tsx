@@ -1,8 +1,7 @@
+import React from "react";
 import ContainerBox from "@/components/common/ContainerBox";
 import ContentBlock from "@/components/common/ContentBlock";
-import ProjectCard from "@/components/common/cards/ProjectCard";
 import GallaryGrid from "@/components/common/grids/GallaryGrid";
-import React from "react";
 
 const page = () => {
   return (
