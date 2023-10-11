@@ -40,6 +40,45 @@ export interface Database {
           }
         ]
       }
+      database: {
+        Row: {
+          address: string | null
+          created_at: string
+          description: string | null
+          has_models: boolean
+          id: number
+          name: string
+          phone: string | null
+          price_range: string
+          type: string
+          url: string | null
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string
+          description?: string | null
+          has_models?: boolean
+          id?: number
+          name: string
+          phone?: string | null
+          price_range?: string
+          type: string
+          url?: string | null
+        }
+        Update: {
+          address?: string | null
+          created_at?: string
+          description?: string | null
+          has_models?: boolean
+          id?: number
+          name?: string
+          phone?: string | null
+          price_range?: string
+          type?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
       engeneering_data: {
         Row: {
           conditioning: string[] | null
