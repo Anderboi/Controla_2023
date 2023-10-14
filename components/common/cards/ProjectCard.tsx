@@ -70,6 +70,9 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         sm:p-4
         sm:hover:bg-elevated-2-bg-dark
         md:gap-y-4
+        transition
+        ease-in-out
+        duration-500
         "
     >
       <FavouriteButton
@@ -80,8 +83,8 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           left-1
           top-[-4px]
           z-10
-          sm:left-6
-          sm:top-4
+          sm:left-5
+          sm:top-3
           "
       />
       <RemoveButton
@@ -90,8 +93,8 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           right-1
           top-[-4px]
           z-10
-          sm:right-6
-          sm:top-4
+          sm:right-5
+          sm:top-3
           "
         handleClick={handleRemove}
       />
@@ -113,7 +116,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
             src={imagePath}
             alt="cover"
             className="
-              aspect-square 
+              aspect-square
               object-cover
               "
             fill
@@ -125,9 +128,8 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           <div
             className="
               h-full
-
               w-full
-              bg-gradient-to-br 
+              bg-gradient-to-br
               from-accent-dark/50
               "
           ></div>

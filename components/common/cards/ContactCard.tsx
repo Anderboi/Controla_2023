@@ -26,7 +26,10 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         sm:p-4
         sm:hover:bg-elevated-2-bg-dark
         md:gap-y-4
-              "
+        transition
+        ease-in-out
+        duration-500
+        "
       onClick={() => onClick(data.id)}
     >
       <AddContactButton
@@ -35,8 +38,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           absolute
           left-1
           top-[-4px]
-          sm:left-3
-          sm:top-2
+          sm:left-2
+          sm:top-1
           "
       />
 
@@ -48,10 +51,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           w-full
           overflow-hidden
           rounded-lg
-          group-hover:saturate-100
           md:drop-shadow-spt
-          md:saturate-0
-      "
+          "
       >
         <Image
           alt="avatar"
@@ -71,7 +72,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           flex
           w-full
           flex-col
-          items-center
+          items-start
           justify-center
           gap-y-1
           "
@@ -79,12 +80,12 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         <p
           className="
             line-clamp-1 
-            font-semibold
+            font-bold
             "
         >
           {data.full_name}
         </p>
-        <p className="text-sm font-thin">{data.role}</p>
+        <p className="text-sm font-thin text-secondary-text-dark">{data.role}</p>
         {/* <p
           className="
           truncate
