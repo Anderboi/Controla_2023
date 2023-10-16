@@ -142,7 +142,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           flex-col
           items-start
           justify-center
-          gap-y-1
+          gap-y-2
           "
       >
         <span
@@ -162,7 +162,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
             //min-h-[2lh]
             text-xs
             text-secondary-text-dark
-            md:text-sm
+            md:text-[13px]
             "
         >
           <span className="font-bold">Площадь: </span>
@@ -174,7 +174,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
             //min-h-[2lh]
             text-xs
             text-secondary-text-dark
-            md:text-sm
+            md:text-[13px]
             "
         >
           {/* //TODO: add created by user name */}

@@ -2,6 +2,8 @@ import React from "react";
 import getContactsByTitle from "@/actions/getContactsByTitle";
 import ContactsGallary from "./components/ContactsGallary";
 
+export const revalidate = 0;
+
 interface SearchProps {
   searchParams: {
     title: string;

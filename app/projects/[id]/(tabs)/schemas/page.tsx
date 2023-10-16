@@ -6,6 +6,8 @@ import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
 import ProjectSheetBlock from "./components/ProjectSheetBlock";
 import getProjectSchemaData from "@/actions/getProjectSchemaData";
 
+export const revalidate = 0;
+
 const Schemas = async ({ params }: { params: { id: number } }) => {
   const projectId = params.id;
   const projectTasks = await getProjectSchemaData(projectId);

@@ -40,7 +40,9 @@ const TabsBar = () => {
           onChange={(i) => route.push(i.target.value)}
         >
           {stages.map((stage, index) => (
-            <option key={index} value={stage.value}>{stage.label}</option>
+            <option key={index} value={stage.value}>
+              {stage.label}
+            </option>
           ))}
         </select>
       </div>
@@ -55,7 +57,7 @@ const TabsBar = () => {
             bg-elevated-1-bg-dark
             p-1
             text-center
-            text-sm
+            text-[13px]
             sm:grid
             "
         >

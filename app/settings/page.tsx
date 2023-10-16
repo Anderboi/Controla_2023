@@ -6,6 +6,8 @@ import { cookies } from "next/headers";
 import SignOutBlock from './components/SignOutBlock';
 import ContainerBox from '@/components/common/ContainerBox';
 
+export const revalidate = 0;
+
 const SettingsPage = async () => {
   const supabase = createServerComponentClient({ cookies });
   const {

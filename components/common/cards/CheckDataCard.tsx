@@ -29,7 +29,8 @@ const CheckDataCard = ({
         justify-start
         items-start
         gap-4
-        p-6
+        px-6
+        py-4
         rounded-lg
         border
         border-primary-border-dark
@@ -50,7 +51,7 @@ const CheckDataCard = ({
           checked={isChecked}
         />
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
         <p className="line-clamp-2 text-sm text-primary-text-dark">{value}</p>
         <p className="line-clamp-4 text-xs text-secondary-text-dark">
           {description}

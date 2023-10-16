@@ -8,10 +8,12 @@ import PDFBlock from './components/pdf/PDFBlock';
 
 import getCurrntProject from "@/actions/getCurrentProject";
 
+export const revalidate = 0;
+
 const PreProject = async ({ params }: { params: { id: number } }) => {
   const projectId = params.id;
 
-  const project = await getCurrntProject(projectId);
+  const project = await getCurrntProject(projectId); 
 
   return (
     <>

@@ -21,13 +21,13 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
                 text-start
                 text-lg
                 font-bold
-                sm:text-xl
+                sm:text-lg
                 "
             >
               {title}
             </h2>
-            <div className="flex items-center justify-center gap-3 ">
-              <EditIcon className=" cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark" />
+            <div className="flex items-center justify-center gap-3">
+              <EditIcon className="cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark" />
               <ChevronRightIcon
                 type="down"
                 className={`
