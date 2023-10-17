@@ -24,6 +24,7 @@ const EngeneeringSystemList = ({ data }: Props) => {
     //@ts-ignore
     engModal.onOpen(type, data[type]); //TODO: fix this data[type]
   };
+  
   return (
     <InfoDataGrid>
       {engSystems.map(({ name, label }, index) => (

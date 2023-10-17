@@ -1,21 +1,42 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import ContentBlock from "@/components/common/ContentBlock";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
 import AddResidentBlock from "./AddResidentBlock";
-import getResidentsInfo from "@/actions/getResidentsInfo";
 import ResidingCard from "./ResidingCard";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 interface ResidingInfoBlockProps {
-  projectId: number;
+  residents: any[];
 }
 
-const ResidingInfoBlock = async ({ projectId }: ResidingInfoBlockProps) => {
-  const residents = await getResidentsInfo(projectId);
+const ResidingInfoBlock = ({ residents }: ResidingInfoBlockProps) => {
+  const supabase = useSupabaseClient();
+
+  const [people, setPeople] = useState(residents);
+
+  useEffect(() => {
+    const channel = supabase
+      .channel("realtime resident data")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "inhabitant_info" },
+        (payload) => {
+          setPeople([...people, payload.new]);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [supabase]);
   return (
     <ContentBlock title="Информация о проживающих">
       <InfoDataGrid>
         <AddResidentBlock />
-        {residents.map((resident, index) => (
+        {people.map((resident, index) => (
           <ResidingCard key={index} resident={resident} />
         ))}
       </InfoDataGrid>

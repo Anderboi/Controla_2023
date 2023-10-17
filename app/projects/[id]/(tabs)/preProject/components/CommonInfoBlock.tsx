@@ -11,6 +11,8 @@ interface BlockProps {
   project: Database["public"]["Tables"]["projects"]["Row"];
 }
 
+export const revalidate = 0;
+
 const CommonInfoBlock = async ({ project }: BlockProps) => {
   const projectInfo = await getProjectInfo(project.project_id);
 

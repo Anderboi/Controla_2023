@@ -12,7 +12,7 @@ interface ContentBlockProps {
 
 const ContentBlock = ({ title, children }: ContentBlockProps) => {
   return (
-    <Disclosure>
+    <Disclosure defaultOpen>
       {({ open }) => (
         <section className="transition ease-in-out delay-50">
           <Disclosure.Button className="flex justify-between pb-2 w-full">

@@ -16,7 +16,6 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
-  console.log(data);
 
   const route = useRouter();
   const imagePath = useLoadImage(data.cover_img, "project");
