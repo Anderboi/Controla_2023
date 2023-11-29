@@ -88,6 +88,11 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
             w-full
             "
         >
+          <input
+            name="rooms"
+            list="rooms"
+            className="w-full bg-transparent rounded-lg"
+          />
           <BasicMultiSelector
             isMulti
             type="creatable"

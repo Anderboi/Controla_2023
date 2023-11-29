@@ -38,6 +38,8 @@ const favouriteProjects = await getFavouriteProjects();
       <div className="flex flex-col gap-y-4">
         <Navigation navLinks={secondaryRoutes} />
       </div>
+      {/* <button className='bg-slate-50 text-black-dark'>Light</button>
+      <button>Dark</button> */}
     </ContainerBox>
   );
 };
