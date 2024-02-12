@@ -12,6 +12,14 @@ body,
 
   -webkit-tap-highlight-color: transparent;
 }
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="dark"] {
+    --color-bg: red;
+  }
+}
+:root[data-theme="light"] {
+  --color-bg: #fdfdfd;
+}
 
 @layer utilities {
   @variants responsive {
@@ -66,9 +74,8 @@ body,
             focus:border-accent-dark
             text-accent-dark;
   }
-
 }
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   pointer-events: auto;
   width: 24px;
   height: 24px;

@@ -8,8 +8,8 @@ import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
 
 import HeaderNavBlock from "./HeaderNavBlock";
-import BurgerMenu from "./BurgerMenu";
-import HeadlessMenu from './Menu';
+import HeadlessMenu from "./Menu";
+import ThemeSwitcher from "../sidebar/ThemeSwitcher";
 
 interface HeaderProps {
   title: string;
@@ -36,6 +36,8 @@ const Header = ({
     <ContainerBox
       className={twMerge(
         `
+        md:pt-4
+        pt-12
         relative
         flex
         flex-col
@@ -68,12 +70,11 @@ const Header = ({
       >
         {/*//? left button block */}
         <HeaderNavBlock />
-
         {/*//? right button block */}
-        <div className="z-30 flex //sm:hidden">
+        <div className="z-30 flex //sm:hidden gap-2">
           {adjustableButton}
-          <HeadlessMenu/>
-          {/* <BurgerMenu /> */}
+          <ThemeSwitcher/>
+          <HeadlessMenu />
         </div>
       </div>
       <div

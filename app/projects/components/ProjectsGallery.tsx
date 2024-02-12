@@ -21,7 +21,7 @@ const ProjectsGallery = async ({ projects }: ProjectsGalleryProps) => {
   if (!data) {
     return;
   }
-  const favouriteProjects = data.map((item) => item.project_id);
+  const favoriteProjects = data.map((item) => item.project_id);
 
   if (projects.length === 0) {
     return <CreateNewProjectBlock />;
@@ -31,7 +31,7 @@ const ProjectsGallery = async ({ projects }: ProjectsGalleryProps) => {
     <GallaryGrid>
       {projects.map((project) => (
         <ProjectCard
-          isFavourite={favouriteProjects.includes(project.project_id)}
+          isFavourite={favoriteProjects.includes(project.project_id)}
           key={project.project_id}
           data={project}
         />

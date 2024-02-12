@@ -19,7 +19,7 @@ const Sidebar = () => {
         w-[90px]
         flex-col
         gap-y-2
-        bg-primary-bg-dark
+        bg-primary-bg
         py-2
         pl-2
         sm:flex

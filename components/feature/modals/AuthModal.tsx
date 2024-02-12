@@ -19,13 +19,12 @@ const AuthModal = () => {
 
   useEffect(() => {
     if (session) {
-      // router.refresh();
       router.push("/projects");
       onClose();
     }
   }, [session, router, onClose]);
 
-  const onChange = (open: boolean) => {
+  const handleModalChange = (open: boolean) => {
     if (!open) {
       onClose();
     }
@@ -36,7 +35,7 @@ const AuthModal = () => {
       title="Войдите в аккаунт."
       description="Авторизуйтесь чтобы продолжить"
       isOpen={isOpen}
-      onChange={onChange}
+      onChange={handleModalChange}
     >
       <Auth
         supabaseClient={supabaseClient}

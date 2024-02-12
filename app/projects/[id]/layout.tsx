@@ -36,58 +36,11 @@ const ProjectPage = async ({
           addressDetails={project?.address_city || ""}
           startDate={project.created_at || ""}
         />
-
         <ContainerBox className="h-fit">
           <TabsBar />
           <div className="flex flex-col gap-y-6">{children}</div>
         </ContainerBox>
       </section>
-
-      {/*//? experimental side block */} 
-      {/* //TODO: Решить, нужен ли блок с инфой */}
-      {/* <aside className="w-[500px] pl-2 max-xl:hidden xl:flex">
-        <ContainerBox className="h-full w-full">
-          <ContentBlock title="Команда">
-            <div className="space-y-2">
-              <div className="bg-elevated-1-bg-dark rounded-lg p-2 flex space-x-2">
-                <Image
-                  src="/favicon.svg"
-                  alt="avatar"
-                  width={24}
-                  height={24}
-                  className="text-white-dark fill-white-dark"
-                />
-                <div className="flex justify-between items-center w-full">
-                  <span>Andrei U</span>
-                  <span className="text-xs text-secondary-text-dark pr-2">
-                    Designer
-                  </span>
-                </div>
-              </div>
-              <div className="bg-elevated-1-bg-dark rounded-lg p-2 flex space-x-2">
-                <Image
-                  src="/favicon.svg"
-                  alt="avatar"
-                  width={24}
-                  height={24}
-                  className="text-white-dark fill-white-dark"
-                />
-                <span>Andrei U</span>
-              </div>
-              <div className="bg-elevated-1-bg-dark rounded-lg p-2 flex space-x-2">
-                <Image
-                  src="/favicon.svg"
-                  alt="avatar"
-                  width={24}
-                  height={24}
-                  className="text-white-dark fill-white-dark"
-                />
-                <span>Andrei U</span>
-              </div>
-            </div>
-          </ContentBlock>
-        </ContainerBox>
-      </aside> */}
     </div>
   );
 };

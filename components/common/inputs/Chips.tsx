@@ -53,7 +53,7 @@ const Chips = ({
         text-base
         `,
         isActive &&
-          "border-primary-text-dark text-primary-bg-dark bg-primary-text-dark font-bold",
+          "border-primary-text-dark text-primary-bg bg-primary-text-dark font-bold",
         type === "sm" && "text-xs",
         type === "md" && "text-sm",
         type === "lg" && "text-base",

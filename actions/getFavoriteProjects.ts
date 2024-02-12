@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 import { Database } from "@/types/supabase";
 
-const getFavouriteProjects = async (): Promise<
+const getFavoriteProjects = async (): Promise<
   Database["public"]["Tables"]["projects"]["Row"][] | null
 > => {
   const supabase = createServerComponentClient({
@@ -43,4 +43,4 @@ const getFavouriteProjects = async (): Promise<
   }));
 };
 
-export default getFavouriteProjects;
+export default getFavoriteProjects;

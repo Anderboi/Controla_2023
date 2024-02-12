@@ -3,12 +3,14 @@ import FavouriteContent from "./FavouriteContent";
 import ContainerBox from "@/components/common/ContainerBox";
 import Navigation from "./Navigation";
 import { secondaryRoutes } from "@/lib/navRoutes";
-import getFavouriteProjects from '@/actions/getFavouriteProjects';
+import getFavoriteProjects from '@/actions/getFavoriteProjects';
+import ThemeSwitcher from './ThemeSwitcher';
+
 
 export const revalidate = 0;
 
 const SidebarMiddleSection = async () => {
-const favouriteProjects = await getFavouriteProjects();
+const favoriteProjects = await getFavoriteProjects();
 
   return (
     <ContainerBox
@@ -34,12 +36,12 @@ const favouriteProjects = await getFavouriteProjects();
       >
         Избранное
       </span>
-      <FavouriteContent projects={favouriteProjects} />
+      <FavouriteContent projects={favoriteProjects} />
       <div className="flex flex-col gap-y-4">
         <Navigation navLinks={secondaryRoutes} />
       </div>
-      {/* <button className='bg-slate-50 text-black-dark'>Light</button>
-      <button>Dark</button> */}
+      <ThemeSwitcher/>
+      
     </ContainerBox>
   );
 };

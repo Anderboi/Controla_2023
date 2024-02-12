@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="ru">
       <body
         className={twMerge(
-          `flex bg-primary-bg-dark h-[100dvh] relative`,
+          `flex bg-primary-bg h-[100dvh] relative`,
           font.className
         )}
       >

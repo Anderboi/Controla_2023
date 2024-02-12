@@ -1,8 +1,8 @@
 "use client";
 
-import useAuthModal from "@/hooks/useAuthModal";
 import React from "react";
 import Button from "../common/inputs/Button";
+import useAuthModal from "@/hooks/useAuthModal";
 
 const SignInBlock = () => {
   const authModal = useAuthModal();

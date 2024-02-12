@@ -1,9 +1,9 @@
 import ContainerBox from "@/components/common/ContainerBox";
+import SignInBlock from "@/components/feature/SignInBlock";
 
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import SignInBlock from "@/components/feature/SignInBlock";
 import { MainLogo } from "@/components/common/illustrations/brand/Logo";
 
 const Home = async () => {

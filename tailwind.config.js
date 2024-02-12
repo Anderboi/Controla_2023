@@ -2,7 +2,7 @@ const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  // darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,7 +15,7 @@ module.exports = {
         current: "currentColor",
         white: { dark: "#fff" },
         black: { dark: "#000" },
-        "primary-bg": { dark: "#000", light: "#fff" },
+        "primary-bg": "hsl(var(--color-bg) / <alpha-value>)",
         "secondary-bg": { dark: "#121212", light: "#F7F7F7" },
         "elevated-1-bg": { dark: "#181818" },
         "elevated-2-bg": { dark: "#282828" },

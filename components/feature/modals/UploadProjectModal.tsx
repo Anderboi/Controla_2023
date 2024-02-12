@@ -46,17 +46,10 @@ const UploadProjectModal = () => {
     },
   });
 
-  // const onChange = (open: boolean) => {
-  //   if (!open) {
-  //     reset();
-  //     uploadModal.onClose();
-  //   }
-  // };
-
   //? Confirm on closing or missclicking
   const handleClose = () => {
     const isConfirmed = confirm(
-      `Are you sure you want to close window? All your data will be lost.`
+      `Вы уверены что хотите закрыть окно? Все данные будут потеряны.`
     );
 
     if (isConfirmed) {
@@ -77,7 +70,6 @@ const UploadProjectModal = () => {
       }
 
       const uniqId = uniqid();
-
       const streetAddress = `${values.address_street} ${values.building} / ${values.room_number}`;
 
       //* Upload projectImage if it exists
@@ -188,7 +180,7 @@ const UploadProjectModal = () => {
       >
         <div>
           <label
-            className="block text-sm font-medium"
+            className="block text-sm font-medium text-secondary-text-dark"
             htmlFor="address_country"
           >
             Страна
@@ -201,7 +193,7 @@ const UploadProjectModal = () => {
             {...register("address_country", { required: true, minLength: 3 })}
             placeholder="Укажите страну"
             className={twMerge(
-              errors.address_country && `border-red-500 ring-red-500`
+              errors.address_country && `border-red-500 ring-red-500`, ` placeholder:text-xs`
             )}
           />
           {/* <small
@@ -214,7 +206,10 @@ const UploadProjectModal = () => {
           </small> */}
         </div>
         <div>
-          <label className="block text-sm font-medium" htmlFor="address_city">
+          <label
+            className="block text-sm font-medium text-secondary-text-dark"
+            htmlFor="address_city"
+          >
             Город
           </label>
           <input
@@ -238,7 +233,10 @@ const UploadProjectModal = () => {
           </small> */}
         </div>
         <div>
-          <label className="block text-sm font-medium" htmlFor="address_street">
+          <label
+            className="block text-sm font-medium text-secondary-text-dark"
+            htmlFor="address_street"
+          >
             Улица
           </label>
           <input
@@ -265,7 +263,10 @@ const UploadProjectModal = () => {
         </div>
         <div className="flex gap-4">
           <div>
-            <label className="block text-sm font-medium" htmlFor="building">
+            <label
+              className="block text-sm font-medium text-secondary-text-dark"
+              htmlFor="building"
+            >
               Дом
             </label>
             <input
@@ -281,8 +282,11 @@ const UploadProjectModal = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium" htmlFor="room_number">
-              Квартира
+            <label
+              className="block text-sm font-medium text-secondary-text-dark"
+              htmlFor="room_number"
+            >
+              Кв.
             </label>
             <input
               type="number"
@@ -295,7 +299,10 @@ const UploadProjectModal = () => {
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium" htmlFor="area">
+          <label
+            className="block text-sm font-medium text-secondary-text-dark"
+            htmlFor="area"
+          >
             Площадь
           </label>
           <input
@@ -316,7 +323,10 @@ const UploadProjectModal = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium" htmlFor="residing">
+          <label
+            className="block text-sm font-medium text-secondary-text-dark"
+            htmlFor="residing"
+          >
             Проживающих
           </label>
           <input
@@ -330,7 +340,10 @@ const UploadProjectModal = () => {
           />
         </div>
         <div>
-          <label htmlFor="purpose" className="block text-sm font-medium">
+          <label
+            htmlFor="purpose"
+            className="block text-sm font-medium text-secondary-text-dark"
+          >
             Назначнение
           </label>
           <select id="purpose" {...register("purpose", { required: false })}>
@@ -340,7 +353,10 @@ const UploadProjectModal = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="storeys" className="block text-sm font-medium">
+          <label
+            htmlFor="storeys"
+            className="block text-sm font-medium text-secondary-text-dark"
+          >
             Этажность
           </label>
           <select id="storeys" {...register("storeys", { required: false })}>
@@ -353,13 +369,19 @@ const UploadProjectModal = () => {
 
         {/* //? Selector Components Block */}
         <div className="col-span-2">
-          <label htmlFor="client_id" className="block text-sm font-medium">
+          <label
+            htmlFor="client_id"
+            className="block text-sm font-medium text-secondary-text-dark"
+          >
             Клиент
           </label>
           <AsyncSelectContactComponent control={control} name="client_id" />
         </div>
         <div className="col-span-2">
-          <label htmlFor="client_id" className="block text-sm font-medium">
+          <label
+            htmlFor="client_id"
+            className="block text-sm font-medium text-secondary-text-dark"
+          >
             Команда
           </label>
           <AsyncSelectContactComponent
@@ -373,7 +395,7 @@ const UploadProjectModal = () => {
         <div className="col-span-2">
           <label
             htmlFor="cover-photo"
-            className="block text-sm font-medium leading-6 text-primary-text-dark"
+            className="block text-sm font-medium leading-6 text-secondary-text-dark "
           >
             Загрузите обложку проекта (Не обязательно)
           </label>
@@ -422,7 +444,7 @@ const UploadProjectModal = () => {
           type="submit"
           mode="action"
           size="small"
-          className="sticky bottom-6 col-span-2 mt-4"
+          className="sticky bottom-6 col-span-2 mt-4 bg-accent-dark text-primary-text-light text-md"
         >
           Создать
         </Button>
