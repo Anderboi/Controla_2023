@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter, Comfortaa, IBM_Plex_Sans } from "next/font/google";
+import { Inter, Comfortaa, IBM_Plex_Sans, Rubik } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
 import Sidebar from "@/components/feature/sidebar/Sidebar";
@@ -9,8 +9,10 @@ import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
 import ToasterProvider from "@/providers/ToasterProvider";
 
-const font = Comfortaa({
+const font = Rubik({
   subsets: ["cyrillic"],
+
+  // weight: ["400", "700"],
 });
 
 export const metadata = {

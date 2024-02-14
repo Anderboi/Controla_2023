@@ -180,7 +180,7 @@ const UploadProjectModal = () => {
       >
         <div>
           <label
-            className="block text-sm font-medium text-secondary-text-dark"
+            className="block text-sm font-medium leading-6 text-secondary-text-dark"
             htmlFor="address_country"
           >
             Страна
@@ -193,7 +193,8 @@ const UploadProjectModal = () => {
             {...register("address_country", { required: true, minLength: 3 })}
             placeholder="Укажите страну"
             className={twMerge(
-              errors.address_country && `border-red-500 ring-red-500`, ` placeholder:text-xs`
+              errors.address_country && `border-red-500 ring-red-500`,
+              `block flex-1 border-0 bg-elevated-2-bg-dark py-1.5 px-3 focus:ring-1 sm:text-sm sm:leading-6 placeholder:text-xs`
             )}
           />
           {/* <small
