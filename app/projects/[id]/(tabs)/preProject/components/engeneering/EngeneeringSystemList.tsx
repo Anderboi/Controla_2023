@@ -53,7 +53,7 @@ const EngeneeringSystemList = ({ data }: Props) => {
                   Object.entries(data).find(
                     ([key, value]) => key === name
                   )?.[1] !== null
-                  ? "fill-accent-dark"
+                  ? "fill-accent-light dark:fill-accent-dark"
                   : "fill-primary-border-dark"
               )}
             />

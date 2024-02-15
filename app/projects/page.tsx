@@ -33,7 +33,6 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
     <>
       {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
-      {/* <div className='px-5 py-1 text-xl'>Проекты</div> */}
 
       <ContainerBox
         className="

@@ -65,9 +65,9 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         gap-y-3
         overflow-hidden
         sm:rounded-lg
-        sm:bg-elevated-1-bg-dark
+        sm:dark:bg-elevated-1-bg-dark
         sm:p-4
-        sm:hover:bg-elevated-2-bg-dark
+        sm:hover:dark:bg-elevated-2-bg-dark
         md:gap-y-4
         transition
         ease-in-out
@@ -129,7 +129,8 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
               h-full
               w-full
               bg-gradient-to-br
-              from-accent-dark/50
+              from-accent-light/50
+              dark:from-accent-dark/50
               "
           ></div>
         )}
@@ -141,7 +142,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           flex-col
           items-start
           justify-center
-          gap-y-2
+          gap-y-1
           "
       >
         <span
@@ -149,8 +150,9 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
             line-clamp-1
             w-full
             text-sm
-            font-bold
             md:text-base
+            text-primary-text-light
+            dark:text-primary-text-dark
             "
         >
           {data.address_street}
@@ -160,24 +162,13 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
             line-clamp-2
             //min-h-[2lh]
             text-xs
-            text-secondary-text-dark
+            text-secondary-text-light
+            dark:text-secondary-text-dark
             md:text-[13px]
             "
         >
           <span className="font-bold">Площадь: </span>
           {`${data.area} кв.м.`}
-        </p>
-        <p
-          className="
-            line-clamp-1
-            //min-h-[2lh]
-            text-xs
-            text-secondary-text-dark
-            md:text-[13px]
-            "
-        >
-          {/* //TODO: add created by user name */}
-          {`${data.user_id ? data.user_id : "User"}`}
         </p>
       </section>
     </div>

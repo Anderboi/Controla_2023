@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { twMerge } from "tailwind-merge";
 import useLoadImage from "@/hooks/useLoadImage";
 
@@ -9,7 +8,6 @@ import Image from "next/image";
 
 import HeaderNavBlock from "./HeaderNavBlock";
 import HeadlessMenu from "./Menu";
-import ThemeSwitcher from "../sidebar/ThemeSwitcher";
 
 interface HeaderProps {
   title: string;
@@ -50,8 +48,10 @@ const Header = ({
           `
           relative
           bg-gradient-to-b
-          from-secondary-text-dark
+          from-secondary-text-light
+          dark:from-secondary-text-dark
           to-elevated-2-bg-dark
+          dark:to-elevated-2-bg-dark
           //h-[330px]
           //top-[-250px]
           //sticky
@@ -71,9 +71,15 @@ const Header = ({
         {/*//? left button block */}
         <HeaderNavBlock />
         {/*//? right button block */}
-        <div className="z-30 flex //sm:hidden gap-2">
+        <div className="
+          z-30 
+          flex 
+          //sm:hidden 
+          gap-2 
+          text-secondary-text-light 
+          dark:text-secondary-text-dark
+          ">
           {adjustableButton}
-          <ThemeSwitcher/>
           <HeadlessMenu />
         </div>
       </div>
@@ -89,7 +95,7 @@ const Header = ({
           text-left
           text-xs 
           font-bold 
-          text-primary-text-dark/90  
+          text-primary-text-dark/90
           md:text-xl
           "
         >
@@ -105,6 +111,8 @@ const Header = ({
             tracking-tighter
             sm:text-[5vw]/[5vw]
             md:line-clamp-2
+            text-primary-text-light
+            dark:text-primary-text-dark
           "
         >
           {title}
@@ -114,7 +122,8 @@ const Header = ({
             text-left 
             text-sm 
             font-bold 
-            text-primary-text-dark/90
+            text-primary-text-light/90
+            dark:text-primary-text-dark/90
         "
         >
           {addressDetails}
@@ -124,7 +133,8 @@ const Header = ({
             text-left 
             text-xs 
             font-bold 
-            text-primary-text-dark/90
+            text-primary-text-light/90
+            dark:text-primary-text-dark/90
           "
         >
           {startDate && Date.parse(startDate)}

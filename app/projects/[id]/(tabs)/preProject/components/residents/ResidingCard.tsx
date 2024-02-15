@@ -26,7 +26,7 @@ const ResidingCard = ({ resident }: ResidingCardProps) => {
   return (
     <GallaryDataCard
       size="md"
-      illustration={<VscPerson className="text-accent-dark" />}
+      illustration={<VscPerson className="text-accent-light dark:text-accent-dark" />}
       actionIcon={
         <ChevronRightIcon type="right" className="text-secondary-text-dark" />
       }

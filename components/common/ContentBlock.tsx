@@ -27,13 +27,15 @@ const ContentBlock = ({ title, children }: ContentBlockProps) => {
               {title}
             </h2>
             <div className="flex items-center justify-center gap-3">
-              <EditIcon className="cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark" />
+              <EditIcon className="cursor-pointer text-secondary-text-dark sm:hover:text-accent-light sm:hover:dark:text-accent-dark" />
               <ChevronRightIcon
                 type="down"
                 className={`
                 cursor-pointer 
-                text-secondary-text-dark 
-                sm:hover:text-accent-dark
+                text-secondary-text-light
+                dark:text-secondary-text-dark 
+                sm:hover:text-accent-light
+                dark:sm:hover:text-accent-dark
                 transition ease-in-out delay-50
                 transform
                 ${open && "rotate-180"}`}

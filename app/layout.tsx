@@ -29,7 +29,11 @@ export default function RootLayout({
     <html lang="ru">
       <body
         className={twMerge(
-          `flex bg-primary-bg h-[100dvh] relative`,
+          `flex 
+          bg-primary-bg-light
+          dark:bg-primary-bg-dark 
+          h-[100dvh] 
+          relative`,
           font.className
         )}
       >
@@ -49,7 +53,8 @@ export default function RootLayout({
                   overflow-auto
                   scroll-smooth
                   rounded-lg
-                  bg-primary-bg-dark
+                  bg-primary-bg-light
+                  dark:bg-primary-bg-dark
                   p-2
                   no-scrollbar
                   "

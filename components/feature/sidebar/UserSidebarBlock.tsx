@@ -3,12 +3,9 @@
 import React from "react";
 import Avatar from "../../common/Avatar";
 import Button from "@/components/common/inputs/Button";
-// import { toast } from "react-hot-toast";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
-// import { useRouter } from "next/navigation";
-// import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 import { IoChevronUp } from "react-icons/io5";
 import ContainerBox from "@/components/common/ContainerBox";
@@ -48,10 +45,10 @@ const UserSidebarBlock = () => {
           />
           <div className="hidden w-full content-center items-center justify-between lg:flex">
             <div className=" flex-1 flex-col justify-between ">
-              <span className="line-clamp-1 font-bold">
+              <span className="line-clamp-1 font-bold text-primary-text-light dark:text-primary-text-dark">
                 {user.user_metadata.full_name || "User"}
               </span>
-              <div className="text-xs leading-5 text-secondary-text-dark">
+              <div className="text-xs leading-5 text-secondary-text-light dark:text-secondary-text-dark ">
                 {user.email}
               </div>
             </div>

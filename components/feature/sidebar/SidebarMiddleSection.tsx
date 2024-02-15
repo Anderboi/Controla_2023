@@ -30,7 +30,8 @@ const favoriteProjects = await getFavoriteProjects();
         hidden
         text-xs
         font-bold
-        text-secondary-text-dark
+        text-secondary-text-light
+        dark:text-secondary-text-dark
         lg:flex
         "
       >
