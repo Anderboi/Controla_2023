@@ -41,8 +41,7 @@ const favoriteProjects = await getFavoriteProjects();
       <div className="flex flex-col gap-y-4">
         <Navigation navLinks={secondaryRoutes} />
       </div>
-      <ThemeSwitcher/>
-      
+      {/* <ThemeSwitcher/> */}
     </ContainerBox>
   );
 };

@@ -19,7 +19,8 @@ const ContainerBox = ({
     <div
       className={twMerge(
         `
-        bg-secondary-bg-dark
+        bg-secondary-bg-light
+        dark:bg-secondary-bg-dark
         p-4
         rounded-lg
         `,

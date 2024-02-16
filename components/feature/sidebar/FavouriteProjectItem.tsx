@@ -21,15 +21,17 @@ const FavouriteProjectItem = ({ data, onClick }: FavouriteProjectItemProps) => {
       <div
         className="
           group
-          line-clamp-2
+          truncate
           hidden
           cursor-pointer
+          items-center
           justify-start
           gap-4
           break-all
           rounded-md
-          text-sm
+          text-base
           text-primary-text-dark
+          dark:text-primary-text-dark
           hover:bg-transparent-bg-dark/10
           sm:flex
           lg:p-2

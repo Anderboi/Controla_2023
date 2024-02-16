@@ -62,11 +62,13 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         flex-col
         items-center
         justify-center
-        gap-y-3
+        gap-y-2
         overflow-hidden
         sm:rounded-lg
         sm:dark:bg-elevated-1-bg-dark
+        pb-2
         sm:p-4
+        sm:pb-8
         sm:hover:dark:bg-elevated-2-bg-dark
         md:gap-y-4
         transition
@@ -147,10 +149,9 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
       >
         <span
           className="
-            line-clamp-1
+            truncate
             w-full
-            text-sm
-            md:text-base
+            text-base
             text-primary-text-light
             dark:text-primary-text-dark
             "
@@ -159,15 +160,17 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         </span>
         <p
           className="
-            line-clamp-2
+            truncate
             //min-h-[2lh]
-            text-xs
-            text-secondary-text-light
-            dark:text-secondary-text-dark
+            text-sm
+            font-normal
+            leading-3
+            text-tertiary-text-light-text-light
+            dark:text-tertiary-text-dark
             md:text-[13px]
             "
         >
-          <span className="font-bold">Площадь: </span>
+          <span className="font-normal">Площадь: </span>
           {`${data.area} кв.м.`}
         </p>
       </section>

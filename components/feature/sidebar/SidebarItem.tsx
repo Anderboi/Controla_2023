@@ -32,23 +32,25 @@ const SidebarItem = ({
         flex-row
         items-center
         justify-center
-        h-auto
         w-full
         gap-x-4
-        py-2
-        text-md
+        py-1
+        min-h-[48px]
+        cursor-pointer
+        text-xl
         font-semibold
-        text-secondary-text-dark
         hover:text-primary-text-dark
         transition
         `,
-        route === href ? `text-primary-text-dark` : "text-secondary-text-dark"
+        route === href
+          ? `dark:text-primary-text-dark text-primary-text-light`
+          : "dark:text-secondary-text-dark text-secondary-text-light"
       )}
     >
       {route === href ? activeIcon : icon}
       <p
         className={twMerge(
-          `truncate w-full `,
+          `truncate w-full`,
           isInBurger ? "flex" : "hidden lg:flex"
         )}
       >

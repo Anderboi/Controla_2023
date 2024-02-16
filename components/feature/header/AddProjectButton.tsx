@@ -6,11 +6,13 @@ import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { MdOutlineAdd } from "react-icons/md";
+import { useRouter } from 'next/navigation';
 
 const AddProjectButton = () => {
   const authModal = useAuthModal();
   const { user } = useUser();
   const uploadModal = useUploadModal();
+  const router = useRouter()
 
   const onClick = () => {
     if (!user) {
@@ -27,7 +29,8 @@ const AddProjectButton = () => {
       mode="ghost"
       corner="round"
       className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark"
-      onClick={onClick}
+      onClick={() => router.push("projects/createproject/step1")}
+      // onClick={onClick}
     >
       <MdOutlineAdd fontSize={24} />
     </Button>

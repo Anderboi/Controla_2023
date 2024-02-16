@@ -95,7 +95,8 @@ const Header = ({
           text-left
           text-xs 
           font-bold 
-          text-primary-text-dark/90
+          text-primary-text-light/90
+          dark:text-primary-text-dark/90
           md:text-xl
           "
         >
