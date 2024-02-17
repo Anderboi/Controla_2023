@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import FavouriteButton from "../../feature/FavouriteButton";
 import { Database } from "@/types/supabase";

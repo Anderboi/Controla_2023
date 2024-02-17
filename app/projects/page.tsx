@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "@/components/feature/header/Header";
 import ContainerBox from "@/components/common/ContainerBox";
 import ProjectsGallery from "./components/ProjectsGallery";

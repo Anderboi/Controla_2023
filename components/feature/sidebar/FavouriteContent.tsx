@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import FavouriteProjectItem from "./FavouriteProjectItem";
 
 import { useUser } from "@/hooks/useUser";

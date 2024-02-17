@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import ContainerBox from "../../common/ContainerBox";
 import Navigation from "./Navigation";

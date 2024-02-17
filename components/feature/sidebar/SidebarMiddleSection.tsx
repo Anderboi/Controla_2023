@@ -1,10 +1,8 @@
-import React from "react";
 import FavouriteContent from "./FavouriteContent";
 import ContainerBox from "@/components/common/ContainerBox";
 import Navigation from "./Navigation";
 import { secondaryRoutes } from "@/lib/navRoutes";
 import getFavoriteProjects from '@/actions/getFavoriteProjects';
-import ThemeSwitcher from './ThemeSwitcher';
 
 
 export const revalidate = 0;
@@ -41,7 +39,6 @@ const favoriteProjects = await getFavoriteProjects();
       <div className="flex flex-col gap-y-4">
         <Navigation navLinks={secondaryRoutes} />
       </div>
-      {/* <ThemeSwitcher/> */}
     </ContainerBox>
   );
 };

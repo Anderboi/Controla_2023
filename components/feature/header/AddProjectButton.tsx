@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
 import Button from "../../common/inputs/Button";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { MdOutlineAdd } from "react-icons/md";
 import { useRouter } from 'next/navigation';
+import { Plus } from 'lucide-react';
 
 const AddProjectButton = () => {
   const authModal = useAuthModal();
@@ -28,11 +28,11 @@ const AddProjectButton = () => {
     <Button
       mode="ghost"
       corner="round"
-      className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark"
+      className="flex min-w-[48px] min-h-[48px] items-center justify-center border-none dark:bg-secondary-bg-dark"
       onClick={() => router.push("projects/createproject/step1")}
       // onClick={onClick}
     >
-      <MdOutlineAdd fontSize={24} />
+      <Plus size={24} />
     </Button>
   );
 };

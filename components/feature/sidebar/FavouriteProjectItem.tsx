@@ -1,4 +1,3 @@
-import React from "react";
 import { Database } from "@/types/supabase";
 import Image from "next/image";
 import useLoadImage from "@/hooks/useLoadImage";
