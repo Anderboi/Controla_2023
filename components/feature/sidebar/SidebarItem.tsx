@@ -33,10 +33,9 @@ const SidebarItem = ({
         justify-center
         w-full
         gap-x-4
-        py-1
-        min-h-[48px]
+        min-h-[44px]
         cursor-pointer
-        text-xl
+        text-[17px]
         font-semibold
         hover:text-primary-text-dark
         transition

@@ -34,6 +34,7 @@ const Sidebar = () => {
         flex-col
         items-center
         gap-y-4
+        p-6
         lg:w-full
         lg:items-start
         "

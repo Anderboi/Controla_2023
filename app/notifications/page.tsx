@@ -1,4 +1,3 @@
-import CreateProjectForm from '@/components/feature/forms/CreateProjectForm';
 import Header from '@/components/feature/header/Header';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
@@ -17,7 +16,6 @@ const NotificationsPage = async () => {
   return (
     <>
       <Header title='Уведомления'/>
-      <CreateProjectForm/>
       <div>NotificationsPage</div>
     </>
   );

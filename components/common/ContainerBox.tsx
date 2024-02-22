@@ -21,10 +21,9 @@ const ContainerBox = ({
         `
         bg-secondary-bg-light
         dark:bg-secondary-bg-dark
-        p-4
         rounded-lg
         `,
-        type === "frame" ? "sm:p-4" : "sm:p-4",
+        type === "frame" ? "sm:p-6" : "sm:p-4",
         className
       )}
       onClick={onClick}

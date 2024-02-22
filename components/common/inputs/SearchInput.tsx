@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import qs from "query-string";
 
 import useDebounce from "@/hooks/useDebounce";
+import { Input } from "@/components/ui/input";
 
 const SearchInput = () => {
   const router = useRouter();
@@ -24,10 +25,11 @@ const SearchInput = () => {
   }, [debouncedValue, router]);
 
   return (
-    <input
+    <Input
       type="search"
       placeholder="Найти ..."
       value={value}
+      className="text-primary-text-light dark:text-primary-text-dark"
       onChange={(e) => setValue(e.target.value)}
     />
   );

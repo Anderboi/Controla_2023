@@ -34,6 +34,7 @@ const Header = ({
     <ContainerBox
       className={twMerge(
         `
+        p-4
         md:pt-4
         pt-12
         relative

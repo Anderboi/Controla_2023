@@ -31,24 +31,20 @@ const UserSidebarBlock = () => {
   // };
 
   return (
-    <ContainerBox
-      className="
-        h-fit
-        lg:w-full"
-    >
+    <>
       {user ? (
-        <div className="flex h-fit w-full items-center justify-center lg:justify-between lg:gap-x-3">
+        <div className="flex items-center justify-center rounded-lg lg:justify-between lg:gap-x-3 dark:bg-secondary-bg-dark bg-secondary-bg-light">
           <Avatar
             type="rectangular"
-            size={40}
+            size={96}
             image={user.user_metadata.avatar_url}
           />
-          <div className="hidden w-full content-center items-center justify-between lg:flex">
-            <div className=" flex-1 flex-col justify-between ">
-              <span className="line-clamp-1 font-bold text-primary-text-light dark:text-primary-text-dark">
+          <div className="hidden content-center items-center justify-start lg:flex py-4">
+            <div className=" flex-1  flex-col justify-between  truncate">
+              <span className="truncate font-bold text-primary-text-light dark:text-primary-text-dark text-base">
                 {user.user_metadata.full_name || "User"}
               </span>
-              <div className="text-xs leading-5 text-secondary-text-light dark:text-secondary-text-dark ">
+              <div className="text-sm text-secondary-text-light dark:text-secondary-text-dark">
                 {user.email}
               </div>
             </div>
@@ -66,7 +62,7 @@ const UserSidebarBlock = () => {
           </Button>
         </div>
       )}
-    </ContainerBox>
+    </>
   );
 };
 

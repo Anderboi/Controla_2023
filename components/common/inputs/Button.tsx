@@ -29,21 +29,31 @@ const Button = ({
         border-transparent
         `,
         corner === "round"
-          ? "rounded-full hover:text-accent-dark"
+          ? "rounded-full hover:dark:text-accent-dark text-accent-light"
           : "px-6 rounded-lg",
         mode === "ghost" &&
           `
           bg-transparent
-          hover:bg-elevated-2-bg-dark`,
+          hover:dark:bg-elevated-2-bg-dark`,
         mode === "action" &&
           `
-          border-accent-dark
-          bg-elevated-2-bg-dark
-          text-accent-dark
-          hover:bg-accent-dark/75
-          hover:text-black-dark
+          border-accent-light
+          dark:border-accent-dark
+          bg-elevated-2-bg-light
+          dark:bg-elevated-2-bg-dark
+          text-accent-light
+          dark:text-accent-dark
+          hover:bg-accent-light/75
+          hover:dark:bg-accent-dark/75
+          hover:text-black-light
+          hover:dark:text-black-dark
           `,
-        mode === "ghost_accent" && `border-primary-border-dark hover:bg-transparent-bg-dark/10`,
+        mode === "ghost_accent" &&
+          `dark:border-primary-border-dark 
+          hover:dark:bg-transparent-bg-dark/10 
+          text-primary-text-light 
+          dark:text-primary-text-dark
+          `,
         size === "small" && `py-2 px-4 text-sm h-[40px]`,
         className
       )}

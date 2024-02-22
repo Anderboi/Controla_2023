@@ -13,7 +13,7 @@ interface Props {
 
 const Navigation = ({ navLinks }: Props) => {
   return (
-    <nav className="flex flex-col">
+    <nav className="flex flex-col w-full">
       {navLinks.map((item, index) => (
         <SidebarItem
           key={index}

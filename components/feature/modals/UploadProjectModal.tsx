@@ -17,6 +17,7 @@ import { PhotoIcon } from "@heroicons/react/24/solid";
 import AsyncSelectContactComponent from "@/components/common/inputs/AsyncSelectContactComponent";
 import { twMerge } from "tailwind-merge";
 import { schemaData } from "@/lib/workingStageSupabaseFillRows";
+import { Input } from '@/components/ui/input';
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();

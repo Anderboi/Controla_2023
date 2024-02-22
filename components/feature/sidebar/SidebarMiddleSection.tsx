@@ -26,14 +26,14 @@ const favoriteProjects = await getFavoriteProjects();
       <span
         className="
         hidden
-        text-xs
-        font-bold
+        text-sm
+        font-semibold
         text-secondary-text-light
-        dark:text-secondary-text-dark
-        lg:flex
+        dark:text-tertiary-text-dark 
+        lg:flex capitalize
         "
       >
-        Избранное
+        ИЗБРАННОЕ
       </span>
       <FavouriteContent projects={favoriteProjects} />
       <div className="flex flex-col gap-y-4">

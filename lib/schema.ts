@@ -15,20 +15,22 @@ export const FormDataSchema = z.object({
   country: z.string().min(1, "Пожалуйста, введите свое имя"),
   city: z.string(),
   street: z.string(),
-  house: z
+  house: z.coerce.number().optional(),
+  room: z.coerce.number().optional(),
+
+  // ? Project Info
+  purpose: z.string().optional(),
+  area: z.coerce
     .number({
-      required_error: "Пожалуйста, введите номер дома",
-      invalid_type_error: "Номер дома должен быть цифрой",
+      required_error: "Пожалуйста, введите площадь вашего объекта",
+      invalid_type_error: "Площадь должна быть числом",
     })
     .int()
     .positive()
     .gte(1),
-  room: z
-    .number({
-      required_error: "Пожалуйста, введите номер квартиры",
-      invalid_type_error: "Номер квартиры должен быть цифрой",
-    })
-    .int()
-    .positive()
-    .gte(1),
+  colivers: z.coerce.number().int().positive(),
+  storeys: z.coerce.number().int().positive(),
+  estBudget: z.coerce.number().int().positive(),
+  startDate: z.date().optional(),
+  estFinalDate: z.date().optional(),
 });
