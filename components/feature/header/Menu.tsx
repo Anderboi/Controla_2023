@@ -1,108 +1,41 @@
-import React from "react";
-import { Menu, Transition } from "@headlessui/react";
 import { routes, secondaryRoutes } from "@/lib/navRoutes";
 import SidebarItem from "../sidebar/SidebarItem";
 import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { MenuIcon } from "lucide-react";
 
 const HeadlessMenu = () => {
   return (
-    <Menubar>
-      <MenubarMenu>
-        <MenubarTrigger
-          className={`
-          relative
-          flex
-          h-10
-          w-10
-          items-center
-          justify-center
-          rounded-full
-          border-none
-          bg-secondary-bg-light
-          dark:bg-secondary-bg-dark
-
+    <Drawer direction="right">
+      <DrawerTrigger
+        className={`
           sm:hidden
           `}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="h-6 w-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        </MenubarTrigger>
-        {/* <Transition
-          enter="transition duration-100 ease-out"
-          enterFrom="transform scale-95 opacity-0"
-          enterTo="transform scale-100 opacity-100"
-          leave="transition duration-75 ease-out"
-          leaveFrom="transform scale-100 opacity-100"
-          leaveTo="transform scale-95 opacity-0"
-        > */}
-        <MenubarContent>
-          {routes.map((route, index) => (
-            <MenubarItem key={index}>{route.label}</MenubarItem>
-          ))}
-        </MenubarContent>
-        {/* <Menu.Items
-          className={`
-            absolute
-            right-0
-            top-12
-            flex
-            flex-col
-            rounded-lg
-            bg-elevated-1-bg-dark
-            px-4
-            py-2
-            `}
-        >
-          {routes.map((route, index) => (
-            <Menu.Item key={index}>
-              {({ active }) => (
-                <SidebarItem
-                  // className={`${
-                  //   active && "text-accent-dark bg-secondary-bg-dark"
-                  // } px-4 py-2 rounded-md`}
-                  isInBurger
-                  {...route}
-                />
-              )}
-            </Menu.Item>
-          ))}
-          {secondaryRoutes.map((route, index) => (
-            <Menu.Item key={index}>
-              {({ active }) => (
-                <SidebarItem
-                  // className={`${
-                  //   active && "text-accent-dark bg-secondary-bg-dark"
-                  // } px-4 py-2 rounded-md`}
-                  isInBurger
-                  {...route}
-                />
-              )}
-            </Menu.Item>
-          ))}
-        </Menu.Items> */}
-        {/* </Transition> */}
-      </MenubarMenu>
-    </Menubar>
+      >
+        <MenuIcon />
+      </DrawerTrigger>
+
+      <DrawerContent className=" bg-secondary-bg-light dark:bg-secondary-bg-dark p-6">
+        {routes.concat(secondaryRoutes).map((route, index) => (
+          <SidebarItem
+            key={index}
+            className={
+              "text-xl bg-secondary-bg-light dark:bg-secondary-bg-dark px-4 py-2 rounded-md"
+            }
+            isInBurger
+            {...route}
+          />
+        ))}
+      </DrawerContent>
+    </Drawer>
   );
 };
 

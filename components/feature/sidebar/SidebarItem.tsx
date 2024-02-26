@@ -11,6 +11,7 @@ interface SidebarItemsProps {
   icon: React.ReactNode;
   activeIcon: React.ReactNode;
   isInBurger?: boolean;
+  className?: string;
 }
 
 const SidebarItem = ({
@@ -19,6 +20,7 @@ const SidebarItem = ({
   href,
   label,
   isInBurger,
+  className,
 }: SidebarItemsProps) => {
   const route = usePathname();
 
@@ -40,6 +42,7 @@ const SidebarItem = ({
         hover:text-primary-text-dark
         transition
         `,
+        className,
         route === href
           ? `dark:text-primary-text-dark text-primary-text-light`
           : "dark:text-secondary-text-dark text-secondary-text-light"
