@@ -40,8 +40,8 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
           h-full
           flex-col
           overflow-y-auto
-          !p-0
           no-scrollbar
+          gap-6
           "
       >
         <div
@@ -52,16 +52,17 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
             z-20
             w-full
             rounded-t-lg
-            bg-secondary-bg-dark/80
-            p-4
+            bg-secondary-bg-light/80
+            dark:bg-secondary-bg-dark/80
+            
             backdrop-blur-md
             "
         >
           <SearchInput />
         </div>
-        <div className="px-4 pb-4">
+        
           <ProjectsGallery projects={projects} />
-        </div>
+        
       </ContainerBox>
     </>
   );

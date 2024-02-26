@@ -3,11 +3,8 @@ import { Inter, Comfortaa, IBM_Plex_Sans, Rubik } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
 import Sidebar from "@/components/feature/sidebar/Sidebar";
-import SupabaseProvider from "@/providers/SupabaseProvider";
-import UserProvider from "@/providers/UserProvider";
-import ModalProvider from "@/providers/ModalProvider";
 import HydrationZustand from "@/providers/HydrationZustand";
-import ToasterProvider from "@/providers/ToasterProvider";
+import Providers from '@/providers/Providers';
 
 const font = Rubik({
   subsets: ["cyrillic"],
@@ -26,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning>
       <body
         className={twMerge(
           `flex 
@@ -38,13 +35,10 @@ export default function RootLayout({
         )}
       >
         <HydrationZustand>
-          <ToasterProvider />
-          <SupabaseProvider>
-            <UserProvider>
-              <ModalProvider />
-              <Sidebar />
-              <main
-                className="
+          <Providers>
+            <Sidebar />
+            <main
+              className="
                   flex
                   w-full
                   flex-1
@@ -58,11 +52,10 @@ export default function RootLayout({
                   p-2
                   no-scrollbar
                   "
-              >
-                {children}
-              </main>
-            </UserProvider>
-          </SupabaseProvider>
+            >
+              {children}
+            </main>
+          </Providers>
         </HydrationZustand>
       </body>
     </html>

@@ -1,13 +1,23 @@
 import React from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { routes, secondaryRoutes } from '@/lib/navRoutes';
-import SidebarItem from '../sidebar/SidebarItem';
+import { routes, secondaryRoutes } from "@/lib/navRoutes";
+import SidebarItem from "../sidebar/SidebarItem";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 
 const HeadlessMenu = () => {
   return (
-    <Menu>
-      <Menu.Button
-        className={`
+    <Menubar>
+      <MenubarMenu>
+        <MenubarTrigger
+          className={`
           relative
           flex
           h-10
@@ -16,35 +26,41 @@ const HeadlessMenu = () => {
           justify-center
           rounded-full
           border-none
-          bg-secondary-bg-dark
+          bg-secondary-bg-light
+          dark:bg-secondary-bg-dark
 
           sm:hidden
           `}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-6 w-6"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-      </Menu.Button>
-      <Transition
-        enter="transition duration-100 ease-out"
-        enterFrom="transform scale-95 opacity-0"
-        enterTo="transform scale-100 opacity-100"
-        leave="transition duration-75 ease-out"
-        leaveFrom="transform scale-100 opacity-100"
-        leaveTo="transform scale-95 opacity-0"
-      >
-        <Menu.Items
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </MenubarTrigger>
+        {/* <Transition
+          enter="transition duration-100 ease-out"
+          enterFrom="transform scale-95 opacity-0"
+          enterTo="transform scale-100 opacity-100"
+          leave="transition duration-75 ease-out"
+          leaveFrom="transform scale-100 opacity-100"
+          leaveTo="transform scale-95 opacity-0"
+        > */}
+        <MenubarContent>
+          {routes.map((route, index) => (
+            <MenubarItem key={index}>{route.label}</MenubarItem>
+          ))}
+        </MenubarContent>
+        {/* <Menu.Items
           className={`
             absolute
             right-0
@@ -83,9 +99,10 @@ const HeadlessMenu = () => {
               )}
             </Menu.Item>
           ))}
-        </Menu.Items>
-      </Transition>
-    </Menu>
+        </Menu.Items> */}
+        {/* </Transition> */}
+      </MenubarMenu>
+    </Menubar>
   );
 };
 

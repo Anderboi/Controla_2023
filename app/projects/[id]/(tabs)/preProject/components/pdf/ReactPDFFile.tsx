@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   value: {
     width: "30%",
     paddingRight: 8,
-    // color: "#A3A3A3"
+    color: "#9C9C9C",
   },
   label: { width: "70%" },
 

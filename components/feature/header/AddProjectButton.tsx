@@ -5,14 +5,14 @@ import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { MdOutlineAdd } from "react-icons/md";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
 
 const AddProjectButton = () => {
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
   const { user } = useUser();
-  const router = useRouter();
+  // const router = useRouter();
 
   const onClick = () => {
     if (!user) {
