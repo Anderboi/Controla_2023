@@ -5,7 +5,7 @@ import Accordion from "@/components/common/InfoBlock/Accordion";
 import CheckboxGroup from "@/components/common/inputs/CheckboxGroup";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { Database } from "@/types/supabase";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 

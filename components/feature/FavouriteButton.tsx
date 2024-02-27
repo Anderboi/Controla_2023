@@ -29,9 +29,9 @@ const FavouriteButton = ({
   const authModal = useAuthModal();
   const { user } = useUser();
 
-  const [isFavourite, setIsFavourite] = useState(isChecked);
+  const [isFavorite, setIsFavorite] = useState(isChecked);
 
-  const Icon = isFavourite ? AiFillStar : AiOutlineStar;
+  const Icon = isFavorite ? AiFillStar : AiOutlineStar;
 
   const handleFav = async (e: any) => {
     e.stopPropagation();
@@ -41,7 +41,7 @@ const FavouriteButton = ({
       return authModal.onOpen();
     }
 
-    if (isFavourite) {
+    if (isFavorite) {
       const { error } = await supabaseClient
         .from("favourite_projects")
         .delete()
@@ -51,7 +51,7 @@ const FavouriteButton = ({
       if (error) {
         toast.error(error.message);
       } else {
-        setIsFavourite(false);
+        setIsFavorite(false);
         toast.success("Удалено из избранного");
       }
     } else {
@@ -62,7 +62,7 @@ const FavouriteButton = ({
       if (error) {
         toast.error(error.message);
       } else {
-        setIsFavourite(true);
+        setIsFavorite(true);
         toast.success("Добавлено в избранные!");
       }
     }
@@ -73,7 +73,7 @@ const FavouriteButton = ({
     <IconButton
       Icon={Icon}
       onClick={handleFav}
-      className={twMerge(isFavourite && "opacity-100")}
+      className={twMerge(isFavorite && "opacity-100 text-accent-light dark:text-accent-dark")}
       {...props}
     />
   );

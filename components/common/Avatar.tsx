@@ -12,7 +12,7 @@ const Avatar = ({ type, image, size }: AvatarProps) => {
   return (
     <Image
       className={twMerge(
-        `dark:bg-secondary-text-dark bg-secondary-text-light`,
+        `dark:bg-secondary-text-dark bg-secondary-text-light w-[${size}px] h-[${size}px]`,
         type === "round" ? "rounded-full" : "rounded-md "
       )}
       alt="avatar"

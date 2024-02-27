@@ -2,13 +2,12 @@ import FavouriteContent from "./FavouriteContent";
 import ContainerBox from "@/components/common/ContainerBox";
 import Navigation from "./Navigation";
 import { secondaryRoutes } from "@/lib/navRoutes";
-import getFavoriteProjects from '@/actions/getFavoriteProjects';
-
+import getFavoriteProjects from "@/lib/actions/getFavoriteProjects";
 
 export const revalidate = 0;
 
 const SidebarMiddleSection = async () => {
-const favoriteProjects = await getFavoriteProjects();
+  const favoriteProjects = await getFavoriteProjects();
 
   return (
     <ContainerBox
@@ -26,7 +25,7 @@ const favoriteProjects = await getFavoriteProjects();
       <span
         className="
         hidden
-        text-sm
+        text-xs
         font-semibold
         text-secondary-text-light
         dark:text-tertiary-text-dark 

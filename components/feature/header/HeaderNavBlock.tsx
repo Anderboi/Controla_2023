@@ -2,9 +2,17 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import Button from "@/components/common/inputs/Button";
-import { IoChevronBackOutline, IoChevronForward } from "react-icons/io5";
+import Button from "@/components/common/inputs/MyButton";
+import { ChevronLeft } from "lucide-react";
 
+/**
+ * React component called HeaderNavBlock.
+ * It renders a button with a ChevronLeft icon and handles the
+ * onClick event by navigating back using the router.
+ * The button has some conditional styling based on the screen size.
+ *
+ * @return {JSX.Element} The rendered HeaderNavBlock component
+ */
 const HeaderNavBlock = () => {
   const router = useRouter();
 
@@ -15,36 +23,21 @@ const HeaderNavBlock = () => {
         corner="round"
         className="
           flex 
-          h-10 
-          w-10 
+          transition
+          duration-300
+          sm:dark:bg-primary-bg-dark
+          sm:w-[48px]
+          sm:h-[48px]
+          rounded-full
           items-center 
           justify-center 
-          border-none 
-          dark:bg-secondary-bg-dark
+          border-none
           text-secondary-text-light
           dark:text-secondary-text-dark
           "
         onClick={() => router.back()}
       >
-        <IoChevronBackOutline fontSize={24} className="translate-x-[-2px]" />
-      </Button>
-      <Button
-        mode="ghost"
-        corner="round"
-        className="
-          flex 
-          h-10 
-          w-10 
-          items-center 
-          justify-center 
-          border-none 
-          dark:bg-secondary-bg-dark
-          text-secondary-text-light
-          dark:text-secondary-text-dark
-          "
-        onClick={() => router.forward()}
-      >
-        <IoChevronForward fontSize={24} className="translate-x-[2px]" />
+        <ChevronLeft fontSize={24} className="translate-x-[-2px]" />
       </Button>
     </div>
   );

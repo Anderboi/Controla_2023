@@ -23,12 +23,14 @@ const IconButton = ({ className, onClick, Icon }: IconButtonProps) => {
         group-hover:opacity-100
         hover:scale-110
         hover:bg-transparent-bg-dark/20
+        bg-primary-bg-light
+        dark:bg-primary-bg-dark
         `,
         className
       )}
       onClick={onClick}
     >
-      <Icon className="hover:text-accent-dark" size={24} />
+      <Icon className="dark:text-accent-dark text-accent-light" size={20} />
     </button>
   );
 };

@@ -4,7 +4,9 @@ import { cookies } from "next/headers";
 import { Database } from "@/types/supabase";
 import getContacts from "./getContacts";
 
-const getContactsByTitle = async (title: string): Promise<Database['public']['Tables']['users']['Row'][]> => {
+const getContactsByTitle = async (
+  title: string
+): Promise<Database["public"]["Tables"]["users"]["Row"][]> => {
   const supabase = createServerComponentClient({
     cookies: cookies,
   });

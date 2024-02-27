@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import Button from '@/components/common/inputs/Button';
-import useAuthModal from '@/hooks/useAuthModal';
-import useUploadModal from '@/hooks/useUploadModal';
-import { useUser } from '@/hooks/useUser';
-import React from 'react'
+import Button from "@/components/common/inputs/MyButton";
+import useAuthModal from "@/hooks/useAuthModal";
+import useUploadModal from "@/hooks/useUploadModal";
+import { useUser } from "@/hooks/useUser";
+import React from "react";
 
 const CreateNewProjectBlock = () => {
   const authModal = useAuthModal();
@@ -18,7 +18,7 @@ const CreateNewProjectBlock = () => {
 
     return uploadModal.onOpen();
   };
-  
+
   return (
     <article
       className="
@@ -37,6 +37,6 @@ const CreateNewProjectBlock = () => {
       </Button>
     </article>
   );
-}
+};
 
-export default CreateNewProjectBlock
+export default CreateNewProjectBlock;

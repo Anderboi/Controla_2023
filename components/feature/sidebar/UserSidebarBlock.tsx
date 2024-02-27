@@ -1,54 +1,63 @@
 "use client";
 
-import React from "react";
 import Avatar from "../../common/Avatar";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
-import { IoChevronUp } from "react-icons/io5";
-import ContainerBox from "@/components/common/ContainerBox";
+import { ChevronUp } from "lucide-react";
 
 const UserSidebarBlock = () => {
   const authModal = useAuthModal();
-  // const router = useRouter();
 
-  // const supabaseClient = useSupabaseClient();
   const { user } = useUser();
 
-  // const handleLogout = async () => {
-  //   const { error } = await supabaseClient.auth.signOut();
-  //   router.refresh();
-
-  //   if (error) {
-  //     // console.log(error);
-
-  //     toast.error(error.message);
-  //   } else {
-  //     toast.success("Logged Out");
-  //   }
-  // };
-
   return (
-    <>
+    <section className="w-full h-[60px]">
       {user ? (
-        <div className="flex items-center justify-center rounded-lg lg:justify-between lg:gap-x-3 dark:bg-secondary-bg-dark bg-secondary-bg-light">
+        <div
+          className="
+          flex 
+          items-center 
+          justify-center 
+          rounded-lg 
+          lg:justify-between
+          dark:bg-secondary-bg-dark 
+          bg-secondary-bg-light
+          w-full
+          "
+        >
           <Avatar
             type="rectangular"
-            size={96}
+            size={60}
             image={user.user_metadata.avatar_url}
           />
-          <div className="hidden content-center items-center justify-start lg:flex py-4">
-            <div className=" flex-1  flex-col justify-between  truncate">
-              <span className="truncate font-bold text-primary-text-light dark:text-primary-text-dark text-base">
+          <div className="hidden lg:flex w-full justify-between items-center px-4">
+            <div className="flex flex-col ">
+              <span
+                className="
+                overflow-hidden
+                line-clamp-1
+                text-primary-text-light
+                dark:text-primary-text-dark
+                text-base
+                text-balance
+                "
+              >
                 {user.user_metadata.full_name || "User"}
               </span>
-              <div className="text-sm text-secondary-text-light dark:text-secondary-text-dark">
+              <span
+                className="
+                text-xs
+                text-secondary-text-light
+                dark:text-secondary-text-dark
+                "
+              >
                 {user.email}
-              </div>
+              </span>
             </div>
-            <IoChevronUp />
+            <ChevronUp className="text-secondary-text-light dark:text-secondary-text-dark" />
           </div>
         </div>
       ) : (
@@ -62,7 +71,7 @@ const UserSidebarBlock = () => {
           </Button>
         </div>
       )}
-    </>
+    </section>
   );
 };
 

@@ -7,7 +7,6 @@ import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
 
 import HeaderNavBlock from "./HeaderNavBlock";
-import HeadlessMenu from "./Menu";
 
 interface HeaderProps {
   title: string;
@@ -40,25 +39,24 @@ const Header = ({
         relative
         flex
         flex-col
+        gap-6
         justify-between
         h-fit
         w-full
         items-center
         `,
-        coverImage &&
-          `
-          relative
-          bg-gradient-to-b
-          from-secondary-text-light
-          dark:from-secondary-text-dark
-          to-elevated-2-bg-dark
-          dark:to-elevated-2-bg-dark
-          //h-[330px]
-          //top-[-250px]
-          //sticky
-          `,
-        !coverImage && subtitle && `bg-gradient-to-b from-accent-dark/50`,
-        subtitle ? "gap-y-16" : "gap-y-2 sm:gap-y-4",
+        // coverImage &&
+        //   `
+        //   relative
+        //   bg-gradient-to-b
+        //   from-secondary-text-light
+        //   dark:from-secondary-text-dark
+        //   dark:to-elevated-2-bg-dark
+        //   `,
+        // !coverImage &&
+        //   subtitle &&
+        //   `bg-gradient-to-b from-accent-light/50 dark:from-accent-dark/50`,
+        // subtitle ? "gap-y-16" : "gap-y-2 sm:gap-y-4",
         className
       )}
     >
@@ -67,46 +65,35 @@ const Header = ({
         flex
         w-full
         justify-between
-      "
+        "
       >
         {/*//? left button block */}
         <HeaderNavBlock />
         {/*//? right button block */}
-        <div className="
-          z-30 
-          flex 
-          //sm:hidden 
-          gap-2 
-          text-secondary-text-light 
-          dark:text-secondary-text-dark
-          ">
           {adjustableButton}
-          <HeadlessMenu />
-        </div>
       </div>
-      <div
+      <section
         className="
         flex
         w-full
         flex-col
+        max-sm:hidden
         "
       >
         <span
           className="
           text-left
-          text-xs 
-          font-bold 
+          text-xs
           text-primary-text-light/90
           dark:text-primary-text-dark/90
-          md:text-xl
+          md:text-base
           "
         >
           {subtitle}
         </span>
         <span
           className="
-            line-clamp-2
-            break-words
+            text-balance
             text-left
             text-[24px]
             font-bold
@@ -115,33 +102,32 @@ const Header = ({
             md:line-clamp-2
             text-primary-text-light
             dark:text-primary-text-dark
-          "
+            "
         >
           {title}
         </span>
         <span
           className="
-            text-left 
-            text-sm 
-            font-bold 
-            text-primary-text-light/90
-            dark:text-primary-text-dark/90
+            text-left
+            text-sm
+            text-primary-text-light
+            dark:text-primary-text-dark
         "
         >
           {addressDetails}
         </span>
         <span
           className="
-            text-left 
-            text-xs 
-            font-bold 
-            text-primary-text-light/90
-            dark:text-primary-text-dark/90
+            text-left
+            text-xs
+            font-bold
+            text-primary-text-light
+            dark:text-primary-text-dark
           "
         >
           {startDate && Date.parse(startDate)}
         </span>
-      </div>
+      </section>
       {coverImage && (
         <Image
           src={coverImage}
@@ -157,6 +143,7 @@ const Header = ({
             rounded-lg
             object-cover
             mix-blend-overlay
+            max-sm:hidden
           "
         />
       )}

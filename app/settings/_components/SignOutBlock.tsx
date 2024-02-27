@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import Button from '@/components/common/inputs/Button';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import { useRouter } from 'next/navigation';
-import React from 'react'
-import toast from 'react-hot-toast';
+import Button from "@/components/common/inputs/MyButton";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/navigation";
+import React from "react";
+import toast from "react-hot-toast";
 
 const SignOutBlock = () => {
   const router = useRouter();
@@ -23,11 +23,11 @@ const SignOutBlock = () => {
   };
   return (
     <>
-      <Button className='w-full' mode="ghost_accent" onClick={handleLogout}>
+      <Button className="w-full" mode="ghost_accent" onClick={handleLogout}>
         Sign Out
       </Button>
     </>
   );
-}
+};
 
-export default SignOutBlock
+export default SignOutBlock;

@@ -1,6 +1,6 @@
 import React from "react";
-import getContactsByTitle from "@/actions/getContactsByTitle";
-import ContactsGallary from "./components/ContactsGallary";
+import getContactsByTitle from "@/lib/actions/getContactsByTitle";
+import ContactsGallary from "./_components/ContactsGallary";
 
 export const revalidate = 0;
 

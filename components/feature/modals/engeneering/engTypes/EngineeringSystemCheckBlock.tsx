@@ -6,7 +6,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import toast from "react-hot-toast";
 
 import CheckDataCard from "@/components/common/cards/CheckDataCard";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import { engeneeringSystems } from "@/lib/engeneering";

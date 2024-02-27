@@ -7,7 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "small" | "medium" | "large";
 }
 
-const Button = ({
+const MyButton = ({
   className,
   children,
   disabled,
@@ -40,12 +40,12 @@ const Button = ({
           border-accent-light
           dark:border-accent-dark
           bg-elevated-2-bg-light
-          dark:bg-elevated-2-bg-dark
+          //dark:bg-elevated-2-bg-dark
           text-accent-light
           dark:text-accent-dark
-          hover:bg-accent-light/75
-          hover:dark:bg-accent-dark/75
-          hover:text-black-light
+          hover:bg-accent-light
+          hover:dark:bg-accent-dark
+          hover:text-primary-text-dark
           hover:dark:text-black-dark
           `,
         mode === "ghost_accent" &&
@@ -65,4 +65,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default MyButton;

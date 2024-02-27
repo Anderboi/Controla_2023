@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import Button from "../../common/inputs/Button";
+import Button from "../../common/inputs/MyButton";
 // import useAuthModal from "@/hooks/useAuthModal";
 // import { useUser } from "@/hooks/useUser";
 import { MdOutlineAdd } from "react-icons/md";
-import useUploadDataModal from '@/hooks/useUploadDataModal';
+import useUploadDataModal from "@/hooks/useUploadDataModal";
 
 const AddDataButton = () => {
   // const authModal = useAuthModal();

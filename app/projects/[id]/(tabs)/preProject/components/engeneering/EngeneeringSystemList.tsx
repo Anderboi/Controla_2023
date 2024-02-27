@@ -11,7 +11,7 @@ import { Database } from "@/types/supabase";
 import { twMerge } from "tailwind-merge";
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
-import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
+import { ChevronRight } from 'lucide-react';
 
 interface Props {
   data: Database["public"]["Tables"]["engeneering_data"]["Row"];
@@ -33,10 +33,7 @@ const EngeneeringSystemList = ({ data }: Props) => {
           size="md"
           onClick={() => handleOnClick(name)}
           actionIcon={
-            <ChevronRightIcon
-              type="right"
-              className="text-secondary-text-dark"
-            />
+            <ChevronRight type="right" className="text-secondary-text-dark" />
           }
           illustration={
             <Illustration

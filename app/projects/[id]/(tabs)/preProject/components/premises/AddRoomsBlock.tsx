@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Button from "@/components/common/inputs/Button";
 import BasicMultiSelector from "@/components/common/inputs/BasicMultiSelector";
 
 import { usePathname, useRouter } from "next/navigation";
@@ -10,6 +9,8 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 import toast from "react-hot-toast";
 import roomsList from "@/lib/roomsList";
+import { DropdownMenu } from "@/components/ui/dropdown-menu";
+import { Button } from '@/components/ui/button';
 
 interface SelectProps {
   value: string;
@@ -69,7 +70,7 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
 
   return (
     <>
-      <span>{`${storey} этаж`}</span>
+      <span className="text-xs text-secondary-text-light/80 dark:text-secondary-text-dark/80 uppercase">{`${storey} этаж`}</span>
       <li
         className="
           flex
@@ -88,11 +89,12 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
             w-full
             "
         >
-          <input
+          {/* <input
             name="rooms"
             list="rooms"
             className="w-full bg-transparent rounded-lg"
-          />
+          /> */}
+          <DropdownMenu></DropdownMenu>
           <BasicMultiSelector
             isMulti
             type="creatable"
@@ -102,15 +104,14 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
         </div>
         <div className="w-full sm:w-fit sm:shrink-0">
           <Button
-            size="small"
             onClick={onSubmit}
             disabled={isLoading}
             type="submit"
-            mode="ghost_accent"
-            className="
-              w-full 
-              sm:w-fit
-              "
+            variant={'ghost'}
+            // className="
+            //   w-full 
+            //   sm:w-fit
+            //   "
           >
             Добавить
           </Button>

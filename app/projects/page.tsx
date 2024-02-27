@@ -1,11 +1,11 @@
 import Header from "@/components/feature/header/Header";
-import ContainerBox from "@/components/common/ContainerBox";
-import ProjectsGallery from "./components/ProjectsGallery";
-import SearchInput from "@/components/common/inputs/SearchInput";
-import getProjectsByTitle from "@/actions/getProjectsByTitle";
+import ProjectsGallery from "./_components/ProjectsGallery";
+import getProjectsByTitle from "@/lib/actions/getProjectsByTitle";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import ContainerBox from "@/components/common/ContainerBox";
+import SearchInput from "@/components/common/inputs/SearchInput";
 import AddProjectButton from "@/components/feature/header/AddProjectButton";
 
 export const revalidate = 0;
@@ -30,9 +30,7 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
 
   return (
     <>
-      {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
-
       <ContainerBox
         className="
           relative
@@ -58,11 +56,9 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
             backdrop-blur-md
             "
         >
-          <SearchInput />
+          <SearchInput urlRoute="/projects" />
         </div>
-        
-          <ProjectsGallery projects={projects} />
-        
+        <ProjectsGallery projects={projects} />
       </ContainerBox>
     </>
   );

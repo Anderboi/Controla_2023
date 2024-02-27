@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import ReactPDFFile from "./ReactPDFFile";
 import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 import { Database } from "@/types/supabase";
 
 export interface PDFProps {
@@ -49,11 +49,9 @@ const PDFWrapper = ({
     setState(true);
   }, []);
 
-  
-
   return (
     <>
-    {/* //! PDF Viewer, only for development purposes. Remove on deploy */}
+      {/* //! PDF Viewer, only for development purposes. Remove on deploy */}
       {/* <PDFViewer height={"900px"} width={"100%"} showToolbar={true}>
         <ReactPDFFile
           info={info}
@@ -86,7 +84,7 @@ const PDFWrapper = ({
               {"Загрузка ..."}
             </Button>
           ) : (
-            <Button mode="action" className="w-full">
+            <Button mode="action" className="w-full text-base font-normal">
               {"Скачать PDF"}
             </Button>
           )

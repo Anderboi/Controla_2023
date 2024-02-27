@@ -15,20 +15,24 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         group
         relative
         flex
-        cursor-pointer
         flex-col
         items-center
         justify-center
         overflow-hidden
+        cursor-pointer
         sm:gap-y-3
-        sm:rounded-lg
-        sm:bg-elevated-1-bg-dark
-        sm:p-4
+        rounded-lg
+        sm:dark:bg-elevated-1-bg-dark
+        p-4
         sm:hover:bg-elevated-2-bg-dark
         md:gap-y-4
         transition
         ease-in-out
         duration-500
+
+        sm:border
+        border-solid
+        dark:border-primary-border-dark
         "
       onClick={() => onClick(data.id)}
     >
@@ -51,7 +55,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           w-full
           overflow-hidden
           rounded-lg
-          md:drop-shadow-spt
+          md:dark:drop-shadow-spt
           "
       >
         <Image
@@ -62,7 +66,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           className="
             aspect-square
             rounded-full
-            p-4
+            sm:p-4
             sm:p-0
             "
         />
@@ -74,28 +78,27 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           flex-col
           items-start
           justify-center
-          gap-y-1
           "
       >
         <p
           className="
             line-clamp-1 
             font-bold
+            text-base
             "
         >
           {data.full_name}
         </p>
-        <p className="text-sm font-thin text-secondary-text-dark">{data.role}</p>
-        {/* <p
-          className="
-          truncate
-          break-all
-          text-xs
-          text-secondary-text-dark
-          "
-        >
-          {data.email}
-        </p> */}
+        <p 
+        className="
+        text-sm 
+        font-thin 
+        text-secondary-text-light
+        dark:text-secondary-text-dark
+        ">
+          {data.role}
+          </p>
+        
       </div>
     </div>
   );

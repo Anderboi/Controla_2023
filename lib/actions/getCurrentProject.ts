@@ -5,7 +5,7 @@ import { Database } from "@/types/supabase";
 
 
 
-const getCurrntProject = async (id: number): Promise<Database['public']['Tables']['projects']['Row']> => {
+const getCurrentProject = async (id: number): Promise<Database['public']['Tables']['projects']['Row']> => {
   const supabase = createServerComponentClient({cookies});
 
   const { data, error } = await supabase
@@ -21,4 +21,4 @@ const getCurrntProject = async (id: number): Promise<Database['public']['Tables'
   return data as any;
 };
 
-export default getCurrntProject;
+export default getCurrentProject;

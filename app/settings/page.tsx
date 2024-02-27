@@ -2,7 +2,7 @@ import Header from "@/components/feature/header/Header";
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import SignOutBlock from "./components/SignOutBlock";
+import SignOutBlock from "./_components/SignOutBlock";
 import ContainerBox from "@/components/common/ContainerBox";
 import { ModeToggle } from "@/components/feature/sidebar/ThemeSwitcher";
 

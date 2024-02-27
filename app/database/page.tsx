@@ -2,7 +2,7 @@ import React from "react";
 import ContainerBox from "@/components/common/ContainerBox";
 import ContentBlock from "@/components/common/ContentBlock";
 import GallaryGrid from "@/components/common/grids/GallaryGrid";
-import getMaterialData from "@/actions/getMaterialData";
+import getMaterialData from "@/lib/actions/getMaterialData";
 
 const DataPage = async () => {
   const materialData = await getMaterialData();
@@ -33,7 +33,9 @@ const DataPage = async () => {
                   justify-between
                   "
               >
-                <span className='underline text-xl font-black'>{item.name}</span>
+                <span className="underline text-xl font-black">
+                  {item.name}
+                </span>
                 <div
                   className="
                   flex 

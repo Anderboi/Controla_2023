@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import FavouriteButton from "../../feature/FavouriteButton";
+import FavouriteButton from "../../../components/feature/FavouriteButton";
 import { Database } from "@/types/supabase";
 import useLoadImage from "@/hooks/useLoadImage";
-import RemoveButton from "../inputs/RemoveButton";
+import RemoveButton from "../../../components/common/inputs/RemoveButton";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -15,7 +15,6 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
-
   const route = useRouter();
   const imagePath = useLoadImage(data.cover_img, "project");
 
@@ -52,7 +51,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
 
   return (
     <div
-      onClick={() => route.push(`/projects/${data.project_id}/preProject`)}
+      onClick={() => route.push(`/projects/${data.project_id}`)}
       className="
         group
         relative
@@ -73,6 +72,13 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         transition
         ease-in-out
         duration-500
+
+        sm:border
+        border-solid
+        border-primary-border-light
+        dark:border-elevated-2-bg-dark
+
+        hover:sm:shadow-md
         "
     >
       <FavouriteButton
@@ -108,7 +114,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           overflow-hidden
           rounded-lg
           group-hover:saturate-100
-          md:drop-shadow-spt
+          //md:drop-shadow-spt
           "
       >
         {imagePath ? (
@@ -161,15 +167,14 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           className="
             truncate
             //min-h-[2lh]
-            text-sm
+            text-xs
             font-normal
             leading-3
-            text-tertiary-text-light-text-light
-            dark:text-tertiary-text-dark
-            md:text-[13px]
+            text-secondary-text-light 
+            dark:text-secondary-text-dark
             "
         >
-          <span className="font-normal">Площадь: </span>
+          <span>Площадь: </span>
           {`${data.area} кв.м.`}
         </p>
       </section>

@@ -4,7 +4,7 @@ import Header from "@/components/feature/header/Header";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import ContactsSearchInput from "@/components/common/inputs/ContactsSearchInput";
+import SearchInput from '@/components/common/inputs/SearchInput';
 
 export const revalidate = 0;
 
@@ -35,6 +35,7 @@ const ContactsPage = async ({ children }: SearchProps) => {
           overflow-y-auto
           !p-0
           no-scrollbar
+          gap-6
           "
       >
         <div
@@ -44,19 +45,21 @@ const ContactsPage = async ({ children }: SearchProps) => {
             top-0
             z-10
             w-full
-            bg-secondary-bg-dark/80
-            p-4
+            rounded-t-lg
+            bg-secondary-bg-light/80
+            dark:bg-secondary-bg-dark/80
             backdrop-blur-md
             "
         >
-          <ContactsSearchInput
+          <SearchInput
+            urlRoute="/contacts"
             className="
               z-10
               opacity-70
               "
           />
         </div>
-        <div className="px-4">{children}</div>
+        {children}
       </ContainerBox>
     </>
   );

@@ -18,6 +18,15 @@ const HeadlessMenu = () => {
       <DrawerTrigger
         className={`
           sm:hidden
+          transition
+          duration-300
+          dark:bg-primary-bg-dark
+          w-[48px]
+          h-[48px]
+          rounded-full
+          flex
+          items-center
+          justify-center
           `}
       >
         <MenuIcon />

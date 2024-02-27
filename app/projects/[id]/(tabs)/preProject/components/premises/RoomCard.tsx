@@ -6,8 +6,8 @@ import useRoomInfoModal from "@/hooks/useRoomInfoModal";
 
 import { IoColorPaletteOutline, IoTvOutline } from "react-icons/io5";
 import { TbSofa } from "react-icons/tb";
-import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
 import { Database } from "@/types/supabase";
+import { ChevronRight } from 'lucide-react';
 
 interface RoomCardProps {
   data: Database["public"]["Tables"]["room_info"]["Row"];
@@ -41,7 +41,7 @@ const RoomCard = ({ data, furniture }: RoomCardProps) => {
         </div>
       }
       actionIcon={
-        <ChevronRightIcon type="right" className="text-secondary-text-dark" />
+        <ChevronRight  className="text-secondary-text-dark" />
       }
     >
       <div

@@ -4,12 +4,12 @@ import React from "react";
 import { usePathname } from "next/navigation";
 
 import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
-import AddIcon from "@/components/common/icons/AddIcon";
 
 import useCommonModal from "@/hooks/useCommonModal";
 import { shallow } from "zustand/shallow";
 
 import { VscPersonAdd } from "react-icons/vsc";
+import { Plus, UserPlus } from 'lucide-react';
 
 const AddResidentBlock = () => {
   const { onOpen } = useCommonModal(
@@ -32,12 +32,17 @@ const AddResidentBlock = () => {
   return (
     <GallaryDataCard
       size="md"
-      className="border-dashed border-primary-border-dark bg-transparent sm:border"
-      illustration={<VscPersonAdd />}
-      actionIcon={<AddIcon />}
+      className="
+      sm:border
+      border-dashed
+      border-primary-bg-dark
+      dark:border-accent-dark
+      "
+      illustration={<UserPlus />}
+      actionIcon={<Plus />}
       onClick={handleOnAdd}
     >
-      <span>Добавить</span>
+      <span className='text-base text-accent-light dark:text-accent-dark'>Добавить</span>
     </GallaryDataCard>
   );
 };

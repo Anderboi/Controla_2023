@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectCard from "@/components/common/cards/ProjectCard";
+import ProjectCard from "@/app/projects/_components/ProjectCard";
 import { Database } from "@/types/supabase";
 
 import CreateNewProjectBlock from "./CreateNewProjectBlock";

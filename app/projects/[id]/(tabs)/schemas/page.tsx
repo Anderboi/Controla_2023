@@ -2,9 +2,9 @@ import React from "react";
 import ContentBlock from "@/components/common/ContentBlock";
 import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
-import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
 import ProjectSheetBlock from "./components/ProjectSheetBlock";
-import getProjectSchemaData from "@/actions/getProjectSchemaData";
+import getProjectSchemaData from "@/lib/actions/getProjectSchemaData";
+import { ChevronRight } from "lucide-react";
 
 export const revalidate = 0;
 
@@ -106,24 +106,14 @@ const Schemas = async ({ params }: { params: { id: number } }) => {
           <GallaryDataCard
             size="md"
             illustration="01"
-            actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
-            }
+            actionIcon={<ChevronRight className="text-secondary-text-dark" />}
           >
             Спецификация мебели
           </GallaryDataCard>
           <GallaryDataCard
             size="md"
             illustration="02"
-            actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
-            }
+            actionIcon={<ChevronRight className="text-secondary-text-dark" />}
           >
             Спецификация светильников
           </GallaryDataCard>
@@ -134,12 +124,7 @@ const Schemas = async ({ params }: { params: { id: number } }) => {
           <GallaryDataCard
             size="md"
             illustration="01"
-            actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
-            }
+            actionIcon={<ChevronRight className="text-secondary-text-dark" />}
           >
             Примыкание потолка
           </GallaryDataCard>

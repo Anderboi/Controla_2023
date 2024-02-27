@@ -21,7 +21,8 @@ const ContainerBox = ({
         `
         bg-secondary-bg-light
         dark:bg-secondary-bg-dark
-        rounded-lg
+        rounded-3xl
+        sm:rounded-lg
         `,
         type === "frame" ? "sm:p-6 p-4" : "sm:p-4",
         className

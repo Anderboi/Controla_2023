@@ -4,7 +4,6 @@ import React from "react";
 
 import SideModal from "@/components/common/SideModalHeadless";
 import useCommonModal from "@/hooks/useCommonModal";
-import GalleryDataCard from "@/components/common/cards/GalleryDataCard";
 import ResidingDataForm from "./ResidingDataForm";
 import InfoIcon from "@/components/common/icons/InfoIcon";
 

@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 import toast from "react-hot-toast";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 
 const RoomInfoModal = () => {
   const { roomData, isOpen, onClose, furniture, title } = useRoomInfoModal(

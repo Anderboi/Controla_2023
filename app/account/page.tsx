@@ -2,6 +2,6 @@
 
 export default async function Account() {
 
-  return <>dfsdfsdf</>;
+  return <>Account</>;
 
 }

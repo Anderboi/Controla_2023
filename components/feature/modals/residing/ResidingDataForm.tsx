@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { useRouter } from 'next/navigation';
-import Button from '@/components/common/inputs/Button';
+import { useRouter } from "next/navigation";
+import Button from "@/components/common/inputs/MyButton";
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import useCommonModal from "@/hooks/useCommonModal";
 
-import toast from 'react-hot-toast';
-import { twMerge } from 'tailwind-merge';
+import toast from "react-hot-toast";
+import { twMerge } from "tailwind-merge";
 
 const ResidingDataForm = () => {
   const modal = useCommonModal();
   const supabaseClient = useSupabaseClient();
-  const router = useRouter()
+  const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,8 +26,8 @@ const ResidingDataForm = () => {
       gender: "",
       age: 0,
       health_concerns: "",
-      lifestyle: '',
-      name: '',
+      lifestyle: "",
+      name: "",
     },
   });
 
@@ -59,8 +59,7 @@ const ResidingDataForm = () => {
       if (supabaseError) {
         return toast.error(supabaseError.message);
       }
-      
-      
+
       setIsLoading(false);
       toast.success("Человек добавлен");
       router.refresh();
@@ -130,7 +129,7 @@ const ResidingDataForm = () => {
           maxLength={32}
           id="health_concerns"
           disabled={isLoading}
-          {...register("health_concerns", { required: false})}
+          {...register("health_concerns", { required: false })}
           placeholder=""
           className={twMerge(
             errors.address_country && `border-red-500 ring-red-500`

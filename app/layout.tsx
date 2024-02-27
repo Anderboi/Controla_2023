@@ -5,6 +5,8 @@ import { twMerge } from "tailwind-merge";
 import Sidebar from "@/components/feature/sidebar/Sidebar";
 import HydrationZustand from "@/providers/HydrationZustand";
 import Providers from '@/providers/Providers';
+import NavBar from '@/components/feature/navbar/NavBar';
+import { Metadata } from 'next';
 
 const font = Rubik({
   subsets: ["cyrillic"],
@@ -12,9 +14,28 @@ const font = Rubik({
   // weight: ["400", "700"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Controla",
   description: "App for your interior design projects control",
+  keywords: [
+    "nextjs",
+    "react",
+    "react server components",
+    "interior design",
+    "project management",
+    "project",
+  ],
+  creator: "Anderboi",
+  openGraph: {
+    type: "website",
+    title: "Controla",
+    description: "App for your interior design projects control",
+    url: "https://controla.app/",
+    siteName: "Controla",
+  },
+  icons: {
+    icon: '/favicon.svg'
+  }
 };
 
 export default function RootLayout({
@@ -49,11 +70,12 @@ export default function RootLayout({
                   rounded-lg
                   bg-primary-bg-light
                   dark:bg-primary-bg-dark
-                  p-2
+                  sm:p-2
                   no-scrollbar
                   "
             >
               {children}
+              <NavBar/>
             </main>
           </Providers>
         </HydrationZustand>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 
 import { routes, secondaryRoutes } from "@/lib/navRoutes";
 import SidebarItem from "../sidebar/SidebarItem";

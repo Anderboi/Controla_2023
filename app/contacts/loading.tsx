@@ -5,7 +5,7 @@ export default function Loading() {
   // You can add any UI inside Loading, including a Skeleton.
   return (
     <div className="flex w-full animate-pulse flex-col gap-6">
-      <div
+      {/* <div
         className="
         h-[46px]
         w-full
@@ -13,7 +13,7 @@ export default function Loading() {
         rounded-xl
         bg-elevated-2-bg-dark
         "
-      ></div>
+      ></div> */}
       <GallaryGrid>
         <div className="aspect-square w-full rounded-lg bg-elevated-2-bg-dark"></div>
         <div className="aspect-square w-full rounded-lg bg-elevated-2-bg-dark"></div>

@@ -1,8 +1,8 @@
 import React from "react";
-import getPremises from "@/actions/getPremises";
+import getPremises from "@/lib/actions/getPremises";
 import ContentBlock from "@/components/common/ContentBlock";
 
-import getProjectInfo from "@/actions/getProjectInfo";
+import getProjectInfo from "@/lib/actions/getProjectInfo";
 
 import AddRoomsBlock from "./AddRoomsBlock";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
@@ -24,9 +24,9 @@ const PremisesBlock = async ({ projectId }: PremisesBlockProps) => {
             {premises && premises.find((key) => key.storey === i + 1) ? (
               <>
                 {projectInfo.storeys > 1 && (
-                  <span className="text-sm">{`${i + 1} этаж`}</span>
+                  <span className="text-sm ">{`${i + 1} этаж`}</span>
                 )}
-                <InfoDataGrid> 
+                <InfoDataGrid>
                   {premises.map(
                     (item, index) =>
                       item.storey === i + 1 && (

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Transition, Dialog } from "@headlessui/react";
-import { IoMdClose } from "react-icons/io";
+import { X } from 'lucide-react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -115,7 +115,7 @@ const SideModal = ({
                           focus:outline-none
                           "
                     >
-                      <IoMdClose size={24} />
+                      <X  size={24} />
                     </button>
                     {title.charAt(0).toUpperCase() + title.slice(1)}
                   </Dialog.Title>

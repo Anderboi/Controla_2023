@@ -1,19 +1,18 @@
-import React from 'react'
-import RoomCard from './RoomCard'
-import { Database } from '@/types/supabase';
-import getRoomEquipment from '@/actions/getRoomFilling';
+import React from "react";
+import RoomCard from "./RoomCard";
+import { Database } from "@/types/supabase";
+import getRoomEquipment from "@/lib/actions/getRoomFilling";
 
 interface RoomCardProps {
   data: Database["public"]["Tables"]["room_info"]["Row"];
 }
 
-const RoomCardWrapper = async ({data}: RoomCardProps) => {
+const RoomCardWrapper = async ({ data }: RoomCardProps) => {
+  const furniture = await getRoomEquipment(data.project_id, data.room_number);
 
-const furniture = await getRoomEquipment(data.project_id, data.room_number)
-
-// const currentRoomData = furniture.filter(
-//   (item) => item.room_number === data.room_number
-// ); 
+  // const currentRoomData = furniture.filter(
+  //   (item) => item.room_number === data.room_number
+  // );
 
   return (
     <>
@@ -22,4 +21,4 @@ const furniture = await getRoomEquipment(data.project_id, data.room_number)
   );
 };
 
-export default RoomCardWrapper
+export default RoomCardWrapper;

@@ -3,12 +3,12 @@
 import * as React from "react"
 import {
   CheckIcon,
-  ChevronRightIcon,
   DotFilledIcon,
 } from "@radix-ui/react-icons"
 import * as MenubarPrimitive from "@radix-ui/react-menubar"
 
 import { cn } from "@/lib/utils"
+import { ChevronRight } from 'lucide-react'
 
 const MenubarMenu = MenubarPrimitive.Menu
 
@@ -53,7 +53,7 @@ MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName
 const MenubarSubTrigger = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.SubTrigger> & {
-    inset?: boolean
+    inset?: boolean;
   }
 >(({ className, inset, children, ...props }, ref) => (
   <MenubarPrimitive.SubTrigger
@@ -66,9 +66,9 @@ const MenubarSubTrigger = React.forwardRef<
     {...props}
   >
     {children}
-    <ChevronRightIcon className="ml-auto h-4 w-4" />
+    <ChevronRight className="ml-auto h-4 w-4" />
   </MenubarPrimitive.SubTrigger>
-))
+));
 MenubarSubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName
 
 const MenubarSubContent = React.forwardRef<

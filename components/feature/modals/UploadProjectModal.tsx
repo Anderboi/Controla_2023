@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useUser } from "@/hooks/useUser";
@@ -13,11 +13,11 @@ import { toast } from "react-hot-toast";
 import uniqid from "uniqid";
 import Modal from "@/components/common/Modal";
 
-import { PhotoIcon } from "@heroicons/react/24/solid";
 import AsyncSelectContactComponent from "@/components/common/inputs/AsyncSelectContactComponent";
 import { twMerge } from "tailwind-merge";
 import { schemaData } from "@/lib/workingStageSupabaseFillRows";
-import { Input } from '@/components/ui/input';
+import { Input } from "@/components/ui/input";
+import { Camera } from "lucide-react";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -415,7 +415,7 @@ const UploadProjectModal = () => {
               "
           >
             <div className="text-center">
-              <PhotoIcon
+              <Camera
                 className="mx-auto h-12 w-12 text-primary-text-dark"
                 aria-hidden="true"
               />

@@ -25,7 +25,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { PhoneInput } from "@/components/ui/phoneNumberInput";
-// import ru from "react-phone-number-input/locale/ru.json";
 import { DatePicker } from "@/components/ui/datePicker";
 
 type Inputs = z.infer<typeof FormDataSchema>;
@@ -34,7 +33,14 @@ const steps = [
   {
     id: "step 1",
     name: "Client information",
-    fields: ["firstName", "lastName", "email", "phoneNumber", "gender"],
+    fields: [
+      "firstName",
+      "lastName",
+      "middleName",
+      "email",
+      "phoneNumber",
+      "gender",
+    ],
   },
   {
     id: "step 2",
@@ -107,124 +113,269 @@ const Step1 = () => {
   // const form = useForm<Inputs>()
 
   return (
-    <ContainerBox className="h-full text-primary-text-light dark:text-primary-text-dark">
-      {/*//? Steps */}
-      <nav className="max-w-[900px] mx-auto" aria-label="Progress">
-        <ol
-          role="list"
-          className="//space-y-2 flex space-x-2 sm:space-x-4 space-y-0"
-        >
-          {steps.map((step, index) => (
-            <li key={step.name} className="flex-1">
-              {activeStep > index ? (
-                <div
-                  className="
-                  group 
-                  flex 
-                  w-full 
-                  flex-col 
-                  border-l-4 
-                  border-accent-light 
-                  dark:border-accent-dark 
-                  py-2 
-                  pl-4 
-                  transition-colors 
-                  md:border-l-0 
-                  md:border-t-4 
-                  md:pb-0 
-                  md:pl-0 
-                  md:pt-4"
-                >
-                  {/* <span className="text-sm font-medium text-sky-600 transition-colors ">
+    <section className="flex">
+      <ContainerBox className="h-full text-primary-text-light dark:text-primary-text-dark w-full">
+        {/*//? Steps */}
+        <nav className="//max-w-[900px] //mx-auto" aria-label="Progress">
+          <ol
+            role="list"
+            className="//space-y-2 flex space-x-2 sm:space-x-4 space-y-0"
+          >
+            {steps.map((step, index) => (
+              <li key={step.name} className="flex-1">
+                {activeStep > index ? (
+                  <div
+                    className="
+                    group 
+                    flex 
+                    w-full 
+                    flex-col 
+                    border-l-4 
+                    border-accent-light 
+                    dark:border-accent-dark 
+                    py-2 
+                    pl-4 
+                    transition-colors 
+                    md:border-l-0 
+                    md:border-t-4 
+                    md:pb-0 
+                    md:pl-0 
+                    md:pt-4"
+                  >
+                    {/* <span className="text-sm font-medium text-sky-600 transition-colors ">
                     {step.id}
                   </span>
                   <span className="text-sm font-medium">{step.name}</span> */}
-                </div>
-              ) : activeStep === index ? (
-                <div
-                  className="flex w-full flex-col //border-l-4 border-accent-light dark:border-accent-dark py-2 pl-4 border-l-0 border-t-4 pb-0 pl-0 pt-4"
-                  aria-current="step"
-                >
-                  {/* <span className="text-sm font-medium text-sky-600">
+                  </div>
+                ) : activeStep === index ? (
+                  <div
+                    className="flex w-full flex-col //border-l-4 border-accent-light dark:border-accent-dark py-2 pl-4 border-l-0 border-t-4 pb-0 pl-0 pt-4"
+                    aria-current="step"
+                  >
+                    {/* <span className="text-sm font-medium text-sky-600">
                     {step.id}
                   </span>
                   <span className="text-sm font-medium">{step.name}</span> */}
-                </div>
-              ) : (
-                <div className="group flex w-full flex-col //border-l-4 border-gray-200 py-2 pl-4 transition-colors md:border-l-0 border-t-4 pb-0 pl-0 pt-4">
-                  {/* <span className="text-sm font-medium text-gray-500 transition-colors">
+                  </div>
+                ) : (
+                  <div className="group flex w-full flex-col //border-l-4 border-gray-200 py-2 pl-4 transition-colors md:border-l-0 border-t-4 pb-0 pl-0 pt-4">
+                    {/* <span className="text-sm font-medium text-gray-500 transition-colors">
                     {step.id}
                   </span>
                   <span className="text-sm font-medium">{step.name}</span> */}
-                </div>
-              )}
-            </li>
-          ))}
-        </ol>
-      </nav>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ol>
+        </nav>
 
-      {/* //? Form */}
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(processForm)}>
-          {/* //! Step 1 / activeStep 0  Информация о клиенте */}
-          {activeStep === 0 && (
-            <section className="block max-w-[900px] px-6 sm:mx-auto">
-              <div className="flex flex-col gap-y-4">
-                <h1 className="text-2xl font-bold pb-2 max-w-[900px]">
-                  Информация о клиенте
-                </h1>
-                <article className="max-w-[900px] sm:m-auto">
-                  <div className="sm:flex sm:space-x-2 w-full">
+        {/* //? Form */}
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(processForm)}>
+            {/* //! Step 1 / activeStep 0  Информация о клиенте */}
+            {activeStep === 0 && (
+              <section className="block max-w-[900px] px-6 sm:mx-auto">
+                <div className="flex flex-col gap-y-4">
+                  <h1 className="text-2xl font-bold pb-2 max-w-[900px]">
+                    Информация о клиенте
+                  </h1>
+                  <article className="max-w-[900px] sm:m-auto">
+                    <div className="sm:flex sm:space-x-2 w-full">
+                      <FormField
+                        name="lastName"
+                        render={({ field }) => (
+                          <FormItem className="w-full">
+                            <FormLabel>Фамилия</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Иванов" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        name="firstName"
+                        render={({ field }) => (
+                          <FormItem className="w-full">
+                            <FormLabel>Имя</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Иван" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        name="middleName"
+                        render={({ field }) => (
+                          <FormItem className="w-full">
+                            <FormLabel>Отчество</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Иванович" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className="sm:flex sm:space-x-2 w-full">
+                      <FormField
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem className="w-full">
+                            <FormLabel>Электронная почта</FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="mail@example.com"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        name="phoneNumber"
+                        render={({ field }) => (
+                          <FormItem className="w-full">
+                            <FormLabel>Номер телефона</FormLabel>
+                            <FormControl>
+                              <PhoneInput
+                                defaultCountry="RU"
+                                initialValueFormat="national"
+                                // labels={ru}
+                                withCountryCallingCode
+                                international
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
                     <FormField
-                      name="firstName"
+                      control={form.control}
+                      name="gender"
                       render={({ field }) => (
-                        <FormItem className="w-full">
-                          <FormLabel>Имя</FormLabel>
+                        <FormItem>
+                          <FormLabel>Пол</FormLabel>
                           <FormControl>
-                            <Input placeholder="Иван" {...field} />
+                            <Select>
+                              <SelectTrigger className="w-[180px]">
+                                <SelectValue placeholder="-" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="system">-</SelectItem>
+                                <SelectItem value="light">Муж</SelectItem>
+                                <SelectItem value="dark">Жен</SelectItem>
+                              </SelectContent>
+                            </Select>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
+                  </article>
+                </div>
+              </section>
+            )}
+            {/* //! Step 2 / activeStep 1 Адрес объекта */}
+            {activeStep === 1 && (
+              <section className="block max-w-[900px] px-6 sm:mx-auto">
+                <h1 className="text-2xl font-bold">Адрес объекта</h1>
+                <ContainerBox className="flex flex-col gap-y-4">
+                  <div className="sm:flex sm:space-x-2 w-full">
                     <FormField
-                      name="lastName"
+                      control={form.control}
+                      name="country"
                       render={({ field }) => (
                         <FormItem className="w-full">
-                          <FormLabel>Фамилия</FormLabel>
+                          <FormLabel>Страна</FormLabel>
                           <FormControl>
-                            <Input placeholder="Иванов" {...field} />
+                            <Input {...field} />
                           </FormControl>
-                          <FormMessage />
+                          <FormDescription></FormDescription>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="city"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <FormLabel>Город</FormLabel>
+                          <FormControl>
+                            <Input {...field} />
+                          </FormControl>
+                          <FormDescription></FormDescription>
                         </FormItem>
                       )}
                     />
                   </div>
-                  <div className="sm:flex sm:space-x-2 w-full">
+                  <FormField
+                    control={form.control}
+                    name="street"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Улица</FormLabel>
+                        <FormControl>
+                          <Input {...field} />
+                        </FormControl>
+                        <FormDescription></FormDescription>
+                      </FormItem>
+                    )}
+                  />
+                  <div className="flex space-x-2 w-full">
                     <FormField
-                      name="email"
+                      control={form.control}
+                      name="house"
                       render={({ field }) => (
                         <FormItem className="w-full">
-                          <FormLabel>Электронная почта</FormLabel>
+                          <FormLabel>Дом</FormLabel>
                           <FormControl>
-                            <Input placeholder="mail@example.com" {...field} />
+                            <Input type="number" {...field} />
                           </FormControl>
+                          <FormDescription></FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                     <FormField
-                      name="phoneNumber"
+                      control={form.control}
+                      name="room"
                       render={({ field }) => (
                         <FormItem className="w-full">
-                          <FormLabel>Номер телефона</FormLabel>
+                          <FormLabel>Квартира</FormLabel>
                           <FormControl>
-                            <PhoneInput
-                              defaultCountry="RU"
-                              initialValueFormat="national"
-                              // labels={ru}
-                              withCountryCallingCode
-                              international
+                            <Input type="number" {...field} />
+                          </FormControl>
+                          <FormDescription></FormDescription>
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </ContainerBox>
+              </section>
+            )}
+            {/* //! Step 3 / activeStep 2 Общая информация */}
+            {activeStep === 2 && (
+              <section className="block max-w-[900px] px-6 sm:mx-auto">
+                <h1 className="text-2xl font-bold">Общая информация</h1>
+                <ContainerBox className="flex flex-col gap-y-4">
+                  <div className="sm:flex sm:space-x-2 w-full">
+                    <FormField
+                      control={form.control}
+                      name="area"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <FormLabel>Площадь</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="number"
+                              placeholder="100 м2"
                               {...field}
                             />
                           </FormControl>
@@ -232,272 +383,148 @@ const Step1 = () => {
                         </FormItem>
                       )}
                     />
+                    <FormField
+                      control={form.control}
+                      name="storeys"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <FormLabel>Этажность</FormLabel>
+                          <FormControl>
+                            <Input type="number" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                   </div>
+                  <div className="sm:flex sm:space-x-2 w-full">
+                    <FormField
+                      control={form.control}
+                      name="colivers"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <FormLabel>Количество проживающих</FormLabel>
+                          <FormControl>
+                            <Input type="number" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="purpose"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <FormLabel>Назначение</FormLabel>
+                          <FormControl>
+                            <Select>
+                              <SelectTrigger className="w-full">
+                                <SelectValue placeholder="-" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="living">Жилое</SelectItem>
+                                <SelectItem value="commercial">
+                                  Коммерческое
+                                </SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <FormField
+                    control={form.control}
+                    name="estBudget"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <FormLabel>Приблизительный бюджет на ремонт</FormLabel>
+                        <Input type="number" {...field} />
+                      </FormItem>
+                    )}
+                  />
+                  <div className="sm:flex sm:space-x-2 w-full">
+                    <FormField
+                      control={form.control}
+                      name="startDate"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <FormLabel>Начало выполнения проекта </FormLabel>
+                          <DatePicker />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="estFinalDate"
+                      render={({ field }) => (
+                        <FormItem className="w-full">
+                          <FormLabel>Примерные сроки выполнения</FormLabel>
+                          {/* //TODO: add field control */}
+                          <DatePicker />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </ContainerBox>
+              </section>
+            )}
+            <button type="submit">Submit</button>
+          </form>
+        </Form>
 
-                  <FormField
-                    control={form.control}
-                    name="gender"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Пол</FormLabel>
-                        <FormControl>
-                          <Select>
-                            <SelectTrigger className="w-[180px]">
-                              <SelectValue placeholder="-" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="system">-</SelectItem>
-                              <SelectItem value="light">Муж</SelectItem>
-                              <SelectItem value="dark">Жен</SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </article>
-              </div>
-            </section>
-          )}
-          {/* //! Step 2 / activeStep 1 Адрес объекта */}
-          {activeStep === 1 && (
-            <section className="block max-w-[900px] px-6 sm:mx-auto">
-              <h1 className="text-2xl font-bold">Адрес объекта</h1>
-              <ContainerBox className="flex flex-col gap-y-4">
-                <div className="sm:flex sm:space-x-2 w-full">
-                  <FormField
-                    control={form.control}
-                    name="country"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Страна</FormLabel>
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                        <FormDescription></FormDescription>
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="city"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Город</FormLabel>
-                        <FormControl>
-                          <Input {...field} />
-                        </FormControl>
-                        <FormDescription></FormDescription>
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <FormField
-                  control={form.control}
-                  name="street"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Улица</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                      <FormDescription></FormDescription>
-                    </FormItem>
-                  )}
-                />
-                <div className="flex space-x-2 w-full">
-                  <FormField
-                    control={form.control}
-                    name="house"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Дом</FormLabel>
-                        <FormControl>
-                          <Input type='number' {...field} />
-                        </FormControl>
-                        <FormDescription></FormDescription>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="room"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Квартира</FormLabel>
-                        <FormControl>
-                          <Input type='number' {...field} />
-                        </FormControl>
-                        <FormDescription></FormDescription>
-                      </FormItem>
-                    )}
-                  />
-                </div>
-              </ContainerBox>
-            </section>
-          )}
-          {/* //! Step 3 / activeStep 2 Общая информация */}
-          {activeStep === 2 && (
-            <section className="block max-w-[900px] px-6 sm:mx-auto">
-              <h1 className="text-2xl font-bold">Общая информация</h1>
-              <ContainerBox className="flex flex-col gap-y-4">
-                <div className="sm:flex sm:space-x-2 w-full">
-                  <FormField
-                    control={form.control}
-                    name="area"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Площадь</FormLabel>
-                        <FormControl>
-                          <Input type='number' placeholder="100 м2" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="storeys"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Этажность</FormLabel>
-                        <FormControl>
-                          <Input type='number' {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <div className="sm:flex sm:space-x-2 w-full">
-                  <FormField
-                    control={form.control}
-                    name="colivers"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Количество проживающих</FormLabel>
-                        <FormControl>
-                          <Input type='number' {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="purpose"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Назначение</FormLabel>
-                        <FormControl>
-                          <Select>
-                            <SelectTrigger className="w-full">
-                              <SelectValue placeholder="-" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="living">Жилое</SelectItem>
-                              <SelectItem value="commercial">
-                                Коммерческое
-                              </SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <FormField
-                  control={form.control}
-                  name="estBudget"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <FormLabel>Приблизительный бюджет на ремонт</FormLabel>
-                      <Input type='number' {...field} />
-                    </FormItem>
-                  )}
-                />
-                <div className="sm:flex sm:space-x-2 w-full">
-                  <FormField
-                    control={form.control}
-                    name="startDate"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Начало выполнения проекта </FormLabel>
-                        <DatePicker />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="estFinalDate"
-                    render={({ field }) => (
-                      <FormItem className="w-full">
-                        <FormLabel>Примерные сроки выполнения</FormLabel>
-                        {/* //TODO: add field control */}
-                        <DatePicker />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-              </ContainerBox>
-            </section>
-          )}
-        <button type="submit">Submit</button>
-        </form>
-      </Form>
-
-      {/*//? Navigation */}
-      <div className="mt-8 pt-5 max-w-[900px] mx-auto">
-        <div className="flex justify-between">
-          <button
-            type="button"
-            onClick={prevStep}
-            disabled={activeStep === 0}
-            className="rounded bg-white px-2 py-1 text-sm font-semibold text-primary-text-light dark:text-primary-text-dark shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-6 w-6"
+        {/*//? Navigation */}
+        <div className="mt-8 pt-5 max-w-[900px] mx-auto">
+          <div className="flex justify-between">
+            <button
+              type="button"
+              onClick={prevStep}
+              disabled={activeStep === 0}
+              className="rounded bg-white px-2 py-1 text-sm font-semibold text-primary-text-light dark:text-primary-text-dark shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
 
-          <button
-            type="button"
-            onClick={nextStep}
-            disabled={activeStep === steps.length - 1}
-            className="rounded bg-white px-2 py-1 text-sm font-semibold text-primary-text-light dark:text-primary-text-dark shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-6 w-6"
+            <button
+              type="button"
+              onClick={nextStep}
+              disabled={activeStep === steps.length - 1}
+              className="rounded bg-white px-2 py-1 text-sm font-semibold text-primary-text-light dark:text-primary-text-dark shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
-    </ContainerBox>
+      </ContainerBox>
+    </section>
   );
 };
 

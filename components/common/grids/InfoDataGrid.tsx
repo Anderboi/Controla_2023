@@ -10,18 +10,20 @@ const InfoDataGrid = ({ children }: InfoDataGridProps) => {
       className="
         w-full
         
-        divide-y
+        max-sm:divide-y
         
-        divide-primary-border-dark
+        max-sm:border
+        border-solid
+        dark:border-primary-border-dark
+        dark:divide-primary-border-dark
+
         overflow-x-auto
-        bg-elevated-1-bg-dark
         no-scrollbar
         max-sm:rounded-lg
         max-sm:px-4
 
         sm:inline-flex
         sm:gap-4
-        sm:divide-none
         sm:bg-transparent
         "
     >

@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Database } from "@/types/supabase";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { StylesConfig, components } from "react-select";
-import Button from "./Button";
 import BasicMultiSelector from "./BasicMultiSelector";
+import { Button } from '@/components/ui/button';
 
 export const revalidate = 0;
 
@@ -25,8 +25,7 @@ const SelectMenuButton = (props: any) => {
     <components.MenuList {...props}>
       {props.children}
       <Button
-        mode="ghost_accent"
-        size='small'
+        variant={'ghost'}
         className="w-full"
         onClick={() => sendOption()}
       >
@@ -96,7 +95,6 @@ const ContactsMultiSelector = ({
         callback={handleChange}
         label={label}
         aditionalButton={SelectMenuButton}
-        
 
         // customOption={Option} //TODO: add custom option Component
       />

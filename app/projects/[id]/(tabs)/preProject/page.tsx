@@ -1,19 +1,17 @@
-import React from "react";
-
 import PremisesBlock from "./components/premises/PremisesBlock";
 import EngeneeringSystemsBlock from "./components/engeneering/EngeneeringSystemsBlock";
 import CommonInfoBlock from "./components/CommonInfoBlock";
-import PDFBlock from './components/pdf/PDFBlock';
+import PDFBlock from "./components/pdf/PDFBlock";
 
-import getCurrntProject from "@/actions/getCurrentProject";
-import ResidingWrapper from './components/residents/ResidingWrapper';
+import getCurrentProject from "@/lib/actions/getCurrentProject";
+import ResidingWrapper from "./components/residents/ResidingWrapper";
 
 export const revalidate = 0;
 
 const PreProject = async ({ params }: { params: { id: number } }) => {
   const projectId = params.id;
 
-  const project = await getCurrntProject(projectId);
+  const project = await getCurrentProject(projectId);
 
   return (
     <>

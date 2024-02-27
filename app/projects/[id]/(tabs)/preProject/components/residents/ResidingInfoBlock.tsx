@@ -32,6 +32,7 @@ const ResidingInfoBlock = ({ residents }: ResidingInfoBlockProps) => {
       supabase.removeChannel(channel);
     };
   }, [supabase]);
+  
   return (
     <ContentBlock title="Информация о проживающих">
       <InfoDataGrid>
