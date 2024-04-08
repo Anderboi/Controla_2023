@@ -1,5 +1,4 @@
 import React from "react";
-import ContainerBox from "@/components/common/ContainerBox";
 import ContentBlock from "@/components/common/ContentBlock";
 
 import getProjectInfo from "@/lib/actions/getProjectInfo";
@@ -21,16 +20,27 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
       <ContentBlock title="Общая информация">
         <dl>
           <InfoItem
+            key={"address"}
             title="Адрес"
             content={`${project.address_country}, ${project.address_city}, ${project.address_street}`}
           />
-          <InfoItem title="Площадь объекта" content={`${project.area} кв.м.`} />
           <InfoItem
+            key={"area"}
+            title="Площадь объекта"
+            content={`${project.area} кв.м.`}
+          />
+          <InfoItem
+            key={"purpose"}
             title="Назначение объекта"
             content={projectInfo.purpose || "Жилое"}
           />
-          <InfoItem title="Этажность" content={`${projectInfo.storeys} этаж`} />
           <InfoItem
+            key={"storey"}
+            title="Этажность"
+            content={`${projectInfo.storeys} этаж`}
+          />
+          <InfoItem
+            key={"residing"}
             title="Количество единовременно проживающих"
             content={`${projectInfo.residing} человека`}
           />

@@ -34,8 +34,8 @@ const Header = ({
       className={twMerge(
         `
         p-4
-        md:pt-4
         pt-12
+        md:pt-4
         relative
         flex
         flex-col
@@ -44,6 +44,8 @@ const Header = ({
         h-fit
         w-full
         items-center
+        
+        max-sm:!rounded-t-none
         `,
         // coverImage &&
         //   `
@@ -62,10 +64,10 @@ const Header = ({
     >
       <div
         className="
-        flex
-        w-full
-        justify-between
-        "
+          flex
+          w-full
+          justify-between
+          "
       >
         {/*//? left button block */}
         <HeaderNavBlock />
@@ -77,7 +79,7 @@ const Header = ({
         flex
         w-full
         flex-col
-        max-sm:hidden
+        //max-sm:hidden
         "
       >
         <span

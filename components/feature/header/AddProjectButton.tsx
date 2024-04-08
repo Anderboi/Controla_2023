@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "../../common/inputs/MyButton";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { Plus } from "lucide-react";
+import { Button } from '@/components/ui/button';
 
 const AddProjectButton = () => {
   const authModal = useAuthModal();
@@ -20,18 +20,11 @@ const AddProjectButton = () => {
 
   return (
     <Button
-      mode="ghost"
-      corner="round"
+      size={"icon"}
+      variant={"secondary"}
       className="
-      flex
-      sm:min-w-[48px]
-      sm:min-h-[48px]
-      items-center
-      justify-center
-      border-none
-      sm:dark:bg-primary-bg-dark
-      dark:text-secondary-text-dark
-      "
+          dark:bg-transparent
+          "
       // onClick={() => router.push("projects/createproject/step1")}
       onClick={onClick}
     >

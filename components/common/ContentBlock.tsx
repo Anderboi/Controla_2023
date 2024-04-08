@@ -1,6 +1,10 @@
-"use client";
-
-import ContainerBox from "./ContainerBox";
+// import ContainerBox from "./ContainerBox";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface ContentBlockProps {
   title: string;
@@ -9,19 +13,24 @@ interface ContentBlockProps {
 
 const ContentBlock = ({ title, children }: ContentBlockProps) => {
   return (
-    <ContainerBox className="transition ease-in-out delay-50">
-      <h2
+    <Accordion type="multiple" className='dark:bg-secondary-bg-dark rounded-xl px-4' >
+      <AccordionItem value="item-1" defaultValue={"item-1"}>
+        <AccordionTrigger className='text-lg'>{title}</AccordionTrigger>
+        <AccordionContent>{children} </AccordionContent>
+      </AccordionItem>
+
+      {/* <ContainerBox className="transition ease-in-out delay-50"> */}
+      {/* <h2
         className="
           text-start
           text-base
           px-4
           sm:px-6
           "
-      >
-        {title}
-      </h2>
-      {children}
-    </ContainerBox>
+      ></h2> */}
+
+      {/* </ContainerBox> */}
+    </Accordion>
   );
 };
 

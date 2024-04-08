@@ -1,90 +1,38 @@
-import {
-  Brush,
-  ChevronRight,
-  PaintRoller,
-  PencilRuler,
-  ShoppingCart,
-} from "lucide-react";
-import Link from "next/link";
+import { ProjectImagesCarousel } from "../_components/ProjectImagesCarousel";
+import { ProjectStages } from "../_components/ProjectStages";
 
 const ProjectPage = ({ params }: { params: { id: number } }) => {
   const projectId = params.id;
 
+  const active = 0;
+
   return (
-    <div
-      className="
-        dark:text-secondary-text-dark
-        grid
-        grid-cols-2
-        sm:grid-cols-4
-        gap-2
-        w-full
-        overflow-auto
-        no-scrollbar
-        "
-    >
-      <Link
-        href={`${projectId}/preProject`}
-        className="
-        dark:bg-secondary-bg-dark
-        p-4
-        rounded-lg
-        text-base
-        space-y-8
-        "
-      >
-        <Brush />
-        <div className="flex gap-2 items-end">
-          <span>Эскизная стадия</span>
-          <ChevronRight />
-        </div>
-      </Link>
-      <div
-        className="
-        dark:bg-secondary-bg-dark
-        p-4
-        rounded-lg
-        text-base
-        space-y-8
-        "
-      >
-        <PencilRuler />
-        <div className="flex gap-2  items-end">
-          <span>Проектные данные</span>
-          <ChevronRight />
-        </div>
+    <section className="space-y-6 ">
+      {/*//? Address block */}
+      {/* <div className="px-4"> */}
+      {/* <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Адрес
+        </h2>
+        <p className="text-base leading-7">
+          Москва, ул. Ульянова 8, “Миракс Парк”
+        </p> */}
+      {/* </div> */}
+      <div>
+        <h2 className="scroll-m-20 text-lg font-semibold tracking-tight px-4">
+          Команда проекта
+        </h2>
       </div>
-      <div
-        className="
-        dark:bg-secondary-bg-dark
-        p-4 
-        rounded-lg 
-        text-base
-        space-y-8
-        "
-      >
-        <ShoppingCart />
-        <div className="flex gap-2 items-end">
-          <span>Комплектация</span>
-          <ChevronRight />
-        </div>
+      {/* //* Carousel */}
+      <ProjectImagesCarousel />
+
+      {/* //* Stages */}
+      <div>
+        <h2 className="scroll-m-20 text-lg font-semibold tracking-tight px-4">
+          Стадии
+        </h2>
+        <ProjectStages active={active} projectId={projectId} />
       </div>
-      <div
-        className="
-        dark:bg-secondary-bg-dark
-        p-4 
-        rounded-lg 
-        text-base
-        space-y-8
-        "
-      >
-        <PaintRoller />
-        <div className="flex gap-2 items-end">
-          <span>Строительство</span>
-          <ChevronRight />
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

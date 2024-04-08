@@ -2,8 +2,9 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import Button from "@/components/common/inputs/MyButton";
+
 import { ChevronLeft } from "lucide-react";
+import { Button } from '@/components/ui/button';
 
 /**
  * React component called HeaderNavBlock.
@@ -19,21 +20,10 @@ const HeaderNavBlock = () => {
   return (
     <div className="z-10 flex gap-4">
       <Button
-        mode="ghost"
-        corner="round"
+        size={'icon'}
+        variant={'secondary'}
         className="
-          flex 
-          transition
-          duration-300
-          sm:dark:bg-primary-bg-dark
-          sm:w-[48px]
-          sm:h-[48px]
-          rounded-full
-          items-center 
-          justify-center 
-          border-none
-          text-secondary-text-light
-          dark:text-secondary-text-dark
+          dark:bg-transparent
           "
         onClick={() => router.back()}
       >

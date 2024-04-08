@@ -6,7 +6,6 @@ import PDFWrapper from "./PDFWrapper";
 import getUserById from "@/lib/actions/getUserById";
 import getPremises from "@/lib/actions/getPremises";
 import getEngeneeringData from "@/lib/actions/getEngeneeringData";
-import getRoomFilling from "@/lib/actions/getRoomFilling";
 
 interface Props {
   projectId: number;

@@ -5,7 +5,7 @@ import React from "react";
 import SideModal from "@/components/common/SideModalHeadless";
 import useCommonModal from "@/hooks/useCommonModal";
 import ResidingDataForm from "./ResidingDataForm";
-import InfoIcon from "@/components/common/icons/InfoIcon";
+import { Info } from 'lucide-react';
 
 const ResidingModal = () => {
   const modal = useCommonModal();
@@ -47,7 +47,7 @@ const ResidingModal = () => {
               </span>
             </div>
             <span>
-              <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+              <Info className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
             </span>
           </div>
 
@@ -59,7 +59,7 @@ const ResidingModal = () => {
               </span>
             </div>
             <span>
-              <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+              <Info className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
             </span>
           </div>
 
@@ -73,7 +73,7 @@ const ResidingModal = () => {
               </span>
             </div>
             <span>
-              <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+              <Info className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
             </span>
           </div>
 
@@ -85,7 +85,7 @@ const ResidingModal = () => {
               </span>
             </div>
             <span>
-              <InfoIcon className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+              <Info className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
             </span>
           </div>
         </div>

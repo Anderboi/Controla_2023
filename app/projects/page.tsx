@@ -31,6 +31,9 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
   return (
     <>
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
+      
+        <SearchInput urlRoute="/projects" />
+      
       <ContainerBox
         className="
           relative
@@ -42,22 +45,6 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
           gap-6
           "
       >
-        <div
-          className="
-            sticky
-            left-0
-            top-0
-            z-20
-            w-full
-            rounded-t-lg
-            bg-secondary-bg-light/80
-            dark:bg-secondary-bg-dark/80
-            
-            backdrop-blur-md
-            "
-        >
-          <SearchInput urlRoute="/projects" />
-        </div>
         <ProjectsGallery projects={projects} />
       </ContainerBox>
     </>

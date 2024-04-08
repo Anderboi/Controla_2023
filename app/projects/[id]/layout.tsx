@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "@/components/feature/header/Header";
-import ContainerBox from "@/components/common/ContainerBox";
 import getCurrntProject from "@/lib/actions/getCurrentProject";
 
 export const revalidate = 0;
@@ -26,16 +25,20 @@ const ProjectPage = async ({
           overflow-y-auto
           rounded-lg 
           no-scrollbar
+
+          //px-2
+          overflow-visible
+          
           "
       >
         <Header
           title={project.address_street || ""}
           // subtitle={project.address_country || ""}
-          image={project.cover_img}
+          // image={project.cover_img}
           addressDetails={project?.address_city || ""}
           // startDate={project.created_at || ""}
         />
-        <div className="flex flex-col gap-y-6">{children}</div>
+        <div className="flex flex-col gap-y-2">{children}</div>
       </section>
     </div>
   );

@@ -38,7 +38,7 @@ const SearchInput = ({
       placeholder="Найти ..."
       value={value}
       className={twMerge(
-        "text-primary-text-light dark:text-primary-text-dark",
+        "text-primary-text-light dark:text-primary-text-dark py-1 h-fit",
         className
       )}
       onChange={(e) => setValue(e.target.value)}

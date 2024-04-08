@@ -4,9 +4,9 @@ import { twMerge } from "tailwind-merge";
 
 import Sidebar from "@/components/feature/sidebar/Sidebar";
 import HydrationZustand from "@/providers/HydrationZustand";
-import Providers from '@/providers/Providers';
-import NavBar from '@/components/feature/navbar/NavBar';
-import { Metadata } from 'next';
+import Providers from "@/providers/Providers";
+import NavBar from "@/components/feature/navbar/NavBar";
+import { Metadata } from "next";
 
 const font = Rubik({
   subsets: ["cyrillic"],
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     siteName: "Controla",
   },
   icons: {
-    icon: '/favicon.svg'
-  }
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -61,22 +61,26 @@ export default function RootLayout({
             <main
               className="
                   flex
-                  w-full
                   flex-1
                   flex-col
+                  w-full
+                  h-dvh
+                  zzh-[93%]
                   gap-y-2
                   overflow-auto
                   scroll-smooth
-                  rounded-lg
+                  //rounded-lg
                   bg-primary-bg-light
                   dark:bg-primary-bg-dark
-                  sm:p-2
                   no-scrollbar
+                  sm:p-2
+                  max-sm:px-2
+                  max-sm:pb-[64px]
                   "
             >
               {children}
-              <NavBar/>
             </main>
+            <NavBar />
           </Providers>
         </HydrationZustand>
       </body>
