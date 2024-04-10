@@ -53,13 +53,13 @@ const Header = ({
     >
       <div
         className="
-          flex
-          w-full
-          justify-between
-
           //sticky
           //top-3
           //z-10
+
+          flex
+          w-full
+          justify-between
           "
       >
         {/*//? left button block */}
@@ -69,10 +69,10 @@ const Header = ({
       </div>
       <section
         className="
+        //max-sm:hidden
         flex
         w-full
         flex-col
-        //max-sm:hidden
         "
       >
         <span
@@ -90,13 +90,13 @@ const Header = ({
           className="
             text-balance
             text-left
-            text-[24px]
+            text-2xl
             font-bold
             tracking-tighter
-            sm:text-[5vw]/[5vw]
-            md:line-clamp-2
             text-primary-text-light
             dark:text-primary-text-dark
+            sm:text-[5vw]/[5vw]
+            md:line-clamp-2
             "
         >
           {title}

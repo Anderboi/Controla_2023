@@ -20,18 +20,18 @@ const FavouriteProjectItem = ({ data, onClick }: FavouriteProjectItemProps) => {
       <div
         className="
           group
-          truncate
           hidden
           cursor-pointer
           items-center
           justify-start
           gap-4
+          truncate
           break-all
           rounded-md
           text-base
           text-primary-text-dark
-          dark:text-primary-text-dark
           hover:bg-transparent-bg-dark/10
+          dark:text-primary-text-dark
           sm:flex
           lg:p-2
           "
@@ -43,9 +43,8 @@ const FavouriteProjectItem = ({ data, onClick }: FavouriteProjectItemProps) => {
             aspect-square
             text-clip
             rounded-lg
-            sm:max-lg:w-[64px]
-            lg:h-[40px]
-            lg:w-[40px]
+            sm:max-lg:w-16
+            lg:size-10
             
             "
         >

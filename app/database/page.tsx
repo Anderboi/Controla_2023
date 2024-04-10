@@ -12,28 +12,29 @@ const DataPage = async () => {
       <ContentBlock title="Мебель">
         <ContainerBox
           className="
+            //!py-0
             flex
             flex-col
             divide-y-[0.5px]
             bg-elevated-1-bg-dark
-            //!py-0
             text-primary-text-dark
             "
         >
           <GallaryGrid>
-            {materialData.map((item) => (
+            {materialData.map((item, index) => (
               <div
+              key={index}
                 className="
-                  border 
-                  border-primary-border-dark 
-                  rounded-lg 
-                  p-4 
                   flex 
-                  flex-col
-                  justify-between
+                  flex-col 
+                  justify-between 
+                  rounded-lg 
+                  border 
+                  border-primary-border-dark
+                  p-4
                   "
               >
-                <span className="underline text-xl font-black">
+                <span className="text-xl font-black underline">
                   {item.name}
                 </span>
                 <div

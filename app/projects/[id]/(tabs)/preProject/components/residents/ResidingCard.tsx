@@ -33,13 +33,13 @@ const ResidingCard = ({ resident }: ResidingCardProps) => {
       onClick={handleClick}
     >
       <div className="flex flex-col sm:items-end">
-        <span className="text-primary-text-light dark:text-primary-text-dark text-base">
+        <span className="text-base text-primary-text-light dark:text-primary-text-dark">
           {resident.name}
         </span>
-        <span className="text-secondary-text-light dark:text-secondary-text-dark text-xs">
+        <span className="text-xs text-secondary-text-light dark:text-secondary-text-dark">
           {resident.gender}
         </span>
-        <span className="text-secondary-text-light dark:text-secondary-text-dark text-xs">
+        <span className="text-xs text-secondary-text-light dark:text-secondary-text-dark">
           {resident.age}
         </span>
       </div>

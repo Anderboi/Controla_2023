@@ -74,9 +74,9 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
       <span
         className="
         text-xs 
+        uppercase
         text-secondary-text-light
         dark:text-secondary-text-dark
-        uppercase
         "
       >
         {`${storey} этаж`}

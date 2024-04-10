@@ -13,7 +13,7 @@ interface ContentBlockProps {
 
 const ContentBlock = ({ title, children }: ContentBlockProps) => {
   return (
-    <Accordion type="multiple" className='dark:bg-secondary-bg-dark rounded-lg px-4' >
+    <Accordion type="multiple" className='rounded-lg px-4 dark:bg-secondary-bg-dark' >
       <AccordionItem value="item-1" defaultValue={"item-1"}>
         <AccordionTrigger className='text-lg'>{title}</AccordionTrigger>
         <AccordionContent>{children}</AccordionContent>

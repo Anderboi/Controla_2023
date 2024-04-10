@@ -25,22 +25,22 @@ const StageCard = ({
       <div
         className={`${className} ${
           state === "active"
-            ? "bg-green-light dark:bg-elevated-2-bg-dark dark:text-primary-text-dark text-primary-text-light"
+            ? "bg-green-light text-primary-text-light dark:bg-elevated-2-bg-dark dark:text-primary-text-dark"
             : "dark:bg-secondary-bg-dark dark:text-tertiary-text-dark"
         }
-          p-4
-          rounded-xl
-          space-x-4
-          sm:h-full
-          flex
-
-          w-full
-          //max-sm:w-fit 
+          //max-sm:w-fit
           //max-sm:min-w-[12rem]
+          flex
+          w-full
+          space-x-4
+
+          rounded-xl
+          p-4 
+          sm:h-full
         `}
       >
         {icon}
-        <div className="block items-start w-full">
+        <div className="block w-full items-start">
           <h4
             className="
               text-lg
@@ -50,13 +50,13 @@ const StageCard = ({
           </h4>
           <p
             className="
-            w-full
             line-clamp-4
-            leading-tight
-            italic
-            font-light
-            text-sm
+            w-full
             text-balance
+            text-sm
+            font-light
+            italic
+            leading-tight
             text-secondary-text-light
             dark:text-secondary-text-light
             "
@@ -64,7 +64,7 @@ const StageCard = ({
             {description}
           </p>
         </div>
-        <div className="flex justify-between //items-center ">
+        <div className="//items-center flex justify-between ">
           {/* <span>02/12</span> */}
           {state === "disabled" ? <Lock /> : <ChevronRight />}
         </div>

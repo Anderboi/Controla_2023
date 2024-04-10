@@ -14,18 +14,18 @@ const UserSidebarBlock = () => {
   const { user } = useUser();
 
   return (
-    <section className="w-full h-[60px]">
+    <section className="h-15 w-full">
       {user ? (
         <div
           className="
           flex 
+          w-full 
           items-center 
           justify-center 
-          rounded-lg 
+          rounded-lg
+          bg-secondary-bg-light 
+          dark:bg-secondary-bg-dark
           lg:justify-between
-          dark:bg-secondary-bg-dark 
-          bg-secondary-bg-light
-          w-full
           "
         >
           <Avatar
@@ -33,16 +33,16 @@ const UserSidebarBlock = () => {
             size={60}
             image={user.user_metadata.avatar_url}
           />
-          <div className="hidden lg:flex w-full justify-between items-center px-4">
+          <div className="hidden w-full items-center justify-between px-4 lg:flex">
             <div className="flex flex-col ">
               <span
                 className="
-                overflow-hidden
                 line-clamp-1
+                overflow-hidden
+                text-balance
+                text-base
                 text-primary-text-light
                 dark:text-primary-text-dark
-                text-base
-                text-balance
                 "
               >
                 {user.user_metadata.full_name || "User"}

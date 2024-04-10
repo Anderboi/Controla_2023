@@ -397,7 +397,7 @@ const MultipleSelector = React.forwardRef<
                     }}
                     onClick={() => handleUnselect(option)}
                   >
-                    <X className="h-3 w-3 text-muted-foreground hover:text-foreground" />
+                    <X className="text-muted-foreground hover:text-foreground size-3" />
                   </button>
                 </Badge>
               );
@@ -435,7 +435,7 @@ const MultipleSelector = React.forwardRef<
         </div>
         <div className="relative mt-2">
           {open && (
-            <CommandList className="absolute top-0 z-10 w-full rounded-md //border bg-popover text-popover-foreground shadow-md outline-none animate-in">
+            <CommandList className="//border bg-popover text-popover-foreground animate-in absolute top-0 z-10 w-full rounded-md shadow-md outline-none">
               {isLoading ? (
                 <>{loadingIndicator}</>
               ) : (

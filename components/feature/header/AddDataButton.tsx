@@ -24,7 +24,7 @@ const AddDataButton = () => {
     <Button
       mode="ghost"
       corner="round"
-      className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark"
+      className="flex size-10 items-center justify-center border-none bg-secondary-bg-dark"
       onClick={onClick}
     >
       <MdOutlineAdd fontSize={24} />

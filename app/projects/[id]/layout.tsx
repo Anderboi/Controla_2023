@@ -15,14 +15,14 @@ const ProjectPage = async ({
   const project = await getCurrntProject(+params.id);
 
   return (
-    <div className="flex //h-[calc(100dvh-16px)]">
+    <div className="//h-[calc(100dvh-16px)] flex">
       <section
         className="
+          //overflow-y-auto
           flex
           w-full
           flex-col
           gap-y-2
-          //overflow-y-auto
           rounded-lg
           no-scrollbar
           max-sm:mb-2

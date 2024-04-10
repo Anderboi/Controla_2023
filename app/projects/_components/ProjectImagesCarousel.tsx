@@ -10,19 +10,19 @@ export function ProjectImagesCarousel() {
   return (
     <Carousel
       opts={{ loop: true, active: true, align: "start", direction: 'ltr' }}
-      className="w-full //max-w-xs mx-auto"
+      className="//max-w-xs mx-auto w-full"
     >
       <CarouselContent className='sm:mx-0'>
         {Array.from({ length: 9 }).map((_, index) => (
-          <CarouselItem key={index} className={`sm:px-1 sm:basis-1/5`}>
+          <CarouselItem key={index} className={`sm:basis-1/5 sm:px-1`}>
             <div
               className="
               //p-1
               aspect-video
-              sm:aspect-square
               rounded-xl
               bg-blue-light
               dark:bg-blue-dark
+              sm:aspect-square
               "
             />
           </CarouselItem>

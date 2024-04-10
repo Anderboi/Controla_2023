@@ -59,7 +59,7 @@ const CommonInfoBlock = async ({ project }: BlockProps) => {
             content={`${projectInfo.storeys} этаж`}
           />
 
-          <div className="max-sm:grid grid-cols-2">
+          <div className="grid-cols-2 max-sm:grid">
             <InfoItem
               key={"start_date"}
               icon={<CalendarFold />}

@@ -32,7 +32,7 @@ const EngeneeringModal = () => {
           className="
             flex 
             flex-col 
-            divide-y-[1px]  
+            divide-y-DEFAULT  
             divide-primary-border-dark 
             rounded-lg 
             bg-elevated-1-bg-dark 
@@ -46,7 +46,7 @@ const EngeneeringModal = () => {
             >
               <span className="text-sm [text-wrap:balance]"> - {item}</span>
               <span>
-                <Info className="h-5 w-5 cursor-pointer text-sm text-secondary-text-dark" />
+                <Info className="size-5 cursor-pointer text-sm text-secondary-text-dark" />
               </span>
             </article>
           ))}

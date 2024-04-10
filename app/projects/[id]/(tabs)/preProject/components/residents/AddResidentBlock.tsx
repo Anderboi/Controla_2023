@@ -33,10 +33,10 @@ const AddResidentBlock = () => {
     <GallaryDataCard
       size="md"
       className="
-      sm:border
       border-dashed
       border-primary-bg-dark
       dark:border-accent-dark
+      sm:border
       "
       illustration={<UserPlus />}
       actionIcon={<Plus />}

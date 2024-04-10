@@ -114,12 +114,12 @@ const Step1 = () => {
 
   return (
     <section className="flex">
-      <ContainerBox className="h-full text-primary-text-light dark:text-primary-text-dark w-full">
+      <ContainerBox className="size-full text-primary-text-light dark:text-primary-text-dark">
         {/*//? Steps */}
         <nav className="//max-w-[900px] //mx-auto" aria-label="Progress">
           <ol
             role="list"
-            className="//space-y-2 flex space-x-2 sm:space-x-4 space-y-0"
+            className="//space-y-2 flex space-x-2 space-y-0 sm:space-x-4"
           >
             {steps.map((step, index) => (
               <li key={step.name} className="flex-1">
@@ -132,10 +132,10 @@ const Step1 = () => {
                     flex-col 
                     border-l-4 
                     border-accent-light 
-                    dark:border-accent-dark 
                     py-2 
                     pl-4 
                     transition-colors 
+                    dark:border-accent-dark 
                     md:border-l-0 
                     md:border-t-4 
                     md:pb-0 
@@ -149,7 +149,7 @@ const Step1 = () => {
                   </div>
                 ) : activeStep === index ? (
                   <div
-                    className="flex w-full flex-col //border-l-4 border-accent-light dark:border-accent-dark py-2 pl-4 border-l-0 border-t-4 pb-0 pl-0 pt-4"
+                    className="//border-l-4 flex w-full flex-col border-l-0 border-t-4 border-accent-light py-2 pb-0 pl-0 pl-4 pt-4 dark:border-accent-dark"
                     aria-current="step"
                   >
                     {/* <span className="text-sm font-medium text-sky-600">
@@ -158,7 +158,7 @@ const Step1 = () => {
                   <span className="text-sm font-medium">{step.name}</span> */}
                   </div>
                 ) : (
-                  <div className="group flex w-full flex-col //border-l-4 border-gray-200 py-2 pl-4 transition-colors md:border-l-0 border-t-4 pb-0 pl-0 pt-4">
+                  <div className="//border-l-4 group flex w-full flex-col border-t-4 border-gray-200 py-2 pb-0 pl-0 pl-4 pt-4 transition-colors md:border-l-0">
                     {/* <span className="text-sm font-medium text-gray-500 transition-colors">
                     {step.id}
                   </span>
@@ -177,11 +177,11 @@ const Step1 = () => {
             {activeStep === 0 && (
               <section className="block max-w-[900px] px-6 sm:mx-auto">
                 <div className="flex flex-col gap-y-4">
-                  <h1 className="text-2xl font-bold pb-2 max-w-[900px]">
+                  <h1 className="max-w-[900px] pb-2 text-2xl font-bold">
                     Информация о клиенте
                   </h1>
                   <article className="max-w-[900px] sm:m-auto">
-                    <div className="sm:flex sm:space-x-2 w-full">
+                    <div className="w-full sm:flex sm:space-x-2">
                       <FormField
                         name="lastName"
                         render={({ field }) => (
@@ -219,7 +219,7 @@ const Step1 = () => {
                         )}
                       />
                     </div>
-                    <div className="sm:flex sm:space-x-2 w-full">
+                    <div className="w-full sm:flex sm:space-x-2">
                       <FormField
                         name="email"
                         render={({ field }) => (
@@ -287,7 +287,7 @@ const Step1 = () => {
               <section className="block max-w-[900px] px-6 sm:mx-auto">
                 <h1 className="text-2xl font-bold">Адрес объекта</h1>
                 <ContainerBox className="flex flex-col gap-y-4">
-                  <div className="sm:flex sm:space-x-2 w-full">
+                  <div className="w-full sm:flex sm:space-x-2">
                     <FormField
                       control={form.control}
                       name="country"
@@ -328,7 +328,7 @@ const Step1 = () => {
                       </FormItem>
                     )}
                   />
-                  <div className="flex space-x-2 w-full">
+                  <div className="flex w-full space-x-2">
                     <FormField
                       control={form.control}
                       name="house"
@@ -365,7 +365,7 @@ const Step1 = () => {
               <section className="block max-w-[900px] px-6 sm:mx-auto">
                 <h1 className="text-2xl font-bold">Общая информация</h1>
                 <ContainerBox className="flex flex-col gap-y-4">
-                  <div className="sm:flex sm:space-x-2 w-full">
+                  <div className="w-full sm:flex sm:space-x-2">
                     <FormField
                       control={form.control}
                       name="area"
@@ -397,7 +397,7 @@ const Step1 = () => {
                       )}
                     />
                   </div>
-                  <div className="sm:flex sm:space-x-2 w-full">
+                  <div className="w-full sm:flex sm:space-x-2">
                     <FormField
                       control={form.control}
                       name="colivers"
@@ -445,7 +445,7 @@ const Step1 = () => {
                       </FormItem>
                     )}
                   />
-                  <div className="sm:flex sm:space-x-2 w-full">
+                  <div className="w-full sm:flex sm:space-x-2">
                     <FormField
                       control={form.control}
                       name="startDate"
@@ -476,13 +476,13 @@ const Step1 = () => {
         </Form>
 
         {/*//? Navigation */}
-        <div className="mt-8 pt-5 max-w-[900px] mx-auto">
+        <div className="mx-auto mt-8 max-w-[900px] pt-5">
           <div className="flex justify-between">
             <button
               type="button"
               onClick={prevStep}
               disabled={activeStep === 0}
-              className="rounded bg-white px-2 py-1 text-sm font-semibold text-primary-text-light dark:text-primary-text-dark shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="bg-white rounded px-2 py-1 text-sm font-semibold text-primary-text-light shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50 dark:text-primary-text-dark"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -490,7 +490,7 @@ const Step1 = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-6 w-6"
+                className="size-6"
               >
                 <path
                   strokeLinecap="round"
@@ -504,7 +504,7 @@ const Step1 = () => {
               type="button"
               onClick={nextStep}
               disabled={activeStep === steps.length - 1}
-              className="rounded bg-white px-2 py-1 text-sm font-semibold text-primary-text-light dark:text-primary-text-dark shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="bg-white rounded px-2 py-1 text-sm font-semibold text-primary-text-light shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50 dark:text-primary-text-dark"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -512,7 +512,7 @@ const Step1 = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-6 w-6"
+                className="size-6"
               >
                 <path
                   strokeLinecap="round"

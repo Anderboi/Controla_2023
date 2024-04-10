@@ -10,9 +10,9 @@ const InfoDataGrid = ({ children, className }: InfoDataGridProps) => {
   return (
     <Carousel
       opts={{ loop: false, active: true, align: "start" }}
-      className={`w-full //max-w-xs mx-auto, ${className}`}
+      className={`//max-w-xs mx-auto, w-full ${className}`}
     >
-      <CarouselContent className="space-x-2 mx-0">{children}</CarouselContent>
+      <CarouselContent className="mx-0 space-x-2">{children}</CarouselContent>
     </Carousel>
   );
 };

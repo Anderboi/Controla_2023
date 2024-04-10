@@ -27,9 +27,9 @@ const SidebarMiddleSection = async () => {
         hidden
         text-xs
         font-semibold
-        text-secondary-text-light
-        dark:text-tertiary-text-dark 
-        lg:flex capitalize
+        capitalize
+        text-secondary-text-light 
+        dark:text-tertiary-text-dark lg:flex
         "
       >
         ИЗБРАННОЕ

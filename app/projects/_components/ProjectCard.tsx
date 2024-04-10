@@ -53,32 +53,35 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
     <div
       onClick={() => route.push(`/projects/${data.project_id}`)}
       className="
+        //sm:border
         group
+
         relative
         flex
         cursor-pointer
         flex-col
+
         items-center
         justify-center
         gap-y-2
+        
         overflow-hidden
-        sm:rounded-lg
-        sm:dark:bg-elevated-1-bg-dark
-        pb-2
-        sm:p-4
-        sm:pb-8
-        sm:hover:dark:bg-elevated-2-bg-dark
-        md:gap-y-4
-        transition
-        ease-in-out
-        duration-500
-
-        sm:border
         border-solid
         border-primary-border-light
+        transition
+        duration-500
+        ease-in-out
+        
         dark:border-elevated-2-bg-dark
-
+        sm:rounded-lg
+        sm:p-4
+        
+        sm:pb-8
         hover:sm:shadow-md
+        sm:dark:bg-elevated-1-bg-dark
+        sm:hover:dark:bg-elevated-2-bg-dark
+
+        md:gap-y-4
         "
     >
       <FavouriteButton
@@ -86,9 +89,10 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         projectId={data.project_id}
         className="
           absolute
-          left-1
-          top-[-4px]
+          left-2
+          top-0
           z-10
+          dark:bg-black-dark/50
           sm:left-5
           sm:top-3
           "
@@ -96,9 +100,10 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
       <RemoveButton
         className="
           absolute
-          right-1
-          top-[-4px]
+          right-2
+          top-0
           z-10
+          dark:bg-black-dark/50
           sm:right-5
           sm:top-3
           "
@@ -107,14 +112,14 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
       <section
         className="
           //md:saturate-0
+          //md:drop-shadow-spt
           relative
-          aspect-square
-          h-full
-          w-full
+          aspect-video
+          size-full
           overflow-hidden
           rounded-lg
           group-hover:saturate-100
-          //md:drop-shadow-spt
+          sm:aspect-square
           "
       >
         {imagePath ? (
@@ -133,8 +138,7 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         ) : (
           <div
             className="
-              h-full
-              w-full
+              size-full
               bg-gradient-to-br
               from-accent-light/50
               dark:from-accent-dark/50
@@ -144,34 +148,41 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
       </section>
       <section
         className="
-          flex 
+          bottom-4
+          left-4
+          flex
           w-full
           flex-col
           items-start
+          
           justify-center
           gap-y-1
+          max-sm:absolute
           "
       >
         <span
           className="
-            truncate
             w-full
+            truncate
             text-base
             text-primary-text-light
             dark:text-primary-text-dark
+            max-sm:text-2xl
             "
         >
           {data.address_street}
         </span>
         <p
           className="
-            truncate
             //min-h-[2lh]
+            truncate
             text-xs
             font-normal
             leading-3
             text-secondary-text-light 
             dark:text-secondary-text-dark
+
+            max-sm:hidden
             "
         >
           <span>Площадь: </span>

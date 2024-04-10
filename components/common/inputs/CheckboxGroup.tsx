@@ -27,7 +27,7 @@ const CheckboxGroup = ({
   };
 
   return (
-    <section className="space-x-4 px-2 flex items-center justify-start group">
+    <section className="group flex items-center justify-start space-x-4 px-2">
       <input
         type="checkbox"
         name={name}
@@ -38,30 +38,30 @@ const CheckboxGroup = ({
       />
       <label
         htmlFor={name}
-        className="peer-checked:text-accent-dark peer-checked:line-through w-full flex gap-5 items-center"
+        className="flex w-full items-center gap-5 peer-checked:text-accent-dark peer-checked:line-through"
       >
         {children}
         <div className="flex gap-1">
           <EditIcon
             className="
-            h-4 
             hidden 
-            group-hover:block 
+            h-4 
             cursor-pointer 
             text-secondary-text-dark 
-            hover:text-accent-dark
+            hover:text-accent-dark 
+            group-hover:block
             "
           />
           <button onClick={onRemove}>
 
           <DeleteIcon
             className="
-            h-4
             hidden
-            group-hover:block
+            h-4
             cursor-pointer
             text-secondary-text-dark
             hover:text-red-600
+            group-hover:block
             "
           />
           </button>

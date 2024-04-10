@@ -45,14 +45,14 @@ const ContactsPage = async ({ children }: SearchProps) => {
       {/* </div> */}
       <ContainerBox
         className="
-          relative
-          flex 
+          //overflow-y-auto
+          relative 
+          flex
           h-full
           flex-col
-          //overflow-y-auto
-          max-sm:!p-0
-          no-scrollbar
           gap-4
+          no-scrollbar
+          max-sm:!p-0
           "
       >
         {children}

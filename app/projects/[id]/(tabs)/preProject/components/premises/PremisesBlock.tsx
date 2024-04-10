@@ -24,7 +24,7 @@ const PremisesBlock = async ({ projectId }: PremisesBlockProps) => {
             {premises && premises.find((key) => key.storey === i + 1) ? (
               <>
                 {projectInfo.storeys > 1 && (
-                  <span className="text-xs dark:text-secondary-text-dark uppercase">{`${
+                  <span className="text-xs uppercase dark:text-secondary-text-dark">{`${
                     i + 1
                   } этаж`}</span>
                 )}

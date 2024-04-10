@@ -36,7 +36,7 @@ const DatabasePage = ({ children }: DataProps) => {
             backdrop-blur-md
             "
         ></div>
-        <div className="px-4 space-y-6">{children}</div>
+        <div className="space-y-6 px-4">{children}</div>
       </ContainerBox>
     </>
   );

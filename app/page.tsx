@@ -17,7 +17,7 @@ const Home = async () => {
   }
 
   return (
-    <ContainerBox className="h-full w-full p-6">
+    <ContainerBox className="size-full p-6">
       <MainLogo type="lg" className="w-full fill-primary-text-dark sm:hidden" />
       <p className="text-center text-sm text-secondary-text-dark sm:hidden">
         Project management web app for interior designers.

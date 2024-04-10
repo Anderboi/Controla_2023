@@ -11,9 +11,9 @@ const NotificationsPage = ({ children }: { children: React.ReactNode }) => {
           flex
           h-full
           flex-col
+          gap-6
           overflow-y-auto
           no-scrollbar
-          gap-6
           "
       >
         {children}

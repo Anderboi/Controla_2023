@@ -17,20 +17,21 @@ const NavBar = () => {
   return (
     <nav
       className="
-        fixed
+        //fixed
         bottom-0
         left-0
+        z-10
+        flex
+
+        h-20
         w-full
 
-        bg-secondary-bg-light
-        dark:bg-secondary-bg-dark
-
-        flex
         justify-around
+        bg-secondary-bg-light
 
+        px-10
         py-4
-        px-[40px]
-        z-10
+        dark:bg-secondary-bg-dark
 
         sm:hidden
       "
@@ -39,7 +40,7 @@ const NavBar = () => {
         <Link
           href={route.href}
           key={index}
-          className="w-8 h-8 flex place-content-center items-center"
+          className="flex size-8 place-content-center items-center"
         >
           {route.icon}
         </Link>

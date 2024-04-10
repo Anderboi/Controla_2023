@@ -19,7 +19,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
+                className="size-[30px] sm:size-12"
               >
                 <path
                   strokeLinecap="round"
@@ -29,10 +29,10 @@ const Concept = () => {
               </svg>
             }
             actionIcon={
-              <Plus className="dark:text-secondary-text-dark text-secondary-text-light" />
+              <Plus className="text-secondary-text-light dark:text-secondary-text-dark" />
             }
           >
-            <span className="sm:dark:text-secondary-text-dark sm:text-secondary-text-light">
+            <span className="sm:text-secondary-text-light sm:dark:text-secondary-text-dark">
               Добавить
             </span>
           </GallaryDataCard>
@@ -68,7 +68,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
+                className="size-[30px] sm:size-12"
               >
                 <path
                   strokeLinecap="round"
@@ -78,7 +78,7 @@ const Concept = () => {
               </svg>
             }
             actionIcon={
-              <Plus className="dark:text-secondary-text-dark text-secondary-text-light" />
+              <Plus className="text-secondary-text-light dark:text-secondary-text-dark" />
             }
           >
             <span className="sm:text-secondary-text-dark">Добавить</span>
@@ -115,7 +115,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
+                className="size-[30px] sm:size-12"
               >
                 <path
                   strokeLinecap="round"
@@ -125,7 +125,7 @@ const Concept = () => {
               </svg>
             }
             actionIcon={
-              <Plus className="dark:text-secondary-text-dark text-secondary-text-light" />
+              <Plus className="text-secondary-text-light dark:text-secondary-text-dark" />
             }
           >
             <span className="sm:text-secondary-text-dark">Добавить</span>

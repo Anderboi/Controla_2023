@@ -46,8 +46,10 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body
-        className={twMerge(
-          `flex 
+        className={twMerge(`
+          flex
+          flex-col
+          sm:flex-row
           bg-primary-bg-light
           dark:bg-primary-bg-dark 
           h-[100dvh] 
@@ -61,21 +63,18 @@ export default function RootLayout({
             <main
               className="
                   flex
+                  h-dvh
+                  w-full
                   flex-1
                   flex-col
-                  w-full
-                  h-dvh
-                  zzh-[93%]
                   gap-y-2
                   overflow-auto
                   scroll-smooth
-                  //rounded-lg
                   bg-primary-bg-light
-                  dark:bg-primary-bg-dark
                   no-scrollbar
-                  sm:p-2
+                  dark:bg-primary-bg-dark
                   max-sm:px-2
-                  max-sm:pb-[64px]
+                  sm:p-2
                   "
             >
               {children}

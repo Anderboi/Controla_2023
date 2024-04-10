@@ -34,11 +34,11 @@ export const CountrySelect = ({
           disabled={disabled}
         >
           <span className="flex items-center truncate">
-            <div className="bg-foreground/20 rounded-sm flex w-6 h-4">
+            <div className="bg-foreground/20 flex h-4 w-6 rounded-sm">
               {value && <FlagComponent country={value} countryName={value} />}
             </div>
           </span>
-          <ChevronsUpDown className={`h-4 w-4 ${disabled ? "hidden" : ""}`} />
+          <ChevronsUpDown className={`size-4 ${disabled ? "hidden" : ""}`} />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[300px] p-0">
@@ -51,7 +51,7 @@ export const CountrySelect = ({
                 .filter((x) => x.value)
                 .map((option) => (
                   <CommandItem
-                    className={"text-sm gap-2"}
+                    className={"gap-2 text-sm"}
                     key={option.value}
                     onSelect={() => handleSelect(option.value)}
                   >
@@ -64,7 +64,7 @@ export const CountrySelect = ({
                       {`+${RPNInput.getCountryCallingCode(option.value)}`}
                     </span>
                     <CheckIcon
-                      className={`ml-auto h-4 w-4 ${
+                      className={`ml-auto size-4 ${
                         option.value === value ? "opacity-100" : "opacity-0"
                       }`}
                     />

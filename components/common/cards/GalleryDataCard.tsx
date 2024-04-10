@@ -33,7 +33,7 @@ const GallaryDataCard = ({
         
         sm:rounded-lg 
         py-2
-        sm:px-4
+        sm:p-4
 
         flex
         sm:flex-col
@@ -68,14 +68,14 @@ const GallaryDataCard = ({
     >
       <div
         className={twMerge(`
-          text-sm 
-          font-bold 
+          text-sm
+          font-bold
           dark:text-secondary-text-dark
-          min-w-9 
-          //max-sm:border-2 
-          dark:border-secondary-text-dark 
-          rounded-md 
-          p-1 
+          min-w-6
+          //max-sm:border-2
+          dark:border-secondary-text-dark
+          rounded-md
+          sm:p-1
           h-full
           `,
           size === "md" && `sm:text-5xl`

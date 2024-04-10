@@ -30,7 +30,7 @@ const IconButton = ({ className, onClick, Icon }: IconButtonProps) => {
       )}
       onClick={onClick}
     >
-      <Icon className="dark:text-accent-dark text-accent-light" size={20} />
+      <Icon className="text-accent-light dark:text-accent-dark" size={20} />
     </button>
   );
 };

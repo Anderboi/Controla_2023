@@ -17,27 +17,26 @@ const HeadlessMenu = () => {
     <Drawer direction="right">
       <DrawerTrigger
         className={`
-          sm:hidden
+          flex
+          size-12
+          items-center
+          justify-center
+          rounded-full
           transition
           duration-300
           dark:bg-primary-bg-dark
-          w-[48px]
-          h-[48px]
-          rounded-full
-          flex
-          items-center
-          justify-center
+          sm:hidden
           `}
       >
         <MenuIcon />
       </DrawerTrigger>
 
-      <DrawerContent className=" bg-secondary-bg-light dark:bg-secondary-bg-dark p-6">
+      <DrawerContent className=" bg-secondary-bg-light p-6 dark:bg-secondary-bg-dark">
         {routes.concat(secondaryRoutes).map((route, index) => (
           <SidebarItem
             key={index}
             className={
-              "text-xl bg-secondary-bg-light dark:bg-secondary-bg-dark px-4 py-2 rounded-md"
+              "rounded-md bg-secondary-bg-light px-4 py-2 text-xl dark:bg-secondary-bg-dark"
             }
             isInBurger
             {...route}

@@ -11,13 +11,13 @@ export default function Loading() {
         className="
             h-12
             w-full
+            animate-pulse
             space-x-1
             !rounded-xl
             bg-elevated-2-bg-dark
-            animate-pulse
             "
       ></div>
-      <ContainerBox className="h-full w-full p-6">
+      <ContainerBox className="size-full p-6">
         <div className="flex w-full animate-pulse flex-col gap-4">
           <GallaryGrid>
             {Array.from({ length: 3 }).map((_, index) => (

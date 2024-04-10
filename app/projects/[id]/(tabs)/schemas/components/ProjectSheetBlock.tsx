@@ -101,7 +101,7 @@ const ProjectSheetBlock = ({ data }: DataType) => {
           </CheckboxGroup>
         ))}
         <form
-          className="flex mt-2 space-x-2 border border-primary-border-dark rounded-lg"
+          className="mt-2 flex space-x-2 rounded-lg border border-primary-border-dark"
           onSubmit={handleOnSubmit}
         >
           <input

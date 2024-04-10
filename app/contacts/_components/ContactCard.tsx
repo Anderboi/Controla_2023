@@ -15,24 +15,24 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         group
         relative
         flex
+        cursor-pointer
         flex-col
         items-center
         justify-center
         overflow-hidden
-        cursor-pointer
-        sm:gap-y-3
         rounded-lg
-        sm:dark:bg-elevated-1-bg-dark
-        p-4
-        sm:hover:bg-elevated-2-bg-dark
-        md:gap-y-4
-        transition
-        ease-in-out
-        duration-500
-
-        sm:border
         border-solid
+        p-4
+        transition
+        duration-500
+        ease-in-out
         dark:border-primary-border-dark
+        sm:gap-y-3
+        sm:border
+
+        sm:hover:bg-elevated-2-bg-dark
+        sm:dark:bg-elevated-1-bg-dark
+        md:gap-y-4
         "
       onClick={() => onClick(data.id)}
     >
@@ -40,8 +40,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         id={data.id}
         className="
           absolute
+          -top-1
           left-1
-          top-[-4px]
           sm:left-2
           sm:top-1
           "
@@ -51,8 +51,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         className="
           relative
           aspect-square
-          h-full
-          w-full
+          size-full
           overflow-hidden
           rounded-lg
           md:dark:drop-shadow-spt
@@ -66,8 +65,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           className="
             aspect-square
             rounded-full
-            sm:p-4
             sm:p-0
+            sm:p-4
             "
         />
       </div>
@@ -83,8 +82,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         <p
           className="
             line-clamp-1 
-            font-bold
             text-base
+            font-bold
             "
         >
           {data.full_name}

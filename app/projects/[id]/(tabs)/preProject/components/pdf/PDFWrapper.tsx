@@ -65,7 +65,7 @@ const PDFWrapper = ({
               {"Загрузка ..."}
             </Button>
           ) : (
-            <Button size={'lg'} variant={'outline'} className="w-full text-lg text-accent-light dark:text-accent-dark dark:!border-accent-dark">
+            <Button size={'lg'} variant={'outline'} className="w-full text-lg text-accent-light dark:!border-accent-dark dark:text-accent-dark">
               {"Скачать PDF"}
             </Button>
           )

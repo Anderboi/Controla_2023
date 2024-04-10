@@ -19,9 +19,9 @@ const Sidebar = () => {
         flex-col
         gap-y-2
         bg-primary-bg-light
-        dark:bg-primary-bg-dark
         py-2
         pl-2
+        dark:bg-primary-bg-dark
         sm:flex
         lg:w-[300px]
         "
@@ -42,11 +42,11 @@ const Sidebar = () => {
         <Link href={"/"}>
           <MainLogo
             type="sm"
-            className="m-auto hidden w-full fill-primary-text-light dark:fill-primary-text-dark text-primary-text-light dark:text-primary-text-dark sm:max-lg:flex"
+            className="m-auto hidden w-full fill-primary-text-light text-primary-text-light dark:fill-primary-text-dark dark:text-primary-text-dark sm:max-lg:flex"
           />
           <MainLogo
             type="md"
-            className="m-auto hidden w-full fill-primary-text-light dark:fill-primary-text-dark text-primary-text-light dark:text-primary-text-dark lg:flex"
+            className="m-auto hidden w-full fill-primary-text-light text-primary-text-light dark:fill-primary-text-dark dark:text-primary-text-dark lg:flex"
           />
         </Link>
         <Navigation navLinks={routes} />

@@ -50,7 +50,7 @@ const RangeSlider = ({ initMax, initMin, max, min, step }: Props) => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between items-center my-6">
+      <div className="my-6 flex items-center justify-between">
         <div>
           <span className="p-2 font-semibold">Min</span>
           <input
@@ -79,7 +79,7 @@ const RangeSlider = ({ initMax, initMin, max, min, step }: Props) => {
       <div className="mb-4">
         <div className="slider relative h-1 rounded-md bg-gray-300">
           <div
-            className="progress absolute h-5 bg-accent-dark rounded"
+            className="progress absolute h-5 rounded bg-accent-dark"
             ref={progressRef}
           ></div>
         </div>
@@ -94,13 +94,13 @@ const RangeSlider = ({ initMax, initMin, max, min, step }: Props) => {
             type="range"
             className="
             range-min
+            pointer-events-none
             absolute
-            w-full
             -top-1
             h-1
-            bg-transparent
+            w-full
             appearance-none
-            pointer-events-none
+            bg-transparent
             "
           />
 
@@ -113,13 +113,13 @@ const RangeSlider = ({ initMax, initMin, max, min, step }: Props) => {
             type="range"
             className="
             range-min
+            pointer-events-none
             absolute
-            w-full
             -top-1
             h-1
-            bg-transparent
+            w-full
             appearance-none
-            pointer-events-none
+            bg-transparent
             "
           />
         </div>

@@ -6,17 +6,17 @@ interface InfoItemProps {
 
 const InfoItem = ({ title, content, icon }: InfoItemProps) => {
   return (
-    <div className="flex items-center w-full">
+    <div className="flex w-full items-center">
       {icon && (
-        <span className="dark:text-secondary-text-dark text-secondary-text-light">
+        <span className="text-secondary-text-light dark:text-secondary-text-dark">
           {icon}
         </span>
       )}
-      <div className=" px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4 w-full">
+      <div className=" w-full px-4 py-2 sm:grid sm:grid-cols-3 sm:gap-4">
         <dt
           className="
           line-clamp-2
-          text-[15px]
+          text-md
           text-primary-text-light
           dark:text-primary-text-dark
           "
@@ -25,8 +25,8 @@ const InfoItem = ({ title, content, icon }: InfoItemProps) => {
         </dt>
         <dd
           className="
-          text-balance
           line-clamp-2
+          text-balance
           text-sm
           text-secondary-text-light
           dark:text-secondary-text-dark

@@ -33,7 +33,7 @@ const Modal = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-primary-bg/75" />
+            <div className="bg-primary-bg/75 fixed inset-0" />
           </Transition.Child>
 
           <div className="fixed inset-0">
@@ -93,8 +93,7 @@ const Modal = ({
                           right-[10px]
                           top-[10px]
                           inline-flex
-                          h-[24px]
-                          w-[24px]
+                          size-6
                           appearance-none
                           items-center
                           justify-center
