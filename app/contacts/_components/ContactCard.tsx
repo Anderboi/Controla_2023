@@ -66,7 +66,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
             aspect-square
             rounded-full
             sm:p-0
-            sm:p-4
+            p-4
             "
         />
       </div>

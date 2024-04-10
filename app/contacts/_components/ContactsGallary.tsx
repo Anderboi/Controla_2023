@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import ContactCard from "@/app/contacts/_components/ContactCard";
+
 import Button from "@/components/common/inputs/MyButton";
 import GallaryGrid from "@/components/common/grids/GallaryGrid";
 
 import { Database } from "@/types/supabase";
+import ContactCard from './ContactCard';
 
 interface ContactsGalleryProps {
   contacts: Database["public"]["Tables"]["users"]["Row"][];
