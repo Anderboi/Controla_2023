@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import EditIcon from "../icons/EditIcon";
-import DeleteIcon from "../icons/DeleteIcon";
+import { Pencil, Trash } from 'lucide-react';
 
 interface CheckboxGroupProps {
   children: React.ReactNode;
@@ -42,7 +41,7 @@ const CheckboxGroup = ({
       >
         {children}
         <div className="flex gap-1">
-          <EditIcon
+          <Pencil
             className="
             hidden 
             h-4 
@@ -54,7 +53,7 @@ const CheckboxGroup = ({
           />
           <button onClick={onRemove}>
 
-          <DeleteIcon
+          <Trash 
             className="
             hidden
             h-4
