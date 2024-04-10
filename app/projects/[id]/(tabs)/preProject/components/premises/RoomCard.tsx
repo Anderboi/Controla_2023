@@ -33,7 +33,7 @@ const RoomCard = ({ data, furniture }: RoomCardProps) => {
       onClick={() => handleOnClick(data.name, data)}
       size="md"
       illustration={
-        <div>
+        <div className='text-secondary-text-dark'>
           {data.room_number?.toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false,
@@ -53,7 +53,7 @@ const RoomCard = ({ data, furniture }: RoomCardProps) => {
           sm:items-end
           "
       >
-        <span className="text-right">{data.name}</span>
+        <span className="text-right text-md">{data.name}</span>
         <div className="flex gap-2">
           <TbSofa className="text-secondary-text-dark " size={20} />
           <IoTvOutline className="text-secondary-text-dark " size={20} />

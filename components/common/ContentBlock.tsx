@@ -13,10 +13,10 @@ interface ContentBlockProps {
 
 const ContentBlock = ({ title, children }: ContentBlockProps) => {
   return (
-    <Accordion type="multiple" className='dark:bg-secondary-bg-dark rounded-xl px-4' >
+    <Accordion type="multiple" className='dark:bg-secondary-bg-dark rounded-lg px-4' >
       <AccordionItem value="item-1" defaultValue={"item-1"}>
         <AccordionTrigger className='text-lg'>{title}</AccordionTrigger>
-        <AccordionContent>{children} </AccordionContent>
+        <AccordionContent>{children}</AccordionContent>
       </AccordionItem>
 
       {/* <ContainerBox className="transition ease-in-out delay-50"> */}

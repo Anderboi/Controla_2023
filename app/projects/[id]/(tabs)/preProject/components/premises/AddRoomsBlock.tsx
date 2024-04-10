@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import BasicMultiSelector from "@/components/common/inputs/BasicMultiSelector";
+import CreatableSelect from "react-select/creatable";
 
 import { usePathname, useRouter } from "next/navigation";
 import useUploadRoomsModal from "@/hooks/useUploadRoomsModal";
@@ -9,8 +10,8 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 import toast from "react-hot-toast";
 import roomsList from "@/lib/roomsList";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
 import { Button } from '@/components/ui/button';
+import MultipleSelector from '@/components/ui/multipleSelector';
 
 interface SelectProps {
   value: string;
@@ -70,7 +71,16 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
 
   return (
     <>
-      <span className="text-xs text-secondary-text-light/80 dark:text-secondary-text-dark/80 uppercase">{`${storey} этаж`}</span>
+      <span
+        className="
+        text-xs 
+        text-secondary-text-light
+        dark:text-secondary-text-dark
+        uppercase
+        "
+      >
+        {`${storey} этаж`}
+      </span>
       <li
         className="
           flex
@@ -94,7 +104,9 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
             list="rooms"
             className="w-full bg-transparent rounded-lg"
           /> */}
-          <DropdownMenu></DropdownMenu>
+
+          {/* <MultipleSelector creatable defaultOptions={roomsList}/> */}
+          
           <BasicMultiSelector
             isMulti
             type="creatable"
@@ -107,9 +119,9 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
             onClick={onSubmit}
             disabled={isLoading}
             type="submit"
-            variant={'ghost'}
+            variant={"ghost"}
             // className="
-            //   w-full 
+            //   w-full
             //   sm:w-fit
             //   "
           >

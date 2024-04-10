@@ -8,7 +8,7 @@ interface Props {
 export function ProjectStages({active, projectId}: Props) {
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 sm:grid sm:grid-cols-2">
       <StageCard
         href={`${projectId}/preProject`}
         title="Эскизная стадия"

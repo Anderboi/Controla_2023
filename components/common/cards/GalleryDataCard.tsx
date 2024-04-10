@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 interface Props {
   onClick?: () => void;
   size?: "sm" | "md" | "lg";
-  type?: 'filled' | 'outlined';
+  type?: "filled" | "outlined";
   children?: React.ReactNode | string | number;
   illustration?: React.ReactNode | string | number;
   actionIcon?: React.ReactNode | string | number;
@@ -32,7 +32,7 @@ const GallaryDataCard = ({
         sm:dark:hover:bg-elevated-1-bg-dark
         
         sm:rounded-lg 
-        py-4
+        py-2
         sm:px-4
 
         flex
@@ -67,8 +67,17 @@ const GallaryDataCard = ({
       )}
     >
       <div
-        className={twMerge(
-          `text-3xl dark:text-secondary-text-dark/50`,
+        className={twMerge(`
+          text-sm 
+          font-bold 
+          dark:text-secondary-text-dark
+          min-w-9 
+          //max-sm:border-2 
+          dark:border-secondary-text-dark 
+          rounded-md 
+          p-1 
+          h-full
+          `,
           size === "md" && `sm:text-5xl`
         )}
       >

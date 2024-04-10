@@ -24,9 +24,11 @@ const PremisesBlock = async ({ projectId }: PremisesBlockProps) => {
             {premises && premises.find((key) => key.storey === i + 1) ? (
               <>
                 {projectInfo.storeys > 1 && (
-                  <span className="text-sm ">{`${i + 1} этаж`}</span>
+                  <span className="text-xs dark:text-secondary-text-dark uppercase">{`${
+                    i + 1
+                  } этаж`}</span>
                 )}
-                <InfoDataGrid>
+                <InfoDataGrid className="max-sm:hidden">
                   {premises.map(
                     (item, index) =>
                       item.storey === i + 1 && (
@@ -34,6 +36,14 @@ const PremisesBlock = async ({ projectId }: PremisesBlockProps) => {
                       )
                   )}
                 </InfoDataGrid>
+                <div className="sm:hidden">
+                  {premises.map(
+                    (item, index) =>
+                      item.storey === i + 1 && (
+                        <RoomCardWrapper key={index} data={item} />
+                      )
+                  )}
+                </div>
               </>
             ) : (
               <div

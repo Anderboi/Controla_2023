@@ -1,5 +1,5 @@
 import React from "react";
-import ResidingInfoBlock from "./ResidingInfoBlock";
+import ResidingInfoBlock from "../ResidingInfoBlock";
 import getResidentsInfo from "@/lib/actions/getResidentsInfo";
 
 interface ResidingBlockProps {

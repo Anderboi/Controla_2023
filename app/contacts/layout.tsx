@@ -26,20 +26,8 @@ const ContactsPage = async ({ children }: SearchProps) => {
     <>
       {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Контакты" />
-      <ContainerBox
+      {/* <div
         className="
-          relative
-          flex 
-          h-full
-          flex-col
-          overflow-y-auto
-          !p-0
-          no-scrollbar
-          gap-6
-          "
-      >
-        <div
-          className="
             sticky
             left-0
             top-0
@@ -50,15 +38,23 @@ const ContactsPage = async ({ children }: SearchProps) => {
             dark:bg-secondary-bg-dark/80
             backdrop-blur-md
             "
-        >
-          <SearchInput
-            urlRoute="/contacts"
-            className="
-              z-10
-              opacity-70
-              "
-          />
-        </div>
+      > */}
+        <SearchInput
+          urlRoute="/contacts"
+        />
+      {/* </div> */}
+      <ContainerBox
+        className="
+          relative
+          flex 
+          h-full
+          flex-col
+          //overflow-y-auto
+          max-sm:!p-0
+          no-scrollbar
+          gap-4
+          "
+      >
         {children}
       </ContainerBox>
     </>

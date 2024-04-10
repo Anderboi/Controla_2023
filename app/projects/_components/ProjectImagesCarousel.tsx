@@ -9,19 +9,18 @@ import {
 export function ProjectImagesCarousel() {
   return (
     <Carousel
-      opts={{ loop: false, active: true, align: "start" }}
-      className="w-full //max-w-xs"
+      opts={{ loop: true, active: true, align: "start", direction: 'ltr' }}
+      className="w-full //max-w-xs mx-auto"
     >
-      <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} 
-          // className={`px-2 sm:basis-1/3`}
-          >
+      <CarouselContent className='sm:mx-0'>
+        {Array.from({ length: 9 }).map((_, index) => (
+          <CarouselItem key={index} className={`sm:px-1 sm:basis-1/5`}>
             <div
               className="
-              p-1
+              //p-1
               aspect-video
-              rounded-2xl
+              sm:aspect-square
+              rounded-xl
               bg-blue-light
               dark:bg-blue-dark
               "

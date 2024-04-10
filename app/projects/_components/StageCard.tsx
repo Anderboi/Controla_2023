@@ -31,7 +31,7 @@ const StageCard = ({
           p-4
           rounded-xl
           space-x-4
-          //h-full
+          sm:h-full
           flex
 
           w-full

@@ -31,18 +31,21 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
   return (
     <>
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
-      
-        <SearchInput urlRoute="/projects" />
-      
+
+      <SearchInput urlRoute="/projects"
+      // className="sticky top-[80px] z-20" 
+      />
+
       <ContainerBox
         className="
           relative
           flex
-          h-full
+          h-fit
           flex-col
-          overflow-y-auto
+          //overflow-y-hidden
           no-scrollbar
           gap-6
+          max-sm:mb-2
           "
       >
         <ProjectsGallery projects={projects} />

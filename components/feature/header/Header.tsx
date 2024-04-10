@@ -1,7 +1,6 @@
 "use client";
 
 import { twMerge } from "tailwind-merge";
-import useLoadImage from "@/hooks/useLoadImage";
 
 import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
@@ -21,13 +20,11 @@ interface HeaderProps {
 const Header = ({
   title,
   className,
-  image,
   subtitle,
   addressDetails,
   startDate,
   adjustableButton,
 }: HeaderProps) => {
-  const coverImage = useLoadImage(image || null, "project");
 
   return (
     <ContainerBox
@@ -36,7 +33,7 @@ const Header = ({
         p-4
         pt-12
         md:pt-4
-        relative
+        //relative
         flex
         flex-col
         gap-6
@@ -44,21 +41,13 @@ const Header = ({
         h-fit
         w-full
         items-center
-        
+
+        //sticky
+        //top-[-92px]
+        //z-20
+
         max-sm:!rounded-t-none
         `,
-        // coverImage &&
-        //   `
-        //   relative
-        //   bg-gradient-to-b
-        //   from-secondary-text-light
-        //   dark:from-secondary-text-dark
-        //   dark:to-elevated-2-bg-dark
-        //   `,
-        // !coverImage &&
-        //   subtitle &&
-        //   `bg-gradient-to-b from-accent-light/50 dark:from-accent-dark/50`,
-        // subtitle ? "gap-y-16" : "gap-y-2 sm:gap-y-4",
         className
       )}
     >
@@ -67,12 +56,16 @@ const Header = ({
           flex
           w-full
           justify-between
+
+          //sticky
+          //top-3
+          //z-10
           "
       >
         {/*//? left button block */}
         <HeaderNavBlock />
         {/*//? right button block */}
-          {adjustableButton}
+        {adjustableButton}
       </div>
       <section
         className="
@@ -130,25 +123,6 @@ const Header = ({
           {startDate && Date.parse(startDate)}
         </span>
       </section>
-      {coverImage && (
-        <Image
-          src={coverImage}
-          alt="cover"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority
-          className="
-            absolute
-            z-0
-            h-full
-            w-full
-            rounded-lg
-            object-cover
-            mix-blend-overlay
-            max-sm:hidden
-          "
-        />
-      )}
     </ContainerBox>
   );
 };
