@@ -208,8 +208,8 @@ const ReactPDFFile = ({
             ) : (
               <>
                 {Array.from(Array(info.storeys)).map((storey, index) => (
-                  <>
-                    <Text key={index}>{`${index + 1} этаж`}</Text>
+                  <div key={index}>
+                    <Text>{`${index + 1} этаж`}</Text>
                     {premises
                       .filter((room) => room.storey === index + 1)
                       .map((room, index) => (
@@ -220,7 +220,7 @@ const ReactPDFFile = ({
                           <Text style={styles.label}>{room.area}</Text>
                         </View>
                       ))}
-                  </>
+                  </div>
                 ))}
               </>
             )}

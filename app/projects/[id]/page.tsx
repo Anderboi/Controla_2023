@@ -8,19 +8,21 @@ const ProjectPage = ({ params }: { params: { id: number } }) => {
   const active = 0;
 
   return (
-    <section className="space-y-4">
+    <>
       <SubtitleBlock title="Галлерея проекта">
-        <ProjectImagesCarousel/>
+        <ProjectImagesCarousel />
       </SubtitleBlock>
 
       <SubtitleBlock title="Команда проекта">
-        <div className='rounded-lg bg-secondary-bg-dark p-4 text-tertiary-text-dark'>//TODO: Команда проекта</div>
+        <div className="rounded-lg bg-secondary-bg-dark p-4 text-tertiary-text-dark">
+          Команда проекта
+        </div>
       </SubtitleBlock>
 
       <SubtitleBlock title="Стадии">
-        <ProjectStages active={active} projectId={projectId}/>
+        <ProjectStages active={active} projectId={projectId} />
       </SubtitleBlock>
-    </section>
+    </>
   );
 };
 

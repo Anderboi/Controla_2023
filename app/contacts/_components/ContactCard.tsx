@@ -21,14 +21,14 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         justify-center
         overflow-hidden
         rounded-lg
-        border-solid
         p-4
         transition
         duration-500
         ease-in-out
         dark:border-primary-border-dark
         sm:gap-y-3
-        sm:border
+        //sm:border
+        //border-solid
 
         sm:hover:bg-elevated-2-bg-dark
         sm:dark:bg-elevated-1-bg-dark
@@ -40,10 +40,11 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         id={data.id}
         className="
           absolute
-          -top-1
-          left-1
+          top-2
+          left-4
           sm:left-2
-          sm:top-1
+          sm:top-0
+          z-10
           "
       />
 
@@ -54,7 +55,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           size-full
           overflow-hidden
           rounded-lg
-          md:dark:drop-shadow-spt
+          //md:dark:drop-shadow-spt
           "
       >
         <Image
@@ -65,7 +66,7 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           className="
             aspect-square
             rounded-full
-            sm:p-0
+            //sm:p-0
             p-4
             "
         />

@@ -1,36 +1,41 @@
 import React from "react";
-import { IconType } from "react-icons";
 import { twMerge } from "tailwind-merge";
 
 interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  Icon: IconType;
+  // icon: React.ReactElement;
 }
 
-const IconButton = ({ className, onClick, Icon }: IconButtonProps) => {
+const IconButton = ({ className, onClick, children: icon }: IconButtonProps) => {
   return (
     <button
       className={twMerge(
         `
-        sm:opacity-0
         transition
-        rounded-full
-        p-1
+        rounded-lg
+        p-2
+        sm:p-1
         translate
         translate-y-1/4
         ease-in-out
         duration-300
         group-hover:opacity-100
         hover:scale-110
+
+        max-sm:border
         hover:bg-transparent-bg-dark/20
-        bg-primary-bg-light
-        dark:bg-primary-bg-dark
+
+        //bg-primary-bg-light
+        //dark:bg-primary-bg-dark
         `,
         className
       )}
       onClick={onClick}
-    >
-      <Icon className="text-accent-light dark:text-accent-dark" size={20} />
+    >{icon}
+      {/* <Icon
+        className="text-primary-text-light dark:text-primary-text-dark"
+        size={20}
+      /> */}
     </button>
   );
 };

@@ -7,11 +7,10 @@ import { useUser } from "@/hooks/useUser";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 
-import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-
 import { toast } from "react-hot-toast";
 import IconButton from "../common/inputs/IconButton";
 import { twMerge } from "tailwind-merge";
+import { Star, StarHalf } from "lucide-react";
 
 interface FavButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   projectId: number;
@@ -31,7 +30,7 @@ const FavouriteButton = ({
 
   const [isFavorite, setIsFavorite] = useState(isChecked);
 
-  const Icon = isFavorite ? AiFillStar : AiOutlineStar;
+  const Icon = isFavorite ? <Star fill='#fff'/> : <Star />;
 
   const handleFav = async (e: any) => {
     e.stopPropagation();
@@ -71,11 +70,12 @@ const FavouriteButton = ({
 
   return (
     <IconButton
-      Icon={Icon}
       onClick={handleFav}
-      className={twMerge(isFavorite && "opacity-100 text-accent-light dark:text-accent-dark")}
+      className={twMerge(isFavorite && "", "sm:opacity-0 opacity-100")}
       {...props}
-    />
+    >
+     {Icon}
+    </IconButton>
   );
 };
 

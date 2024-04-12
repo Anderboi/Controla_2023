@@ -20,16 +20,14 @@ const PDFBlock = async ({ projectId }: Props) => {
   const engeneeringData = await getEngeneeringData(projectId);
 
   return (
-    <>
-      <PDFWrapper
-        info={info}
-        project={project}
-        residents={residingInfo}
-        client={client}
-        premises={premises}
-        engeneeringData={engeneeringData}
-      />
-    </>
+    <PDFWrapper
+      info={info}
+      project={project}
+      residents={residingInfo}
+      client={client}
+      premises={premises}
+      engeneeringData={engeneeringData}
+    />
   );
 };
 

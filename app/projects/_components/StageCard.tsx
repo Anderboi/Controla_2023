@@ -1,5 +1,5 @@
-import { ChevronRight, Lock } from "lucide-react";
 import Link from "next/link";
+import { ChevronRight, Lock } from "lucide-react";
 
 interface Props {
   href: string;
@@ -28,8 +28,6 @@ const StageCard = ({
             ? "bg-green-light text-primary-text-light dark:bg-elevated-2-bg-dark dark:text-primary-text-dark"
             : "dark:bg-secondary-bg-dark dark:text-tertiary-text-dark"
         }
-          //max-sm:w-fit
-          //max-sm:min-w-[12rem]
           flex
           w-full
           space-x-4
@@ -37,6 +35,8 @@ const StageCard = ({
           rounded-xl
           p-4 
           sm:h-full
+
+          items-center
         `}
       >
         {icon}
@@ -64,7 +64,7 @@ const StageCard = ({
             {description}
           </p>
         </div>
-        <div className="//items-center flex justify-between ">
+        <div className=" flex justify-between ">
           {/* <span>02/12</span> */}
           {state === "disabled" ? <Lock /> : <ChevronRight />}
         </div>

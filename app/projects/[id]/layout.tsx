@@ -15,10 +15,8 @@ const ProjectPage = async ({
   const project = await getCurrntProject(+params.id);
 
   return (
-    <div className="//h-[calc(100dvh-16px)] flex">
-      <section
-        className="
-          //overflow-y-auto
+    <section
+      className="
           flex
           w-full
           flex-col
@@ -27,14 +25,13 @@ const ProjectPage = async ({
           no-scrollbar
           max-sm:mb-2
           "
-      >
-        <Header
-          title={project.address_street || ""}
-          addressDetails={project?.address_city || ""}
-        />
-        <div className="flex flex-col gap-y-2">{children}</div>
-      </section>
-    </div>
+    >
+      <Header
+        title={project.address_street || ""}
+        addressDetails={project?.address_city || ""}
+      />
+      <article className="flex flex-col gap-2">{children}</article>
+    </section>
   );
 };
 

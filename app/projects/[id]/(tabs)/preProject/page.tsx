@@ -3,7 +3,7 @@ import { Brush, PaintRoller, PencilRuler, ShoppingCart } from "lucide-react";
 
 const PreProject = () => {
   return (
-    <div className="flex flex-col gap-2">
+    <>
       <StageCard
         href={`preProject/brief`}
         title="Техническое задание"
@@ -36,7 +36,7 @@ const PreProject = () => {
         key={4}
         state="disabled"
       />
-    </div>
+    </>
   );
 };
 

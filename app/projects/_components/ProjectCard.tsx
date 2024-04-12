@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import FavouriteButton from "../../../components/feature/FavouriteButton";
 import { Database } from "@/types/supabase";
 import useLoadImage from "@/hooks/useLoadImage";
-import RemoveButton from "../../../components/common/inputs/RemoveButton";
-import { useSessionContext } from "@supabase/auth-helpers-react";
+import { useSessionContext, useUser } from "@supabase/auth-helpers-react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import RemoveButton from '@/components/common/inputs/RemoveButton';
+import FavouriteButton from '@/components/feature/FavouriteButton';
 
 interface ProjectCardProps {
   data: Database["public"]["Tables"]["projects"]["Row"];
@@ -15,25 +15,31 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
-  const route = useRouter();
+  const router = useRouter();
   const imagePath = useLoadImage(data.cover_img, "project");
 
   const { supabaseClient } = useSessionContext();
+  const user = useUser();
 
   const handleRemove = async (event: any) => {
     event.preventDefault();
     event.stopPropagation();
 
-    const isConfirmed = confirm(`Are you sure you want to remove`);
+    if (data.user_id !== user?.id) {
+      toast.error("Вы не можете удалить этот проект");
+      return;
+    }
+
+    const isConfirmed = confirm(`Вы действительно хотите удалить проект?`);
 
     if (isConfirmed) {
-      const table = await supabaseClient
+      const { error } = await supabaseClient
         .from("projects")
         .delete()
         .eq("project_id", data.project_id);
 
-      if (table.error) {
-        toast.error(table.error?.message);
+      if (error) {
+        toast.error(error?.message);
       } else if (data.cover_img) {
         //! Remove file from storage
         const bucket = await supabaseClient.storage
@@ -45,83 +51,73 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         }
       }
       toast.success("Проект удален");
-      route.refresh();
+      router.refresh();
     }
   };
 
   return (
     <div
-      onClick={() => route.push(`/projects/${data.project_id}`)}
+      onClick={() => router.push(`/projects/${data.project_id}`)}
       className="
-        //sm:border
         group
 
-        relative
         flex
         cursor-pointer
         flex-col
+        relative
 
         items-center
         justify-center
-        gap-y-2
         
         overflow-hidden
-        border-solid
-        border-primary-border-light
         transition
         duration-500
         ease-in-out
         
-        dark:border-elevated-2-bg-dark
-        sm:rounded-lg
+        rounded-lg
+        
         sm:p-4
         
         sm:pb-8
         hover:sm:shadow-md
-        sm:dark:bg-elevated-1-bg-dark
+        dark:bg-elevated-1-bg-dark
         sm:hover:dark:bg-elevated-2-bg-dark
-
+        
+        gap-y-2
         md:gap-y-4
         "
     >
-      <FavouriteButton
-        isChecked={isFavourite}
-        projectId={data.project_id}
-        className="
-          absolute
-          left-2
-          top-0
-          z-10
-          dark:bg-black-dark/50
-          sm:left-5
-          sm:top-3
-          "
-      />
-      <RemoveButton
-        className="
-          absolute
-          right-2
-          top-0
-          z-10
-          dark:bg-black-dark/50
-          sm:right-5
-          sm:top-3
-          "
-        handleClick={handleRemove}
-      />
       <section
         className="
-          //md:saturate-0
-          //md:drop-shadow-spt
-          relative
-          aspect-video
-          size-full
-          overflow-hidden
-          rounded-lg
-          group-hover:saturate-100
-          sm:aspect-square
-          "
+        relative
+        aspect-video
+        sm:aspect-square
+        size-full
+        overflow-hidden
+        rounded-lg
+        "
       >
+        <div
+          className="
+          absolute
+          px-4
+          py-2
+          sm:px-2
+          sm:py-0
+          flex
+          justify-between
+          items-center
+          w-full
+          z-10
+          "
+        >
+          <FavouriteButton
+            isChecked={isFavourite}
+            projectId={data.project_id}
+          />
+          <RemoveButton handleClick={handleRemove} />
+        </div>
+
         {imagePath ? (
           <Image
             src={imagePath}
@@ -129,11 +125,12 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
             className="
               aspect-square
               object-cover
+              brightness-50
               "
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            // placeholder='blur'
-            // blurDataURL={'/favicon.svg'}
+            //placeholder='blur'
+            //blurDataURL={'/favicon.svg'}
           />
         ) : (
           <div
@@ -157,10 +154,11 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           
           justify-center
           gap-y-1
+
           max-sm:absolute
           "
       >
-        <span
+        <p
           className="
             w-full
             truncate
@@ -171,22 +169,20 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
             "
         >
           {data.address_street}
-        </span>
+        </p>
         <p
           className="
-            //min-h-[2lh]
             truncate
-            text-xs
+            text-base
+            sm:text-xs
             font-normal
             leading-3
             text-secondary-text-light 
             dark:text-secondary-text-dark
 
-            max-sm:hidden
             "
         >
-          <span>Площадь: </span>
-          {`${data.area} кв.м.`}
+          Площадь: {`${data.area} кв.м.`}
         </p>
       </section>
     </div>

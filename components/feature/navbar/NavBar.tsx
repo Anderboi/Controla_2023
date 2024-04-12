@@ -2,17 +2,10 @@
 
 import Link from "next/link";
 import { routes, secondaryRoutes } from "@/lib/navRoutes";
+import { usePathname } from 'next/navigation';
 
 const NavBar = () => {
-  // const scrollDirection = useScrollingEffect()
-  // const navClass = scrollDirection === 'up' ? '' : 'opacity-25 duration-500'
-  
-  // const {
-  //   isHomeActive,
-  //   isContactsActive,
-  //   isNotificationsActive,
-  //   isSettingsActive,
-  // } = useNavigation()
+  const path = usePathname()
 
   return (
     <nav
@@ -42,7 +35,7 @@ const NavBar = () => {
           key={index}
           className="flex size-8 place-content-center items-center"
         >
-          {route.icon}
+          {path === route.href ? route.activeIcon : route.icon}
         </Link>
       ))}
     </nav>
