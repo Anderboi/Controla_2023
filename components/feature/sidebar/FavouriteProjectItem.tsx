@@ -51,12 +51,12 @@ const FavouriteProjectItem = ({ data, onClick }: FavouriteProjectItemProps) => {
           <span
             className="
               absolute
-              left-[50%]
-              top-[50%]
+              left-1/2
+              top-1/2
               z-10
               hidden
-              translate-x-[-50%]
-              translate-y-[-50%]
+              translate-x-1/2
+              translate-y-1/2
               text-center
               text-xl
               font-bold

@@ -30,7 +30,7 @@ const SearchInput = ({
     });
 
     router.push(url);
-  }, [debouncedValue, router]);
+  }, [debouncedValue, router, urlRoute]);
 
   return (
     <Input

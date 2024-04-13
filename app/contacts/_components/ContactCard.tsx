@@ -12,6 +12,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
   return (
     <div
       className="
+        //sm:border
+        //border-solid
         group
         relative
         flex
@@ -27,8 +29,6 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         ease-in-out
         dark:border-primary-border-dark
         sm:gap-y-3
-        //sm:border
-        //border-solid
 
         sm:hover:bg-elevated-2-bg-dark
         sm:dark:bg-elevated-1-bg-dark
@@ -40,22 +40,22 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         id={data.id}
         className="
           absolute
-          top-2
           left-4
+          top-2
+          z-10
           sm:left-2
           sm:top-0
-          z-10
           "
       />
 
       <div
         className="
+          //md:dark:drop-shadow-spt
           relative
           aspect-square
           size-full
           overflow-hidden
           rounded-lg
-          //md:dark:drop-shadow-spt
           "
       >
         <Image
@@ -64,9 +64,9 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="
+            //sm:p-0
             aspect-square
             rounded-full
-            //sm:p-0
             p-4
             "
         />

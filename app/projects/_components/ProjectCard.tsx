@@ -61,29 +61,29 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
       className="
         group
 
+        relative
         flex
         cursor-pointer
         flex-col
-        relative
 
         items-center
         justify-center
         
+        gap-y-2
         overflow-hidden
+        rounded-lg
         transition
+        
         duration-500
+        
         ease-in-out
         
-        rounded-lg
-        
+        dark:bg-elevated-1-bg-dark
         sm:p-4
-        
         sm:pb-8
         hover:sm:shadow-md
-        dark:bg-elevated-1-bg-dark
-        sm:hover:dark:bg-elevated-2-bg-dark
         
-        gap-y-2
+        sm:hover:dark:bg-elevated-2-bg-dark
         md:gap-y-4
         "
     >
@@ -91,24 +91,24 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
         className="
         relative
         aspect-video
-        sm:aspect-square
         size-full
         overflow-hidden
         rounded-lg
+        sm:aspect-square
         "
       >
         <div
           className="
           absolute
+          z-10
+          flex
+          w-full
+          items-center
+          justify-between
           px-4
           py-2
           sm:px-2
           sm:py-0
-          flex
-          justify-between
-          items-center
-          w-full
-          z-10
           "
         >
           <FavouriteButton
@@ -174,11 +174,11 @@ const ProjectCard = ({ data, isFavourite }: ProjectCardProps) => {
           className="
             truncate
             text-base
-            sm:text-xs
             font-normal
             leading-3
-            text-secondary-text-light 
-            dark:text-secondary-text-dark
+            text-secondary-text-light
+            dark:text-secondary-text-dark 
+            sm:text-xs
 
             "
         >

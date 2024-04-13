@@ -22,10 +22,10 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [array, setArray] = useState<string[]>([]);
-  
+
   // ? ProjectId from url [id]
-  const {id} = useParams<{ id: string }>();
-  
+  const { id } = useParams<{ id: string }>();
+
   useEffect(() => {
     const fetchData = async () => {
       if (!type) {
@@ -49,10 +49,9 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
     };
 
     fetchData();
-  }, [supabaseClient, id]);
+  }, [supabaseClient, id, type]);
 
   const onSubmit = async () => {
-    
     try {
       setIsLoading(true);
 

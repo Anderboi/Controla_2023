@@ -149,7 +149,7 @@ const Step1 = () => {
                   </div>
                 ) : activeStep === index ? (
                   <div
-                    className="//border-l-4 flex w-full flex-col border-l-0 border-t-4 border-accent-light py-2 pb-0 pl-0 sm:pl-4 pt-4 dark:border-accent-dark"
+                    className="//border-l-4 flex w-full flex-col border-l-0 border-t-4 border-accent-light py-2 pb-0 pl-0 pt-4 dark:border-accent-dark sm:pl-4"
                     aria-current="step"
                   >
                     {/* <span className="text-sm font-medium text-sky-600">
@@ -158,7 +158,7 @@ const Step1 = () => {
                   <span className="text-sm font-medium">{step.name}</span> */}
                   </div>
                 ) : (
-                  <div className="//border-l-4 group flex w-full flex-col border-t-4 border-gray-200 py-2 pb-0 pl-0 sm:pl-4 pt-4 transition-colors md:border-l-0">
+                  <div className="//border-l-4 group flex w-full flex-col border-t-4 border-gray-200 py-2 pb-0 pl-0 pt-4 transition-colors sm:pl-4 md:border-l-0">
                     {/* <span className="text-sm font-medium text-gray-500 transition-colors">
                     {step.id}
                   </span>

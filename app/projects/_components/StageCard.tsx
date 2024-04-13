@@ -30,13 +30,13 @@ const StageCard = ({
         }
           flex
           w-full
-          space-x-4
-
-          rounded-xl
-          p-4 
-          sm:h-full
-
           items-center
+
+          space-x-4
+          rounded-xl 
+          p-4
+
+          sm:h-full
         `}
       >
         {icon}

@@ -2,9 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import ContentBlock from "@/components/common/ContentBlock";
-import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
-import AddResidentBlock from "./residents/AddResidentBlock";
-import ResidingCard from "./residents/ResidingCard";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import InfoItem from "@/components/common/InfoBlock/InfoItem";
 import { Award, Baby, Users } from "lucide-react";
@@ -33,7 +30,7 @@ const ResidingInfoBlock = ({ residents }: ResidingInfoBlockProps) => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [supabase]);
+  }, [supabase, people]);
 
   return (
     <ContentBlock title="Информация о проживающих">
@@ -52,7 +49,8 @@ const ResidingInfoBlock = ({ residents }: ResidingInfoBlockProps) => {
           content={`Нет`}
         />
       </dl>
-      {/* <InfoDataGrid>
+
+      {/* <InfoDataGrid> //? Блок с информацией о каждом отдельном проживающем
         <AddResidentBlock />
         {people.map((resident, index) => (
           <ResidingCard key={index} resident={resident} />

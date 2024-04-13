@@ -23,7 +23,7 @@ const RemoveButton = ({ handleClick, ...props }: RemoveButtonProps) => {
   return (
     <IconButton
       onClick={remove}
-      className="sm:opacity-0 opacity-100"
+      className="opacity-100 sm:opacity-0"
       {...props}
     >
       <Trash2 />
