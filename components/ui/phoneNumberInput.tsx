@@ -72,7 +72,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputProps>(
 
 type CountrySelectOption = { label: string; value: RPNInput.Country };
 
-type CountrySelectProps = {
+export type CountrySelectProps = {
   disabled?: boolean;
   value: RPNInput.Country;
   onChange: (value: RPNInput.Country) => void;
@@ -146,7 +146,7 @@ const CountrySelect = ({
   );
 };
 
-const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
+export const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country];
 
   return (
