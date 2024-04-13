@@ -1,4 +1,3 @@
-import ThemeSwitcher from '@/components/feature/sidebar/ThemeSwitcher';
 import { useState, useEffect } from "react";
 
 type ThemeProviderProps = {
@@ -19,13 +18,10 @@ const ThemeProvider = ({
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
-    console.log(theme);
-    
   };
 
   return (
     <div className="app-container">
-      {/* <ThemeSwitcher onClick={toggleTheme} /> */}
       <button onClick={toggleTheme}>Переключить тему</button>
       {children}
     </div>
