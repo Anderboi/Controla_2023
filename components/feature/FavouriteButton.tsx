@@ -7,11 +7,10 @@ import { useUser } from "@/hooks/useUser";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 
-import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-
 import { toast } from "react-hot-toast";
 import IconButton from "../common/inputs/IconButton";
 import { twMerge } from "tailwind-merge";
+import { Star, StarHalf } from "lucide-react";
 
 interface FavButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   projectId: number;
@@ -29,9 +28,9 @@ const FavouriteButton = ({
   const authModal = useAuthModal();
   const { user } = useUser();
 
-  const [isFavourite, setIsFavourite] = useState(isChecked);
+  const [isFavorite, setIsFavorite] = useState(isChecked);
 
-  const Icon = isFavourite ? AiFillStar : AiOutlineStar;
+  const Icon = isFavorite ? <Star fill='#fff'/> : <Star />;
 
   const handleFav = async (e: any) => {
     e.stopPropagation();
@@ -41,7 +40,7 @@ const FavouriteButton = ({
       return authModal.onOpen();
     }
 
-    if (isFavourite) {
+    if (isFavorite) {
       const { error } = await supabaseClient
         .from("favourite_projects")
         .delete()
@@ -51,7 +50,7 @@ const FavouriteButton = ({
       if (error) {
         toast.error(error.message);
       } else {
-        setIsFavourite(false);
+        setIsFavorite(false);
         toast.success("Удалено из избранного");
       }
     } else {
@@ -62,7 +61,7 @@ const FavouriteButton = ({
       if (error) {
         toast.error(error.message);
       } else {
-        setIsFavourite(true);
+        setIsFavorite(true);
         toast.success("Добавлено в избранные!");
       }
     }
@@ -71,11 +70,12 @@ const FavouriteButton = ({
 
   return (
     <IconButton
-      Icon={Icon}
       onClick={handleFav}
-      className={twMerge(isFavourite && "opacity-100")}
+      className={twMerge(isFavorite && "", "sm:opacity-0 opacity-100")}
       {...props}
-    />
+    >
+     {Icon}
+    </IconButton>
   );
 };
 

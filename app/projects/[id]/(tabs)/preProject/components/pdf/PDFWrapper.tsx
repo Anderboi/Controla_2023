@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from "react";
 import ReactPDFFile from "./ReactPDFFile";
 import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
-import Button from "@/components/common/inputs/Button";
+
 import { Database } from "@/types/supabase";
+import { Button } from '@/components/ui/button';
 
 export interface PDFProps {
   project: Database["public"]["Tables"]["projects"]["Row"];
@@ -12,26 +13,6 @@ export interface PDFProps {
   residents: Database["public"]["Tables"]["inhabitant_info"]["Row"][];
   client: any;
   premises: Database["public"]["Tables"]["room_info"]["Row"][];
-  // premises: {
-  //   area: number | null;
-  //   furnishing: string | null;
-  //   name: string;
-  //   project_id: number;
-  //   room_number: number;
-  //   storey: number;
-  //   room_furnishing?: {
-  //     name: string;
-  //     room_number: number;
-  //     quantity: number;
-  //     brand: string;
-  //     materials: string[];
-  //     price: number;
-  //     link: string;
-  //     tech_spec: string;
-  //     isOrdered: boolean;
-  //     isDelivered: boolean;
-  //   };
-  // }[];
   engeneeringData: Database["public"]["Tables"]["engeneering_data"]["Row"];
 }
 
@@ -49,11 +30,9 @@ const PDFWrapper = ({
     setState(true);
   }, []);
 
-  
-
   return (
     <>
-    {/* //! PDF Viewer, only for development purposes. Remove on deploy */}
+      {/* //! PDF Viewer, only for development purposes. Remove on deploy */}
       {/* <PDFViewer height={"900px"} width={"100%"} showToolbar={true}>
         <ReactPDFFile
           info={info}
@@ -82,11 +61,11 @@ const PDFWrapper = ({
       >
         {({ blob, url, loading, error }) =>
           !error && loading ? (
-            <Button mode="action" className="w-full">
+            <Button  className="w-full">
               {"Загрузка ..."}
             </Button>
           ) : (
-            <Button mode="action" className="w-full">
+            <Button size={'lg'} variant={'outline'} className="w-full text-lg text-accent-light dark:!border-accent-dark dark:text-accent-dark">
               {"Скачать PDF"}
             </Button>
           )

@@ -1,12 +1,11 @@
 import React from "react";
-import getCurrntProject from "@/actions/getCurrentProject";
-import getProjectInfo from "@/actions/getProjectInfo";
-import getResidentsInfo from "@/actions/getResidentsInfo";
+import getCurrntProject from "@/lib/actions/getCurrentProject";
+import getProjectInfo from "@/lib/actions/getProjectInfo";
+import getResidentsInfo from "@/lib/actions/getResidentsInfo";
 import PDFWrapper from "./PDFWrapper";
-import getUserById from "@/actions/getUserById";
-import getPremises from "@/actions/getPremises";
-import getEngeneeringData from "@/actions/getEngeneeringData";
-import getRoomFilling from '@/actions/getRoomFilling';
+import getUserById from "@/lib/actions/getUserById";
+import getPremises from "@/lib/actions/getPremises";
+import getEngeneeringData from "@/lib/actions/getEngeneeringData";
 
 interface Props {
   projectId: number;
@@ -21,16 +20,14 @@ const PDFBlock = async ({ projectId }: Props) => {
   const engeneeringData = await getEngeneeringData(projectId);
 
   return (
-    <>
-      <PDFWrapper
-        info={info}
-        project={project}
-        residents={residingInfo}
-        client={client}
-        premises={premises}
-        engeneeringData={engeneeringData}
-      />
-    </>
+    <PDFWrapper
+      info={info}
+      project={project}
+      residents={residingInfo}
+      client={client}
+      premises={premises}
+      engeneeringData={engeneeringData}
+    />
   );
 };
 

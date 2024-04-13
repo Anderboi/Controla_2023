@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import DataCard from "@/components/common/cards/DataCard";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
-import Illustration from "@/components/common/illustrations/engeneering/Illustrations";
 
 import { engSystems } from "@/lib/engeneering";
 import { Database } from "@/types/supabase";
@@ -11,7 +9,7 @@ import { Database } from "@/types/supabase";
 import { twMerge } from "tailwind-merge";
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
-import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
+import { ChevronRight } from "lucide-react";
 
 interface Props {
   data: Database["public"]["Tables"]["engeneering_data"]["Row"];
@@ -20,49 +18,78 @@ interface Props {
 const EngeneeringSystemList = ({ data }: Props) => {
   const engModal = useEngeneeringModal();
 
-  const handleOnClick = (type: string) => {
+  const handleOnClick = (systemType: string) => {
     //@ts-ignore
-    engModal.onOpen(type, data[type]); //TODO: fix this data[type]
+    engModal.onOpen(systemType, data[systemType]); //TODO: fix this data[systemType]
   };
-  
+
   return (
-    <InfoDataGrid>
-      {engSystems.map(({ name, label }, index) => (
-        <GallaryDataCard
-          key={index}
-          size="md"
-          onClick={() => handleOnClick(name)}
-          actionIcon={
-            <ChevronRightIcon
-              type="right"
-              className="text-secondary-text-dark"
-            />
-          }
-          illustration={
-            <Illustration
-              type={name}
-              size={48}
-              className={twMerge(
-                `
-                fill-secondary-text-dark
-                //w-16
-                //h-16
-                transition-all
-                `,
-                data &&
-                  Object.entries(data).find(
-                    ([key, value]) => key === name
-                  )?.[1] !== null
-                  ? "fill-accent-dark"
-                  : "fill-primary-border-dark"
-              )}
-            />
-          }
-        >
-          <span className="//text-right [text-wrap:balance]">{label}</span>
-        </GallaryDataCard>
-      ))}
-    </InfoDataGrid>
+    <>
+      <InfoDataGrid className="max-sm:hidden">
+        {engSystems.map(({ name, label, icon }, index) => (
+          <GallaryDataCard
+            key={index}
+            size="md"
+            onClick={() => handleOnClick(name)}
+            actionIcon={
+              <ChevronRight type="right" className="text-secondary-text-dark" />
+            }
+            illustration={
+              <span
+                className={twMerge(
+                  `!w-[48px] h-12
+                  text-secondary-text-light
+                  dark:text-secondary-text-dark
+                  transition-all`,
+                  data &&
+                    Object.entries(data).find(
+                      ([key, value]) => key === name
+                    )?.[1] !== null
+                    ? "text-accent-light dark:text-accent-dark"
+                    : "text-primary-border-dark"
+                )}
+              >
+                {icon}
+              </span>
+            }
+          >
+            <span className="text-balance">{label}</span>
+          </GallaryDataCard>
+        ))}
+      </InfoDataGrid>
+      <div className="sm:hidden">
+        {engSystems.map(({ name, label, icon }, index) => (
+          <GallaryDataCard
+            key={index}
+            size="md"
+            onClick={() => handleOnClick(name)}
+            actionIcon={
+              <ChevronRight type="right" className="text-secondary-text-dark" />
+            }
+            illustration={
+              <span
+                className={twMerge(
+                  `!w-[48px] h-12
+                  text-secondary-text-light
+                  dark:text-secondary-text-dark
+                  transition-all`,
+                  data &&
+                    Object.entries(data).find(
+                      ([key, value]) => key === name
+                    )?.[1] !== null
+                    ? "text-accent-light dark:text-accent-dark"
+                    : "text-primary-border-dark"
+                )}
+              >
+                {icon}
+              </span>
+            }
+          >
+            <span className="text-balance">{label}</span>
+          </GallaryDataCard>
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -16,29 +16,28 @@ const Accordion = ({ amount, children, title }: Props) => {
         <div>
           <Disclosure.Button
             className={`
+              flex
+              w-full
+              justify-between
               bg-elevated-1-bg-dark
               p-4
-              w-full
-              flex
-              justify-between
               transition-all
-              ${open ? "rounded-tl-lg rounded-tr-lg" : "rounded-lg"}`}
+              ${open ? "rounded-t-lg" : "rounded-lg"}`}
           >
             <span className="text-left">{title}</span>
-            <span className="text-right w-2/4 text-secondary-text-dark">
+            <span className="w-2/4 text-right text-secondary-text-dark">
               {amount}
             </span>
           </Disclosure.Button>
           <Disclosure.Panel
             className="
-              bg-elevated-1-bg-dark/50 
-              p-4
-              rounded-bl-lg
-              rounded-br-lg
-
-              flex
+              flex 
               flex-col
               gap-y-2
+              rounded-b-lg
+
+              bg-elevated-1-bg-dark/50
+              p-4
               "
           >
             {children}

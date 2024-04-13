@@ -7,24 +7,23 @@ export default function Loading() {
   return (
     <>
       <Header title="Проекты" />
-      <ContainerBox className="h-full w-full p-6">
-        <div className="flex w-full animate-pulse flex-col gap-4">
-          <div
-            className="
-            h-[36px]
+      <div
+        className="
+            h-12
             w-full
+            animate-pulse
             space-x-1
-            rounded-lg
+            !rounded-xl
             bg-elevated-2-bg-dark
             "
-          ></div>
+      ></div>
+      <ContainerBox className="size-full p-6">
+        <div className="flex w-full animate-pulse flex-col gap-4">
           <GallaryGrid>
-            <div className="aspect-square w-full rounded-lg bg-elevated-2-bg-dark"></div>
-            <div className="aspect-square w-full rounded-lg bg-elevated-2-bg-dark"></div>
-            <div className="aspect-square w-full rounded-lg bg-elevated-2-bg-dark"></div>
-            <div className="aspect-square w-full rounded-lg bg-elevated-2-bg-dark"></div>
-            <div className="aspect-square w-full rounded-lg bg-elevated-2-bg-dark"></div>
-          </GallaryGrid>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <div key={index} className="aspect-square w-full rounded-lg bg-elevated-2-bg-dark"></div>
+            ))}
+            </GallaryGrid>
         </div>
       </ContainerBox>
     </>

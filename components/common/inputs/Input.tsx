@@ -12,7 +12,7 @@ const Input = ({ isLoading, label, id, placeholder, className }: InputProps) => 
     <div className='flex flex-col gap-2'>
       {label && (
         <label
-          className="text-[15px] font-bold leading-5 text-primary-text-dark"
+          className="text-md font-bold leading-5 text-primary-text-dark"
           htmlFor={id}
         >
           {label}

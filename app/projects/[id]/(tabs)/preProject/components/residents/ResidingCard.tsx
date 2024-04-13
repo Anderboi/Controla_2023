@@ -2,12 +2,10 @@
 
 import React from "react";
 import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
-import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
-
-import { VscPerson } from "react-icons/vsc";
+import useCommonModal from "@/hooks/useCommonModal";
 
 import { Database } from "@/types/supabase";
-import useCommonModal from "@/hooks/useCommonModal";
+import { ChevronRight, CircleUser } from 'lucide-react';
 
 interface ResidingCardProps {
   resident: Database["public"]["Tables"]["inhabitant_info"]["Row"];
@@ -26,16 +24,24 @@ const ResidingCard = ({ resident }: ResidingCardProps) => {
   return (
     <GallaryDataCard
       size="md"
-      illustration={<VscPerson className="text-accent-dark" />}
+      illustration={
+        <CircleUser  className="text-accent-light dark:text-accent-dark" />
+      }
       actionIcon={
-        <ChevronRightIcon type="right" className="text-secondary-text-dark" />
+        <ChevronRight className="text-secondary-text-light dark:text-secondary-text-dark" />
       }
       onClick={handleClick}
     >
       <div className="flex flex-col sm:items-end">
-        <span className="text-primary-text-dark">{resident.name}</span>
-        <span className="text-secondary-text-dark">{resident.gender}</span>
-        <span className="text-secondary-text-dark">{resident.age}</span>
+        <span className="text-base text-primary-text-light dark:text-primary-text-dark">
+          {resident.name}
+        </span>
+        <span className="text-xs text-secondary-text-light dark:text-secondary-text-dark">
+          {resident.gender}
+        </span>
+        <span className="text-xs text-secondary-text-light dark:text-secondary-text-dark">
+          {resident.age}
+        </span>
       </div>
     </GallaryDataCard>
   );

@@ -1,11 +1,12 @@
-'use client'
+"use client";
 
 import React from "react";
-import ContactCard from "@/components/common/cards/ContactCard";
-import Button from "@/components/common/inputs/Button";
+
+import Button from "@/components/common/inputs/MyButton";
 import GallaryGrid from "@/components/common/grids/GallaryGrid";
 
-import { Database } from '@/types/supabase';
+import { Database } from "@/types/supabase";
+import ContactCard from './ContactCard';
 
 interface ContactsGalleryProps {
   contacts: Database["public"]["Tables"]["users"]["Row"][];
@@ -35,8 +36,13 @@ const ContactsGallary = ({ contacts }: ContactsGalleryProps) => {
   return (
     <GallaryGrid>
       {contacts.map((item) => (
-        <ContactCard key={item.id} data={item} onClick={() => {console.log('hi');
-        }} />
+        <ContactCard
+          key={item.id}
+          data={item}
+          onClick={() => {
+            console.log("hi");
+          }}
+        />
       ))}
     </GallaryGrid>
   );

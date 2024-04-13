@@ -20,15 +20,19 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         items-center
         justify-center
         overflow-hidden
-        sm:gap-y-3
-        sm:rounded-lg
-        sm:bg-elevated-1-bg-dark
-        sm:p-4
-        sm:hover:bg-elevated-2-bg-dark
-        md:gap-y-4
+        rounded-lg
+        p-4
         transition
-        ease-in-out
         duration-500
+        ease-in-out
+        dark:border-primary-border-dark
+        sm:gap-y-3
+        //sm:border
+        //border-solid
+
+        sm:hover:bg-elevated-2-bg-dark
+        sm:dark:bg-elevated-1-bg-dark
+        md:gap-y-4
         "
       onClick={() => onClick(data.id)}
     >
@@ -36,10 +40,11 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         id={data.id}
         className="
           absolute
-          left-1
-          top-[-4px]
+          top-2
+          left-4
           sm:left-2
-          sm:top-1
+          sm:top-0
+          z-10
           "
       />
 
@@ -47,11 +52,10 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
         className="
           relative
           aspect-square
-          h-full
-          w-full
+          size-full
           overflow-hidden
           rounded-lg
-          md:drop-shadow-spt
+          //md:dark:drop-shadow-spt
           "
       >
         <Image
@@ -62,8 +66,8 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           className="
             aspect-square
             rounded-full
+            //sm:p-0
             p-4
-            sm:p-0
             "
         />
       </div>
@@ -74,28 +78,27 @@ const ContactCard = ({ data, onClick }: ContactCardProps) => {
           flex-col
           items-start
           justify-center
-          gap-y-1
           "
       >
         <p
           className="
             line-clamp-1 
+            text-base
             font-bold
             "
         >
           {data.full_name}
         </p>
-        <p className="text-sm font-thin text-secondary-text-dark">{data.role}</p>
-        {/* <p
-          className="
-          truncate
-          break-all
-          text-xs
-          text-secondary-text-dark
-          "
-        >
-          {data.email}
-        </p> */}
+        <p 
+        className="
+        text-sm 
+        font-thin 
+        text-secondary-text-light
+        dark:text-secondary-text-dark
+        ">
+          {data.role}
+          </p>
+        
       </div>
     </div>
   );

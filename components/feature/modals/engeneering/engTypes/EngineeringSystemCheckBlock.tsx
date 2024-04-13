@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import toast from "react-hot-toast";
 
 import CheckDataCard from "@/components/common/cards/CheckDataCard";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 
 import useEngeneeringModal from "@/hooks/engeneering/useEngeneeringModal";
 import { engeneeringSystems } from "@/lib/engeneering";
@@ -18,15 +18,14 @@ export interface EngeneeringType {
 const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
   const supabaseClient = useSupabaseClient();
   const engModal = useEngeneeringModal();
-
-  const [isLoading, setIsLoading] = useState(false);
-  const pathname = usePathname();
   const router = useRouter();
 
+  const [isLoading, setIsLoading] = useState(false);
   const [array, setArray] = useState<string[]>([]);
-
-  const projectId = Number(pathname.split("/")[pathname.split("/").length - 2]); //TODO: optimise, or make utility
-
+  
+  // ? ProjectId from url [id]
+  const {id} = useParams<{ id: string }>();
+  
   useEffect(() => {
     const fetchData = async () => {
       if (!type) {
@@ -35,7 +34,7 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
       const { data, error } = await supabaseClient
         .from("engeneering_data")
         .select(type)
-        .eq("project_id", projectId);
+        .eq("project_id", id);
 
       if (error) toast.error(error.message);
 
@@ -50,9 +49,10 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
     };
 
     fetchData();
-  }, [supabaseClient, projectId]);
+  }, [supabaseClient, id]);
 
   const onSubmit = async () => {
+    
     try {
       setIsLoading(true);
 
@@ -60,7 +60,7 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
         const { error: supabaseError } = await supabaseClient
           .from("engeneering_data")
           .upsert(
-            { project_id: projectId, conditioning: array },
+            { project_id: id, conditioning: array },
             { onConflict: "project_id" }
           );
 
@@ -72,7 +72,7 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
         const { error: supabaseError } = await supabaseClient
           .from("engeneering_data")
           .upsert(
-            { project_id: projectId, heating: array },
+            { project_id: id, heating: array },
             { onConflict: "project_id" }
           );
 
@@ -84,7 +84,7 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
         const { error: supabaseError } = await supabaseClient
           .from("engeneering_data")
           .upsert(
-            { project_id: projectId, plumbing: array },
+            { project_id: id, plumbing: array },
             { onConflict: "project_id" }
           );
 
@@ -96,7 +96,7 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
         const { error: supabaseError } = await supabaseClient
           .from("engeneering_data")
           .upsert(
-            { project_id: projectId, electric: array },
+            { project_id: id, electric: array },
             { onConflict: "project_id" }
           );
 
@@ -124,7 +124,7 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
     }
   };
 
-  const sysArray = engeneeringSystems[type] || [];
+  const systemArray = engeneeringSystems[type] || [];
   // type === "conditioning"
   //   ? engeneeringSystems.conditioning
   //   : type === "heating"
@@ -146,7 +146,7 @@ const EngineeringSystemCheckBlock = ({ type }: EngeneeringType) => {
           no-scrollbar
           "
       >
-        {sysArray.map(({ name, label }, index) => (
+        {systemArray.map(({ name, label }, index) => (
           <CheckDataCard
             key={index}
             name={name}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useUser } from "@/hooks/useUser";
@@ -14,7 +14,7 @@ import Modal from "@/components/common/Modal";
 
 import AsyncSelectContactComponent from "@/components/common/inputs/AsyncSelectContactComponent";
 import { twMerge } from "tailwind-merge";
-import useUploadDataModal from '@/hooks/useUploadDataModal';
+import useUploadDataModal from "@/hooks/useUploadDataModal";
 
 const UploadDataModal = () => {
   const uploadModal = useUploadDataModal();
@@ -32,9 +32,7 @@ const UploadDataModal = () => {
     reset,
     formState: { errors },
   } = useForm<FieldValues>({
-    defaultValues: {
-      
-    },
+    defaultValues: {},
   });
 
   //? Confirm on closing or missclicking
@@ -56,12 +54,9 @@ const UploadDataModal = () => {
       //! ?
       const uniqId = uniqid();
 
-
       const { data: baseData, error: baseError } = await supabaseClient
         .from("database")
-        .insert({
-         
-        })
+        .insert({})
         .select()
         .single();
 
@@ -69,7 +64,6 @@ const UploadDataModal = () => {
         return toast.error(baseError.message);
       }
 
-     
       setIsLoading(false);
       router.push(`projects/${baseData.project_id}/preProject`);
       toast.success("Проект создан");

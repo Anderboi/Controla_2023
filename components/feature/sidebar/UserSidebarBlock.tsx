@@ -1,61 +1,63 @@
 "use client";
 
-import React from "react";
 import Avatar from "../../common/Avatar";
-import Button from "@/components/common/inputs/Button";
-// import { toast } from "react-hot-toast";
+import Button from "@/components/common/inputs/MyButton";
 
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
-// import { useRouter } from "next/navigation";
-// import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-import { IoChevronUp } from "react-icons/io5";
-import ContainerBox from "@/components/common/ContainerBox";
+import { ChevronUp } from "lucide-react";
 
 const UserSidebarBlock = () => {
   const authModal = useAuthModal();
-  // const router = useRouter();
 
-  // const supabaseClient = useSupabaseClient();
   const { user } = useUser();
 
-  // const handleLogout = async () => {
-  //   const { error } = await supabaseClient.auth.signOut();
-  //   router.refresh();
-
-  //   if (error) {
-  //     // console.log(error);
-
-  //     toast.error(error.message);
-  //   } else {
-  //     toast.success("Logged Out");
-  //   }
-  // };
-
   return (
-    <ContainerBox
-      className="
-        h-fit
-        lg:w-full"
-    >
+    <section className="h-15 w-full">
       {user ? (
-        <div className="flex h-fit w-full items-center justify-center lg:justify-between lg:gap-x-3">
+        <div
+          className="
+          flex 
+          w-full 
+          items-center 
+          justify-center 
+          rounded-lg
+          bg-secondary-bg-light 
+          dark:bg-secondary-bg-dark
+          lg:justify-between
+          "
+        >
           <Avatar
             type="rectangular"
-            size={40}
+            size={60}
             image={user.user_metadata.avatar_url}
           />
-          <div className="hidden w-full content-center items-center justify-between lg:flex">
-            <div className=" flex-1 flex-col justify-between ">
-              <span className="line-clamp-1 font-bold">
+          <div className="hidden w-full items-center justify-between px-4 lg:flex">
+            <div className="flex flex-col ">
+              <span
+                className="
+                line-clamp-1
+                overflow-hidden
+                text-balance
+                text-base
+                text-primary-text-light
+                dark:text-primary-text-dark
+                "
+              >
                 {user.user_metadata.full_name || "User"}
               </span>
-              <div className="text-xs leading-5 text-secondary-text-dark">
+              <span
+                className="
+                text-xs
+                text-secondary-text-light
+                dark:text-secondary-text-dark
+                "
+              >
                 {user.email}
-              </div>
+              </span>
             </div>
-            <IoChevronUp />
+            <ChevronUp className="text-secondary-text-light dark:text-secondary-text-dark" />
           </div>
         </div>
       ) : (
@@ -69,7 +71,7 @@ const UserSidebarBlock = () => {
           </Button>
         </div>
       )}
-    </ContainerBox>
+    </section>
   );
 };
 

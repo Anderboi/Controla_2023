@@ -2,8 +2,7 @@ import React from "react";
 import ContentBlock from "@/components/common/ContentBlock";
 import GallaryDataCard from "@/components/common/cards/GalleryDataCard";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
-import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
-import AddIcon from "@/components/common/icons/AddIcon";
+import { ChevronRight, Plus } from "lucide-react";
 
 const Concept = () => {
   return (
@@ -20,7 +19,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
+                className="size-[30px] sm:size-12"
               >
                 <path
                   strokeLinecap="round"
@@ -29,18 +28,19 @@ const Concept = () => {
                 />
               </svg>
             }
-            actionIcon={<AddIcon className="text-secondary-text-dark" />}
+            actionIcon={
+              <Plus className="text-secondary-text-light dark:text-secondary-text-dark" />
+            }
           >
-            <span className="sm:text-secondary-text-dark">Добавить</span>
+            <span className="sm:text-secondary-text-light sm:dark:text-secondary-text-dark">
+              Добавить
+            </span>
           </GallaryDataCard>
           <GallaryDataCard
             size="md"
             illustration="1"
             actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
+              <ChevronRight type="right" className="text-secondary-text-dark" />
             }
           >
             Вариант
@@ -49,10 +49,7 @@ const Concept = () => {
             size="md"
             illustration="2"
             actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
+              <ChevronRight type="right" className="text-secondary-text-dark" />
             }
           >
             Вариант
@@ -71,7 +68,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
+                className="size-[30px] sm:size-12"
               >
                 <path
                   strokeLinecap="round"
@@ -80,7 +77,9 @@ const Concept = () => {
                 />
               </svg>
             }
-            actionIcon={<AddIcon className="text-secondary-text-dark" />}
+            actionIcon={
+              <Plus className="text-secondary-text-light dark:text-secondary-text-dark" />
+            }
           >
             <span className="sm:text-secondary-text-dark">Добавить</span>
           </GallaryDataCard>
@@ -88,10 +87,7 @@ const Concept = () => {
             size="md"
             illustration="1"
             actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
+              <ChevronRight type="right" className="text-secondary-text-dark" />
             }
           >
             Вариант
@@ -100,10 +96,7 @@ const Concept = () => {
             size="md"
             illustration="2"
             actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
+              <ChevronRight type="right" className="text-secondary-text-dark" />
             }
           >
             Вариант
@@ -122,7 +115,7 @@ const Concept = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="h-[30px] w-[30px] sm:h-12 sm:w-12"
+                className="size-[30px] sm:size-12"
               >
                 <path
                   strokeLinecap="round"
@@ -131,7 +124,9 @@ const Concept = () => {
                 />
               </svg>
             }
-            actionIcon={<AddIcon className="text-secondary-text-dark" />}
+            actionIcon={
+              <Plus className="text-secondary-text-light dark:text-secondary-text-dark" />
+            }
           >
             <span className="sm:text-secondary-text-dark">Добавить</span>
           </GallaryDataCard>
@@ -139,10 +134,7 @@ const Concept = () => {
             size="md"
             illustration={101}
             actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
+              <ChevronRight type="right" className="text-secondary-text-dark" />
             }
           >
             Прихожая
@@ -151,10 +143,7 @@ const Concept = () => {
             size="md"
             illustration="102"
             actionIcon={
-              <ChevronRightIcon
-                type="right"
-                className="text-secondary-text-dark"
-              />
+              <ChevronRight type="right" className="text-secondary-text-dark" />
             }
           >
             Гостиная

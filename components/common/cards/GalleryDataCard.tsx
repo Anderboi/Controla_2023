@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 interface Props {
   onClick?: () => void;
   size?: "sm" | "md" | "lg";
-  type?: 'filled' | 'outlined';
+  type?: "filled" | "outlined";
   children?: React.ReactNode | string | number;
   illustration?: React.ReactNode | string | number;
   actionIcon?: React.ReactNode | string | number;
@@ -25,24 +25,31 @@ const GallaryDataCard = ({
       onClick={onClick}
       className={twMerge(
         `
+        sm:border
+        border-solid
+        dark:border-primary-border-dark
+      
+        sm:dark:hover:bg-elevated-1-bg-dark
+        
         sm:rounded-lg 
-        bg-elevated-1-bg-dark
-        sm:hover:bg-elevated-2-bg-dark
-        py-4
-        sm:px-4
+        py-2
+        sm:p-4
+
         flex
         sm:flex-col
         gap-4
         items-center
         sm:items-end
         justify-between
+
         cursor-pointer
         `,
         size === "sm" &&
           `
           sm:h-28
           sm:w-24
-          text-secondary-text-dark
+          text-secondary-text-light
+          dark:text-secondary-text-dark
           `,
         size === "md" &&
           `
@@ -50,13 +57,27 @@ const GallaryDataCard = ({
           sm:min-w-[160px]
           `,
         type === "outlined" &&
-          `bg-transparent  border-dashed border-primary-border-dark sm:border`,
+          `
+          bg-transparent 
+          border-dashed 
+          dark:border-primary-border-dark 
+          sm:border
+          `,
         className
       )}
     >
       <div
-        className={twMerge(
-          `text-3xl text-secondary-text-dark/50`,
+        className={twMerge(`
+          text-sm
+          font-bold
+          dark:text-secondary-text-dark
+          min-w-6
+          //max-sm:border-2
+          dark:border-secondary-text-dark
+          rounded-md
+          sm:p-1
+          h-full
+          `,
           size === "md" && `sm:text-5xl`
         )}
       >
@@ -80,7 +101,18 @@ const GallaryDataCard = ({
       >
         {children}
       </div>
-      <div className={twMerge(`w-fit sm:hidden`)}>{actionIcon}</div>
+      <div
+        className={twMerge(
+          `
+          w-fit 
+          sm:hidden 
+          text-secondary-text-light 
+          dark:text-secondary-text-dark
+          `
+        )}
+      >
+        {actionIcon}
+      </div>
     </div>
   );
 };

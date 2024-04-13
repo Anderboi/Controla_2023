@@ -1,15 +1,11 @@
 "use client";
 
-import React from "react";
 import { twMerge } from "tailwind-merge";
-import useLoadImage from "@/hooks/useLoadImage";
 
 import ContainerBox from "../../common/ContainerBox";
 import Image from "next/image";
 
 import HeaderNavBlock from "./HeaderNavBlock";
-import HeadlessMenu from "./Menu";
-import ThemeSwitcher from "../sidebar/ThemeSwitcher";
 
 interface HeaderProps {
   title: string;
@@ -24,61 +20,56 @@ interface HeaderProps {
 const Header = ({
   title,
   className,
-  image,
   subtitle,
   addressDetails,
   startDate,
   adjustableButton,
 }: HeaderProps) => {
-  const coverImage = useLoadImage(image || null, "project");
 
   return (
     <ContainerBox
       className={twMerge(
         `
-        md:pt-4
+        p-4
         pt-12
-        relative
+        md:pt-4
+        //relative
         flex
         flex-col
+        gap-6
         justify-between
         h-fit
         w-full
         items-center
+
+        //sticky
+        //top-[-92px]
+        //z-20
+
+        max-sm:!rounded-t-none
         `,
-        coverImage &&
-          `
-          relative
-          bg-gradient-to-b
-          from-secondary-text-dark
-          to-elevated-2-bg-dark
-          //h-[330px]
-          //top-[-250px]
-          //sticky
-          `,
-        !coverImage && subtitle && `bg-gradient-to-b from-accent-dark/50`,
-        subtitle ? "gap-y-16" : "gap-y-2 sm:gap-y-4",
         className
       )}
     >
       <div
         className="
-        flex
-        w-full
-        justify-between
-      "
+          //sticky
+          //top-3
+          //z-10
+
+          flex
+          w-full
+          justify-between
+          "
       >
         {/*//? left button block */}
         <HeaderNavBlock />
         {/*//? right button block */}
-        <div className="z-30 flex //sm:hidden gap-2">
-          {adjustableButton}
-          <ThemeSwitcher/>
-          <HeadlessMenu />
-        </div>
+        {adjustableButton}
       </div>
-      <div
+      <section
         className="
+        //max-sm:hidden
         flex
         w-full
         flex-col
@@ -87,67 +78,51 @@ const Header = ({
         <span
           className="
           text-left
-          text-xs 
-          font-bold 
-          text-primary-text-dark/90  
-          md:text-xl
+          text-xs
+          text-primary-text-light/90
+          dark:text-primary-text-dark/90
+          md:text-base
           "
         >
           {subtitle}
         </span>
         <span
           className="
-            line-clamp-2
-            break-words
+            text-balance
             text-left
-            text-[24px]
+            text-2xl
             font-bold
             tracking-tighter
+            text-primary-text-light
+            dark:text-primary-text-dark
             sm:text-[5vw]/[5vw]
             md:line-clamp-2
-          "
+            "
         >
           {title}
         </span>
         <span
           className="
-            text-left 
-            text-sm 
-            font-bold 
-            text-primary-text-dark/90
+            text-left
+            text-sm
+            text-primary-text-light
+            dark:text-primary-text-dark
         "
         >
           {addressDetails}
         </span>
         <span
           className="
-            text-left 
-            text-xs 
-            font-bold 
-            text-primary-text-dark/90
+            text-left
+            text-xs
+            font-bold
+            text-primary-text-light
+            dark:text-primary-text-dark
           "
         >
           {startDate && Date.parse(startDate)}
         </span>
-      </div>
-      {coverImage && (
-        <Image
-          src={coverImage}
-          alt="cover"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority
-          className="
-            absolute
-            z-0
-            h-full
-            w-full
-            rounded-lg
-            object-cover
-            mix-blend-overlay
-          "
-        />
-      )}
+      </section>
     </ContainerBox>
   );
 };

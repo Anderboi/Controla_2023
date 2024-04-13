@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 
 import { twMerge } from "tailwind-merge";
@@ -12,6 +11,7 @@ interface SidebarItemsProps {
   icon: React.ReactNode;
   activeIcon: React.ReactNode;
   isInBurger?: boolean;
+  className?: string;
 }
 
 const SidebarItem = ({
@@ -20,6 +20,7 @@ const SidebarItem = ({
   href,
   label,
   isInBurger,
+  className,
 }: SidebarItemsProps) => {
   const route = usePathname();
 
@@ -32,23 +33,25 @@ const SidebarItem = ({
         flex-row
         items-center
         justify-center
-        h-auto
         w-full
         gap-x-4
-        py-2
-        text-md
+        min-h-[44px]
+        cursor-pointer
+        text-[17px]
         font-semibold
-        text-secondary-text-dark
         hover:text-primary-text-dark
         transition
         `,
-        route === href ? `text-primary-text-dark` : "text-secondary-text-dark"
+        className,
+        route === href
+          ? `dark:text-primary-text-dark text-primary-text-light`
+          : "dark:text-secondary-text-dark text-secondary-text-light"
       )}
     >
       {route === href ? activeIcon : icon}
       <p
         className={twMerge(
-          `truncate w-full `,
+          `truncate w-full`,
           isInBurger ? "flex" : "hidden lg:flex"
         )}
       >

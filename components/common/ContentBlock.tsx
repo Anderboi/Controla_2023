@@ -1,9 +1,10 @@
-"use client";
-
-import React from "react";
-import EditIcon from "./icons/EditIcon";
-import { Disclosure, Transition } from "@headlessui/react";
-import ChevronRightIcon from "./icons/ChevronRightIcon";
+// import ContainerBox from "./ContainerBox";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface ContentBlockProps {
   title: string;
@@ -12,47 +13,24 @@ interface ContentBlockProps {
 
 const ContentBlock = ({ title, children }: ContentBlockProps) => {
   return (
-    <Disclosure defaultOpen>
-      {({ open }) => (
-        <section className="transition ease-in-out delay-50">
-          <Disclosure.Button className="flex justify-between pb-2 w-full">
-            <h2
-              className="
-                text-start
-                text-lg
-                font-bold
-                sm:text-lg
-                "
-            >
-              {title}
-            </h2>
-            <div className="flex items-center justify-center gap-3">
-              <EditIcon className="cursor-pointer text-secondary-text-dark sm:hover:text-accent-dark" />
-              <ChevronRightIcon
-                type="down"
-                className={`
-                cursor-pointer 
-                text-secondary-text-dark 
-                sm:hover:text-accent-dark
-                transition ease-in-out delay-50
-                transform
-                ${open && "rotate-180"}`}
-              />
-            </div>
-          </Disclosure.Button>
-          <Transition
-            enter="transition duration-100 ease-out"
-            enterFrom="transform opacity-0"
-            enterTo="transform opacity-100"
-            leave="transition duration-100 ease-out"
-            leaveFrom="transform opacity-100"
-            leaveTo="transform opacity-0"
-          >
-            <Disclosure.Panel>{children}</Disclosure.Panel>
-          </Transition>
-        </section>
-      )}
-    </Disclosure>
+    <Accordion type="multiple" className='rounded-lg px-4 dark:bg-secondary-bg-dark' >
+      <AccordionItem value="item-1" defaultValue={"item-1"}>
+        <AccordionTrigger className='text-lg'>{title}</AccordionTrigger>
+        <AccordionContent>{children}</AccordionContent>
+      </AccordionItem>
+
+      {/* <ContainerBox className="transition ease-in-out delay-50"> */}
+      {/* <h2
+        className="
+          text-start
+          text-base
+          px-4
+          sm:px-6
+          "
+      ></h2> */}
+
+      {/* </ContainerBox> */}
+    </Accordion>
   );
 };
 

@@ -1,16 +1,13 @@
-import React from "react";
 import FavouriteContent from "./FavouriteContent";
 import ContainerBox from "@/components/common/ContainerBox";
 import Navigation from "./Navigation";
 import { secondaryRoutes } from "@/lib/navRoutes";
-import getFavoriteProjects from '@/actions/getFavoriteProjects';
-import ThemeSwitcher from './ThemeSwitcher';
-
+import getFavoriteProjects from "@/lib/actions/getFavoriteProjects";
 
 export const revalidate = 0;
 
 const SidebarMiddleSection = async () => {
-const favoriteProjects = await getFavoriteProjects();
+  const favoriteProjects = await getFavoriteProjects();
 
   return (
     <ContainerBox
@@ -29,19 +26,18 @@ const favoriteProjects = await getFavoriteProjects();
         className="
         hidden
         text-xs
-        font-bold
-        text-secondary-text-dark
-        lg:flex
+        font-semibold
+        capitalize
+        text-secondary-text-light 
+        dark:text-tertiary-text-dark lg:flex
         "
       >
-        Избранное
+        ИЗБРАННОЕ
       </span>
       <FavouriteContent projects={favoriteProjects} />
       <div className="flex flex-col gap-y-4">
         <Navigation navLinks={secondaryRoutes} />
       </div>
-      <ThemeSwitcher/>
-      
     </ContainerBox>
   );
 };

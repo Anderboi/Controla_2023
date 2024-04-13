@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import qs from "query-string";
 
 import useDebounce from "@/hooks/useDebounce";
+import { Input } from '@/components/ui/input';
+import { twMerge } from 'tailwind-merge';
 
 const SearchInput = ({className}:{className?:string}) => {
   const router = useRouter();
@@ -26,11 +28,11 @@ const SearchInput = ({className}:{className?:string}) => {
   }, [debouncedValue, router]);
 
   return (
-    <input
-      type='search'
+    <Input
+      type="search"
       placeholder="Найти ..."
       value={value}
-      className={className}
+      className={twMerge("text-primary-text-light dark:text-primary-text-dark", className)}
       onChange={(e) => setValue(e.target.value)}
     />
   );

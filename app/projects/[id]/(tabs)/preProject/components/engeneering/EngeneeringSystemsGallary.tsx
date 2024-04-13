@@ -25,14 +25,14 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
 
   return (
     <ContentBlockGrid>
-        {engSystems.map(({ name, label }, index) => (
-          <DataCard
-            illustration={
-              <Illustration
-                type={name}
-                size={60}
-                className={twMerge(
-                  `
+      {engSystems.map(({ name, label }, index) => (
+        <DataCard
+          illustration={
+            <Illustration
+              type={name}
+              size={60}
+              className={twMerge(
+                `
                   fill-secondary-text-dark
                   w-16
                   h-16
@@ -42,28 +42,28 @@ const EngeneeringSystemsGallary = ({ data }: Props) => {
                   //sm:group-hover:-translate-x-4
                   `,
 
-                  data &&
-                    Object.entries(data).find(
-                      ([key, value]) => key === name
-                    )?.[1] !== null
-                    ? "fill-accent-dark"
-                    : "fill-primary-border-dark"
-                )}
-              />
-            }
-            isFilled={
-              data &&
-              Object.entries(data).find(([key, value]) => key === name)?.[1] !==
-                null
-                ? true
-                : false
-            }
-            onClick={() => handleOnClick(name)}
-            // type={name}
-            label={label || ""}
-            key={index}
-          />
-        ))}
+                data &&
+                  Object.entries(data).find(
+                    ([key, value]) => key === name
+                  )?.[1] !== null
+                  ? "fill-accent-light dark:fill-accent-dark"
+                  : "fill-primary-border-dark"
+              )}
+            />
+          }
+          isFilled={
+            data &&
+            Object.entries(data).find(([key, value]) => key === name)?.[1] !==
+              null
+              ? true
+              : false
+          }
+          onClick={() => handleOnClick(name)}
+          // type={name}
+          label={label || ""}
+          key={index}
+        />
+      ))}
     </ContentBlockGrid>
   );
 };

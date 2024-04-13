@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import ContainerBox from "../../common/ContainerBox";
 import Navigation from "./Navigation";
@@ -19,9 +18,10 @@ const Sidebar = () => {
         w-[90px]
         flex-col
         gap-y-2
-        bg-primary-bg
+        bg-primary-bg-light
         py-2
         pl-2
+        dark:bg-primary-bg-dark
         sm:flex
         lg:w-[300px]
         "
@@ -34,6 +34,7 @@ const Sidebar = () => {
         flex-col
         items-center
         gap-y-4
+        p-6
         lg:w-full
         lg:items-start
         "
@@ -41,11 +42,11 @@ const Sidebar = () => {
         <Link href={"/"}>
           <MainLogo
             type="sm"
-            className=" m-auto hidden w-full fill-primary-text-dark text-primary-text-dark sm:max-lg:flex"
+            className="m-auto hidden w-full fill-primary-text-light text-primary-text-light dark:fill-primary-text-dark dark:text-primary-text-dark sm:max-lg:flex"
           />
           <MainLogo
             type="md"
-            className=" m-auto hidden w-full fill-primary-text-dark text-primary-text-dark lg:flex"
+            className="m-auto hidden w-full fill-primary-text-light text-primary-text-light dark:fill-primary-text-dark dark:text-primary-text-dark lg:flex"
           />
         </Link>
         <Navigation navLinks={routes} />

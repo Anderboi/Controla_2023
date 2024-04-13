@@ -1,12 +1,11 @@
-import React from "react";
 import Header from "@/components/feature/header/Header";
-import ContainerBox from "@/components/common/ContainerBox";
-import ProjectsGallery from "./components/ProjectsGallery";
-import SearchInput from "@/components/common/inputs/SearchInput";
-import getProjectsByTitle from "@/actions/getProjectsByTitle";
+import ProjectsGallery from "./_components/ProjectsGallery";
+import getProjectsByTitle from "@/lib/actions/getProjectsByTitle";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import ContainerBox from "@/components/common/ContainerBox";
+import SearchInput from "@/components/common/inputs/SearchInput";
 import AddProjectButton from "@/components/feature/header/AddProjectButton";
 
 export const revalidate = 0;
@@ -31,39 +30,25 @@ const ProjectsPage = async ({ searchParams }: SearchProps) => {
 
   return (
     <>
-      {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Проекты" adjustableButton={<AddProjectButton />} />
-      {/* <div className='px-5 py-1 text-xl'>Проекты</div> */}
-
+      <SearchInput urlRoute="/projects"
+      // className="sticky top-[80px] z-20" 
+      />
       <ContainerBox
         className="
           relative
           flex
-          h-full
+          h-fit
           flex-col
-          overflow-y-auto
-          !p-0
+          gap-4
           no-scrollbar
+          max-sm:mb-2
+          max-sm:!bg-transparent
+          max-sm:!p-0
+          sm:h-full
           "
       >
-        <div
-          className="
-            sticky
-            left-0
-            top-0
-            z-20
-            w-full
-            rounded-t-lg
-            bg-secondary-bg-dark/80
-            p-4
-            backdrop-blur-md
-            "
-        >
-          <SearchInput />
-        </div>
-        <div className="px-4 pb-4">
-          <ProjectsGallery projects={projects} />
-        </div>
+        <ProjectsGallery projects={projects} />
       </ContainerBox>
     </>
   );

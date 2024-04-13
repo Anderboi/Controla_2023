@@ -15,7 +15,7 @@ const ProjectLoading = () => {
       >
         <div
           className="
-            h-[40px]
+            h-10
             w-[300px]
             space-x-1
             rounded-full

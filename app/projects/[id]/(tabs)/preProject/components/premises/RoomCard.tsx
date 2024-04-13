@@ -6,8 +6,8 @@ import useRoomInfoModal from "@/hooks/useRoomInfoModal";
 
 import { IoColorPaletteOutline, IoTvOutline } from "react-icons/io5";
 import { TbSofa } from "react-icons/tb";
-import ChevronRightIcon from "@/components/common/icons/ChevronRightIcon";
 import { Database } from "@/types/supabase";
+import { ChevronRight } from 'lucide-react';
 
 interface RoomCardProps {
   data: Database["public"]["Tables"]["room_info"]["Row"];
@@ -33,7 +33,7 @@ const RoomCard = ({ data, furniture }: RoomCardProps) => {
       onClick={() => handleOnClick(data.name, data)}
       size="md"
       illustration={
-        <div>
+        <div className='text-secondary-text-dark'>
           {data.room_number?.toLocaleString("en-US", {
             minimumIntegerDigits: 2,
             useGrouping: false,
@@ -41,7 +41,7 @@ const RoomCard = ({ data, furniture }: RoomCardProps) => {
         </div>
       }
       actionIcon={
-        <ChevronRightIcon type="right" className="text-secondary-text-dark" />
+        <ChevronRight  className="text-secondary-text-dark" />
       }
     >
       <div
@@ -53,7 +53,7 @@ const RoomCard = ({ data, furniture }: RoomCardProps) => {
           sm:items-end
           "
       >
-        <span className="text-right">{data.name}</span>
+        <span className="text-right text-md">{data.name}</span>
         <div className="flex gap-2">
           <TbSofa className="text-secondary-text-dark " size={20} />
           <IoTvOutline className="text-secondary-text-dark " size={20} />

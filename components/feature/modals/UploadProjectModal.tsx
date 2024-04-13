@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Button from "@/components/common/inputs/Button";
+import Button from "@/components/common/inputs/MyButton";
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useUser } from "@/hooks/useUser";
@@ -13,10 +13,11 @@ import { toast } from "react-hot-toast";
 import uniqid from "uniqid";
 import Modal from "@/components/common/Modal";
 
-import { PhotoIcon } from "@heroicons/react/24/solid";
 import AsyncSelectContactComponent from "@/components/common/inputs/AsyncSelectContactComponent";
 import { twMerge } from "tailwind-merge";
 import { schemaData } from "@/lib/workingStageSupabaseFillRows";
+import { Input } from "@/components/ui/input";
+import { Camera } from "lucide-react";
 
 const UploadProjectModal = () => {
   const uploadModal = useUploadModal();
@@ -414,14 +415,14 @@ const UploadProjectModal = () => {
               "
           >
             <div className="text-center">
-              <PhotoIcon
-                className="mx-auto h-12 w-12 text-primary-text-dark"
+              <Camera
+                className="mx-auto size-12 text-primary-text-dark"
                 aria-hidden="true"
               />
               <div className="mt-4 flex text-sm leading-6 text-secondary-text-dark">
                 <label
                   htmlFor="file-upload"
-                  className="bg-white-dark relative cursor-pointer rounded-md font-semibold text-accent-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-dark focus-within:ring-offset-2 hover:text-accent-light"
+                  className="relative cursor-pointer rounded-md bg-white-dark font-semibold text-accent-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-dark focus-within:ring-offset-2 hover:text-accent-light"
                 >
                   <span>Upload a file</span>
                   <input
@@ -445,7 +446,7 @@ const UploadProjectModal = () => {
           type="submit"
           mode="action"
           size="small"
-          className="sticky bottom-6 col-span-2 mt-4 bg-accent-dark text-primary-text-light text-md"
+          className="sticky bottom-6 col-span-2 mt-4 bg-accent-dark text-md text-primary-text-light"
         >
           Создать
         </Button>

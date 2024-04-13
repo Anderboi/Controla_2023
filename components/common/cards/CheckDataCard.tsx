@@ -42,7 +42,7 @@ const CheckDataCard = ({
         isChecked && "border-accent-dark bg-green-100/10"
       )}
     >
-      <div className="flex h-5 w-5 items-center">
+      <div className="flex size-5 items-center">
         <input type='checkbox'
           onChange={onChange}
           value={value}

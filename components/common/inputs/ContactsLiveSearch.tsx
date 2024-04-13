@@ -64,17 +64,17 @@ const ContactsLiveSearch = () => {
             <Combobox.Label>Клиент: </Combobox.Label>
             <div
               className="
-                bg-white-dark
-                focus-visible:ring-white-dark
                 relative
                 w-full
                 cursor-default
                 overflow-hidden
                 rounded-lg
+                bg-white-dark
                 text-left
                 shadow-md
                 focus:outline-none
                 focus-visible:ring-2
+                focus-visible:ring-white-dark
                 focus-visible:ring-opacity-75
                 focus-visible:ring-offset-2
                 focus-visible:ring-offset-teal-300
@@ -96,7 +96,7 @@ const ContactsLiveSearch = () => {
                 className={"absolute inset-y-0 right-0 flex items-center pr-2"}
               >
                 <ChevronUpDownIcon
-                  className="h-5 w-5 text-secondary-text-dark"
+                  className="size-5 text-secondary-text-dark"
                   aria-hidden="true"
                 />
               </Combobox.Button>
@@ -110,19 +110,19 @@ const ContactsLiveSearch = () => {
             >
               <Combobox.Options
                 className={`
-                  ring-black-dark
+                  max-h-60
                   absolute
                   z-50
                   mt-1
-                  max-h-60
                   w-full
                   overflow-auto
-                  rounded-lg 
-                  bg-secondary-bg-dark
+                  rounded-lg
+                  bg-secondary-bg-dark 
                   py-1
                   text-base
                   shadow-lg
                   ring-1
+                  ring-black-dark
                   ring-opacity-5
                   focus:outline-none
                   sm:text-sm
@@ -175,7 +175,7 @@ const ContactsLiveSearch = () => {
                               }`}
                             >
                               <CheckIcon
-                                className="h-5 w-5"
+                                className="size-5"
                                 aria-hidden="true"
                               />
                             </span>

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Button from "@/components/common/inputs/Button";
 import BasicMultiSelector from "@/components/common/inputs/BasicMultiSelector";
+import CreatableSelect from "react-select/creatable";
 
 import { usePathname, useRouter } from "next/navigation";
 import useUploadRoomsModal from "@/hooks/useUploadRoomsModal";
@@ -10,6 +10,8 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 import toast from "react-hot-toast";
 import roomsList from "@/lib/roomsList";
+import { Button } from '@/components/ui/button';
+import MultipleSelector from '@/components/ui/multipleSelector';
 
 interface SelectProps {
   value: string;
@@ -69,7 +71,16 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
 
   return (
     <>
-      <span>{`${storey} этаж`}</span>
+      <span
+        className="
+        text-xs 
+        uppercase
+        text-secondary-text-light
+        dark:text-secondary-text-dark
+        "
+      >
+        {`${storey} этаж`}
+      </span>
       <li
         className="
           flex
@@ -88,11 +99,14 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
             w-full
             "
         >
-          <input
+          {/* <input
             name="rooms"
             list="rooms"
             className="w-full bg-transparent rounded-lg"
-          />
+          /> */}
+
+          {/* <MultipleSelector creatable defaultOptions={roomsList}/> */}
+          
           <BasicMultiSelector
             isMulti
             type="creatable"
@@ -102,15 +116,14 @@ const AddRoomsBlock = ({ storey }: { storey: number }) => {
         </div>
         <div className="w-full sm:w-fit sm:shrink-0">
           <Button
-            size="small"
             onClick={onSubmit}
             disabled={isLoading}
             type="submit"
-            mode="ghost_accent"
-            className="
-              w-full 
-              sm:w-fit
-              "
+            variant={"ghost"}
+            // className="
+            //   w-full
+            //   sm:w-fit
+            //   "
           >
             Добавить
           </Button>

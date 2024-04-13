@@ -1,8 +1,8 @@
 import React from "react";
-import getPremises from "@/actions/getPremises";
+import getPremises from "@/lib/actions/getPremises";
 import ContentBlock from "@/components/common/ContentBlock";
 
-import getProjectInfo from "@/actions/getProjectInfo";
+import getProjectInfo from "@/lib/actions/getProjectInfo";
 
 import AddRoomsBlock from "./AddRoomsBlock";
 import InfoDataGrid from "@/components/common/grids/InfoDataGrid";
@@ -24,9 +24,11 @@ const PremisesBlock = async ({ projectId }: PremisesBlockProps) => {
             {premises && premises.find((key) => key.storey === i + 1) ? (
               <>
                 {projectInfo.storeys > 1 && (
-                  <span className="text-sm">{`${i + 1} этаж`}</span>
+                  <span className="text-xs uppercase dark:text-secondary-text-dark">{`${
+                    i + 1
+                  } этаж`}</span>
                 )}
-                <InfoDataGrid> 
+                <InfoDataGrid className="max-sm:hidden">
                   {premises.map(
                     (item, index) =>
                       item.storey === i + 1 && (
@@ -34,6 +36,14 @@ const PremisesBlock = async ({ projectId }: PremisesBlockProps) => {
                       )
                   )}
                 </InfoDataGrid>
+                <div className="sm:hidden">
+                  {premises.map(
+                    (item, index) =>
+                      item.storey === i + 1 && (
+                        <RoomCardWrapper key={index} data={item} />
+                      )
+                  )}
+                </div>
               </>
             ) : (
               <div

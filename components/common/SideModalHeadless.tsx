@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Transition, Dialog } from "@headlessui/react";
-import { IoMdClose } from "react-icons/io";
+import { X } from 'lucide-react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -68,16 +68,15 @@ const SideModal = ({
                 <Dialog.Panel
                   className="
                     relative
-                    h-full
-                    w-full
+                    size-full
                     max-w-md
-
                     overflow-y-auto
 
                     rounded-xl
-                    bg-secondary-bg-dark
 
+                    bg-secondary-bg-dark
                     text-left
+
                     shadow-xl
                     transition-all
                     no-scrollbar
@@ -102,11 +101,10 @@ const SideModal = ({
                       onClick={() => onChange(!isOpen)}
                       className="
                           absolute
-                          right-[16px]
-                          top-[16px]
+                          right-4
+                          top-4
                           inline-flex
-                          h-[24px]
-                          w-[24px]
+                          size-6
                           appearance-none
                           items-center
                           justify-center
@@ -115,7 +113,7 @@ const SideModal = ({
                           focus:outline-none
                           "
                     >
-                      <IoMdClose size={24} />
+                      <X  size={24} />
                     </button>
                     {title.charAt(0).toUpperCase() + title.slice(1)}
                   </Dialog.Title>

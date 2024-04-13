@@ -12,14 +12,13 @@ const Avatar = ({ type, image, size }: AvatarProps) => {
   return (
     <Image
       className={twMerge(
-        ` bg-secondary-text-dark`,
-        type === "round" ? "rounded-full" : "rounded-md"
+        `dark:bg-secondary-text-dark bg-secondary-text-light w-[${size}px] h-[${size}px]`,
+        type === "round" ? "rounded-full" : "rounded-md "
       )}
       alt="avatar"
       src={image || "/icons/dashboard_filled.svg"}
       height={size}
       width={size}
-      
     />
   );
 };

@@ -1,32 +1,19 @@
+import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import React from "react";
 
 interface InfoDataGridProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-const InfoDataGrid = ({ children }: InfoDataGridProps) => {
+const InfoDataGrid = ({ children, className }: InfoDataGridProps) => {
   return (
-    <div
-      className="
-        w-full
-        
-        divide-y
-        
-        divide-primary-border-dark
-        overflow-x-auto
-        bg-elevated-1-bg-dark
-        no-scrollbar
-        max-sm:rounded-lg
-        max-sm:px-4
-
-        sm:inline-flex
-        sm:gap-4
-        sm:divide-none
-        sm:bg-transparent
-        "
+    <Carousel
+      opts={{ loop: false, active: true, align: "start" }}
+      className={`//max-w-xs mx-auto, w-full ${className}`}
     >
-      {children}
-    </div>
+      <CarouselContent className="mx-0 space-x-2">{children}</CarouselContent>
+    </Carousel>
   );
 };
 

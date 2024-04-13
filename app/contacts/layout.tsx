@@ -4,7 +4,7 @@ import Header from "@/components/feature/header/Header";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import ContactsSearchInput from "@/components/common/inputs/ContactsSearchInput";
+import SearchInput from '@/components/common/inputs/SearchInput';
 
 export const revalidate = 0;
 
@@ -26,37 +26,36 @@ const ContactsPage = async ({ children }: SearchProps) => {
     <>
       {/* //TODO: придумать решение по переносу header в layout */}
       <Header title="Контакты" />
-      <ContainerBox
+      {/* <div
         className="
-          relative
-          flex 
-          h-full
-          flex-col
-          overflow-y-auto
-          !p-0
-          no-scrollbar
-          "
-      >
-        <div
-          className="
             sticky
             left-0
             top-0
             z-10
             w-full
-            bg-secondary-bg-dark/80
-            p-4
+            rounded-t-lg
+            bg-secondary-bg-light/80
+            dark:bg-secondary-bg-dark/80
             backdrop-blur-md
             "
-        >
-          <ContactsSearchInput
-            className="
-              z-10
-              opacity-70
-              "
-          />
-        </div>
-        <div className="px-4">{children}</div>
+      > */}
+        <SearchInput
+          urlRoute="/contacts"
+        />
+      {/* </div> */}
+      <ContainerBox
+        className="
+          //overflow-y-auto
+          relative 
+          flex
+          h-full
+          flex-col
+          gap-4
+          no-scrollbar
+          max-sm:!p-0
+          "
+      >
+        {children}
       </ContainerBox>
     </>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import SidebarItem from "./SidebarItem";
 
 export interface NavLink {
@@ -14,7 +13,7 @@ interface Props {
 
 const Navigation = ({ navLinks }: Props) => {
   return (
-    <nav className="flex flex-col">
+    <nav className="flex w-full flex-col">
       {navLinks.map((item, index) => (
         <SidebarItem
           key={index}

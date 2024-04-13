@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import FavouriteProjectItem from "./FavouriteProjectItem";
 
 import { useUser } from "@/hooks/useUser";
@@ -22,8 +21,7 @@ const FavouriteContent = ({ projects }: FavContentProps) => {
         <div
           className="
             flex
-            h-full
-            w-full
+            size-full
             flex-col
             gap-y-2
             overflow-y-scroll

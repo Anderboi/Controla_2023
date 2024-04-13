@@ -1,35 +1,34 @@
 "use client";
 
-import React from "react";
-import Button from "../../common/inputs/Button";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
-import { MdOutlineAdd } from "react-icons/md";
+import { Plus } from "lucide-react";
+import { Button } from '@/components/ui/button';
 
 const AddProjectButton = () => {
   const authModal = useAuthModal();
-  const { user } = useUser();
   const uploadModal = useUploadModal();
+  const { user } = useUser();
 
   const onClick = () => {
     if (!user) {
       return authModal.onOpen();
     }
-
-    //TODO: check for subscription
-
     return uploadModal.onOpen();
   };
 
   return (
     <Button
-      mode="ghost"
-      corner="round"
-      className="flex h-10 w-10 items-center justify-center border-none bg-secondary-bg-dark"
+      size={"icon"}
+      variant={"secondary"}
+      className="
+          dark:bg-transparent
+          "
+      // onClick={() => router.push("projects/createproject/step1")}
       onClick={onClick}
     >
-      <MdOutlineAdd fontSize={24} />
+      <Plus size={24} />
     </Button>
   );
 };

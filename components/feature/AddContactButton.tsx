@@ -7,11 +7,11 @@ import { useUser } from "@/hooks/useUser";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/navigation";
 
-import { AiOutlinePlus } from "react-icons/ai";
 
 import { toast } from "react-hot-toast";
 import IconButton from "../common/inputs/IconButton";
 import { twMerge } from "tailwind-merge";
+import { UserMinus, UserPlus } from 'lucide-react';
 
 interface AddContactButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,6 +31,8 @@ const AddContactButton = ({
   const { user } = useUser();
 
   const [isContact, setIsContact] = useState(false);
+
+  const icon = isContact ? <UserMinus /> : <UserPlus />;
 
   useEffect(() => {
     if (!user?.id) {
@@ -92,14 +94,13 @@ const AddContactButton = ({
 
   return (
     <IconButton
-      Icon={AiOutlinePlus}
       onClick={handleSetContact}
       className={twMerge(
-        isContact ? "opacity-100 rotate-45" : "sm:opacity-0",
+        isContact ? "opacity-100" : "sm:opacity-0",
         className
       )}
       {...props}
-    />
+    >{icon}</IconButton>
   );
 };
 
